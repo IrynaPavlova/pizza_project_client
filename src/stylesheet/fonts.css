@@ -1,0 +1,149 @@
+/*
+ * Rokkitt
+ */
+
+/* rokkitt-700 - latin */
+@font-face {
+  font-family: 'Rokkitt';
+  font-style: normal;
+  /* font-weight: 700; */
+  font-weight: normal;
+  src: local(''),
+    url('../assets/fonts/Rokkitt/rokkitt-v18-latin-700.woff2') format('woff2'),
+    /* Super Modern Browsers */
+      url('../assets/fonts/Rokkitt/rokkitt-v18-latin-700.woff') format('woff'),
+    /* Modern Browsers */
+      url('../assets/fonts/Rokkitt/rokkitt-v18-latin-700.ttf')
+      format('truetype'),
+    /* Safari, Android, iOS */
+      url('../assets/fonts/Rokkitt/rokkitt-v18-latin-700.svg#Rokkitt')
+      format('svg'); /* Legacy iOS */
+}
+
+/*
+ * Oswald
+ */
+
+/* oswald-regular - latin_cyrillic */
+@font-face {
+  font-family: 'OswaldRegular';
+  font-style: normal;
+  /* font-weight: 400; */
+  font-weight: normal;
+  src: local(''),
+    url('../assets/fonts/Oswald/oswald-v31-latin_cyrillic-regular.woff2')
+      format('woff2'),
+    /* Super Modern Browsers */
+      url('../assets/fonts/Oswald/oswald-v31-latin_cyrillic-regular.woff')
+      format('woff'),
+    /* Modern Browsers */
+      url('../assets/fonts/Oswald/oswald-v31-latin_cyrillic-regular.ttf')
+      format('truetype'),
+    /* Safari, Android, iOS */
+      url('../assets/fonts/Oswald/oswald-v31-latin_cyrillic-regular.svg#Oswald')
+      format('svg'); /* Legacy iOS */
+}
+
+/* oswald-500 - latin_cyrillic */
+@font-face {
+  font-family: 'OswaldMedium';
+  font-style: normal;
+  /* font-weight: 500; */
+  font-weight: normal;
+  src: local(''),
+    url('../assets/fonts/Oswald/oswald-v31-latin_cyrillic-500.woff2')
+      format('woff2'),
+    /* Super Modern Browsers */
+      url('../assets/fonts/Oswald/oswald-v31-latin_cyrillic-500.woff')
+      format('woff'),
+    /* Modern Browsers */
+      url('../assets/fonts/Oswald/oswald-v31-latin_cyrillic-500.ttf')
+      format('truetype'),
+    /* Safari, Android, iOS */
+      url('../assets/fonts/Oswald/oswald-v31-latin_cyrillic-500.svg#Oswald')
+      format('svg'); /* Legacy iOS */
+}
+
+/* oswald-700 - latin_cyrillic */
+@font-face {
+  font-family: 'OswaldBold';
+  font-style: normal;
+  /* font-weight: 700; */
+  font-weight: normal;
+  src: local(''),
+    url('../assets/fonts/Oswald/oswald-v31-latin_cyrillic-700.woff2')
+      format('woff2'),
+    /* Super Modern Browsers */
+      url('../assets/fonts/Oswald/oswald-v31-latin_cyrillic-700.woff')
+      format('woff'),
+    /* Modern Browsers */
+      url('../assets/fonts/Oswald/oswald-v31-latin_cyrillic-700.ttf')
+      format('truetype'),
+    /* Safari, Android, iOS */
+      url('../assets/fonts/Oswald/oswald-v31-latin_cyrillic-700.svg#Oswald')
+      format('svg'); /* Legacy iOS */
+}
+
+/*
+ * Roboto
+ */
+
+/* roboto-regular - latin_cyrillic */
+@font-face {
+  font-family: 'RobotoRegular';
+  font-style: normal;
+  /* font-weight: 400; */
+  font-weight: normal;
+  src: local('Roboto'), local('Roboto-Regular'),
+    url('../assets/fonts/Roboto/roboto-v20-latin_cyrillic-regular.woff2')
+      format('woff2'),
+    /* Super Modern Browsers */
+      url('../assets/fonts/Roboto/roboto-v20-latin_cyrillic-regular.woff')
+      format('woff'),
+    /* Modern Browsers */
+      url('../assets/fonts/Roboto/roboto-v20-latin_cyrillic-regular.ttf')
+      format('truetype'),
+    /* Safari, Android, iOS */
+      url('../assets/fonts/Roboto/roboto-v20-latin_cyrillic-regular.svg#Roboto')
+      format('svg'); /* Legacy iOS */
+}
+
+/* roboto-500 - latin_cyrillic */
+@font-face {
+  font-family: 'RobotoMedium';
+  font-style: normal;
+  /* font-weight: 500; */
+  font-weight: normal;
+  src: local('Roboto Medium'), local('Roboto-Medium'),
+    url('../assets/fonts/Roboto/roboto-v20-latin_cyrillic-500.woff2')
+      format('woff2'),
+    /* Super Modern Browsers */
+      url('../assets/fonts/Roboto/roboto-v20-latin_cyrillic-500.woff')
+      format('woff'),
+    /* Modern Browsers */
+      url('../assets/fonts/Roboto/roboto-v20-latin_cyrillic-500.ttf')
+      format('truetype'),
+    /* Safari, Android, iOS */
+      url('../assets/fonts/Roboto/roboto-v20-latin_cyrillic-500.svg#Roboto')
+      format('svg'); /* Legacy iOS */
+}
+
+/* roboto-700 - latin_cyrillic */
+@font-face {
+  font-family: 'RobotoBold';
+  font-style: normal;
+  /* font-weight: 700; */
+  font-weight: normal;
+  src: local('Roboto Bold'), local('Roboto-Bold'),
+    url('../assets/fonts/Roboto/roboto-v20-latin_cyrillic-700.woff2')
+      format('woff2'),
+    /* Super Modern Browsers */
+      url('../assets/fonts/Roboto/roboto-v20-latin_cyrillic-700.woff')
+      format('woff'),
+    /* Modern Browsers */
+      url('../assets/fonts/Roboto/roboto-v20-latin_cyrillic-700.ttf')
+      format('truetype'),
+    /* Safari, Android, iOS */
+      url('../assets/fonts/Roboto/roboto-v20-latin_cyrillic-700.svg#Roboto')
+      format('svg'); /* Legacy iOS */
+}
