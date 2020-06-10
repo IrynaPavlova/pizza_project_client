@@ -1,0 +1,29 @@
+[
+  {
+    "categories": ["pizza"],
+    "images": [
+      "https:evening-caverns-34846.herokuapp.com/upload_e6311856b65f2df1faca230b8a0d46f6"
+    ],
+    "closeUpImages": [
+      "https:evening-caverns-34846.herokuapp.com/upload_ac420720f3efb3b2121aa58b2abe92f6"
+    ],
+    "ingredients": [
+      { "_id": "5e85182d1c9d440000703883", "name": "моцарелла" },
+      { "_id": "5e9f56511c9d4400008812cd", "name": "пепперони" },
+      { "_id": "5e8517461c9d440000703881", "name": "помидоры" },
+      { "_id": "5e8519211c9d440000703886", "name": "соус барбекю" }
+    ],
+    "_id": "5e7a11285661db31d9c0b65e",
+    "subcategory": "classic",
+    "sku": 1120001,
+    "name": "Пепперони с томатами",
+    "description": "",
+    "price": { "M": "100", "L": "120", "XL": "140" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:01:12.762Z",
+    "createdAt": "2020-03-24T13:54:48.070Z",
+    "__v": 0
+  }
+]
