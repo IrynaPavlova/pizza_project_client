@@ -1,0 +1,11 @@
+.languageSelect {
+  margin-right: 96px;
+  width: 120px;
+  height: 22px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: #fff;
+  font-family: RobotoRegular;
+  font-size: 14px;
+}

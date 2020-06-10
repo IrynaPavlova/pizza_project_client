@@ -1,0 +1,59 @@
+.header {
+  width: 100%;
+}
+
+.darkHeader {
+  height: 60px;
+  background-color: #272727;
+  padding: 20px;
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 320px;
+  max-width: 1200px;
+}
+
+.phoneImg {
+  width: 14px;
+  height: 14px;
+  fill: #ff6c00;
+  margin-right: 12px;
+}
+
+.phoneNumber {
+  font-family: OswaldBold;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.065em;
+  text-transform: uppercase;
+}
+
+.burgerMenu {
+  width: 22px;
+  height: 10px;
+}
+
+@media (min-width: 768px) {
+  .phoneImg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .phoneNumber {
+    font-size: 20px;
+  }
+}
+
+.lightHeader {
+  position: relative;
+  height: 80px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
