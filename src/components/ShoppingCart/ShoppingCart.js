@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import cartIcon from "../../assets/img/shopping-cart-icon.svg";
 import styles from "./shoppingCart.module.css";
 
