@@ -15,8 +15,6 @@ class MainPageContainer extends Component {
   render() {
     return (
       <MainPage {...this.props} />
-      // <>
-      //   <h1>Hello</h1>
       //   <button type="button" onClick={this.handleFetch}>
       //     Fetch
       //   </button>
