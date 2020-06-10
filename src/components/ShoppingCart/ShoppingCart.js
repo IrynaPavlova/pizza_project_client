@@ -1,28 +1,33 @@
 import React from "react";
-<<<<<<< HEAD
-import cartIcon from "../../assets/img/shopping-cart-icon.svg";
+
+import ShoppingCartIcon from "../utils/ShoppingCartIcon";
 import styles from "./shoppingCart.module.css";
 
 const ShoppingCart = ({ amount = 0, price, onOpenOrderPage }) => {
-
   if (amount === 0) {
     return (
-      <div className="shopping-cart-wrapper">
+      <div >
         <div className={styles.productsAmount}>
           <span className={styles.productsAmountText}>{amount}</span>
         </div>
-        <img src={cartIcon} alt="shopping cart icon" />
+
+        <ShoppingCartIcon />
       </div>
     );
   }
   return (
     <div className={styles.shoppingCartWrapper} onClick={onOpenOrderPage}>
-      <div className={styles.productsAmount}>
-        <span className={styles.productsAmountText}>{amount}</span>
+      <div className={styles.shoppingIconsWrapper}>
+        <div className={styles.productsAmount}>
+          <span className={styles.productsAmountText}>{amount}</span>
+        </div>
+
+        <ShoppingCartIcon />
       </div>
-      <img src={cartIcon} alt="shopping cart icon" />
       <div className={styles.productsPriceWrapper}>
-        <span className={styles.productsPrice}>{price.toFixed(2)} грн.</span>
+        <span className={styles.productsPrice}>
+          {price.toFixed(2)} <b>грн.</b>
+        </span>
       </div>
     </div>
   );
