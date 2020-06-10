@@ -26,7 +26,7 @@ class PizzaListItem extends Component {
             <li key={product._id} className={styles.pizzaListItem}>
               <div>
                 <img
-                  src="https://cdn.loveandlemons.com/wp-content/uploads/2019/09/margherita-pizza.jpg"
+                  src={product.images[0]}
                   width="280"
                   height="192"
                   className={styles.imageItem}
