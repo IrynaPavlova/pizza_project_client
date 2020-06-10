@@ -1,8 +1,9 @@
 import React, { Suspense } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { routes } from "../services/routes";
-import MainPage from "../pages/MainPage/MainPageContainer";
+import MainPage from "../pages/MainPage/MainPage";
 import OrderPage from "../pages/OrderPage/OrderPage";
+
 import Header from "./Header";
 import Spinner from "./Spinner";
 

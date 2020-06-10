@@ -1,7 +1,10 @@
+@value variables: '../../stylesheet/vars.css';
+@value lightColor, primaryTextFontSize from variables;
+
 .enterButton {
   border: none;
   background-color: transparent;
-  color: #fff;
+  color: lightColor;
   font-family: RobotoRegular;
-  font-size: 14px;
+  font-size: primaryTextFontSize;
 }
