@@ -1,0 +1,47 @@
+.shoppingCartWrapper {
+  position: relative;
+  cursor: pointer;
+  padding-right: 20px;
+}
+
+.productsAmount {
+  width: 20px;
+  height: 20px;
+  background-color: #ff6c00;
+  color: #ffffff;
+  border-radius: 50%;
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+.productsAmountText {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.productsPrice {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 20px;
+  color: #ff6c00;
+}
+
+.productsPriceWrapper {
+  position: absolute;
+  top: 15px;
+  left: 30px;
+}
+
+
+
+/*media*/
+
+@media (min-width: 1200px) {
+  .shoppingCartWrapper {
+    padding-right: 135px;
+  }
+}
