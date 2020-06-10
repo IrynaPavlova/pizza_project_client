@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React from "react";
 
 // import { Switch, Route } from 'react-router-dom';
 // import { routes } from '../../servises/routes';
@@ -9,7 +8,6 @@ const MainPage = () => {
   return (
     <main>
       <h2>MainPage</h2>
-      
     </main>
   );
 };
