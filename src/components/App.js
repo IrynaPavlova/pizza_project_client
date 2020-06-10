@@ -8,6 +8,7 @@ const App = () => {
   return (
     <BrowserRouter>
       {/* <Header /> */}
+      {/* <Spinner /> */}
       <Switch>
         <Route path={routes.MAIN_PAGE} exact component={MainPage} />
         <Route path={routes.ORDER_PAGE} component={OrderPage} />

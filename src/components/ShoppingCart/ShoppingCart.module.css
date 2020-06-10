@@ -1,0 +1,16 @@
+.goodsCounterCircle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ff6c00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.goodsCounter {
+  font-family: RobotoRegular;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+}
