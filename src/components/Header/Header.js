@@ -8,10 +8,10 @@ import AuthorizationBar from "../AuthorizationBar";
 import PhoneIcon from "../utils/PhoneIcon";
 import MenuBurgerIcon from "../utils/MenuBurgerIcon";
 import PizzaIcon from "../utils/PizzaIcon";
-//import ShoppingCart from "../ShoppingCart";
+import ShoppingCart from "../ShoppingCart";
 import MainMenu from "../MainMenu/MainMenu";
 
-const Header = props => (
+const Header = (props) => (
   <div className={styles.header}>
     <div className={styles.darkHeader}>
       <div className={styles.container}>
@@ -22,10 +22,10 @@ const Header = props => (
         <Media
           queries={{
             small: "(max-width: 767px)",
-            medium: "(min-width: 768px)"
+            medium: "(min-width: 768px)",
           }}
         >
-          {matches => (
+          {(matches) => (
             <>
               {matches.small && <MenuBurgerIcon styles={styles.burgerMenu} />}
               {matches.medium && (
@@ -40,9 +40,11 @@ const Header = props => (
       </div>
     </div>
     <div className={styles.lightHeader}>
-      <PizzaIcon />
-      <Media query="(min-width: 768px)" render={() => <MainMenu />} />
-      {/* <ShoppingCart /> */}
+      <div className={styles.container}>
+        <PizzaIcon />
+        <Media query="(min-width: 768px)" render={() => <MainMenu />} />
+        <ShoppingCart />
+      </div>
     </div>
   </div>
 );
