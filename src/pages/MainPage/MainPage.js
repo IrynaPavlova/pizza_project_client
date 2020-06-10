@@ -6,7 +6,6 @@ import PizzaListForTest from "../../components/PizzaList/PizzaListForTest";
 // import { Switch, Route } from 'react-router-dom';
 // import { routes } from '../../servises/routes';
 // import styles from './MainPage.module.css';
-//import Header from "../../components/Header";
 
 function MainPage() {
   return (
