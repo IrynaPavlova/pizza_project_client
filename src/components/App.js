@@ -1,14 +1,12 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { routes } from "../services/routes";
-import MainPage from "../pages/MainPage/MainPageContainer";
+import MainPage from "../pages/MainPage/MainPage";
 import OrderPage from "../pages/OrderPage/OrderPage";
-
 const App = () => {
   return (
     <BrowserRouter>
       {/* <Header /> */}
-      {/* <Spinner /> */}
       <Switch>
         <Route path={routes.MAIN_PAGE} exact component={MainPage} />
         <Route path={routes.ORDER_PAGE} component={OrderPage} />
