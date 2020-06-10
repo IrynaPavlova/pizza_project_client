@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { routes } from "../services/routes";
-import MainPage from "../pages/MainPage/MainPage";
+import MainPage from "../pages/MainPage/MainPageContainer";
 import OrderPage from "../pages/OrderPage/OrderPage";
-// import Spinner from "./Spinner";
+
 const App = () => {
   return (
     <BrowserRouter>
