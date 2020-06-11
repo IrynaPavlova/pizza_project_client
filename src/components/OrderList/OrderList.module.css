@@ -1,0 +1,14 @@
+@value secondaryHeaderFontSize,primaryHeaderFontSize from "../../stylesheet/vars.css";
+
+.orderListTitle {
+  font-family: OswaldRegular;
+  font-weight: 500;
+  font-size: secondaryHeaderFontSize;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .orderListTitle {
+    font-size: primaryHeaderFontSize;
+  }
+}
