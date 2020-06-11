@@ -15,7 +15,7 @@
   text-transform: uppercase;
 }
 
-.mainMenuItem:not(:last-of-type) {
+.mainMenuItems li:not(:last-of-type) {
   margin-right: 30px;
 }
 
@@ -37,6 +37,15 @@
 }
 
 .mainMenuItem:hover::before {
+  transform: translateX(-50%) scaleX(1);
+  transform-origin: left;
+}
+
+.mainMenuActiveItem {
+  color: accentColor;
+}
+
+.mainMenuActiveItem::before {
   transform: translateX(-50%) scaleX(1);
   transform-origin: left;
 }
