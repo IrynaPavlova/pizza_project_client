@@ -33,7 +33,7 @@ const Header = (props) => (
             <>
               {matches.small && <MenuBurgerIcon styles={styles.burgerMenu} />}
               {matches.medium && (
-                <div>
+                <div className={styles.authWrapper}>
                   <LanguageSelector />
                   <AuthorizationBar />
                 </div>
