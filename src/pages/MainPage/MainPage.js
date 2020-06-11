@@ -9,8 +9,7 @@ import products from '../../services/products.json'
 const MainPage = () => {
   return (
     <main>
-      <h2>MainPage</h2>
-      <PizzaListItem products={products}/>
+   
     </main>
   );
 };
