@@ -1,6 +1,8 @@
 import React from "react";
 import Media from "react-media";
+import { Link } from "react-router-dom";
 
+import { routes } from "../../services/routes";
 import styles from "./Header.module.css";
 
 import LanguageSelector from "../LanguageSelector";
@@ -17,7 +19,9 @@ const Header = (props) => (
       <div className={styles.container}>
         <div>
           <PhoneIcon styles={styles.phoneImg} />
-          <span className={styles.phoneNumber}>+38044 444 44 44</span>
+          <a href="tel:+380444444444" className={styles.phoneNumber}>
+            +38044 444 44 44
+          </a>
         </div>
         <Media
           queries={{
@@ -41,7 +45,9 @@ const Header = (props) => (
     </div>
     <div className={styles.lightHeader}>
       <div className={styles.container}>
-        <PizzaIcon />
+        <Link to={routes.MAIN_PAGE}>
+          <PizzaIcon />
+        </Link>
         <Media query="(min-width: 768px)" render={() => <MainMenu />} />
         <ShoppingCart />
       </div>
