@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./AuthorizationBar.module.css";
 
 export default function AuthorizationBar() {
+  let isAuthenticated = true;
   return (
     <>
       {isAuthenticated ? (
