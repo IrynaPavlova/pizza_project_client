@@ -1,4 +1,6 @@
-import React from "react";
+import React from 'react';
+import PizzaListItem from '../../components/PizzaListItem/PizzaListItem';
+import products from '../../services/products.json'
 
 // import { Switch, Route } from 'react-router-dom';
 // import { routes } from '../../servises/routes';
@@ -8,6 +10,7 @@ const MainPage = () => {
   return (
     <main>
       <h2>MainPage</h2>
+      <PizzaListItem products={products}/>
     </main>
   );
 };
