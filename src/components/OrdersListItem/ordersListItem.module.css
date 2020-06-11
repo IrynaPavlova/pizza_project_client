@@ -1,0 +1,31 @@
+.orderItemCard {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  height: 418px;
+  border: 1px solid rgba(39, 39, 39, 0.1);
+  box-sizing: border-box;
+}
+
+.deleteButton {
+  width: 12px;
+  height: 12px;
+  border: none;
+  background: transparent;
+  margin-bottom: 24px;
+  position: relative;
+  left: 91%;
+  top: 2%
+}
+
+.imgContainer {
+  width: 220px;
+  height: 174px;
+  margin: 0 auto;
+  border: 1px solid rgba(39, 39, 39, 0.1);
+  margin-bottom: 20px;
+}
+
+.productName {
+  text-align: center;
+}
