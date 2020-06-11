@@ -4,7 +4,7 @@ import Slider from "../../components/Slider/Slider";
 
 //import PizzaList from "../../components/PizzaList/PizzaList"; раскоментировать для подключения реального PizzaList
 import PizzaListForTest from "../../components/PizzaList/PizzaListForTest";
-import PizzaListItem from "../../components/PizzaListItem";
+import PizzaListItem from "../../components/PizzaListItem/PizzaListItem";
 // import { Switch, Route } from 'react-router-dom';
 // import { routes } from '../../servises/routes';
 // import styles from './MainPage.module.css';
