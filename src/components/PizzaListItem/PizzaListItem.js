@@ -36,7 +36,7 @@ class PizzaListItem extends Component {
                 <p className={styles.heading}>{product.name}</p>
                 <ul className={styles.ingredients}>
                   {product.ingredients.map((ingredient) => (
-                    <li key={ingredient}>
+                    <li key={ingredient._id}>
                       <span className={styles.ingredientItem}>
                         {ingredient.name}
                       </span>
@@ -52,7 +52,6 @@ class PizzaListItem extends Component {
                           value="M"
                           checked={this.state.size === "M"}
                           onChange={this.handleChange}
-                          defaultChecked
                           className={styles.radioButton}
                         />
                         <span className={styles.sizeText}>M</span>
@@ -115,7 +114,6 @@ PizzaListItem.propTypes = {
       name: PropTypes.string.isRequired,
     })
   ).isRequired,
-  onRemove: PropTypes.func.isRequired,
 };
 
 export default PizzaListItem;
