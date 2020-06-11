@@ -1,7 +1,7 @@
 import React from "react";
 
-import ShoppingCartIcon from "../utils/ShoppingCartIcon";
 import styles from "./shoppingCart.module.css";
+import ShoppingCartIcon from "../utils/ShoppingCartIcon";
 
 const ShoppingCart = ({ amount = 0, price, onOpenOrderPage }) => {
   if (amount === 0) {
