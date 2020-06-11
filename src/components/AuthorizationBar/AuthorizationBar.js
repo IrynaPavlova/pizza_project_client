@@ -4,8 +4,19 @@ import styles from "./AuthorizationBar.module.css";
 
 export default function AuthorizationBar() {
   return (
-    <button type="button" className={styles.enterButton}>
-      Войти
-    </button>
+    <>
+      {isAuthenticated ? (
+        <>
+          <p className={styles.name}>{name}</p>
+          <button type="button" className={styles.logoutButton}>
+            Выйти
+          </button>
+        </>
+      ) : (
+        <button type="button" className={styles.loginButton}>
+          Войти
+        </button>
+      )}
+    </>
   );
 }
