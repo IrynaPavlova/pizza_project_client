@@ -6,29 +6,13 @@ import OrderPage from "../pages/OrderPage/OrderPage";
 
 import Header from "./Header";
 import Spinner from "./Spinner";
-import OrdersListItem from "./OrdersListItem/OrdersListItem";
+
 
 const App = () => {
   return (
     <BrowserRouter>
       <Header />
-      <OrdersListItem name={"Пепперони с томатами"} img={"url"} ingredients={[
-  {
-    _id: "5e85182d1c9d440000703883",
-    name: "моцарелла",
-  },
-  {
-    _id: "5e9f56511c9d4400008812cd",
-    name: "пепперони",
-  },
-  {
-    _id: "5e8517461c9d440000703881",
-    name: "помидоры",
-  }]} price={{
-  M: "100",
-  L: "120",
-  XL: "140",
-}} currency={"uhr"} amount={0}/>
+      
       <Suspense fallback={<Spinner />}>
         <Switch>
           <Route path={routes.MAIN_PAGE} exact component={MainPage} />

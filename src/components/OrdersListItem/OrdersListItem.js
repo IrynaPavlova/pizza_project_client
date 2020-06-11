@@ -1,7 +1,8 @@
 import React from "react";
-import styles from "./ordersListItem.module.css"
-import closeBtn from "../../assets/img/buttonToCloseWindow.svg"
+import styles from "./ordersListItem.module.css";
+import closeBtn from "../../assets/img/buttonToCloseWindow.svg";
 
+// props details
 //const name = "Пепперони с томатами";
 // const id = "5e7a11285661db31d9c0b65e";
 // const img = "closeUpImages[0]";
@@ -32,7 +33,6 @@ import closeBtn from "../../assets/img/buttonToCloseWindow.svg"
 
 // const currency = "грн";
 
-
 const OrdersListItem = ({
   name,
   id,
@@ -45,23 +45,42 @@ const OrdersListItem = ({
   onDeleteItem,
   amount,
 }) => {
+  const ingredientsList = ingredients.map((item) => [item.name]).join(", ");
+
   return (
     <div className={styles.orderItemCard}>
-      <button type="button" className={styles.deleteButton} onclick={onDeleteItem}><img src={closeBtn} alt="delete-btn"/></button>
+      <button
+        type="button"
+        className={styles.deleteButton}
+        onClick={onDeleteItem}
+      >
+        <img src={closeBtn} alt="delete-btn" />
+      </button>
       <div className={styles.imgContainer}>
         <img src={img} alt={name} />
       </div>
-      <h5 className={styles.productName}>{name}</h5>
-      {ingredients.map((item) => (
-        <p key={item._id}>{item.name}</p>
-      ))}
-      <p>
-        {price.M} {currency}
-      </p>
-      <div>
-        <button onClick={IncrementItem}>+</button>
-        <p>{amount}</p>
-        <button onClick={DecrementItem}>-</button>
+      <div className={styles.contentWrapper}>
+        <h5 className={styles.productName}>{name}</h5>
+        <p className={styles.ingredientsText}>{ingredientsList}</p>
+        <div className={styles.orderDetailsWrapper}>
+          <p className={styles.priceText}>
+            {price.M}
+            <span className={styles.currencyText}>{currency}</span>
+          </p>
+
+          <div className={styles.amountContainer}>
+            <button className={styles.deleteBtn} onClick={DecrementItem}>
+              -
+            </button>
+            <p className={styles.amountNumber}>{amount}</p>
+            <button
+              className={[styles.deleteBtn, styles.incrementBtn].join(" ")}
+              onClick={IncrementItem}
+            >
+              +
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
