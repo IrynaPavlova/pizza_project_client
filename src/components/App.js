@@ -1,11 +1,13 @@
-import React, { Suspense, lazy } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { routes } from "../services/routes";
-import MainPage from "../pages/MainPage/MainPage";
-import OrderPage from "../pages/OrderPage/OrderPage";
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { routes } from '../services/routes';
+import MainPage from '../pages/MainPage/MainPage';
+import OrderPage from '../pages/OrderPage/OrderPage';
 
-import Header from "./Header";
-import Spinner from "./Spinner";
+import AboutDevelopers from './AboutDevelopers'; // Не забыть убрать
+
+import Header from './Header';
+import Spinner from './Spinner';
 
 const DessertsList = lazy(() => import('../components/DessertsList'));
 
@@ -15,7 +17,8 @@ const App = () => {
       <Header />
       <Suspense fallback={<Spinner />}>
         <Switch>
-          <Route path={routes.MAIN_PAGE} exact component={MainPage} />
+          <Route path={routes.MAIN_PAGE} exact component={AboutDevelopers} />
+          {/* Вернуть MainPage */}
           <Route path={routes.DESSERTS} exact component={DessertsList} />
           <Route path={routes.ORDER_PAGE} component={OrderPage} />
           {/* <Redirect to="#" /> */}
