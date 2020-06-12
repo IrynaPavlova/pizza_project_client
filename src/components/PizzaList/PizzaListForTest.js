@@ -34,6 +34,17 @@ const ListItem = styled.li`
 
 export default function PizzaListForTest() {
   return (
+    // <List>
+    //   <ListItem></ListItem>
+    //   <ListItem></ListItem>
+    //   <ListItem></ListItem>
+    //   <ListItem></ListItem>
+    //   <ListItem></ListItem>
+    //   <ListItem></ListItem>
+    //   <ListItem></ListItem>
+    //   <ListItem></ListItem>
+    // </List>
+
     <ul className={styles.pizzaList}>
       {products.map((product,index) => <PizzaListItem {...product} key={index}/>)}
       </ul>
