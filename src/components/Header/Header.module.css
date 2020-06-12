@@ -1,0 +1,71 @@
+@value variables: '../../stylesheet/vars.css';
+@value primaryColor, accentColor, lightColor, primaryTextFontSize, secondaryTextFontSize from variables;
+
+.header {
+  width: 100%;
+}
+
+.darkHeader {
+  height: 60px;
+  background-color: primaryColor;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 320px;
+  max-width: 1200px;
+  height: 100%;
+}
+
+.phoneImg {
+  width: 14px;
+  height: 14px;
+  fill: accentColor;
+  margin-right: 12px;
+}
+
+.phoneNumber {
+  font-family: OswaldBold;
+  color: lightColor;
+  font-size: primaryTextFontSize;
+  line-height: 1.5;
+  letter-spacing: 0.065em;
+  text-transform: uppercase;
+}
+
+.burgerMenu {
+  width: 22px;
+  height: 10px;
+}
+
+.authWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .phoneImg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .phoneNumber {
+    font-size: secondaryTextFontSize;
+  }
+}
+
+.lightHeader {
+  position: relative;
+  height: 80px;
+  padding-left: 20px;
+  padding-right: 20px;
+  /* display: flex;
+  align-items: center;
+  justify-content: space-between; */
+}

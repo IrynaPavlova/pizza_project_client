@@ -1,0 +1,56 @@
+@value variables: '../../stylesheet/vars.css';
+@value lightColor, primaryColor, accentColor, primaryTextFontSize from variables;
+
+.loginButton {
+  border: none;
+  background-color: transparent;
+  color: lightColor;
+  font-family: RobotoRegular;
+  font-size: primaryTextFontSize;
+}
+
+.userWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.logoutButton {
+  border: none;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: RobotoRegular;
+  font-size: primaryTextFontSize;
+}
+
+.name {
+  color: accentColor;
+  font-family: RobotoRegular;
+  font-size: primaryTextFontSize;
+  margin-right: 30px;
+}
+
+/* @media (min-width: 768px) {
+  .loginButton {
+    color: lightColor;
+    margin-right: 22px;
+  }
+
+  .logoutButton {
+    color: rgba(255, 255, 255, 0.4);
+    margin-right: 22px;
+  }
+
+  .name {
+    margin-right: 30px;
+  }
+} */
+/* 
+@media (min-width: 1440px) {
+  .loginButton {
+    color: lightColor;
+    margin-right: 136px;
+  }
+
+  .logoutButton {
+    margin-right: 136px;
+  }
+} */

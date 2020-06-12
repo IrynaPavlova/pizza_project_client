@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 /* import - reducers */
-import authReducer from './auth/authReducer';
-import productReducer from './product/productReducer';
-import globalReducer from './global/globalReducer';
+import authReducer from "./auth/authReducer";
+import productReducer from "./product/productReducer";
+import globalReducer from "./global/globalReducer";
 
 const rootReducer = combineReducers({
   auth: authReducer,

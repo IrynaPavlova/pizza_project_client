@@ -1,11 +1,16 @@
-import React from 'react';
-//import styles from './OrderPage.module.css';
+import React from "react";
+import OrderList from "../../components/OrderList";
+import styles from "./OrderPage.module.css";
+//import OrderForm from "../../components/OrderForm";
 
 const OrderPage = () => {
   return (
-    <main>
-      <h2>OrderPage</h2>
-    </main>
+    <div className={styles.OrderPageContainer}>
+      <hr className={styles.line} />
+      <OrderList />
+      <hr className={styles.line} />
+      {/* <OrderForm /> */}
+    </div>
   );
 };
 

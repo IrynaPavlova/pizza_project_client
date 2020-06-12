@@ -1,0 +1,51 @@
+@value variables: '../../stylesheet/vars.css';
+@value primaryColor, accentColor, primaryTextFontSize from variables;
+
+.mainMenuItems {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainMenuItem {
+  position: relative;
+  font-family: OswaldRegular;
+  font-size: primaryTextFontSize;
+  color: primaryColor;
+  text-transform: uppercase;
+}
+
+.mainMenuItems li:not(:last-of-type) {
+  margin-right: 30px;
+}
+
+.mainMenuItem::before {
+  content: "";
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: right;
+  width: 100%;
+  height: 4px;
+  background-color: accentColor;
+  transition: transform 0.25s;
+}
+
+.mainMenuItem:hover {
+  color: accentColor;
+}
+
+.mainMenuItem:hover::before {
+  transform: translateX(-50%) scaleX(1);
+  transform-origin: left;
+}
+
+.mainMenuActiveItem {
+  color: accentColor;
+}
+
+.mainMenuActiveItem::before {
+  transform: translateX(-50%) scaleX(1);
+  transform-origin: left;
+}

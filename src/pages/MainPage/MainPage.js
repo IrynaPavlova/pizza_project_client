@@ -1,14 +1,27 @@
-import React from 'react';
+import React from "react";
+import ProductContainer from "../../components/ProductContainer/ProductContainer";
+import Slider from "../../components/Slider/Slider";
+
+//import PizzaList from "../../components/PizzaList/PizzaList"; раскоментировать для подключения реального PizzaList
+import PizzaListForTest from "../../components/PizzaList/PizzaListForTest";
+import PizzaListItem from "../../components/PizzaListItem/PizzaListItem";
 // import { Switch, Route } from 'react-router-dom';
 // import { routes } from '../../servises/routes';
 // import styles from './MainPage.module.css';
+import products from "../../services/products.json";
 
-const MainPage = () => {
+function MainPage() {
   return (
-    <main>
-      <h2>MainPage</h2>
-    </main>
+    <>
+      <Slider />
+      <ProductContainer>
+        {/* <PizzaList />  раскоментировать для подключения реального PizzaList */}
+        <PizzaListForTest />
+        {/* Using test product object from products.json for testing purposes  */}
+      
+      </ProductContainer>
+    </>
   );
-};
+}
 
 export default MainPage;
