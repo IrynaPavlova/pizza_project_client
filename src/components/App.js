@@ -1,8 +1,9 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { routes } from '../services/routes';
-import MainPage from '../pages/MainPage/MainPage';
-import OrderPage from '../pages/OrderPage/OrderPage';
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { routes } from "../services/routes";
+import MainPage from "../pages/MainPage/MainPage";
+import OrderPage from "../pages/OrderPage/OrderPage";
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -16,6 +17,8 @@ const App = () => {
     </BrowserRouter>
   );
 };
+
+// const App = () => <DrinkList products={products} />;
 
 export default App;
 
