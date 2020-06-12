@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import PizzaListItem from '../PizzaListItem/PizzaListItem';
+import products from '../../services/products.json';
+import styles from '../PizzaListItem/PizzaListItem.module.css'
 
 const List = styled.ul`
   display: flex;
@@ -31,15 +34,8 @@ const ListItem = styled.li`
 
 export default function PizzaListForTest() {
   return (
-    <List>
-      <ListItem></ListItem>
-      <ListItem></ListItem>
-      <ListItem></ListItem>
-      <ListItem></ListItem>
-      <ListItem></ListItem>
-      <ListItem></ListItem>
-      <ListItem></ListItem>
-      <ListItem></ListItem>
-    </List>
+    <ul className={styles.pizzaList}>
+      {products.map((product,index) => <PizzaListItem {...product} key={index}/>)}
+      </ul>
   );
 }

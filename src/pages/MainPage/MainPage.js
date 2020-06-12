@@ -18,7 +18,7 @@ function MainPage() {
         {/* <PizzaList />  раскоментировать для подключения реального PizzaList */}
         <PizzaListForTest />
         {/* Using test product object from products.json for testing purposes  */}
-        <PizzaListItem products={products} />
+      
       </ProductContainer>
     </>
   );

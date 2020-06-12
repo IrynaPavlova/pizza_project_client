@@ -1,4 +1,3 @@
-
 [
   {
     "categories": ["pizza"],
@@ -25,6 +24,85 @@
     "likes": 0,
     "updatedAt": "2020-06-09T13:01:12.762Z",
     "createdAt": "2020-03-24T13:54:48.070Z",
+    "__v": 0
+  },
+  {
+    "categories": ["pizza"],
+    "images": [
+      "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
+    ],
+    "closeUpImages": [
+      "https:evening-caverns-34846.herokuapp.com/upload_ac420720f3efb3b2121aa58b2abe92f6"
+    ],
+    "ingredients": [
+      { "_id": "5e85182d1c9d440000703883", "name": "моцарелла" },
+      { "_id": "5e9f56511c9d4400008812cd", "name": "пепперони" },
+      { "_id": "5e8517461c9d440000703881", "name": "помидоры" },
+      { "_id": "5e8519211c9d440000703886", "name": "соус барбекю" }
+    ],
+    "_id": "5e7a11285661db31d9c0b65e",
+    "subcategory": "classic",
+    "sku": 1120001,
+    "name": "Пепперони с томатами",
+    "description": "",
+    "price": { "M": "100", "L": "120", "XL": "140" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:01:12.762Z",
+    "createdAt": "2020-03-24T13:54:48.070Z",
+    "__v": 0
+  },
+  {
+    "categories": ["pizza"],
+    "images": [
+      "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
+    ],
+    "closeUpImages": [
+      "https:evening-caverns-34846.herokuapp.com/upload_ac420720f3efb3b2121aa58b2abe92f6"
+    ],
+    "ingredients": [
+      { "_id": "5e85182d1c9d440000703883", "name": "моцарелла" },
+      { "_id": "5e9f56511c9d4400008812cd", "name": "пепперони" },
+      { "_id": "5e8517461c9d440000703881", "name": "помидоры" },
+      { "_id": "5e8519211c9d440000703886", "name": "соус барбекю" }
+    ],
+    "_id": "5e7a11285661db31d9c0b65e",
+    "subcategory": "classic",
+    "sku": 1120001,
+    "name": "Пепперони с томатами",
+    "description": "",
+    "price": { "M": "100", "L": "120", "XL": "140" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:01:12.762Z",
+    "createdAt": "2020-03-24T13:54:48.070Z",
+    "__v": 0
+  },
+  {
+    "categories": ["pizza"],
+    "images": [
+      "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
+    ],
+    "closeUpImages": [
+      "https:evening-caverns-34846.herokuapp.com/upload_31e07f86657d7fc10cee343b16acc662"
+    ],
+    "ingredients": [
+      { "_id": "5e85182d1c9d440000703883", "name": "моцарелла" },
+      { "_id": "5e9f56751c9d4400008812ce", "name": "соус томатный" }
+    ],
+    "_id": "5e7a11955661db31d9c0b65f",
+    "subcategory": "classic",
+    "sku": 1120002,
+    "name": "Маргарита",
+    "description": "",
+    "price": { "M": "80", "L": "100", "XL": "120" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:02:14.136Z",
+    "createdAt": "2020-03-24T13:56:37.340Z",
     "__v": 0
   }
 ]
