@@ -2,6 +2,7 @@
 
 .pizzaListCard {
   width: 280px;
+  
   box-shadow: black;
   outline: 1px grey;
   margin: 0 auto;
@@ -13,7 +14,19 @@
 
 .descriptionContainer {
   padding: 10px 16px 25px 16px;
+  position: relative;
+  min-height: 246px;
 }
+
+.sizePriceContainer {
+
+  position: absolute;
+  bottom: 10px;
+}
+
+
+
+
 .heading {
   font-family: OswaldRegular;
   font-style: normal;
@@ -55,7 +68,7 @@
 
 .radioButtonsList {
   display: flex;
-  margin-bottom: 52px;
+  margin-bottom: 32px;
 }
 
 .radioButton {
@@ -69,7 +82,6 @@ input[type="radio"] {
   height: 40px;
   border-radius: 50%;
   border: none;
-
   background-color: rgba(39, 39, 39, 0.2);
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -87,6 +99,7 @@ input[type="radio"]:checked ~ span:first-of-type {
   color: white;
   font-weight: bold;
 }
+
 
 .sizeLabel span {
   position: absolute;
@@ -115,7 +128,7 @@ input[type="radio"]:checked ~ span:first-of-type {
 
 .sizeLabelXL span {
   position: absolute;
-  left: 18%;
+  left: 17%;
   top: -95%;
   font-size: 20px;
   font-family: RobotoRegular;
@@ -174,15 +187,12 @@ input[type="radio"]:checked ~ span:first-of-type {
 }
 
 @media screen and (min-width: 768px) {
-  .pizzaListCard:nth-of-type(odd  ) {
+  .pizzaListCard:nth-of-type(odd) {
     margin-right: 15px;
   }
   .pizzaListCard:nth-last-of-type(4) {
     margin-right: 25px;
   }
-  
-  
-
 
   .imageItem {
     width: 354px;
@@ -214,5 +224,9 @@ input[type="radio"]:checked ~ span:first-of-type {
   }
   .currency {
     margin-right: 50px;
+  }
+  .descriptionContainer {
+  
+    min-height: 256px;
   }
 }
