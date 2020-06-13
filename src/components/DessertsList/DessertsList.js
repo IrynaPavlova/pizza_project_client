@@ -9,7 +9,7 @@ const { dessertList } = styles;
 
 const DesertList = () => {
   const desserts = products.filter(product =>
-    product.categories.includes('desserts'),
+    product.categories === 'desserts',
   );
   // console.log(desserts);
   return (
