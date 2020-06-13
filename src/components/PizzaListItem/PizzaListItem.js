@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./PizzaListItem.module.css";
 
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 function PizzaListItem(props) {
   const [selectedSize, setSelectedSize] = useState("M");
@@ -18,6 +18,7 @@ function PizzaListItem(props) {
           width="280"
           height="192"
           className={styles.imageItem}
+          alt=""
         />
       </div>
       <div className={styles.descriptionContainer}>
@@ -30,6 +31,25 @@ function PizzaListItem(props) {
           ))}
         </ul>
         <form>
+<<<<<<< HEAD
+          <ul className={styles.radioButtonsList}>
+            {["M", "L", "XL"].map((size, index) => (
+              <li key={index}>
+                <label className={styles.sizeLabel}>
+                  <input
+                    type="radio"
+                    value={size}
+                    checked={size === selectedSize}
+                    onChange={handleChange}
+                    className={styles.radioButton}
+                    key={size}
+                  />
+                  <span className={styles.sizeText}>{size}</span>
+                </label>
+              </li>
+            ))}
+          </ul>
+=======
           <div className={styles.sizePriceContainer}>
             <ul className={styles.radioButtonsList}>
               {["M", "L", "XL"].map((size, index) => (
@@ -48,6 +68,7 @@ function PizzaListItem(props) {
                 </li>
               ))}
             </ul>
+>>>>>>> dev
 
             <span className={styles.price}>{props.price[selectedSize]}.00</span>
             <span className={styles.currency}> {props.currency}</span>
