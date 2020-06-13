@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import OrdersListItem from "../OrdersListItem/OrdersListItem";
+import AdminOrdersListItem from "../AdminOrdersListItem/AdminOrdersListItem";
 import Spinner from "../Spinner/Spinner";
 import styles from "./AdminOrderList.module.css";
 
@@ -37,7 +37,7 @@ export default function AdminOrderList() {
     ) : (
       <ul>
         {items.map((item) => (
-          <OrdersListItem key={item._id} item={item} />
+          <AdminOrdersListItem key={item._id} item={item} />
         ))}
       </ul>
     );
