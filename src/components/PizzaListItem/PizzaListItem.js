@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import styles from "./PizzaListItem.module.css";
 
 import PropTypes from "prop-types";
 
 function PizzaListItem(props) {
-  const [selectedSize, setSelectedSize] = useState('M')
+  const [selectedSize, setSelectedSize] = useState("M");
 
   function handleChange(event) {
- 
-    setSelectedSize(event.target.value)
+    setSelectedSize(event.target.value);
   }
 
   return (
@@ -31,33 +30,35 @@ function PizzaListItem(props) {
           ))}
         </ul>
         <form>
-          <ul className={styles.radioButtonsList}>
-            {['M', 'L', 'XL'].map((size, index) => (
-              <li key={index}>
-                <label className={styles.sizeLabel}>
-                  <input
-                    type="radio"
-                    value={size}
-                    checked={size === selectedSize}
-                    onChange={handleChange}
-                    className={styles.radioButton}
-                    key={size}
-                  />
-                  <span className={styles.sizeText}>{size}</span>
-                </label>
-              </li>
-            ))}
-          </ul>
+          <div className={styles.sizePriceContainer}>
+            <ul className={styles.radioButtonsList}>
+              {["M", "L", "XL"].map((size, index) => (
+                <li key={index}>
+                  <label className={styles.sizeLabel}>
+                    <input
+                      type="radio"
+                      value={size}
+                      checked={size === selectedSize}
+                      onChange={handleChange}
+                      className={styles.radioButton}
+                      key={size}
+                    />
+                    <span className={styles.sizeText}>{size}</span>
+                  </label>
+                </li>
+              ))}
+            </ul>
 
-          <span className={styles.price}>{props.price[selectedSize]}.00</span>
-          <span className={styles.currency}> {props.currency}</span>
+            <span className={styles.price}>{props.price[selectedSize]}.00</span>
+            <span className={styles.currency}> {props.currency}</span>
 
-          <button className={styles.addCart} type="submit" onClick={() => {}}>
-            В корзину
-          </button>
+            <button className={styles.addCart} type="submit" onClick={() => {}}>
+              В корзину
+            </button>
+          </div>
         </form>
       </div>
     </li>
-  )
+  );
 }
 export default PizzaListItem;
