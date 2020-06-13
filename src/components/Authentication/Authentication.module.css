@@ -3,7 +3,8 @@
   font-style: bold;
   font-weight: 500;
   position: absolute;
-  width: 280px;
+  width: 700px;
+  max-width: 88%;
   padding: 5px;
   left: 50%;
   top: 50%;
@@ -36,20 +37,36 @@
   border: 1px solid rgba(39, 39, 39, 0.2);
   border-radius: 4px;
   width: 260px;
-  margin-bottom: 7px;
+
   transition: border 0.3s ease;
 }
 .formInput:hover,
 .formInput:focus {
   border: 1px solid rgba(39, 39, 39, 0.6);
 }
-
-.formInput:last-of-type {
-  margin-bottom: 30px;
-}
-
 .formInput::placeholder {
   color: #27272780;
+}
+
+.error {
+  border: 1px solid red;
+}
+
+.accepted {
+  border: 1px solid #08ed00;
+}
+
+.formLabel {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.formInputError {
+  position: absolute;
+  top: -14px;
+  color: tomato;
+  font-size: 12px;
+  line-height: 15px;
 }
 
 .buttonToClose {
@@ -73,6 +90,7 @@
 .formButton {
   width: 260px;
   max-height: 50px;
+  margin-top: 20px;
   background-color: #ff6c00;
   border: solid 2px #ff6c00;
   border-radius: 4px;
@@ -95,6 +113,9 @@
   background-color: #ff6c00;
   border: solid 2px #ffbd8c;
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+.formButton:disabled {
+  background-color: lightgray;
 }
 
 .socialTitle {
@@ -194,7 +215,6 @@
 
 @media screen and (min-width: 48rem) {
   .section {
-    width: 700px;
     padding: 0;
   }
   .title {
@@ -203,7 +223,6 @@
   }
   .formInput {
     width: 420px;
-    margin-bottom: 20px;
   }
   .formButton {
     width: 420px;
