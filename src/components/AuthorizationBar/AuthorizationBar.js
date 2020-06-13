@@ -1,22 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { authSelectors, authOperations } from "../../redux/auth";
-import Authentication from "../Authentication";
-import Spinner from "../Spinner";
 
 import styles from "./AuthorizationBar.module.css";
 
-export default function AuthorizationBar() {
+export default function AuthorizationBar({ setIsModalActive }) {
   const dispatch = useDispatch();
   const onLogout = () => dispatch(authOperations.logOut());
   const isAuthenticated = useSelector(authSelectors.isAuthenticated);
   const name = useSelector(authSelectors.getUserName);
-  const isLoading = useSelector(authSelectors.getLoading);
-  const [isModalActive, setIsModalActive] = useState(false);
 
   return (
     <div>
-      {isLoading && <Spinner />}
       {isAuthenticated ? (
         <div className={styles.userWrapper}>
           <p className={styles.name}>{name}</p>
@@ -37,10 +32,6 @@ export default function AuthorizationBar() {
           Войти
         </button>
       )}
-      <Authentication
-        isModalActive={isModalActive}
-        setIsModalActive={setIsModalActive}
-      />
     </div>
   );
 }
