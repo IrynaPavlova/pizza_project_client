@@ -174,15 +174,12 @@ input[type="radio"]:checked ~ span:first-of-type {
 }
 
 @media screen and (min-width: 768px) {
-  .pizzaListCard:nth-of-type(odd  ) {
+  .pizzaListCard:nth-of-type(odd) {
     margin-right: 15px;
   }
   .pizzaListCard:nth-last-of-type(4) {
     margin-right: 25px;
   }
-  
-  
-
 
   .imageItem {
     width: 354px;
