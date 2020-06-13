@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import styles from "./PizzaListItem.module.css";
 
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 function PizzaListItem(props) {
-  const [selectedSize, setSelectedSize] = useState('M')
+  const [selectedSize, setSelectedSize] = useState("M");
 
   function handleChange(event) {
- 
-    setSelectedSize(event.target.value)
+    setSelectedSize(event.target.value);
   }
 
   return (
@@ -19,6 +18,7 @@ function PizzaListItem(props) {
           width="280"
           height="192"
           className={styles.imageItem}
+          alt=""
         />
       </div>
       <div className={styles.descriptionContainer}>
@@ -32,7 +32,7 @@ function PizzaListItem(props) {
         </ul>
         <form>
           <ul className={styles.radioButtonsList}>
-            {['M', 'L', 'XL'].map((size, index) => (
+            {["M", "L", "XL"].map((size, index) => (
               <li key={index}>
                 <label className={styles.sizeLabel}>
                   <input
@@ -58,6 +58,6 @@ function PizzaListItem(props) {
         </form>
       </div>
     </li>
-  )
+  );
 }
 export default PizzaListItem;
