@@ -1,0 +1,46 @@
+.pizzaHeading {
+  font-family: OswaldMedium;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  /* identical to box height */
+  text-align: center;
+  letter-spacing: 0.01em;
+  margin-bottom: 20px;
+  color: #272727;
+}
+.pizzaList {
+  margin-bottom: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .pizzaList {
+    display: flex;
+    flex-wrap: wrap;
+    width: 738px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+  .pizzaList::nth-child(2) {
+    margin-right: 0;
+  }
+  .pizzaHeading {
+    font-family: OswaldMedium;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 53px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .pizzaList {
+    margin: 0 auto;
+    margin-bottom: 64px;
+    width: 1200px;
+  }
+}

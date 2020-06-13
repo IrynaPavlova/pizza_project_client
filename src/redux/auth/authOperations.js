@@ -3,6 +3,7 @@ import authActions from "./authActions";
 
 axios.defaults.baseURL = "https://evening-caverns-34846.herokuapp.com/";
 axios.defaults.headers.post["Content-Type"] = "application/json";
+axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";
 
 const token = {
   set(token) {
@@ -32,6 +33,31 @@ const logIn = (credentials) => (dispatch) => {
     .post("/auth/login", credentials)
     .then((response) => {
       token.set(response.data.token);
+      dispatch(authActions.loginSuccess(response.data));
+    })
+    .catch(({ message }) => dispatch(authActions.loginError(message)));
+};
+
+const logInGoogle = () => (dispatch) => {
+  dispatch(authActions.loginRequest());
+  axios
+    .get("/auth/google")
+    .then((response) => {
+      console.log(response);
+      token.set(response.data.token);
+
+      dispatch(authActions.loginSuccess(response.data));
+    })
+    .catch(({ message }) => dispatch(authActions.loginError(message)));
+};
+
+const logInFacebook = () => (dispatch) => {
+  dispatch(authActions.loginRequest());
+  axios
+    .get("/auth/facebook")
+    .then((response) => {
+      token.set(response.data.token);
+      console.log(response);
       dispatch(authActions.loginSuccess(response.data));
     })
     .catch(({ message }) => dispatch(authActions.loginError(message)));
@@ -67,4 +93,4 @@ const logOut = () => (dispatch) => {
     .catch(({ message }) => dispatch(authActions.logoutError(message)));
 };
 
-export default { register, logOut, logIn };
+export default { register, logOut, logIn, logInGoogle, logInFacebook };

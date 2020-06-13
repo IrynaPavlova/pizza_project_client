@@ -1,0 +1,20 @@
+@value borderColor,primaryHeaderFontSize,primaryTextFontSize from "../../stylesheet/vars.css";
+
+.list {
+  display: flex;
+}
+
+.AdminPageContainer {
+  text-align: center;
+  padding: 0 20px;
+  font-family: RobotoRegular;
+  font-size: primaryTextFontSize;
+}
+
+.line {
+  margin-bottom: 20px;
+  border: none; /* Убираем границу для браузера Firefox */
+  color: borderColor; /* Цвет линии для остальных браузеров */
+  background-color: borderColor; /* Цвет линии для браузера Firefox и Opera */
+  height: 1px;
+}

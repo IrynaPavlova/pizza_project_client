@@ -1,0 +1,8 @@
+@import "../../stylesheet/fonts.css";
+
+.productWrapper {
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  padding: 30px 20px 40px;
+}
