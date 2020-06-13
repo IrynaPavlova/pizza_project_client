@@ -8,6 +8,7 @@ const OrderPage = () => {
     <div className={styles.OrderPageContainer}>
       <hr className={styles.line} />
       <OrderList />
+
       <hr className={styles.line} />
 
       {/* <OrderForm /> */}
