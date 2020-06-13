@@ -9,6 +9,7 @@
 
 .mainMenuItem {
   position: relative;
+  z-index: 0;
   font-family: OswaldRegular;
   font-size: primaryTextFontSize;
   color: primaryColor;
