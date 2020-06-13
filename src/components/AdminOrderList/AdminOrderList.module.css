@@ -1,0 +1,10 @@
+.noOrderContainer {
+  width: 300px;
+  margin: 200px auto;
+  border: 2px solid #858585;
+}
+
+.noOrderText {
+  text-align: center;
+  font-size: 24px;
+}
