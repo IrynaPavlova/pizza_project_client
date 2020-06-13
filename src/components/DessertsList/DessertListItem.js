@@ -1,4 +1,6 @@
 import React from 'react';
+
+import dessert2 from '../../assets/img/desserts/dessert2.jpg';
 import styles from './DessertsList.module.css';
 
 const {
@@ -9,26 +11,26 @@ const {
   dessertButton,
 } = styles;
 
-const DessertListItem = () => {
-  return (
-    <li className={dessertItem}>
-      <img src="" alt="" width="100%" />
-      <h2 className={dessertTittle}>Dessert1</h2>
-      <div className={dessertDescription}>
-        <div className={dessertPrice}>
-          <p>Вес: 100g</p>
-          <p>Цена: 100ua</p>
-        </div>
-        <button
-          className={dessertButton}
-          type="submit"
-          onClick={() => console.log}
-        >
-          В корзину
-        </button>
+const DessertListItem = ({ name, description, price: { price }, currency }) => (
+  <li className={dessertItem}>
+    <img src={dessert2} alt="" width="100%" />
+    <h2 className={dessertTittle}>{name}</h2>
+    <div className={dessertDescription}>
+      <div className={dessertPrice}>
+        <p>Вес: {description}</p>
+        <p>
+          Цена: {price} {currency}
+        </p>
       </div>
-    </li>
-  );
-};
+      <button
+        className={dessertButton}
+        type="submit"
+        onClick={() => console.log}
+      >
+        В корзину
+      </button>
+    </div>
+  </li>
+);
 
 export default DessertListItem;
