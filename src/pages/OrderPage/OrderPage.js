@@ -1,7 +1,7 @@
 import React from "react";
 import OrderList from "../../components/OrderList";
 import styles from "./OrderPage.module.css";
-//import OrderForm from "../../components/OrderForm";
+import OrderForm from "../../components/OrderForm";
 
 const OrderPage = () => {
   return (
@@ -11,7 +11,7 @@ const OrderPage = () => {
 
       <hr className={styles.line} />
 
-      {/* <OrderForm /> */}
+      <OrderForm />
     </div>
   );
 };

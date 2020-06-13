@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./orderListItem.module.css";
-import closeBtn from "../../assets/img/buttonToCloseWindow.svg";
+import styles from "./OrderListItem.module.css";
+// import closeBtn from "../../assets/img/buttonToCloseWindow.svg";
 
 // props details
 //const name = "Пепперони с томатами";
@@ -54,7 +54,7 @@ const OrdersListItem = ({
         className={styles.deleteButton}
         onClick={onDeleteItem}
       >
-        <img src={closeBtn} alt="delete-btn" />
+        {/* <img src={closeBtn} alt="delete-btn" /> */}
       </button>
       <div className={styles.imgContainer}>
         <img src={img} alt={name} />

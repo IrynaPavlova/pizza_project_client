@@ -1,4 +1,5 @@
 import React from "react";
+// import OrderListItem from "../OrderListItem";
 import styles from "./OrderList.module.css";
 
 export default function OrderList() {
@@ -7,9 +8,7 @@ export default function OrderList() {
       <h2 className={styles.orderListTitle}>Ваш заказ</h2>
 
       <ul>
-        <li>
-          <p>выбранный продукт 1</p>
-        </li>
+        <li>{/* <OrderListItem /> */}</li>
       </ul>
     </>
   );
