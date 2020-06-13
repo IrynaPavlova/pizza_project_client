@@ -3,7 +3,7 @@
 .orderList {
   display: flex;
   flex-direction: column;
-  width: 281px;
+  width: 280px;
 }
 
 .orderListPrice {
