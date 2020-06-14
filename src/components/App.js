@@ -27,6 +27,7 @@ const App = () => {
           <Route path={routes.ORDER_PAGE} component={OrderPage} />
           <Route path={routes.ADMIN_PAGE} component={AdminPage} />
           <Route path={routes.ABOUT_DEV_PAGE} component={AboutDevelopersPage} />
+          <Route path={routes.AUTH} component={AuthPage} />
           {/* <Redirect to="#" /> */}
         </Switch>
       </Suspense>
