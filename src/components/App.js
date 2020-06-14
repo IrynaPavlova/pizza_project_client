@@ -1,15 +1,15 @@
-import React, { Suspense, lazy } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { routes } from '../services/routes';
-import MainPage from '../pages/MainPage/MainPage';
-import OrderPage from '../pages/OrderPage/OrderPage';
+import React, { Suspense, lazy } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { routes } from "../services/routes";
+import MainPage from "../pages/MainPage/MainPage";
+import OrderPage from "../pages/OrderPage/OrderPage";
 
-import AboutDevelopers from './AboutDevelopers'; // Не забыть убрать
+import AboutDevelopersPage from "../pages/AboutDevelopersPage"; // Не забыть убрать
 
-import Header from './Header';
-import Spinner from './Spinner';
+import Header from "./Header";
+import Spinner from "./Spinner";
 
-const DessertsList = lazy(() => import('../components/DessertsList'));
+const DessertsList = lazy(() => import("../components/DessertsList"));
 
 const App = () => {
   return (
@@ -17,7 +17,11 @@ const App = () => {
       <Header />
       <Suspense fallback={<Spinner />}>
         <Switch>
-          <Route path={routes.MAIN_PAGE} exact component={AboutDevelopers} />
+          <Route
+            path={routes.MAIN_PAGE}
+            exact
+            component={AboutDevelopersPage}
+          />
           {/* Вернуть MainPage */}
           <Route path={routes.DESSERTS} exact component={DessertsList} />
           <Route path={routes.ORDER_PAGE} component={OrderPage} />
