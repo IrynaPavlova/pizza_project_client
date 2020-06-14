@@ -8,6 +8,8 @@ const loginRequest = createAction("auth/loginRequest");
 const loginSuccess = createAction("auth/loginSuccess");
 const loginError = createAction("auth/loginError");
 
+const loginSocial = createAction("auth/loginSocial");
+
 const logoutRequest = createAction("auth/logoutRequest");
 const logoutSuccess = createAction("auth/logoutSuccess");
 const logoutError = createAction("auth/logoutError");
@@ -26,6 +28,7 @@ export default {
   loginRequest,
   loginSuccess,
   loginError,
+  loginSocial,
   getCurrentUserRequest,
   getCurrentUserSuccess,
   getCurrentUserError,

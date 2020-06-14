@@ -128,29 +128,25 @@ export default function LoginPage({ setIsModalActive, setIsLogining }) {
         Войти через социальную сеть
       </p>
       <div className={styles.socialRegistration}>
-        <button
-          className={styles.googleSocial}
-          type="button"
-          // onClick={() => dispatch(authOperations.logInGoogle())}
-        ></button>
-        <button
-          className={styles.facebookSocial}
-          type="button"
-          // onClick={() => dispatch(authOperations.logInFacebook())}
-        >
-          <svg
-            width="11"
-            height="20"
-            viewBox="0 0 11 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8.33125 3.32083H10.1571V0.140833C9.84208 0.0975 8.75875 0 7.49708 0C4.86458 0 3.06125 1.65583 3.06125 4.69917V7.5H0.15625V11.055H3.06125V20H6.62292V11.0558H9.41042L9.85292 7.50083H6.62208V5.05167C6.62292 4.02417 6.89958 3.32083 8.33125 3.32083Z"
-              fill="white"
-            />
-          </svg>
-        </button>
+        <a href="https://evening-caverns-34846.herokuapp.com/auth/google">
+          <button className={styles.googleSocial} type="button"></button>
+        </a>
+        <a href="https://evening-caverns-34846.herokuapp.com/auth/facebook">
+          <button className={styles.facebookSocial} type="button">
+            <svg
+              width="11"
+              height="20"
+              viewBox="0 0 11 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.33125 3.32083H10.1571V0.140833C9.84208 0.0975 8.75875 0 7.49708 0C4.86458 0 3.06125 1.65583 3.06125 4.69917V7.5H0.15625V11.055H3.06125V20H6.62292V11.0558H9.41042L9.85292 7.50083H6.62208V5.05167C6.62292 4.02417 6.89958 3.32083 8.33125 3.32083Z"
+                fill="white"
+              />
+            </svg>
+          </button>
+        </a>
       </div>
     </div>
   );
