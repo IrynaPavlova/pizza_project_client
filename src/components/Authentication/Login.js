@@ -1,29 +1,62 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { authOperations } from "../../redux/auth";
+import { useFormik } from "formik";
 import styles from "./Authentication.module.css";
 
 export default function LoginPage({ setIsModalActive, setIsLogining }) {
   const dispatch = useDispatch();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    onSubmit: async (values, { resetForm, setSubmitting }) => {
+      setSubmitting(true);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+      const user = {
+        email: values.email,
+        password: values.password,
+      };
+      await dispatch(authOperations.logIn(user));
 
-    if (!email || !password) {
-      return;
-    }
+      resetForm();
+      setSubmitting(false);
+      setIsModalActive(false);
+    },
+    validate: (values) => {
+      const errors = {};
+      if (!values.email) {
+        errors.email = (
+          <p className={styles.formInputError}>Email is Required</p>
+        );
+      }
+      if (values.email && !values.email.includes("@")) {
+        errors.email = (
+          <p className={styles.formInputError}>
+            Email needs to include "@" symbol
+          </p>
+        );
+      }
+      if (!values.password) {
+        errors.password = (
+          <p className={styles.formInputError}>Password is Required</p>
+        );
+      }
+      return errors;
+    },
+  });
 
-    const user = {
-      email,
-      password,
-    };
-
-    await dispatch(authOperations.logIn(user));
-    setIsModalActive(false);
-  };
+  const {
+    values,
+    touched,
+    errors,
+    isSubmitting,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+  } = formik;
 
   return (
     <div className={styles.section}>
@@ -48,30 +81,45 @@ export default function LoginPage({ setIsModalActive, setIsLogining }) {
       </button>
 
       <form onSubmit={handleSubmit} className={styles.form}>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={({ target: { value } }) => setEmail(value)}
-          className={styles.formInput}
-          placeholder="E-mail"
-        />
-
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={({ target: { value } }) => setPassword(value)}
-          className={styles.formInput}
-          placeholder="Пароль"
-        />
-
-        <button type="submit" className={styles.formButton}>
+        <label className={styles.formLabel}>
+          <input
+            type="email"
+            name="email"
+            value={values.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            className={`${styles.formInput}
+            ${touched.email && !errors.email ? styles.accepted : ""}
+            ${touched.email && errors.email ? styles.error : ""}`}
+            placeholder="E-mail"
+          />
+          {errors.email && touched.email && errors.email}
+        </label>
+        <label className={styles.formLabel}>
+          <input
+            type="password"
+            name="password"
+            value={values.password}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            className={`${styles.formInput}
+            ${touched.password && !errors.password ? styles.accepted : ""}
+            ${touched.password && errors.password ? styles.error : ""}`}
+            placeholder="Пароль"
+          />
+          {errors.password && touched.password && errors.password}
+        </label>
+        <button
+          type="submit"
+          className={styles.formButton}
+          disabled={isSubmitting}
+        >
           Войти
         </button>
         <button
           className={styles.linkToRegister}
           onClick={() => setIsLogining(false)}
+          disabled={isSubmitting}
         >
           Регистрация
         </button>
@@ -80,8 +128,16 @@ export default function LoginPage({ setIsModalActive, setIsLogining }) {
         Войти через социальную сеть
       </p>
       <div className={styles.socialRegistration}>
-        <button className={styles.googleSocial} type="button"></button>
-        <button className={styles.facebookSocial} type="button">
+        <button
+          className={styles.googleSocial}
+          type="button"
+          // onClick={() => dispatch(authOperations.logInGoogle())}
+        ></button>
+        <button
+          className={styles.facebookSocial}
+          type="button"
+          // onClick={() => dispatch(authOperations.logInFacebook())}
+        >
           <svg
             width="11"
             height="20"
