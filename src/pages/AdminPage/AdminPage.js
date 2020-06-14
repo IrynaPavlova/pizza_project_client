@@ -1,11 +1,13 @@
 import React from "react";
+import AdminOrderList from "../../components/AdminOrderList/AdminOrderList";
 import styles from "./AdminPage.module.css";
 
 const OrderPage = () => {
   return (
     <div className={styles.AdminPageContainer}>
       <hr className={styles.line} />
-      <p> Admin Order List </p>
+      <h2>Принятые заказы</h2>
+      <AdminOrderList />
 
       <hr className={styles.line} />
       <p> button Create New Product </p>
