@@ -3,9 +3,10 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { routes } from "../services/routes";
 import MainPage from "../pages/MainPage/MainPage";
 import OrderPage from "../pages/OrderPage/OrderPage";
+import AboutDevelopersPage from "../pages/AboutDevelopersPage/AboutDevelopersPage";
 
 import AdminPage from "../pages/AdminPage/AdminPage";
-import PizzaList from '../components/PizzaList/PizzaList';
+import PizzaList from "../components/PizzaList/PizzaList";
 
 import Header from "./Header";
 import Spinner from "./Spinner";
@@ -18,15 +19,12 @@ const App = () => {
       <Header />
       <Suspense fallback={<Spinner />}>
         <Switch>
-          <Route
-            path={routes.MAIN_PAGE}
-            exact
-            component={MainPage}
-          />
+          <Route path={routes.MAIN_PAGE} exact component={MainPage} />
           <Route path={routes.DESSERTS} exact component={DessertsList} />
-          <Route path={routes.PIZZA} component={PizzaList}/>
+          <Route path={routes.PIZZA} component={PizzaList} />
           <Route path={routes.ORDER_PAGE} component={OrderPage} />
           <Route path={routes.ADMIN_PAGE} component={AdminPage} />
+          <Route path={routes.ABOUT_DEV_PAGE} component={AboutDevelopersPage} />
           {/* <Redirect to="#" /> */}
         </Switch>
       </Suspense>
