@@ -1,0 +1,70 @@
+.dessertList {
+  margin: 0 auto;
+}
+
+.dessertItem {
+  width: 280px;
+  margin: 0 auto 30px;
+  padding: 16px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25), 0px 2px 2px rgba(0, 0, 0, 0.08),
+    0px 1px 1px rgba(0, 0, 0, 0.16);
+}
+
+.dessertTittle {
+  font-family: OswaldRegular;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: 0.4px;
+  color: #ff6c00;
+}
+
+.dessertDescription {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dessertPrice {
+  margin-bottom: 25px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.dessertButton {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  width: 100px;
+  height: 36px;
+  background: #ff6c00;
+  border: none;
+  border-radius: 4px;
+}
+
+@media screen and (min-width: 768px) {
+  .dessertList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 768px;
+    /* margin: 0 auto; */
+    padding: 15px;
+  }
+
+  .dessertItem {
+    width: 354px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .dessertList {
+    max-width: 1170px;
+  }
+
+  .dessertItem {
+    width: 270px;
+  }
+}

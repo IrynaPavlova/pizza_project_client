@@ -1,0 +1,148 @@
+@value variables: '../../stylesheet/vars.css';
+@value accentColor, lightColor, secondaryTextFontSize from variables;
+
+.orderItemCard {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  height: 418px;
+  padding: 0 30px;
+  border: 1px solid rgba(39, 39, 39, 0.1);
+  box-sizing: border-box;
+}
+
+.deleteButton {
+  width: 12px;
+  height: 12px;
+  border: none;
+  background: transparent;
+  margin-bottom: 24px;
+  position: relative;
+  left: 102%;
+  top: 2%;
+}
+
+.imgContainer {
+  width: 220px;
+  height: 174px;
+  margin: 0 auto;
+  border: 1px solid rgba(39, 39, 39, 0.1);
+  margin-bottom: 20px;
+}
+
+.productName {
+  text-align: center;
+  color: accentColor;
+  font-family: "OswaldRegular";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: 0.4px;
+  margin-bottom: 10px;
+}
+
+.ingredientsText {
+  font-family: "RobotoRegular";
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: capitalize;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.orderDetailsWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.priceText {
+  font-family: "RobotoRegular";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 2rem;
+  letter-spacing: 0.25px;
+}
+
+.currencyText {
+  font-size: 14px;
+  font-weight: normal;
+  padding-left: 10px;
+}
+
+.amountContainer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+}
+
+.deleteBtn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 4px;
+  background: rgba(39, 39, 39, 0.2);
+}
+
+.incrementBtn {
+  background: rgba(39, 39, 39, 0.8);
+  color: #ffffff;
+}
+
+.amountNumber {
+  font-family: "RobotoRegular";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+/*media*/
+
+@media (min-width: 768px) {
+  .orderItemCard {
+    width: 738px;
+    height: 205px;
+    padding: 0;
+    margin: 0;
+    flex-direction: row;
+  }
+
+  .orderItemCard:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  .imgContainer {
+    width: 270px;
+    height: 205px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .deleteButton {
+    top: 20px;
+    left: 96%;
+    margin: 0;
+  }
+
+  .contentWrapper {
+    padding-top: 44px;
+    padding-left: 32px;
+  }
+
+  .productName,
+  .ingredientsText {
+    text-align: left;
+  }
+
+  .orderDetailsWrapper {
+    width: 400px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .orderItemCard {
+    width: 770px;
+  }
+}

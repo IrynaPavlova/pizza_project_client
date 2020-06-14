@@ -1,14 +1,9 @@
 import React from "react";
-import styled from "styled-components";
 
-const Container = styled.div`
-display: flex;
-flex-direction: column;
-min-width: 320px;
-padding 30px 20px 40px;
+import styles from "./ProductContainer.module.css";
 
-`;
-
-const ProductContainer = ({ children }) => <Container>{children}</Container>;
+const ProductContainer = ({ children }) => (
+  <div className={styles.productWrapper}>{children}</div>
+);
 
 export default ProductContainer;

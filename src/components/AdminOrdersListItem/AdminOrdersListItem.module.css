@@ -1,0 +1,90 @@
+@value variables: '../../stylesheet/vars.css';
+@value secondaryTextFontSize, primaryColor, primaryTextColor, primaryTextFontSize from variables;
+
+.orderWrapper {
+  margin: 0 auto;
+  min-width: 320px;
+  max-width: 1200px;
+  border: 1px solid primaryColor;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  font-family: RobotoRegular;
+  font-size: primaryTextFontSize;
+  color: primaryTextColor;
+}
+
+.orderNumber {
+  flex-basis: 20px;
+}
+
+.itemsList {
+  flex-basis: 640px;
+  margin-bottom: 20px;
+}
+
+.itemsListItem {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.orderContacts {
+  flex-basis: 200px;
+}
+
+.orderCheckbox {
+  flex-basis: 60px;
+}
+
+.itemName {
+  flex-basis: 340px;
+  font-family: OswaldRegular;
+  font-size: secondaryTextFontSize;
+  color: primaryColor;
+  text-transform: capitalize;
+}
+
+.itemSize {
+  flex-basis: 100px;
+}
+
+.itemCount {
+  flex-basis: 100px;
+}
+
+.totalSum {
+  flex-basis: 100px;
+  font-family: RobotoRegular;
+  font-size: secondaryTextFontSize;
+  color: primaryColor;
+  margin-bottom: 20px;
+}
+
+.currency {
+  font-size: 12px;
+  margin-left: 6px;
+}
+
+@media (min-width: 1200px) {
+  .orderNumber {
+    flex-basis: 30px;
+  }
+
+  .itemsList {
+    flex-basis: 700px;
+    margin-bottom: 0;
+  }
+
+  .itemName {
+    flex-basis: 400px;
+  }
+
+  .totalSum {
+    margin-bottom: 0;
+  }
+}
