@@ -12,7 +12,7 @@ const getOrders = () => (dispatch) => {
 
   axios
     .get("/orders")
-    .then(({ data }) => dispatch(orderActions.ordersSuccess(data.products)))
+    .then(({ data }) => dispatch(orderActions.ordersSuccess(data.orders)))
     .catch((error) => dispatch(orderActions.ordersError(error)));
 };
 
@@ -21,7 +21,7 @@ const getOrdersById = (id) => (dispatch) => {
 
   axios
     .get(`/orders/${id}`)
-    .then(({ data }) => dispatch(orderActions.orderByIdSuccess(data.product)))
+    .then(({ data }) => dispatch(orderActions.orderByIdSuccess(data.orders)))
     .catch((error) => dispatch(orderActions.orderByIdError(error)));
 };
 

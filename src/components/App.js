@@ -4,8 +4,7 @@ import { routes } from "../services/routes";
 import MainPage from "../pages/MainPage/MainPage";
 import OrderPage from "../pages/OrderPage/OrderPage";
 import AboutDevelopersPage from "../pages/AboutDevelopersPage/AboutDevelopersPage";
-
-import AdminPage from "../pages/AdminPage/AdminPage";
+import AdminPage from "../pages/AdminPage/AdminPageContainer";
 import PizzaList from "../components/PizzaList/PizzaList";
 
 import Header from "./Header";
