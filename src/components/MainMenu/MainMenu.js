@@ -53,6 +53,25 @@ export default function MainMenu() {
             Десерты
           </NavLink>
         </li>
+
+        <li>
+          <NavLink
+            to={routes.ABOUT_DEV_PAGE}
+            className={styles.mainMenuItem}
+            activeClassName={styles.mainMenuActiveItem}
+          >
+            О разработчиках
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to={routes.ADMIN_PAGE}
+            className={styles.mainMenuItem}
+            activeClassName={styles.mainMenuActiveItem}
+          >
+            Admin Page
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

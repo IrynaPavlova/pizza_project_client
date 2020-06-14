@@ -24,7 +24,7 @@ const Header = (props) => {
   const [isModalActive, setIsModalActive] = useState(false);
 
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       {isLoading && <Spinner />}
       <div className={styles.darkHeader}>
         <div className={styles.container}>
@@ -67,7 +67,7 @@ const Header = (props) => {
         isModalActive={isModalActive}
         setIsModalActive={setIsModalActive}
       />
-    </div>
+    </header>
   );
 };
 

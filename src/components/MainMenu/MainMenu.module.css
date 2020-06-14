@@ -14,6 +14,7 @@
   font-size: primaryTextFontSize;
   color: primaryColor;
   text-transform: uppercase;
+  transition: color 0.25s;
 }
 
 .mainMenuItems li:not(:last-of-type) {
@@ -35,6 +36,7 @@
 
 .mainMenuItem:hover {
   color: accentColor;
+  text-decoration: none;
 }
 
 .mainMenuItem:hover::before {
