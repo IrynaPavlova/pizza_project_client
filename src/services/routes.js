@@ -8,4 +8,5 @@ export const routes = {
   DESSERTS: "/desserts",
 
   ADMIN_PAGE: "/admin",
+  ABOUT_DEV_PAGE: "/about-developers",
 };
