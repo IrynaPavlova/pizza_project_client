@@ -1,0 +1,27 @@
+.editCard {
+  width: 70vw;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .editCard {
+    width: 25vw;
+  }
+}
+.image {
+  width: inherit;
+  height: 30vh;
+  object-fit: cover;
+}
+.editForm {
+  width: inherit;
+}
+.editForm__input {
+  width: inherit;
+}
+.editForm__text {
+  width: inherit;
+  height: 15vh;
+}
+.editForm__btnSubmit {
+  width: inherit;
+}
