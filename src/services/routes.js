@@ -9,4 +9,6 @@ export const routes = {
 
   ADMIN_PAGE: "/admin",
   ABOUT_DEV_PAGE: "/about-developers",
+
+  AUTH: "/auth",
 };
