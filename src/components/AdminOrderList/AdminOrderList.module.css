@@ -8,3 +8,45 @@
   text-align: center;
   font-size: 24px;
 }
+
+.orderContainer {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.filterLabel {
+  background: #ff6c00;
+  padding: 10px;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  position: relative;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.filterLabel input {
+  opacity: 0;
+}
+
+.filterLabel span {
+  font-family: RobotoRegular;
+  font-style: normal;
+  font-weight: 500;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.orderList {
+  display: flex;
+  justify-content: center;
+}
+
+.orderList li {
+  margin-right: 20px;
+  padding: 10px 12px;
+  display: flex;
+  text-align: center;
+  border-radius: 4px;
+}
