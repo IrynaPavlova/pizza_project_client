@@ -1,13 +1,13 @@
-import axios from 'axios';
-import productActions from './productActions';
+import axios from "axios";
+import productActions from "./productActions";
 
-axios.defaults.baseURL = 'https://evening-caverns-34846.herokuapp.com/';
+axios.defaults.baseURL = "https://evening-caverns-34846.herokuapp.com/";
 
 const fetchProducts = () => (dispatch) => {
   dispatch(productActions.productsRequest());
 
   axios
-    .get('/products')
+    .get("/products")
     .then(({ data }) => dispatch(productActions.productsSuccess(data.products)))
     .catch((error) => dispatch(productActions.productsError(error)));
 };
