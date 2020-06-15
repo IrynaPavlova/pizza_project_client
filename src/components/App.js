@@ -1,15 +1,22 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { routes } from "../services/routes";
-import MainPage from "../pages/MainPage/MainPage";
+import MainPage from "../pages/MainPage";
 import OrderPage from "../pages/OrderPage/OrderPage";
 import AboutDevelopersPage from "../pages/AboutDevelopersPage/AboutDevelopersPage";
+<<<<<<< HEAD
 <<<<<<< HEAD
 import AdminPage from "../pages/AdminPage/AdminPageContainer";
 =======
 import AuthPage from "../pages/AuthPage";
 
 import AdminPage from "../pages/AdminPage/AdminPage";
+>>>>>>> dev
+=======
+import AdminPage from "../pages/AdminPage/AdminPage";
+import AuthPage from "../pages/AuthPage";
+
+import PromoList from "../components/PromoList";
 >>>>>>> dev
 import PizzaList from "../components/PizzaList/PizzaList";
 
@@ -27,6 +34,7 @@ const App = () => {
           <Route path={routes.MAIN_PAGE} exact component={MainPage} />
           <Route path={routes.DESSERTS} exact component={DessertsList} />
           <Route path={routes.PIZZA} component={PizzaList} />
+          <Route path={routes.PROMO} component={PromoList} />
           <Route path={routes.ORDER_PAGE} component={OrderPage} />
           <Route path={routes.ADMIN_PAGE} component={AdminPage} />
           <Route path={routes.ABOUT_DEV_PAGE} component={AboutDevelopersPage} />
