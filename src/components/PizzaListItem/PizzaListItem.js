@@ -5,7 +5,7 @@ import styles from "./PizzaListItem.module.css";
 
 function PizzaListItem(props) {
   const [selectedSize, setSelectedSize] = useState("M");
-  const size = ["M", "L", "XL"];
+  // const size = ["M", "L", "XL"];
   function handleChange(event) {
     setSelectedSize(event.target.value);
   }
