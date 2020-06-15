@@ -1,7 +1,6 @@
 import React from "react";
 import AdminOrderList from "../../components/AdminOrderList/AdminOrderList";
 import styles from "./AdminPage.module.css";
-import AdminOrderList from '../../components/AdminOrderList/AdminOrderList';
 
 const OrderPage = () => {
   return (
@@ -10,7 +9,7 @@ const OrderPage = () => {
       <h2>Принятые заказы</h2>
       <AdminOrderList />
 
-    <AdminOrderList/>
+      <AdminOrderList />
 
       <hr className={styles.line} />
       <p> button Create New Product </p>
