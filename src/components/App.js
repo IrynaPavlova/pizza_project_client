@@ -4,10 +4,20 @@ import { routes } from "../services/routes";
 import MainPage from "../pages/MainPage";
 import OrderPage from "../pages/OrderPage/OrderPage";
 import AboutDevelopersPage from "../pages/AboutDevelopersPage/AboutDevelopersPage";
+<<<<<<< HEAD
+<<<<<<< HEAD
+import AdminPage from "../pages/AdminPage/AdminPageContainer";
+=======
+import AuthPage from "../pages/AuthPage";
+
+import AdminPage from "../pages/AdminPage/AdminPage";
+>>>>>>> dev
+=======
 import AdminPage from "../pages/AdminPage/AdminPage";
 import AuthPage from "../pages/AuthPage";
 
 import PromoList from "../components/PromoList";
+>>>>>>> dev
 import PizzaList from "../components/PizzaList/PizzaList";
 
 import Header from "./Header";
