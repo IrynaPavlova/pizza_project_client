@@ -1,5 +1,7 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { authOperations } from "../redux/auth";
 import { routes } from "../services/routes";
 import MainPage from "../pages/MainPage";
 import OrderPage from "../pages/OrderPage/OrderPage";
@@ -18,6 +20,10 @@ import Spinner from "./Spinner";
 const DessertsList = lazy(() => import("../components/DessertsList"));
 
 const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(authOperations.getCurrentUser());
+  }, [dispatch]);
   return (
     <BrowserRouter>
       <Header />
