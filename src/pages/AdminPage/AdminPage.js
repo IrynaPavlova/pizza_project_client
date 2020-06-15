@@ -7,7 +7,6 @@ const OrderPage = () => {
     <div className={styles.AdminPageContainer}>
       <hr className={styles.line} />
       <h2>Принятые заказы</h2>
-      <AdminOrderList />
 
       <AdminOrderList />
 
