@@ -66,15 +66,15 @@ export default function AdminOrderList() {
           </div>
           <div className={styles.orderItems}>
             <ul>
-              {orders.map((item) => {
+              {items.map((item) => {
                 if (filters === "Все") {
                   return <AdminOrdersListItem key={item._id} item={item} />;
                 }
               })}
             </ul>
             <ul>
-              {orders.map((item) => {
-                if (filters === "Выполненные" && item.status === "completed") {
+              {items.map((item) => {
+                if (filters === "Выполненные" && item.status === "done") {
                   return <AdminOrdersListItem key={item._id} item={item} />;
                 }
               })}
@@ -83,7 +83,7 @@ export default function AdminOrderList() {
               {orders.map((item) => {
                 if (
                   filters === "Новые" &&
-                  item.status === "non-completed"
+                  item.status === "new"
                 ) {
                   return <AdminOrdersListItem key={item._id} item={item} />;
                 }
