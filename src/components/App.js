@@ -16,6 +16,7 @@ import PizzaList from "../components/PizzaList/PizzaListContainer";
 
 import Header from "./Header";
 import Spinner from "./Spinner";
+//import Footer from "./Footer/Footer";
 
 const DessertsList = lazy(() => import("../components/DessertsList"));
 

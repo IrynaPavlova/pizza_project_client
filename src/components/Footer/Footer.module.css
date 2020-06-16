@@ -1,0 +1,135 @@
+@value variables: '../../stylesheet/vars.css';
+@value primaryColor, accentColor, lightColor, primaryTextFontSize, secondaryTextFontSize from variables;
+
+.footerContainer {
+  background-image: url(../../assets/img/footerbg.svg);
+  background-size: cover;
+  background-position: center;
+}
+
+.siteName {
+  padding-top: 60px;
+  margin-bottom: 4px;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.border {
+  margin: 0 auto;
+  margin-bottom: 30px;
+  width: 149px;
+  height: 3px;
+  display: block;
+  background-color: #ff6c00;
+  border-radius: 4px;
+}
+
+.phoneContainer {
+  margin: 0 auto;
+  margin-bottom: 30px;
+  width: 175px;
+  font-family: OswaldBold;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.065em;
+  text-transform: uppercase;
+}
+
+.phoneImg {
+  margin-right: 15px;
+}
+
+.phoneFooter {
+  color: #fff;
+}
+
+.socialsContainer {
+  padding-bottom: 60px;
+  margin: 0 auto;
+  border-radius: 50px;
+  width: 200px;
+}
+
+.iconsContainer {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 11px;
+  padding-bottom: 5px;
+  width: 40px;
+  height: 42px;
+  border-radius: 26px;
+  transition: 0.3s;
+}
+
+.iconsContainer:nth-child(-n + 3) {
+  margin-right: 14px;
+}
+
+.iconsContainer:hover {
+  background: #ff6c00;
+}
+
+.linkImg {
+  width: 15px;
+  height: 18px;
+  margin-bottom: 9px;
+}
+
+.phoneImg {
+  width: 17px;
+  height: 17px;
+  margin-bottom: 3px;
+}
+
+.facebook {
+  padding-right: 13px;
+  padding-left: 12px;
+}
+
+@media screen and (min-width: 768px) {
+  .footerContainer {
+    background-image: url(../../assets/img/Footerbgtab.svg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .footerItemsContainer {
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+    padding-top: 88px;
+    width: 440px;
+  }
+
+  .siteName {
+    padding-top: 0;
+  }
+
+  .phoneContainer {
+    order: -1;
+    padding-bottom: 172px;
+    margin-left: 10px;
+    margin-right: 91px;
+    margin-bottom: 0;
+  }
+
+  .socialsContainer {
+    order: -1;
+    position: absolute;
+    left: 30%;
+    bottom: 39px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .footerContainer {
+    background-image: url(../../assets/img/Footerbgdes.svg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .socialsContainer {
+    left: 32%;
+  }
+}
