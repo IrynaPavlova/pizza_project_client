@@ -13,48 +13,68 @@ export default function UserProfile() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [user, setUser] = useState({});
 
+
   useEffect(() => {
+    setIsLoaded(true);
     fetch(`https://evening-caverns-34846.herokuapp.com/users/${id}`)
       .then((res) => res.json())
       .then(
         (result) => {
-          setIsLoaded(true);
-          setUser({...result});
-          console.log(result);
-          console.log(result.user);
-          console.log(result.user.email);
+          setUser({ ...result });
+          setIsLoaded(false);
+          console.log(result.user.orders.length);
         },
         (error) => {
-          setIsLoaded(true);
+          setIsLoaded(false);
           setError(error);
         }
-      )
-;
+      );
   }, []);
 
+  
+  return (
+    <>
+      {error && (
+        <div>
+          <p>Ой... что-то пошло не так. Попробуйте снова.</p>
+        </div>
+      )}
 
-
-  if (error) {
-    return (
-      <div>
-        <p>Ой... что-то пошло не так. Попробуйте снова.</p>
-      </div>
-    );
-  } else if (!isLoaded) {
-    return <Spinner />;
-  } else {
-    // 
-    return (
+      {isLoaded && <Spinner />}
       <div className={styles.clientInfoContainer}>
-        <ClientInfo username={user.username} email={user.email} />
+        {user.user && <ClientInfo username={user.user.username} email={user.user.email} />}
         {!user.orders ? (
           <div>
-            <p>У вас еще нет заказов</p>
+            <p className={styles.noOrdersText}>У вас еще нет заказов</p>
           </div>
         ) : (
-          <ClientOrders orders={user.orders} />
+          <ClientOrders orders={user.user.orders} />
         )}
       </div>
-    );
-  }
+    </>
+  );
+
+  // if (error) {
+  //   return (
+  //     <div>
+  //       <p>Ой... что-то пошло не так. Попробуйте снова.</p>
+  //     </div>
+  //   );
+  // } else if (!isLoaded) {
+  //   return <Spinner />;
+  // } else {
+  //   // 
+  //   return (
+  //     <div className={styles.clientInfoContainer}>
+  //       <ClientInfo username={user.username} email={user.email} />
+  //       {!user.orders ? (
+  //         <div>
+  //           <p>У вас еще нет заказов</p>
+  //         </div>
+  //       ) : (
+  //         <ClientOrders orders={user.orders} />
+  //       )}
+  //     </div>
+  //   );
+  // }
 }
