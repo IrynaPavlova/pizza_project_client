@@ -9,6 +9,8 @@ import AboutDevelopersPage from "../pages/AboutDevelopersPage/AboutDevelopersPag
 
 import AdminPage from "../pages/AdminPage/AdminPageContainer";
 
+import AdminStocksEditor from './AdminStocksEditor' // !!Убрать!!
+
 import AuthPage from "../pages/AuthPage";
 
 import PromoList from "../components/PromoList";
@@ -34,7 +36,8 @@ const App = () => {
           <Route path={routes.PIZZA} component={PizzaList} />
           <Route path={routes.PROMO} component={PromoList} />
           <Route path={routes.ORDER_PAGE} component={OrderPage} />
-          <Route path={routes.ADMIN_PAGE} component={AdminPage} />
+          <Route path={routes.ADMIN_PAGE} component={AdminStocksEditor} /> 
+          {/* !!Восстановить AdminPage!! */}
           <Route path={routes.ABOUT_DEV_PAGE} component={AboutDevelopersPage} />
           <Route path={routes.AUTH} component={AuthPage} />
           {/* <Redirect to="#" /> */}
