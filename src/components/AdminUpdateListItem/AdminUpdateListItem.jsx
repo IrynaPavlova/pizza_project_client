@@ -2,18 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import style from "./adminUpdateListItem.module.css";
 
-export const AdminUpdateListItem = ({ productForEdit }) => {
-  const {
-    ingredients,
-    categories,
-    sku,
-    name,
-    description,
-    price,
-    subcategory,
-    images,
-  } = productForEdit.product;
-
+const AdminUpdateListItem = ({
+  ingredients,
+  categories,
+  sku,
+  name,
+  description,
+  price,
+  subcategory,
+  images,
+}) => {
   return (
     <div className={style.editCard}>
       <img src={images} alt={images} className={style.editCard__image} />
@@ -44,7 +42,7 @@ export const AdminUpdateListItem = ({ productForEdit }) => {
               <h4>XL</h4> <p>{price.XL}</p>
             </>
           ) : (
-            <p>{price}</p>
+            <p>{price.price}</p>
           )}
         </div>
       </div>
@@ -56,3 +54,5 @@ export const AdminUpdateListItem = ({ productForEdit }) => {
     </div>
   );
 };
+
+export default AdminUpdateListItem;
