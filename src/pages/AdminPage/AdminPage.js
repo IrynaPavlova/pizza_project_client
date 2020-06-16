@@ -43,6 +43,7 @@ export default function AdminPage() {
           </li>
         </ul>
         <hr className={styles.line} />
+
         <Switch>
           <Route path={routes.ADMIN_ORDER_LISTS} component={AdminOrderList} />
           <Route

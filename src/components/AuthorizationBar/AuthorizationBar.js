@@ -4,7 +4,11 @@ import { authSelectors, authOperations } from "../../redux/auth";
 
 import styles from "./AuthorizationBar.module.css";
 
-export default function AuthorizationBar({ setIsModalActive }) {
+export default function AuthorizationBar({
+  darkStyle,
+  setIsMobileMenuOpen,
+  setIsModalActive,
+}) {
   const dispatch = useDispatch();
   const onLogout = () => dispatch(authOperations.logOut());
   const isAuthenticated = useSelector(authSelectors.isAuthenticated);
@@ -26,8 +30,11 @@ export default function AuthorizationBar({ setIsModalActive }) {
       ) : (
         <button
           type="button"
-          className={styles.loginButton}
-          onClick={() => setIsModalActive(true)}
+          className={darkStyle || styles.loginButton}
+          onClick={() => {
+            setIsMobileMenuOpen(false);
+            setIsModalActive(true);
+          }}
         >
           Войти
         </button>
