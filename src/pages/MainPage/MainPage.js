@@ -1,28 +1,24 @@
-import React from "react";
-import ProductContainer from "../../components/ProductContainer/ProductContainer";
+import React, { Suspense, lazy } from "react";
+
 import Slider from "../../components/Slider";
+import Spinner from "../../components/Spinner";
+import ProductContainer from "../../components/ProductContainer";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+// const PizzaList = lazy(() => import("../../components/PizzaList/PizzaList"));
+import PizzaList from "../../components/PizzaList/PizzaListContainer.js";
 
-//import PizzaList from "../../components/PizzaList/PizzaList"; раскоментировать для подключения реального PizzaList
-// import PizzaListForTest from "../../components/PizzaList/PizzaListForTest";
-// import PizzaListItem from "../../components/PizzaListItem/PizzaListItem";
-// import { Switch, Route } from 'react-router-dom';
-// import { routes } from '../../servises/routes';
-// import styles from './MainPage.module.css';
-// import products from "../../services/products.json";
-
-function MainPage() {
+const MainPage = () => {
   return (
     <>
       <Slider />
-      <ProductContainer>
-        {/* <PizzaList />  раскоментировать для подключения реального PizzaList */}
-        {/* <PizzaListForTest /> */}
-        {/* Using test product object from products.json for testing purposes  */}
-      </ProductContainer>
+      <Suspense fallback={<Spinner />}>
+        <ProductContainer>
+          <PizzaList />
+        </ProductContainer>
+      </Suspense>
     </>
   );
-}
+};
 
 export default MainPage;

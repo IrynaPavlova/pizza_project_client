@@ -121,6 +121,10 @@ img {
     flex-direction: row;
   }
 
+  .orderItemCard:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
   .imgContainer {
     display: flex;
     width: 270px;

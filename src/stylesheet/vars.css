@@ -11,14 +11,14 @@
 
 /* FONT SIZES */
 /* 36 px */
-@value primaryHeaderFontSize: 2.6rem;
+@value primaryHeaderFontSize: 2.25 rem;
 /* 24 px */
-@value secondaryHeaderFontSize: 1.7rem;
+@value secondaryHeaderFontSize: 1.5 rem;
 /* 30 px */
-@value thirdHeaderFontStyle: 2.1 rem;
+@value thirdHeaderFontStyle: 1.875 rem;
 /* 14 px */
-@value primaryTextFontSize: 1rem;
+@value primaryTextFontSize: 0.875 rem;
 /* 20 px */
-@value secondaryTextFontSize: 1.4rem;
+@value secondaryTextFontSize: 1.25 rem;
 /* 76 px */
-@value sliderFontSize: 5.4rem;
+@value sliderFontSize: 4.75 rem;

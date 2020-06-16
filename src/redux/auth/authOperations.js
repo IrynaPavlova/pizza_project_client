@@ -38,48 +38,29 @@ const logIn = (credentials) => (dispatch) => {
     .catch(({ message }) => dispatch(authActions.loginError(message)));
 };
 
-const logInGoogle = () => (dispatch) => {
-  dispatch(authActions.loginRequest());
-  axios
-    .get("/auth/google")
-    .then((response) => {
-      console.log(response);
-      token.set(response.data.token);
+const logInSocial = (user) => (dispatch) => {
+  token.set(user.token);
 
-      dispatch(authActions.loginSuccess(response.data));
-    })
-    .catch(({ message }) => dispatch(authActions.loginError(message)));
+  dispatch(authActions.loginSocial(user));
 };
 
-const logInFacebook = () => (dispatch) => {
-  dispatch(authActions.loginRequest());
+const getCurrentUser = () => (dispatch, getState) => {
+  const {
+    auth: { token: persistedToken },
+  } = getState();
+
+  if (!persistedToken) {
+    return;
+  }
+
+  token.set(persistedToken);
+  dispatch(authActions.getCurrentUserRequest());
+
   axios
-    .get("/auth/facebook")
-    .then((response) => {
-      token.set(response.data.token);
-      console.log(response);
-      dispatch(authActions.loginSuccess(response.data));
-    })
-    .catch(({ message }) => dispatch(authActions.loginError(message)));
+    .get("/auth/current")
+    .then(({ data }) => dispatch(authActions.getCurrentUserSuccess(data)))
+    .catch(({ message }) => authActions.getCurrentUserError(message));
 };
-
-// const getCurrentUser = () => (dispatch, getState) => {
-//   const {
-//     auth: { token: persistedToken },
-//   } = getState();
-
-//   if (!persistedToken) {
-//     return;
-//   }
-
-//   token.set(persistedToken);
-//   dispatch(authActions.getCurrentUserRequest());
-
-//   axios
-//     .get("/auth/current")
-//     .then(({ data }) => dispatch(authActions.getCurrentUserSuccess(data)))
-//     .catch(({ message }) => authActions.getCurrentUserError(message));
-// };
 
 const logOut = () => (dispatch) => {
   dispatch(authActions.logoutRequest());
@@ -93,4 +74,4 @@ const logOut = () => (dispatch) => {
     .catch(({ message }) => dispatch(authActions.logoutError(message)));
 };
 
-export default { register, logOut, logIn, logInGoogle, logInFacebook };
+export default { register, logOut, logIn, logInSocial, getCurrentUser };

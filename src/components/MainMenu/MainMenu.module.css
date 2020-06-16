@@ -5,6 +5,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 0;
+  flex-wrap: wrap;
 }
 
 .mainMenuItem {
@@ -14,6 +16,7 @@
   font-size: primaryTextFontSize;
   color: primaryColor;
   text-transform: uppercase;
+  transition: color 0.25s;
 }
 
 .mainMenuItems li:not(:last-of-type) {
@@ -23,7 +26,7 @@
 .mainMenuItem::before {
   content: "";
   position: absolute;
-  top: 35px;
+  top: 48px;
   left: 50%;
   transform: translateX(-50%) scaleX(0);
   transform-origin: right;
@@ -35,6 +38,7 @@
 
 .mainMenuItem:hover {
   color: accentColor;
+  text-decoration: none;
 }
 
 .mainMenuItem:hover::before {

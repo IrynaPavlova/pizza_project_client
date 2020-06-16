@@ -1,0 +1,56 @@
+@import "../../stylesheet/fonts.css";
+
+.promoListItemWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25), 0px 2px 2px rgba(0, 0, 0, 0.08),
+    0px 1px 1px rgba(0, 0, 0, 0.16);
+}
+
+.promoListItemTextWrapper {
+  text-align: center;
+}
+
+.promoListItemImg {
+  display: block;
+  margin: 0 auto;
+  border-radius: 50px;
+  border: 5px solid #ff6c00;
+  margin-bottom: 20px;
+}
+
+.promoName {
+  font-family: OswaldRegular;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: 1px;
+  color: #ff6c00;
+  text-transform: uppercase;
+}
+
+.promoText {
+  font-family: RobotoRegular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #272727;
+}
+
+@media screen and (min-width: 768px) {
+  .promoListItemWrapper {
+    flex-direction: row;
+  }
+
+  .promoListItemImg {
+    margin: 0 20px 0 0;
+  }
+
+  .promoListItemTextWrapper {
+    text-align: left;
+  }
+}

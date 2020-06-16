@@ -12,6 +12,7 @@ import AuthorizationBar from "../AuthorizationBar";
 import Spinner from "../Spinner";
 import ShoppingCart from "../ShoppingCart";
 import MainMenu from "../MainMenu/MainMenu";
+import MobileMainMenu from "../MobileMainMenu";
 import Authentication from "../Authentication";
 
 import PhoneIcon from "../utils/PhoneIcon";
@@ -23,9 +24,21 @@ const Header = (props) => {
 
   const [isModalActive, setIsModalActive] = useState(false);
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleMenuClick = () => {
+    setIsMobileMenuOpen(true);
+  };
+
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       {isLoading && <Spinner />}
+      <MobileMainMenu
+        isModalActive={isModalActive}
+        setIsModalActive={setIsModalActive}
+        isMobileMenuOpen={isMobileMenuOpen}
+        setIsMobileMenuOpen={setIsMobileMenuOpen}
+      />
       <div className={styles.darkHeader}>
         <div className={styles.container}>
           <div>
@@ -42,7 +55,11 @@ const Header = (props) => {
           >
             {(matches) => (
               <>
-                {matches.small && <MenuBurgerIcon styles={styles.burgerMenu} />}
+                {matches.small && (
+                  <div onClick={handleMenuClick} styles={styles.burgerMenu}>
+                    <MenuBurgerIcon />
+                  </div>
+                )}
                 {matches.medium && (
                   <div className={styles.authWrapper}>
                     <LanguageSelector />
@@ -61,13 +78,13 @@ const Header = (props) => {
           </Link>
           <Media query="(min-width: 768px)" render={() => <MainMenu />} />
           <ShoppingCart />
+          <Authentication
+            isModalActive={isModalActive}
+            setIsModalActive={setIsModalActive}
+          />
         </div>
       </div>
-      <Authentication
-        isModalActive={isModalActive}
-        setIsModalActive={setIsModalActive}
-      />
-    </div>
+    </header>
   );
 };
 
