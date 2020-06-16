@@ -2,14 +2,16 @@ import React, { useState, useEffect } from "react";
 import Spinner from "../Spinner/Spinner";
 import { ClientOrders } from "./ClientOrders";
 import { ClientInfo } from "./ClientInfo";
-import styles from "./ClientInfo.module.css"
+import styles from "./ClientInfo.module.css";
 
 // GET "https://evening-caverns-34846.herokuapp.com/users/id"
 
-export default function UserProfile(id) {
+const id = "5e79e86a1005c628d790e8f0";
+
+export default function UserProfile() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     fetch(`https://evening-caverns-34846.herokuapp.com/users/${id}`)
@@ -17,14 +19,20 @@ export default function UserProfile(id) {
       .then(
         (result) => {
           setIsLoaded(true);
-          setUser(result.user);
+          setUser({...result});
+          console.log(result);
+          console.log(result.user);
+          console.log(result.user.email);
         },
         (error) => {
           setIsLoaded(true);
           setError(error);
         }
-      );
-  }, [id]);
+      )
+;
+  }, []);
+
+
 
   if (error) {
     return (
@@ -32,16 +40,13 @@ export default function UserProfile(id) {
         <p>Ой... что-то пошло не так. Попробуйте снова.</p>
       </div>
     );
-  } else if (isLoaded) {
+  } else if (!isLoaded) {
     return <Spinner />;
   } else {
+    // 
     return (
       <div className={styles.clientInfoContainer}>
-        <ClientInfo
-          username={user.username}
-          telephone={user.telephone}
-          email={user.email}
-        />
+        <ClientInfo username={user.username} email={user.email} />
         {!user.orders ? (
           <div>
             <p>У вас еще нет заказов</p>
