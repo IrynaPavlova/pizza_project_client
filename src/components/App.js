@@ -12,7 +12,7 @@ import AdminPage from "../pages/AdminPage/AdminPageContainer";
 import AuthPage from "../pages/AuthPage";
 
 import PromoList from "../components/PromoList";
-import PizzaList from "../components/PizzaList/PizzaList";
+import PizzaList from "../components/PizzaList/PizzaListContainer";
 
 import Header from "./Header";
 import Spinner from "./Spinner";

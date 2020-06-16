@@ -25,4 +25,42 @@ const getOrdersById = (id) => (dispatch) => {
     .catch((error) => dispatch(orderActions.orderByIdError(error)));
 };
 
-export default { addOrder, getOrders, getOrdersById, updateOrder };
+//Создаем лист заказа пользователя
+
+const addProdToOrderList = (productId, productName, productType = "M") => (
+  dispatch,
+  getState
+) => {
+  const doesExistItem = getState().order.userOrderList.some(
+    (orderItem) =>
+      orderItem.product === productId && orderItem.type === productType
+    //c проверкой по размеру - это отдельный уникальный элемент
+  );
+  if (doesExistItem) {
+    return; //можно дописать, чтобы выводило сообщение, что продукт уже добавлен (или прибавлять на каждый клик кол-во itemsCount)
+  }
+  const newItem = {
+    product: productId,
+    productName: productName,
+    type: productType,
+    itemsCount: 1,
+  };
+  dispatch(orderActions.addProdToOrderList(newItem));
+};
+
+const deleteProdToOrderList = (index) => (dispatch) =>
+  dispatch(orderActions.deleteProdToOrderList(index));
+
+const updateItemsCount = (index, itemsCount) => (dispatch) => {
+  dispatch(orderActions.updateItemsCount(index, itemsCount));
+};
+
+export default {
+  addOrder,
+  getOrders,
+  getOrdersById,
+  updateOrder,
+  addProdToOrderList,
+  deleteProdToOrderList,
+  updateItemsCount,
+};
