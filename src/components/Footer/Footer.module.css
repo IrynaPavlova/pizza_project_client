@@ -8,7 +8,7 @@
 }
 
 .siteName {
-  padding-top: 60px;
+  padding-top: 70px;
   margin-bottom: 4px;
   font-size: 18px;
   line-height: 20px;
@@ -47,16 +47,17 @@
 }
 
 .socialsContainer {
-  padding-bottom: 60px;
+  padding-bottom: 70px;
   margin: 0 auto;
   border-radius: 50px;
-  width: 200px;
+  width: 220px;
 }
 
 .iconsContainer {
   background: rgba(255, 255, 255, 0.1);
   padding: 11px;
-  padding-bottom: 5px;
+  padding-top: 16px;
+  padding-bottom: 10px;
   width: 40px;
   height: 42px;
   border-radius: 26px;
@@ -72,8 +73,8 @@
 }
 
 .linkImg {
-  width: 15px;
-  height: 18px;
+  width: 21px;
+  height: 20px;
   margin-bottom: 9px;
 }
 
@@ -118,7 +119,7 @@
   .socialsContainer {
     order: -1;
     position: absolute;
-    left: 30%;
+    left: 27%;
     bottom: 39px;
   }
 }
@@ -129,7 +130,17 @@
     background-position: center;
   }
 
+  .footerItemsContainer {
+    width: 930px;
+  }
+
+  .phoneContainer {
+    padding-bottom: 95px;
+    margin-right: 590px;
+  }
+
   .socialsContainer {
-    left: 32%;
+    left: 39%;
+    bottom: 17px;
   }
 }
