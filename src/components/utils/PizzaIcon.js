@@ -260,6 +260,7 @@ export default function PizzaIcon() {
           top: 30,
           fontFamily: "Rokkitt",
           fontSize: 20,
+          color: "#272727",
         }}
       >
         Pizza

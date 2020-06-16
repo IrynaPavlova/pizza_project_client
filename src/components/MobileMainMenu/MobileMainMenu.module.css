@@ -1,12 +1,27 @@
 @value variables: '../../stylesheet/vars.css';
-@value primaryColor, accentColor, primaryTextFontSize from variables;
+@value primaryColor, secondaryBackgroundColor, accentColor, primaryTextFontSize from variables;
 
-.mainMenuItems {
+.container {
+  width: 220px;
+  background-color: #fff;
+  padding: 40px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 0;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 60px;
+  margin-bottom: 30px;
+}
+
+.authBar {
+  border: none;
+  background-color: transparent;
+  color: primaryColor;
 }
 
 .mainMenuItem {
@@ -20,13 +35,13 @@
 }
 
 .mainMenuItems li:not(:last-of-type) {
-  margin-right: 30px;
+  margin-bottom: 30px;
 }
 
 .mainMenuItem::before {
   content: "";
   position: absolute;
-  top: 48px;
+  top: 25px;
   left: 50%;
   transform: translateX(-50%) scaleX(0);
   transform-origin: right;
@@ -53,4 +68,16 @@
 .mainMenuActiveItem::before {
   transform: translateX(-50%) scaleX(1);
   transform-origin: left;
+}
+
+.languageSelector {
+  display: block;
+  width: 120px;
+  height: 22px;
+  background-color: transparent;
+  border: 1px solid secondaryBackgroundColor;
+  border-radius: 4px;
+  color: primaryColor;
+  font-family: RobotoRegular;
+  font-size: primaryTextFontSize;
 }
