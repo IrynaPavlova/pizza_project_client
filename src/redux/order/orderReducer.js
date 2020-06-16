@@ -34,8 +34,28 @@ const loadingReducer = createReducer(false, {
   [orderActions.updateOrderError]: () => false,
 });
 
+//Работаем с листом заказа пользователя
+
+const userOrderListReducer = createReducer([], {
+  [orderActions.addProdToOrderList]: (state, action) => [
+    ...state,
+    action.payload,
+  ],
+  [orderActions.deleteProdToOrderList]: (state, action) =>
+    state.splice(action.payload, 1), // state.filter((orders) => orders.id !== action.payload),
+  [orderActions.updateItemsCount]: (state, action) => {
+    const { index, itemsCount } = action.payload;
+    const updatedItem = {
+      ...state[index],
+      itemsCount: itemsCount,
+    };
+    return state.splice(index, 1, updatedItem);
+  },
+});
+
 export default combineReducers({
   items: ordersReducer,
+  userOrderList: userOrderListReducer,
   errorReducer,
   loadingReducer,
 });
