@@ -1,10 +1,10 @@
 import React, { Suspense } from "react";
 import { routes } from "../../services/routes";
-import { NavLink, Switch, Route } from "react-router-dom";
+import { NavLink, Switch, Route, Redirect } from "react-router-dom";
 import Spinner from "../../components/Spinner";
 import AdminOrderList from "../../components/AdminOrderList/AdminOrderList";
 import forExmCreateProd from "./forExmCreateProd";
-import forExmUpdateProd from "./forExmUpdateprod";
+import AdminUpdateList from "../../components/AdminUpdateList";
 import styles from "./AdminPage.module.css";
 
 export default function AdminPage() {
@@ -52,8 +52,9 @@ export default function AdminPage() {
           />
           <Route
             path={routes.ADMIN_UPDATE_PRODUCT}
-            component={forExmUpdateProd}
+            component={AdminUpdateList}
           />
+          <Redirect to={routes.ADMIN_ORDER_LISTS} />
         </Switch>
       </div>
     </Suspense>

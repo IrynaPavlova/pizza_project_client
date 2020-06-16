@@ -29,5 +29,5 @@ const loadingReducer = createReducer(false, {
 export default combineReducers({
   items: productReducer,
   errorReducer,
-  loadingReducer,
+  loading: loadingReducer,
 });
