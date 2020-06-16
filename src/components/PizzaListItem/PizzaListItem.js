@@ -15,9 +15,7 @@ function PizzaListItem(props) {
       <div>
         <img
           src={props.images}
-          width="280"
-          height="192"
-          className={styles.imageItem}
+                   className={styles.imageItem}
           alt=""
         />
       </div>
