@@ -228,6 +228,6 @@ input[type="radio"]:checked ~ span:first-of-type {
   }
   .descriptionContainer {
   
-    min-height: 256px;
+    min-height: 280px;
   }
 }
