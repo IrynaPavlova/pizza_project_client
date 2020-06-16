@@ -13,7 +13,6 @@ export default function UserProfile() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [user, setUser] = useState({});
 
-
   useEffect(() => {
     setIsLoaded(true);
     fetch(`https://evening-caverns-34846.herokuapp.com/users/${id}`)
@@ -22,7 +21,7 @@ export default function UserProfile() {
         (result) => {
           setUser({ ...result });
           setIsLoaded(false);
-          console.log(result.user.orders.length);
+          //console.log(result.user.orders.length);
         },
         (error) => {
           setIsLoaded(false);
@@ -31,7 +30,6 @@ export default function UserProfile() {
       );
   }, []);
 
-  
   return (
     <>
       {error && (
@@ -42,14 +40,10 @@ export default function UserProfile() {
 
       {isLoaded && <Spinner />}
       <div className={styles.clientInfoContainer}>
-        {user.user && <ClientInfo username={user.user.username} email={user.user.email} />}
-        {!user.orders ? (
-          <div>
-            <p className={styles.noOrdersText}>У вас еще нет заказов</p>
-          </div>
-        ) : (
-          <ClientOrders orders={user.user.orders} />
-        )}
+        {user.user && 
+          <ClientInfo username={user.user.username} email={user.user.email} />
+        }
+        {/* {!user.orders && <ClientOrders orders={user.user.orders} />} */}
       </div>
     </>
   );
@@ -63,7 +57,7 @@ export default function UserProfile() {
   // } else if (!isLoaded) {
   //   return <Spinner />;
   // } else {
-  //   // 
+  //   //
   //   return (
   //     <div className={styles.clientInfoContainer}>
   //       <ClientInfo username={user.username} email={user.email} />

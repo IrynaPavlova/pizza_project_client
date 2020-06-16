@@ -43,14 +43,19 @@ import React from "react";
 //   },
 // ];
 
-export const ClientOrders = ({orders} ) => {
-  orders.map((order) => (
-    <ol>
-      <li>
-        <span>{order.productsList.productName}</span>
-        <span>{order.productsList.type}</span> <span>{order.productsList.itemsCount}</span>
-        <span>{order.sumToPay}</span>
-      </li>
-    </ol>
-  ));
+export const ClientOrders = ({ orders }) => {
+  return <>
+
+  </>;
 };
+
+//    <div><p className={styles.noOrdersText}>У вас еще нет заказов</p></div>
+//           
+//
+//     <ol>
+//       <li>
+//         <span>{order.productsList.productName}</span>
+//         <span>{order.productsList.type}</span> <span>{order.productsList.itemsCount}</span>
+//         <span>{order.sumToPay}</span>
+//       </li>
+//     </ol>
