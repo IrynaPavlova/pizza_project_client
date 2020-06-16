@@ -55,8 +55,8 @@
 
 .iconsContainer {
   background: rgba(255, 255, 255, 0.1);
-  padding: 10px;
-  padding-bottom: 12px;
+  padding: 11px;
+  padding-bottom: 5px;
   width: 40px;
   height: 42px;
   border-radius: 26px;
@@ -69,6 +69,18 @@
 
 .iconsContainer:hover {
   background: #ff6c00;
+}
+
+.linkImg {
+  width: 15px;
+  height: 18px;
+  margin-bottom: 9px;
+}
+
+.phoneImg {
+  width: 17px;
+  height: 17px;
+  margin-bottom: 3px;
 }
 
 .facebook {
@@ -85,6 +97,7 @@
 
   .footerItemsContainer {
     display: flex;
+    position: relative;
     margin: 0 auto;
     padding-top: 88px;
     width: 440px;
@@ -104,10 +117,9 @@
 
   .socialsContainer {
     order: -1;
-    top: 870px;
     position: absolute;
-    left: 38%;
-    bottom: 50%;
+    left: 30%;
+    bottom: 39px;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -118,6 +130,6 @@
   }
 
   .socialsContainer {
-    left: 41%;
+    left: 32%;
   }
 }
