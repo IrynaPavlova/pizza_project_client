@@ -43,9 +43,11 @@ import React from "react";
 //   },
 // ];
 
-export const ClientOrders = ({ orders }) => {
+export const ClientOrders = ( orders ) => {
+  console.log(orders.orders.user);
+  
   return <>
-
+  <div></div>
   </>;
 };
 

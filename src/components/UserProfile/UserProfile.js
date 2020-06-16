@@ -43,7 +43,7 @@ export default function UserProfile() {
         {user.user && 
           <ClientInfo username={user.user.username} email={user.user.email} />
         }
-        {/* {!user.orders && <ClientOrders orders={user.user.orders} />} */}
+         <ClientOrders orders={user} />
       </div>
     </>
   );
