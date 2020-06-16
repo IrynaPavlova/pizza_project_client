@@ -2,7 +2,7 @@ import React from "react";
 
 export default function CloseIcon({ styles, onClose }) {
   return (
-    <button style={{ border: "none", backgroundColor: "transparent" }}>
+    <button onClick={() => onClose(false)} style={{ border: "none", backgroundColor: "transparent" }}>
       <svg
         style={{ cursor: "pointer" }}
         width="12"
