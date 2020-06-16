@@ -1,0 +1,94 @@
+[
+  {
+    "categories": "pizza",
+    "images": [
+      "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
+    ],
+    "closeUpImages": [
+      "https:evening-caverns-34846.herokuapp.com/upload_ac420720f3efb3b2121aa58b2abe92f6"
+    ],
+    "ingredients": [
+      { "_id": "5e85182d1c9d440000703883", "name": "моцарелла" },
+      { "_id": "5e9f56511c9d4400008812cd", "name": "пепперони" },
+      { "_id": "5e8517461c9d440000703881", "name": "помидоры" },
+      { "_id": "5e8519211c9d440000703886", "name": "соус барбекю" }
+    ],
+    "_id": "5e7a11285661db31d9c0b65e",
+    "subcategory": "classic",
+    "sku": 1120001,
+    "name": "Пепперони с томатами",
+    "description": "",
+    "price": { "M": "110", "L": "120", "XL": "140" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:01:12.762Z",
+    "createdAt": "2020-03-24T13:54:48.070Z",
+    "__v": 0
+  },
+  {
+    "categories": "pizza",
+    "images": [
+      "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
+    ],
+    "closeUpImages": [
+      "https:evening-caverns-34846.herokuapp.com/upload_d00097f0e3b337b774ed639311091f9b"
+    ],
+    "ingredients": [
+      { "_id": "5e8518601c9d440000703884", "name": "курица" },
+      { "_id": "5e8518b91c9d440000703885", "name": "ананасы" },
+      { "_id": "5e85182d1c9d440000703883", "name": "моцарелла" },
+      { "_id": "5e9f56751c9d4400008812ce", "name": "соус томатный" }
+    ],
+    "_id": "5e7a11c6751c2a325ed1452r",
+    "subcategory": "classic",
+    "sku": 1120003,
+    "name": "Гавайская",
+    "description": "",
+    "price": { "M": "140", "L": "160", "XL": "180" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:02:50.486Z",
+    "createdAt": "2020-03-24T13:57:26.209Z",
+    "__v": 0
+  },
+  {
+    "categories": "drinks",
+    "images": [
+      "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
+    ],
+    "closeUpImages": [],
+    "ingredients": [],
+    "_id": "5e7a12ac663deb32f1667629t",
+    "sku": 1120008,
+    "name": "Пиво Hoegaarden",
+    "description": "0.5L",
+    "price": { "M": "140" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:07:19.061Z",
+    "createdAt": "2020-03-24T14:01:16.288Z",
+    "__v": 0
+  },
+  {
+    "categories": "drinks",
+    "images": [
+      "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
+    ],
+    "closeUpImages": [],
+    "ingredients": [],
+    "_id": "5e7a12db74e9a33305b1c0bd",
+    "sku": 1120009,
+    "name": "Сок апельсиновый Sandora",
+    "description": "1L",
+    "price": { "M": "140" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:08:15.933Z",
+    "createdAt": "2020-03-24T14:02:03.318Z",
+    "__v": 0
+  }
+]
