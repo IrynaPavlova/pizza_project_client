@@ -40,35 +40,12 @@ export default function UserProfile() {
 
       {isLoaded && <Spinner />}
       <div className={styles.clientInfoContainer}>
-        {user.user && 
+        {user.user && (
           <ClientInfo username={user.user.username} email={user.user.email} />
-        }
-         <ClientOrders orders={user} />
+        )}
+        {user.user && (<ClientOrders orders={user.user} />)}
+        <div className={styles.orderBtn}><a href="/pizza">Заказать пиццу</a></div>
       </div>
     </>
   );
-
-  // if (error) {
-  //   return (
-  //     <div>
-  //       <p>Ой... что-то пошло не так. Попробуйте снова.</p>
-  //     </div>
-  //   );
-  // } else if (!isLoaded) {
-  //   return <Spinner />;
-  // } else {
-  //   //
-  //   return (
-  //     <div className={styles.clientInfoContainer}>
-  //       <ClientInfo username={user.username} email={user.email} />
-  //       {!user.orders ? (
-  //         <div>
-  //           <p>У вас еще нет заказов</p>
-  //         </div>
-  //       ) : (
-  //         <ClientOrders orders={user.orders} />
-  //       )}
-  //     </div>
-  //   );
-  // }
 }

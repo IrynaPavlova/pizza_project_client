@@ -1,0 +1,22 @@
+@value variables: '../../stylesheet/vars.css';
+@value accentColor, primaryColor, lightColor, secondaryTextFontSize, thirdHeaderFontStyle, borderColor, primaryTextColor from variables;
+
+.orderDate {
+  font-family: 'OswaldMedium';
+}
+
+.productTitle {
+  color: accentColor;
+  margin-bottom: 0;
+}
+
+.orderPrice {
+  font-family: 'Rokkitt';
+  color: primaryTextColor;
+}
+
+
+.noOrdersText {
+  text-align: center;
+  color: accentColor;
+}
