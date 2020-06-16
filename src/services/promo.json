@@ -1,0 +1,42 @@
+[
+  {
+    "promoName": "бесплатная доставка",
+    "promoImg": [
+      "https://st3.depositphotos.com/20363444/34768/i/450/depositphotos_347689646-stock-photo-happy-delivery-man-yellow-uniform.jpg"
+    ],
+    "promoText": "jkhdfsghjksdhfg",
+    "_id": "1"
+  },
+  {
+    "promoName": "сверхъестественное везение",
+    "promoImg": [
+      "https://st.depositphotos.com/1900347/4146/i/450/depositphotos_41466555-stock-photo-image-of-slice-of-pizza.jpg"
+    ],
+    "promoText": "jkhdfsghjksdhfg",
+    "_id": "2"
+  },
+  {
+    "promoName": "ура! я родился",
+    "promoImg": [
+      "https://st.depositphotos.com/1020618/2868/i/450/depositphotos_28687469-stock-photo-delicious-italian-pizza.jpg"
+    ],
+    "promoText": "jkhdfsghjksdhfg",
+    "_id": "3"
+  },
+  {
+    "promoName": "большая компания",
+    "promoImg": [
+      "https://st3.depositphotos.com/13324256/16360/i/450/depositphotos_163603486-stock-photo-friends-eating-pizza.jpg"
+    ],
+    "promoText": "jkhdfsghjksdhfg",
+    "_id": "4"
+  },
+  {
+    "promoName": "пицца-конструктор",
+    "promoImg": [
+      "https://st2.depositphotos.com/1040166/8748/i/450/depositphotos_87488374-stock-photo-tasty-pizza-on-black.jpg"
+    ],
+    "promoText": "jkhdfsghjksdhfg",
+    "_id": "5"
+  }
+]

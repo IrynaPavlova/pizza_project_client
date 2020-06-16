@@ -1,20 +1,20 @@
-import { createAction } from '@reduxjs/toolkit';
+import { createAction } from "@reduxjs/toolkit";
 
-const productsRequest = createAction('products/fetchProductsRequest');
-const productsSuccess = createAction('products/fetchProductsSuccess');
-const productsError = createAction('products/fetchProductsError');
+const productsRequest = createAction("products/fetchProductsRequest");
+const productsSuccess = createAction("products/fetchProductsSuccess");
+const productsError = createAction("products/fetchProductsError");
 
 const byCategoryRequest = createAction(
-  'products/fetchProductsByCategotyRequest'
+  "products/fetchProductsByCategotyRequest"
 );
 const byCategorySuccess = createAction(
-  'products/fetchProductsByCategorySucceess'
+  "products/fetchProductsByCategorySucceess"
 );
-const byCategoryError = createAction('products/fetchProductsByCategoryError');
+const byCategoryError = createAction("products/fetchProductsByCategoryError");
 
-const byIdRequest = createAction('products/fetchProductsByIdRequest');
-const byIdSuccess = createAction('products/fetchProductsByIdSuccess');
-const byIdErrror = createAction('products/fetchProductsByIdError');
+const byIdRequest = createAction("products/fetchProductsByIdRequest");
+const byIdSuccess = createAction("products/fetchProductsByIdSuccess");
+const byIdErrror = createAction("products/fetchProductsByIdError");
 
 export default {
   productsError,

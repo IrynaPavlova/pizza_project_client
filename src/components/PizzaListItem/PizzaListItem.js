@@ -5,7 +5,7 @@ import styles from "./PizzaListItem.module.css";
 
 function PizzaListItem(props) {
   const [selectedSize, setSelectedSize] = useState("M");
-
+  // const size = ["M", "L", "XL"];
   function handleChange(event) {
     setSelectedSize(event.target.value);
   }
@@ -14,7 +14,7 @@ function PizzaListItem(props) {
     <li key={props._id} className={styles.pizzaListCard}>
       <div>
         <img
-          src={props.images[0]}
+          src={props.images}
           width="280"
           height="192"
           className={styles.imageItem}
@@ -31,25 +31,6 @@ function PizzaListItem(props) {
           ))}
         </ul>
         <form>
-<<<<<<< HEAD
-          <ul className={styles.radioButtonsList}>
-            {["M", "L", "XL"].map((size, index) => (
-              <li key={index}>
-                <label className={styles.sizeLabel}>
-                  <input
-                    type="radio"
-                    value={size}
-                    checked={size === selectedSize}
-                    onChange={handleChange}
-                    className={styles.radioButton}
-                    key={size}
-                  />
-                  <span className={styles.sizeText}>{size}</span>
-                </label>
-              </li>
-            ))}
-          </ul>
-=======
           <div className={styles.sizePriceContainer}>
             <ul className={styles.radioButtonsList}>
               {["M", "L", "XL"].map((size, index) => (
@@ -68,7 +49,6 @@ function PizzaListItem(props) {
                 </li>
               ))}
             </ul>
->>>>>>> dev
 
             <span className={styles.price}>{props.price[selectedSize]}.00</span>
             <span className={styles.currency}> {props.currency}</span>

@@ -8,7 +8,7 @@ import Phone from "../../assets/icons/phone.svg";
 
 import styles from "./Footer.module.css";
 
-const Footer = ({}) => (
+const Footer = () => (
   <div className={styles.footerContainer}>
     <div className={styles.footerItemsContainer}>
       <div className={styles.nameContainer}>

@@ -1,7 +1,7 @@
 [
   
   {
-    "categories": ["pizza"],
+    "categories": "pizza",
     "images": [
       "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
     ],
@@ -28,7 +28,7 @@
     "__v": 0
   },
   {
-    "categories": ["pizza"],
+    "categories": "pizza",
     "images": [
       "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
     ],
@@ -53,7 +53,7 @@
     "__v": 0
   },
   {
-    "categories": ["pizza"],
+    "categories": "pizza",
     "images": [
       "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
     ],
@@ -80,7 +80,7 @@
     "__v": 0
   },
   {
-    "categories": ["pizza"],
+    "categories": "pizza",
     "images": [
       "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
     ],
@@ -109,7 +109,7 @@
     "__v": 0
   },
   {
-    "categories": ["pizza"],
+    "categories": "pizza",
     "images": [
       "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
     ],
@@ -139,7 +139,7 @@
     "__v": 0
   },
   {
-    "categories": ["pizza"],
+    "categories": "pizza",
     "images": [
       "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
     ],
@@ -166,7 +166,7 @@
     "__v": 0
   },
   {
-    "categories": ["drinks"],
+    "categories": "drinks",
     "images": [
       "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
     ],
@@ -185,7 +185,7 @@
     "__v": 0
   },
   {
-    "categories": ["drinks"],
+    "categories": "drinks",
     "images": [
       "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
     ],
@@ -204,7 +204,7 @@
     "__v": 0
   },
   {
-    "categories": ["pizza"],
+    "categories": "pizza",
     "images": [
       "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ0"
     ],
@@ -233,7 +233,7 @@
     "__v": 0
   },
   {
-    "categories": ["pizza"],
+    "categories": "pizza",
     "images": [
       "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
     ],
@@ -262,7 +262,7 @@
     "__v": 0
   },
   {
-    "categories": ["pizza"],
+    "categories": "pizza",
     "images": [
       "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
     ],
@@ -289,7 +289,7 @@
     "__v": 0
   },
   {
-    "categories": ["drinks"],
+    "categories": "drinks",
     "images": [
       "https:evening-caverns-34846.herokuapp.com/upload_122fc2cc750207d76e0460f27d26bd5a"
     ],
@@ -308,7 +308,7 @@
     "__v": 0
   },
   {
-    "categories": ["drinks"],
+    "categories": "drinks",
     "images": [
       "https:evening-caverns-34846.herokuapp.com/upload_b1a57ca44d015d20ca6ea39a1bc63d98"
     ],
@@ -327,7 +327,7 @@
     "__v": 0
   },
   {
-    "categories": ["drinks"],
+    "categories": "drinks",
     "images": [
       "https:evening-caverns-34846.herokuapp.com/upload_d0e85fdf22ccf8bf3e5344dac3cc6564"
     ],
@@ -346,7 +346,7 @@
     "__v": 0
   },
   {
-    "categories": ["drinks"],
+    "categories": "drinks",
     "images": [
       "https:evening-caverns-34846.herokuapp.com/upload_8f491068841d852ff3234c7fa83660f1"
     ],
@@ -365,7 +365,7 @@
     "__v": 0
   },
   {
-    "categories": ["sides"],
+    "categories": "sides",
     "images": [
       "https:evening-caverns-34846.herokuapp.com/upload_8ef3f78a0a9c60819627a4c1a2007f4a"
     ],
@@ -384,7 +384,7 @@
     "__v": 0
   },
   {
-    "categories": ["sides"],
+    "categories": "sides",
     "images": [
       "https:evening-caverns-34846.herokuapp.com/upload_c6f89969c124037e374f300810432b28"
     ],
@@ -403,7 +403,7 @@
     "__v": 0
   },
   {
-    "categories": ["sides"],
+    "categories": "sides",
     "images": [
       "https:evening-caverns-34846.herokuapp.com/upload_6a11e9d9c3e1cff5170fd38066ed1b16"
     ],
@@ -422,7 +422,7 @@
     "__v": 0
   },
   {
-    "categories": ["desserts"],
+    "categories": "desserts",
     "images": [
       "https:evening-caverns-34846.herokuapp.com/upload_480cec6149b452cd2ea40e7f498299df"
     ],
@@ -441,7 +441,7 @@
     "__v": 0
   },
   {
-    "categories": ["desserts"],
+    "categories": "desserts",
     "images": [
       "https:evening-caverns-34846.herokuapp.com/upload_dc21fdcd6ec4242143c21f74febacedd"
     ],
@@ -460,7 +460,7 @@
     "__v": 0
   },
   {
-    "categories": ["desserts"],
+    "categories": "desserts",
     "images": [
       "https:evening-caverns-34846.herokuapp.com/upload_d5d4d938585ac464c9161687b3a8fc54"
     ],
@@ -479,7 +479,7 @@
     "__v": 0
   },
   {
-    "categories": ["drinks"],
+    "categories": "drinks",
     "images": [
       "https:evening-caverns-34846.herokuapp.com/upload_ee423fa860858b79f80329a2018a3941"
     ],
@@ -498,7 +498,7 @@
     "__v": 0
   },
   {
-    "categories": ["drinks"],
+    "categories": "drinks",
     "images": [
       "https:evening-caverns-34846.herokuapp.com/upload_156dba994e4470b7231ca67e476b1acd"
     ],
@@ -517,7 +517,7 @@
     "__v": 0
   },
   {
-    "categories": ["desserts"],
+    "categories": "desserts",
     "images": [
       "https:evening-caverns-34846.herokuapp.com/upload_63ed39067923dbb544d1cd2fa3cf83ff"
     ],
@@ -536,7 +536,7 @@
     "__v": 0
   },
   {
-    "categories": ["sides"],
+    "categories": "sides",
     "images": [
       "https:evening-caverns-34846.herokuapp.com/upload_a4c78831c0c62dae363d166d2d1c557a"
     ],
@@ -555,7 +555,7 @@
     "__v": 0
   },
   {
-    "categories": ["pizza"],
+    "categories": "pizza",
     "images": [
       "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
     ],
@@ -584,7 +584,7 @@
     "__v": 0
   },
   {
-    "categories": ["pizza"],
+    "categories": "pizza",
     "images": [
       "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ9"
     ],
@@ -611,7 +611,7 @@
     "__v": 0
   },
   {
-    "categories": ["pizza"],
+    "categories": "pizza",
     "images": [
       "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
     ],

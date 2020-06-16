@@ -1,14 +1,66 @@
-@value secondaryHeaderFontSize,primaryHeaderFontSize from "../../stylesheet/vars.css";
+@value secondaryHeaderFontSize,primaryHeaderFontSize,accentColor,thirdHeaderFontStyle from "../../stylesheet/vars.css";
+
+.orderList {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  border-bottom: 1px solid rgba(39, 39, 39, 0.1);
+  margin-bottom: 64px;
+}
+
+.orderListPrice {
+  display: flex;
+  align-self: flex-end;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  color: accentColor;
+}
+
+.orderListPriceCurrency {
+  display: flex;
+  margin-left: 3px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  color: accentColor;
+}
 
 .orderListTitle {
   font-family: OswaldRegular;
   font-weight: 500;
-  font-size: secondaryHeaderFontSize;
+  font-size: 24px;
   margin-bottom: 20px;
+  line-height: 53px;
+  letter-spacing: 0.01em;
 }
 
 @media (min-width: 768px) {
+  .orderList {
+    width: 738px;
+  }
+
   .orderListTitle {
-    font-size: primaryHeaderFontSize;
+    font-size: secondaryHeaderFontSize;
+    margin-bottom: 43px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .orderList {
+    width: 770px;
+  }
+
+  .orderListTitle {
+    font-family: OswaldRegular;
+    font-weight: 500;
+    font-size: 36px;
+    margin-bottom: 43px;
+    line-height: 53px;
+    letter-spacing: 0.01em;
   }
 }

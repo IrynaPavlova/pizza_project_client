@@ -103,8 +103,8 @@ input[type="radio"]:checked ~ span:first-of-type {
 
 .sizeLabel span {
   position: absolute;
-  left: 22%;
-  top: -95%;
+  left: 40%;
+  top: 43%;
   font-size: 20px;
   font-family: RobotoRegular;
   font-style: normal;
@@ -112,6 +112,7 @@ input[type="radio"]:checked ~ span:first-of-type {
   color: #272727;
   overflow: hidden;
   text-align: center;
+  transform: translate(-50%,-50% );
 }
 .sizeLabelL span {
   position: absolute;
@@ -227,6 +228,6 @@ input[type="radio"]:checked ~ span:first-of-type {
   }
   .descriptionContainer {
   
-    min-height: 256px;
+    min-height: 280px;
   }
 }
