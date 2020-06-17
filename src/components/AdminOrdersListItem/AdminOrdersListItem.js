@@ -21,7 +21,7 @@ export default function AdminOrdersListItem({ item }) {
         ))}
       </ul>
       <div className={styles.sumWrapper}>
-        <p>Сумма к оплате</p>
+        <p className={styles.sumToPay}>Сумма к оплате</p>
         <p className={styles.totalSum}>
           {item.sumToPay}
           <span className={styles.currency}>грн</span>

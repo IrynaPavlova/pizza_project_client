@@ -1,10 +1,15 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { authOperations } from "../../redux/auth";
 import { useFormik } from "formik";
+import { FormattedMessage } from "react-intl";
+
+import languages from "../../languages";
 import styles from "./Authentication.module.css";
 
 export default function LoginPage({ setIsModalActive, setIsLogining }) {
+  const local = useSelector((state) => state.local);
+
   const dispatch = useDispatch();
 
   const formik = useFormik({
@@ -60,7 +65,9 @@ export default function LoginPage({ setIsModalActive, setIsLogining }) {
 
   return (
     <div className={styles.section}>
-      <h1 className={styles.title}>Войти</h1>
+      <h1 className={styles.title}>
+        <FormattedMessage id="login" />
+      </h1>
       <button
         className={styles.buttonToClose}
         type="button"
@@ -105,7 +112,7 @@ export default function LoginPage({ setIsModalActive, setIsLogining }) {
             className={`${styles.formInput}
             ${touched.password && !errors.password ? styles.accepted : ""}
             ${touched.password && errors.password ? styles.error : ""}`}
-            placeholder="Пароль"
+            placeholder={languages[local].password}
           />
           {errors.password && touched.password && errors.password}
         </label>
@@ -114,18 +121,18 @@ export default function LoginPage({ setIsModalActive, setIsLogining }) {
           className={styles.formButton}
           disabled={isSubmitting}
         >
-          Войти
+          <FormattedMessage id="login" />
         </button>
         <button
           className={styles.linkToRegister}
           onClick={() => setIsLogining(false)}
           disabled={isSubmitting}
         >
-          Регистрация
+          <FormattedMessage id="registration" />
         </button>
       </form>
       <p className={styles.socialTitle} href="/">
-        Войти через социальную сеть
+        <FormattedMessage id="social" />
       </p>
       <div className={styles.socialRegistration}>
         <a href="https://evening-caverns-34846.herokuapp.com/auth/google">

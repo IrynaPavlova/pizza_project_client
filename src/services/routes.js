@@ -6,6 +6,7 @@ export const routes = {
   DRINKS: "/drinks",
   SIDES: "/sides",
   DESSERTS: "/desserts",
+  DEVELOPERS: "/devs",
 
   ADMIN_PAGE: "/admin",
   ADMIN_ORDER_LISTS: "/admin/order-lists",

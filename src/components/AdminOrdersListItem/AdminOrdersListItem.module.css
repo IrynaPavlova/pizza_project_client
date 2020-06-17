@@ -5,6 +5,14 @@ p {
   margin-bottom: 0;
 }
 
+p.totalSum {
+  margin-bottom: 0;
+}
+
+ul.itemsList {
+  margin-bottom: 0;
+}
+
 .orderWrapper {
   margin: 0 auto;
   /* width: 300px; */
@@ -42,7 +50,7 @@ p {
 }
 
 .itemName {
-  flex-basis: 150px;
+  flex-basis: 120px;
   font-family: OswaldRegular;
   font-size: secondaryTextFontSize;
   color: primaryColor;
@@ -51,15 +59,21 @@ p {
 
 .itemSize {
   flex-basis: 50px;
+  text-align: center;
 }
 
 .itemsCount {
   flex-basis: 50px;
+  text-align: center;
 }
 
 .sumWrapper {
   flex-basis: 100px;
   text-align: center;
+}
+
+.sumToPay {
+  margin-bottom: 10px;
 }
 
 .orderContacts {

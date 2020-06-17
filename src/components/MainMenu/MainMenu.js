@@ -54,16 +54,6 @@ export default function MainMenu() {
             <FormattedMessage id="desserts" />
           </NavLink>
         </li>
-
-        <li>
-          <NavLink
-            to={routes.ABOUT_DEV_PAGE}
-            className={styles.mainMenuItem}
-            activeClassName={styles.mainMenuActiveItem}
-          >
-            <FormattedMessage id="developers" />
-          </NavLink>
-        </li>
         <li>
           <NavLink
             to={routes.ADMIN_PAGE}

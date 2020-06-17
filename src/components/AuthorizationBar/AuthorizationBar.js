@@ -33,7 +33,7 @@ export default function AuthorizationBar({
           type="button"
           className={darkStyle || styles.loginButton}
           onClick={() => {
-            setIsMobileMenuOpen(false);
+            // setIsMobileMenuOpen(false);
             setIsModalActive(true);
           }}
         >
