@@ -11,6 +11,7 @@
 .orderListPrice {
   display: flex;
   align-self: flex-end;
+  margin-bottom: 16px;
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
