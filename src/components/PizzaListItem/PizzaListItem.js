@@ -28,7 +28,7 @@ class PizzaListItem extends Component {
     const { selectedSize } = this.state;
     return (
       <li key={product._id} className={styles.pizzaListCard}>
-        <div>
+        <div className={styles.imageItemBlock}>
           <img src={product.images} className={styles.imageItem} alt="" />
         </div>
         <div className={styles.descriptionContainer}>

@@ -1,0 +1,40 @@
+@value variables: '../../stylesheet/vars.css';
+@value accentColor, primaryColor, lightColor, secondaryTextFontSize, thirdHeaderFontStyle, borderColor, primaryTextColor from variables;
+
+.clientInfo {
+  margin-bottom: 16px;
+}
+
+.clientInfo:after {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: accentColor;
+  content: "";
+}
+
+.clienInfoTitle {
+  font-size: 1.4rem;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.clientInfoList li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.clientInfoList img {
+  width: 18px;
+}
+
+.clientInfoList span {
+  padding-left: 16px;
+  font-family: "RobotoRegular";
+  color: primaryColor;
+}
+
+@media screen and (min-width: 1200px) {
+  .clientInfoList {
+    padding-top: 30px;
+  }
+}
