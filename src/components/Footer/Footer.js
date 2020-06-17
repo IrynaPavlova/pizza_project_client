@@ -1,4 +1,5 @@
 import React from "react";
+import { FormattedMessage } from "react-intl";
 
 import Facebook from "../../assets/icons/facebook.svg";
 import Instagram from "../../assets/icons/insta.svg";
@@ -67,7 +68,10 @@ const Footer = () => (
     </div>
     <div className={styles.developers}>
       <p className={styles.developersText}>
-        Сайт разработан <a className={styles.devLink}>студентами GoIt</a>
+        <FormattedMessage id="site developed" />
+        <a href="https://goit.ua/" className={styles.devLink}>
+          <FormattedMessage id="goit students" />
+        </a>
       </p>
     </div>
   </>
