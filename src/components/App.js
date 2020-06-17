@@ -16,6 +16,7 @@ import PizzaList from "../components/PizzaList/PizzaListContainer";
 
 import Header from "./Header";
 import Spinner from "./Spinner";
+import UserPage from "../pages/UserPage/UserPage";
 import Footer from "./Footer/Footer";
 
 const DessertsList = lazy(() => import("../components/DessertsList"));
@@ -38,6 +39,7 @@ const App = () => {
           <Route path={routes.ADMIN_PAGE} component={AdminPage} />
           <Route path={routes.ABOUT_DEV_PAGE} component={AboutDevelopersPage} />
           <Route path={routes.AUTH} component={AuthPage} />
+          <Route path={routes.CLIENT_PAGE} component={UserPage} />
           {/* <Redirect to="#" /> */}
         </Switch>
       </Suspense>
