@@ -5,13 +5,15 @@ import authActions from "./authActions";
 const socialLogin = (_, { payload }) => ({
   username: payload.username,
   email: payload.email,
+  id: payload._id,
 });
 const basicUserInfo = (_, { payload }) => ({
   username: payload.user.username,
   email: payload.user.email,
+  id: payload.user._id,
 });
 
-const initialUserState = { username: null, email: null };
+const initialUserState = { username: null, email: null, id: null };
 
 const user = createReducer(initialUserState, {
   [authActions.registerSuccess]: basicUserInfo,
@@ -52,6 +54,9 @@ const loading = createReducer(false, {
   [authActions.getCurrentUserRequest]: () => true,
   [authActions.getCurrentUserSuccess]: () => false,
   [authActions.getCurrentUserError]: () => false,
+  [authActions.getUserRequest]: () => true,
+  [authActions.getUserSuccess]: () => false,
+  [authActions.getUserError]: () => false,
 });
 
 export default combineReducers({

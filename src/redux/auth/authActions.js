@@ -18,6 +18,10 @@ const getCurrentUserRequest = createAction("auth/getCurrentUserRequest");
 const getCurrentUserSuccess = createAction("auth/getCurrentUserSuccess");
 const getCurrentUserError = createAction("auth/getCurrentUserError");
 
+const getUserRequest = createAction("auth/getCurrentUserRequest");
+const getUserSuccess = createAction("auth/getCurrentUserSuccess");
+const getUserError = createAction("auth/getCurrentUserError");
+
 export default {
   registerRequest,
   registerSuccess,
@@ -32,4 +36,7 @@ export default {
   getCurrentUserRequest,
   getCurrentUserSuccess,
   getCurrentUserError,
+  getUserRequest,
+  getUserSuccess,
+  getUserError,
 };
