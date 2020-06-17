@@ -25,4 +25,42 @@ const getOrdersById = (id) => (dispatch) => {
     .catch((error) => dispatch(orderActions.orderByIdError(error)));
 };
 
-export default { addOrder, getOrders, getOrdersById, updateOrder };
+//Создаем лист заказа пользователя
+
+const addProdToOrderList = (product, productType) => (dispatch, getState) => {
+  const doesExistItem = getState().orders.userOrderList.productsList.some(
+    (orderItem) =>
+      orderItem.productId === product._id && orderItem.type === productType
+    //c проверкой по цене- это отдельный уникальный элемент
+  );
+  if (doesExistItem) {
+    return; //можно дописать, чтобы выводило сообщение, что продукт уже добавлен как на розетке
+  }
+  const newItem = {
+    productId: product._id,
+    productName: product.name,
+    type: productType,
+    itemsCount: 1,
+    //нет в макете order,но нужен для отрисовки компонента orderList
+    productprice: Number(product.price[productType] || product.price), //должно сработать для всех продуктов
+    product,
+  };
+  dispatch(orderActions.addProdToOrderList(newItem));
+};
+
+const deleteProdToOrderList = (index) => (dispatch) =>
+  dispatch(orderActions.deleteProdToOrderList(index));
+
+const updateItemsCount = (index, itemsCount) => (dispatch) => {
+  dispatch(orderActions.updateItemsCount(index, itemsCount));
+};
+
+export default {
+  addOrder,
+  getOrders,
+  getOrdersById,
+  updateOrder,
+  addProdToOrderList,
+  deleteProdToOrderList,
+  updateItemsCount,
+};

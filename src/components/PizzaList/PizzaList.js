@@ -1,13 +1,12 @@
 import React from "react";
-import PizzaListItem from "../PizzaListItem/PizzaListItem";
-import products from "../../services/products.json";
+import PizzaListItem from "../PizzaListItem/PizzaListItemContainer";
+// import productsJSON from "../../services/products.json";
 import styles from "./PizzaList.module.css";
 
-
-export default function PizzaListForTest() {
+export default function PizzaListForTest({ products }) {
   return (
     <div className={styles.pizzaListWrapper}>
-      <h2 className={styles.pizzaHeading}>Пицца: Лучшая цена</h2>
+      <h2 className={styles.pizzaHeading}>Пицца: Классическая</h2>
       <ul className={styles.pizzaList}>
         {products.map((product, index) => {
           if (product.subcategory === "classic") {
@@ -15,7 +14,7 @@ export default function PizzaListForTest() {
           }
         })}
       </ul>
-      <h2 className={styles.pizzaHeading}>Пицца: Классические</h2>
+      <h2 className={styles.pizzaHeading}>Пицца: Фирменная</h2>
       <ul className={styles.pizzaList}>
         {products.map((product, index) => {
           if (product.subcategory === "branded") {
@@ -24,7 +23,7 @@ export default function PizzaListForTest() {
         })}
       </ul>
 
-      <h2 className={styles.pizzaHeading}>Пицца: Фирменные</h2>
+      <h2 className={styles.pizzaHeading}>Пицца: Премиум</h2>
       <ul className={styles.pizzaList}>
         {products.map((product, index) => {
           if (product.subcategory === "premium") {

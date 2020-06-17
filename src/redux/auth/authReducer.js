@@ -17,7 +17,7 @@ const user = createReducer(initialUserState, {
   [authActions.registerSuccess]: basicUserInfo,
   [authActions.loginSuccess]: basicUserInfo,
   [authActions.loginSocial]: socialLogin,
-  [authActions.getCurrentUserSuccess]: (_, { payload }) => payload,
+  [authActions.getCurrentUserSuccess]: basicUserInfo,
   [authActions.logoutSuccess]: () => initialUserState,
 });
 

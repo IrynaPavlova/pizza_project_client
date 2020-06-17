@@ -1,5 +1,7 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { authOperations } from "../redux/auth";
 import { routes } from "../services/routes";
 import MainPage from "../pages/MainPage";
 import OrderPage from "../pages/OrderPage/OrderPage";
@@ -10,15 +12,20 @@ import AdminPage from "../pages/AdminPage/AdminPageContainer";
 import AuthPage from "../pages/AuthPage";
 
 import PromoList from "../components/PromoList";
-import PizzaList from "../components/PizzaList/PizzaList";
+import PizzaList from "../components/PizzaList/PizzaListContainer";
 
 import Header from "./Header";
 import Spinner from "./Spinner";
 import UserPage from "../pages/UserPage/UserPage";
+import Footer from "./Footer/Footer";
 
 const DessertsList = lazy(() => import("../components/DessertsList"));
 
 const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(authOperations.getCurrentUser());
+  }, [dispatch]);
   return (
     <BrowserRouter>
       <Header />
@@ -36,7 +43,7 @@ const App = () => {
           {/* <Redirect to="#" /> */}
         </Switch>
       </Suspense>
-      {/* <Footer /> */}
+      <Footer />
     </BrowserRouter>
   );
 };

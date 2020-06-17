@@ -44,23 +44,23 @@ const logInSocial = (user) => (dispatch) => {
   dispatch(authActions.loginSocial(user));
 };
 
-// const getCurrentUser = () => (dispatch, getState) => {
-//   const {
-//     auth: { token: persistedToken },
-//   } = getState();
+const getCurrentUser = () => (dispatch, getState) => {
+  const {
+    auth: { token: persistedToken },
+  } = getState();
 
-//   if (!persistedToken) {
-//     return;
-//   }
+  if (!persistedToken) {
+    return;
+  }
 
-//   token.set(persistedToken);
-//   dispatch(authActions.getCurrentUserRequest());
+  token.set(persistedToken);
+  dispatch(authActions.getCurrentUserRequest());
 
-//   axios
-//     .get("/auth/current")
-//     .then(({ data }) => dispatch(authActions.getCurrentUserSuccess(data)))
-//     .catch(({ message }) => authActions.getCurrentUserError(message));
-// };
+  axios
+    .get("/auth/current")
+    .then(({ data }) => dispatch(authActions.getCurrentUserSuccess(data)))
+    .catch(({ message }) => authActions.getCurrentUserError(message));
+};
 
 const logOut = () => (dispatch) => {
   dispatch(authActions.logoutRequest());
@@ -74,4 +74,4 @@ const logOut = () => (dispatch) => {
     .catch(({ message }) => dispatch(authActions.logoutError(message)));
 };
 
-export default { register, logOut, logIn, logInSocial };
+export default { register, logOut, logIn, logInSocial, getCurrentUser };

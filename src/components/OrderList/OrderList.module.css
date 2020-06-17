@@ -4,12 +4,14 @@
   display: flex;
   flex-direction: column;
   width: 280px;
+  border-bottom: 1px solid rgba(39, 39, 39, 0.1);
+  margin-bottom: 64px;
 }
 
 .orderListPrice {
   display: flex;
   align-self: flex-end;
-  font-family: Roboto;
+  margin-bottom: 16px;
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
@@ -21,7 +23,6 @@
 .orderListPriceCurrency {
   display: flex;
   margin-left: 3px;
-  font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   font-size: 15px;

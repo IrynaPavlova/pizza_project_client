@@ -10,9 +10,9 @@ export default function AdminOrderList() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
-  const [filters, setFilter] = useState("Все");
+  const [filters, setFilter] = useState("Новые");
 
-  const options = ["Все", "Выполненные", "Невыполненные"] ;
+  const options = ["Новые","Выполненные","Все"] ;
 
   useEffect(() => {
     fetch("https://evening-caverns-34846.herokuapp.com/orders")
@@ -66,15 +66,15 @@ export default function AdminOrderList() {
           </div>
           <div className={styles.orderItems}>
             <ul>
-              {orders.map((item) => {
+              {items.map((item) => {
                 if (filters === "Все") {
                   return <AdminOrdersListItem key={item._id} item={item} />;
                 }
               })}
             </ul>
             <ul>
-              {orders.map((item) => {
-                if (filters === "Выполненные" && item.status === "completed") {
+              {items.map((item) => {
+                if (filters === "Выполненные" && item.status === "done") {
                   return <AdminOrdersListItem key={item._id} item={item} />;
                 }
               })}
@@ -82,8 +82,8 @@ export default function AdminOrderList() {
             <ul>
               {orders.map((item) => {
                 if (
-                  filters === "Невыполненные" &&
-                  item.status === "non-completed"
+                  filters === "Новые" &&
+                  item.status === "new"
                 ) {
                   return <AdminOrdersListItem key={item._id} item={item} />;
                 }

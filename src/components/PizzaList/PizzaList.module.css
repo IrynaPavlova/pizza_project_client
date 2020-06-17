@@ -13,12 +13,20 @@
 .pizzaList {
   margin-bottom: 30px;
 }
+.pizzaList:last-of-type {
+  margin-bottom: 0px;
+}
+
+.pizzaListWrapper{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
 @media screen and (min-width: 768px) {
   .pizzaList {
     display: flex;
     flex-wrap: wrap;
-    width: 738px;
+    width: 748px;
     margin: 0 auto;
     margin-bottom: 30px;
   }
@@ -35,6 +43,9 @@
     letter-spacing: 0.01em;
     margin-bottom: 40px;
   }
+  .pizzaListWrapper{
+    padding-top: 30px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -42,5 +53,8 @@
     margin: 0 auto;
     margin-bottom: 64px;
     width: 1200px;
+  }
+  .pizzaListWrapper{
+    padding-top: 50px;
   }
 }

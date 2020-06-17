@@ -1,27 +1,84 @@
 .editCard {
-  width: 70vw;
-  margin: 0 auto;
+  width: 270px;
+  background: #fafafa;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25), 0px 2px 2px rgba(0, 0, 0, 0.08),
+    0px 1px 1px rgba(0, 0, 0, 0.16);
+  margin: 8px;
 }
-@media (min-width: 768px) {
-  .editCard {
-    width: 25vw;
-  }
-}
-.image {
-  width: inherit;
-  height: 30vh;
-  object-fit: cover;
+.editCard__image {
+  display: block;
+  width: 100%;
+  height: 192px;
 }
 .editForm {
+  display: grid;
+  grid-template-columns: 110px 160px;
+  grid-template-rows: repeat(4, 25px);
+}
+.editForm__price {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.editForm__link {
   width: inherit;
 }
-.editForm__input {
+.editForm__btn {
   width: inherit;
+  border: none;
+  background: #ff6c00;
+  border-radius: 4px;
 }
-.editForm__text {
+.editForm__description {
+  overflow: hidden;
+  word-wrap: break-word;
+}
+/* .confirmation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(39, 39, 39, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirmation__form {
+  width: 90%;
+  height: 40%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 8px 12px 12px rgba(0, 0, 0, 0.12), 1px 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.confirmation__formBtnLink {
+  width: 80%;
+  height: 50px;
+}
+.confirmation__formBtn {
   width: inherit;
-  height: 15vh;
+  height: inherit;
+  background: #ff6c00;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
 }
-.editForm__btnSubmit {
-  width: inherit;
+
+@media (min-width: 748px) {
+  .confirmation__form {
+    width: 700px;
+    height: 441px;
+  }
+  .confirmation__formBtn {
+    width: 420px;
+  }
 }
+.confirmation__formText {
+  font-size: 30px;
+} */

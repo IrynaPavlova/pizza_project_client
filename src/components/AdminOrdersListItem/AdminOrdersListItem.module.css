@@ -1,12 +1,15 @@
 @value variables: '../../stylesheet/vars.css';
 @value secondaryTextFontSize, primaryColor, primaryTextColor, primaryTextFontSize from variables;
 
+p {
+  margin-bottom: 0;
+}
+
 .orderWrapper {
   margin: 0 auto;
-  min-width: 320px;
+  /* width: 300px; */
   max-width: 1200px;
   border: 1px solid primaryColor;
-  border-radius: 10px;
   margin-bottom: 12px;
   padding: 20px;
   display: flex;
@@ -18,31 +21,28 @@
   color: primaryTextColor;
 }
 
-.orderNumber {
-  flex-basis: 20px;
+.dateWrapper {
+  width: 100px;
+  padding: 10px;
+  text-align: center;
+}
+.orderDate {
+  flex-basis: 50px;
 }
 
 .itemsList {
-  flex-basis: 640px;
+  flex-basis: 250px;
   margin-bottom: 20px;
 }
 
 .itemsListItem {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-}
-
-.orderContacts {
-  flex-basis: 200px;
-}
-
-.orderCheckbox {
-  flex-basis: 60px;
+  justify-content: space-around;
 }
 
 .itemName {
-  flex-basis: 340px;
+  flex-basis: 150px;
   font-family: OswaldRegular;
   font-size: secondaryTextFontSize;
   color: primaryColor;
@@ -50,11 +50,26 @@
 }
 
 .itemSize {
-  flex-basis: 100px;
+  flex-basis: 50px;
 }
 
-.itemCount {
+.itemsCount {
+  flex-basis: 50px;
+}
+
+.sumWrapper {
   flex-basis: 100px;
+  text-align: center;
+}
+
+.orderContacts {
+  flex-basis: 250px;
+  text-align: center;
+}
+
+.orderCheckbox {
+  flex-basis: 60px;
+  text-align: center;
 }
 
 .totalSum {
@@ -70,7 +85,17 @@
   margin-left: 6px;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
+  .sumWrapper {
+    flex-basis: 80px;
+  }
+
+  .orderContacts {
+    flex-basis: 200px;
+  }
+}
+
+/* @media (min-width: 1200px) {
   .orderNumber {
     flex-basis: 30px;
   }
@@ -87,4 +112,4 @@
   .totalSum {
     margin-bottom: 0;
   }
-}
+} */

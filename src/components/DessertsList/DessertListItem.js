@@ -1,34 +1,41 @@
 import React from 'react';
 
-import dessert2 from '../../assets/img/desserts/dessert2.jpg';
+// import cheesecacke from '../../assets/img/desserts/cheesecacke.jpg';
 import styles from './DessertsList.module.css';
 
 const {
   dessertItem,
   dessertTittle,
+  dessertWeight,
+  dessertOrder,
   dessertDescription,
+  dessertPriceContainer,
   dessertPrice,
+  dessertCurrency,
   dessertButton,
+  dessertImg,
 } = styles;
 
-const DessertListItem = ({ name, description, price: { price }, currency }) => (
+const DessertListItem = ({ name, description, price: { price }, currency, images}) => (
   <li className={dessertItem}>
-    <img src={dessert2} alt="" width="100%" />
-    <h2 className={dessertTittle}>{name}</h2>
+    <img src={images} alt="" width="280" className={dessertImg} />
     <div className={dessertDescription}>
-      <div className={dessertPrice}>
-        <p>Вес: {description}</p>
-        <p>
-          Цена: {price} {currency}
-        </p>
+      <h2 className={dessertTittle}>{name}</h2>
+      <span className={dessertWeight}>Вес: {description}</span>
+      <div className={dessertOrder}>
+        <div className={dessertPriceContainer}>
+          <span className={dessertPrice}>{price}.00</span>
+          <span className={dessertCurrency}> {currency}</span>
+        </div>
+
+        <button
+          className={dessertButton}
+          type="submit"
+          // onClick={() => console.log}
+        >
+          В корзину
+        </button>
       </div>
-      <button
-        className={dessertButton}
-        type="submit"
-        onClick={() => console.log}
-      >
-        В корзину
-      </button>
     </div>
   </li>
 );

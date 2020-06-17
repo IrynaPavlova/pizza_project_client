@@ -7,7 +7,7 @@ export default function OrderForm() {
   const [street, setStreet] = useState("");
   const [house, setHouse] = useState("");
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     setNumber("");
@@ -30,63 +30,63 @@ export default function OrderForm() {
   };
   return (
     <form className={styles.contactForm} onSubmit={handleSubmit}>
-      <div className={styles.formContainer}>
-        <input
-          type="number"
-          id="dynamic-label-input"
-          value={number}
-          name="number"
-          placeholder="Номер телефона"
-          className={styles.input}
-          onChange={handleChangeNumber}
-          required
-        />
-        <label for="dynamic-label-input" className={styles.label}>
-          Номер телефона
-        </label>
-      </div>
-      <div className={styles.formContainer}>
-        <input
-          type="text"
-          id="dynamic-label-input"
-          value={city}
-          name="city"
-          placeholder="Город"
-          className={styles.input}
-          onChange={handleChangeCity}
-        />
-        <label for="dynamic-label-input" className={styles.label}>
-          Город
-        </label>
-      </div>
-      <div className={styles.formContainer}>
-        <input
-          type="text"
-          id="dynamic-label-input"
-          value={street}
-          name="street"
-          placeholder="Улица"
-          className={styles.input}
-          onChange={handleChangeStreet}
-        />
-        <label for="dynamic-label-input" className={styles.label}>
-          Улица
-        </label>
-      </div>
-      <div className={styles.formContainer}>
-        <input
-          type="text"
-          id="dynamic-label-input"
-          value={house}
-          name="house"
-          placeholder="Дом, квартира"
-          className={styles.input}
-          onChange={handleChangeHouse}
-        />
-        <label for="dynamic-label-input" className={styles.label}>
-          Дом, квартира
-        </label>
-      </div>
+      {/* <div className={styles.formContainer}> */}
+      <input
+        type="number"
+        id="dynamic-label-input"
+        value={number}
+        name="number"
+        placeholder="Номер телефона"
+        className={styles.input}
+        onChange={handleChangeNumber}
+        required
+      />
+      <label htmlFor="dynamic-label-input" className={styles.label}>
+        Номер телефона
+      </label>
+      {/* </div> */}
+      {/* <div className={styles.formContainer}> */}
+      <input
+        type="text"
+        id="dynamic-label-input"
+        value={city}
+        name="city"
+        placeholder="Город"
+        className={styles.input}
+        onChange={handleChangeCity}
+      />
+      <label htmlFor="dynamic-label-input" className={styles.label}>
+        Город
+      </label>
+      {/* </div> */}
+      {/* <div className={styles.formContainer}> */}
+      <input
+        type="text"
+        id="dynamic-label-input"
+        value={street}
+        name="street"
+        placeholder="Улица"
+        className={styles.input}
+        onChange={handleChangeStreet}
+      />
+      <label htmlFor="dynamic-label-input" className={styles.label}>
+        Улица
+      </label>
+      {/* </div> */}
+      {/* <div className={styles.formContainer}> */}
+      <input
+        type="text"
+        id="dynamic-label-input"
+        value={house}
+        name="house"
+        placeholder="Дом, квартира"
+        className={styles.input}
+        onChange={handleChangeHouse}
+      />
+      <label htmlFor="dynamic-label-input" className={styles.label}>
+        Дом, квартира
+      </label>
+      {/* </div> */}
       <button className={styles.submit} type="submit">
         Заказать
       </button>
