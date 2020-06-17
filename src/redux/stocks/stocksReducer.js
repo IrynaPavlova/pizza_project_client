@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux';
-import { createReducer } from '@reduxjs/toolkit';
-import stocksActions from './stocksActions';
+import { combineReducers } from "redux";
+import { createReducer } from "@reduxjs/toolkit";
+import stocksActions from "./stocksActions";
 
 const stocksReducer = createReducer([], {
   [stocksActions.getStocksSuccess]: (state, { payload }) => payload,
@@ -9,4 +9,8 @@ const stocksReducer = createReducer([], {
   [stocksActions.deleteStockSuccess]: (state, { payload }) => payload,
 });
 
-export default combineReducers({ items: stocksReducer });
+const linkReducer = createReducer(null, {
+  [stocksActions.sendFileSuccess]: (state, { payload }) => payload,
+});
+
+export default combineReducers({ items: stocksReducer, fileLink: linkReducer });

@@ -1,3 +1,5 @@
 const getStocks = (state) => state.stocks.items;
 
-export default { getStocks };
+const getFileLink = (state) => state.stocks.fileLink;
+
+export default { getStocks, getFileLink };

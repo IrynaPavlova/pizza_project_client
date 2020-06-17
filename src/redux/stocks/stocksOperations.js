@@ -16,8 +16,13 @@ const fetchStocks = () => (dispatch) => {
 
 const sendFile = (file) => (dispatch) => {
   dispatch(stocksActions.sendFileRequest());
-
-  axios.post("/images", file).then(console.log);
+  console.log(file);
+  axios
+    .post("/images", file)
+    .then(({ data }) =>
+      dispatch(stocksActions.sendFileSuccess(data.image.file))
+    )
+    .catch((error) => dispatch(stocksActions.sendFileError(error)));
 };
 
 const sendStock = (stock) => (dispatch) => {
@@ -47,4 +52,4 @@ const deleteStock = (stockId) => (dispatch) => {
     .catch((error) => dispatch(stocksActions.deleteStockError(error)));
 };
 
-export default { fetchStocks, sendStock, updateStock, deleteStock };
+export default { fetchStocks, sendStock, updateStock, deleteStock, sendFile };
