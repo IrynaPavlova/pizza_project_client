@@ -1,30 +1,35 @@
-import React from "react";
-// import { connect } from "react-redux";
-// import PropTypes from "prop-types";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import DrinkListItem from "../../DrinkListItem/DrinkListItem";
+import { productSelectors, productOperations } from "../../redux/product";
+
+import DrinkListItem from "../DrinkListItem/DrinkListItem";
 import styles from "./drinkList.module.css";
 
-const DrinkList = ({ products }) => (
-  <>
-    <h2 className={styles.title}>Напитки</h2>
-    <ul className={styles.menu}>
-      {products.map(({ _id, images, name, description, price, currency }) => (
-        <DrinkListItem
-          key={_id}
-          images={images[0]}
-          name={name}
-          description={description}
-          price={price.price}
-          currency={currency}
-        />
-      ))}
-    </ul>
-  </>
-);
+class DrinkList extends Component {
+  componentDidMount() {
+    this.props.onFetchProductDrinks("drinks");
+  }
+  render() {
+    const { products } = this.props;
+    return (
+      <>
+        <ul className={styles.menu}>
+          {products.map((product) => (
+            <DrinkListItem key={product._id} {...product} />
+          ))}
+        </ul>
+      </>
+    );
+  }
+}
 
-// const mapStateToProps = (state) => ({
-//   products: state.products,
-// });
+const mapStateToProps = (state) => {
+  return { products: productSelectors.getProducts(state) };
+};
 
-export default DrinkList;
+const mapDispatchToProps = {
+  onFetchProductDrinks: productOperations.fetchProductsByCategory,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DrinkList);

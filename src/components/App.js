@@ -20,6 +20,8 @@ import UserPage from "../pages/UserPage/UserPage";
 import Footer from "./Footer/Footer";
 
 const DessertsList = lazy(() => import("../components/DessertsList"));
+const DrinkList = lazy(() => import("../components/DrinkList"));
+const SidesList = lazy(() => import("../components/SidesList"));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -33,6 +35,8 @@ const App = () => {
         <Switch>
           <Route path={routes.MAIN_PAGE} exact component={MainPage} />
           <Route path={routes.DESSERTS} exact component={DessertsList} />
+          <Route path={routes.DRINKS} exact component={DrinkList} />
+          <Route path={routes.SIDES} exact component={SidesList} />
           <Route path={routes.PIZZA} component={PizzaList} />
           <Route path={routes.PROMO} component={PromoList} />
           <Route path={routes.ORDER_PAGE} component={OrderPage} />
