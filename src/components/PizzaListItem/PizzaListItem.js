@@ -14,7 +14,7 @@ function PizzaListItem(props) {
     <li key={props._id} className={styles.pizzaListCard}>
       <div>
         <img
-          src={props.images[0]}
+          // src={props.images[0]}
           width="280"
           height="192"
           className={styles.imageItem}

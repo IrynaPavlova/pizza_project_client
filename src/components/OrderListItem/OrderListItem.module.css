@@ -2,10 +2,10 @@
 @value accentColor, lightColor, secondaryTextFontSize from variables;
 
 .orderItemCard {
+  position: relative;
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-  /* height: 418px; */
   padding: 40px 30px;
   border: 1px solid rgba(39, 39, 39, 0.1);
   box-sizing: border-box;
@@ -16,30 +16,18 @@
 }
 
 .deleteButton {
-  width: 12px;
-  height: 12px;
+  position: absolute;
   border: none;
   background: transparent;
-  margin-bottom: 24px;
-  position: absolute;
-  left: 102%;
+  left: 92%;
   top: 2%;
 }
 
-img {
+.itemImg {
   width: 220px;
   height: 174px;
   margin-bottom: 20px;
 }
-
-/* .imgContainer {
-  display: flex;
-  width: 220px;
-  height: 174px;
-  margin: 0 auto;
-  border: 1px solid rgba(39, 39, 39, 0.1);
-  margin-bottom: 20px;
-} */
 
 .productName {
   text-align: center;
@@ -134,13 +122,14 @@ img {
     padding: 0;
   }
 
-  img {
+  .itemImg {
     width: 270px;
     height: 203px;
+    margin-bottom: 0px;
   }
 
   .deleteButton {
-    top: 20px;
+    top: 15px;
     left: 96%;
     margin: 0;
   }
