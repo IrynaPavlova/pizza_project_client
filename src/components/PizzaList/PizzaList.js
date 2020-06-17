@@ -1,5 +1,5 @@
 import React from "react";
-import PizzaListItem from "../PizzaListItem/PizzaListItem";
+import PizzaListItem from "../PizzaListItem/PizzaListItemContainer";
 // import productsJSON from "../../services/products.json";
 import styles from "./PizzaList.module.css";
 

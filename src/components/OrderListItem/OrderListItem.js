@@ -43,7 +43,7 @@ const OrdersListItem = ({
   // IncrementItem,
   // DecrementItem,
   // onDeleteItem,
-  // amount,
+  itemsCount,
 }) => {
   const ingredientsList = ingredients.map((item) => [item.name]).join(", ");
   return (
@@ -59,13 +59,13 @@ const OrdersListItem = ({
         <p className={styles.ingredientsText}>{ingredientsList}</p>
         <div className={styles.orderDetailsWrapper}>
           <p className={styles.priceText}>
-            {price.M}
+            {price}
             <span className={styles.currencyText}>{currency}</span>
           </p>
 
           <div className={styles.amountContainer}>
             <button className={styles.deleteBtn}>-</button>
-            <p className={styles.amountNumber}>{"12"}</p>
+            <p className={styles.amountNumber}>{itemsCount}</p>
             <button
               className={[styles.deleteBtn, styles.incrementBtn].join(" ")}
             >
