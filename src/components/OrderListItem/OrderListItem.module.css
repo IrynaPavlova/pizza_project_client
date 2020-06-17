@@ -2,31 +2,30 @@
 @value accentColor, lightColor, secondaryTextFontSize from variables;
 
 .orderItemCard {
+  position: relative;
   display: flex;
   flex-direction: column;
-  margin-bottom: 16px;
-  height: 418px;
-  padding: 0 30px;
+  margin-bottom: 20px;
+  padding: 40px 30px;
   border: 1px solid rgba(39, 39, 39, 0.1);
   box-sizing: border-box;
 }
 
+.orderItemCard:last-child {
+  margin-bottom: 0px;
+}
+
 .deleteButton {
-  width: 12px;
-  height: 12px;
+  position: absolute;
   border: none;
   background: transparent;
-  margin-bottom: 24px;
-  position: relative;
-  left: 102%;
+  left: 92%;
   top: 2%;
 }
 
-.imgContainer {
+.itemImg {
   width: 220px;
   height: 174px;
-  margin: 0 auto;
-  border: 1px solid rgba(39, 39, 39, 0.1);
   margin-bottom: 20px;
 }
 
@@ -91,6 +90,7 @@
 }
 
 .amountNumber {
+  margin: 0px;
   font-family: "RobotoRegular";
   font-style: normal;
   font-weight: 500;
@@ -105,7 +105,7 @@
     width: 738px;
     height: 205px;
     padding: 0;
-    margin: 0;
+    margin-bottom: 16px;
     flex-direction: row;
   }
 
@@ -114,14 +114,22 @@
   }
 
   .imgContainer {
+    display: flex;
     width: 270px;
+    align-self: end;
     height: 205px;
     margin: 0;
     padding: 0;
   }
 
+  .itemImg {
+    width: 270px;
+    height: 203px;
+    margin-bottom: 0px;
+  }
+
   .deleteButton {
-    top: 20px;
+    top: 15px;
     left: 96%;
     margin: 0;
   }
@@ -143,6 +151,7 @@
 
 @media (min-width: 1400px) {
   .orderItemCard {
+    display: flex;
     width: 770px;
   }
 }

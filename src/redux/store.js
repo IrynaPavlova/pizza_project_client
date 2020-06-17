@@ -23,12 +23,18 @@ const authPersistConfig = {
   whitelist: ["token"],
 };
 
+const OrderPersistConfig = {
+  key: "userOrderList",
+  storage,
+  whitelist: ["userOrderList"],
+};
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     products: productReducer,
     global: globalReducer,
-    orders: orderReducer,
+    orders: persistReducer(OrderPersistConfig, orderReducer),
   },
   middleware: getDefaultMiddleware({
     serializableCheck: {

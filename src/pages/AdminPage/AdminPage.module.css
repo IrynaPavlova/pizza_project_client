@@ -63,6 +63,7 @@
 
 .adminMenuItem:hover {
   color: accentColor;
+  text-decoration: none;
 }
 
 .adminMenuItem:hover::before {
