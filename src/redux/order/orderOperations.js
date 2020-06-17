@@ -27,23 +27,23 @@ const getOrdersById = (id) => (dispatch) => {
 
 //Создаем лист заказа пользователя
 
-const addProdToOrderList = (productId, productName, productType = "M") => (
-  dispatch,
-  getState
-) => {
-  const doesExistItem = getState().order.userOrderList.some(
+const addProdToOrderList = (product, productType) => (dispatch, getState) => {
+  const doesExistItem = getState().orders.userOrderList.productsList.some(
     (orderItem) =>
-      orderItem.product === productId && orderItem.type === productType
-    //c проверкой по размеру - это отдельный уникальный элемент
+      orderItem.productId === product._id && orderItem.type === productType
+    //c проверкой по цене- это отдельный уникальный элемент
   );
   if (doesExistItem) {
-    return; //можно дописать, чтобы выводило сообщение, что продукт уже добавлен (или прибавлять на каждый клик кол-во itemsCount)
+    return; //можно дописать, чтобы выводило сообщение, что продукт уже добавлен как на розетке
   }
   const newItem = {
-    product: productId,
-    productName: productName,
+    productId: product._id,
+    productName: product.name,
     type: productType,
     itemsCount: 1,
+    //нет в макете order,но нужен для отрисовки компонента orderList
+    productprice: Number(product.price[productType] || product.price), //должно сработать для всех продуктов
+    product,
   };
   dispatch(orderActions.addProdToOrderList(newItem));
 };

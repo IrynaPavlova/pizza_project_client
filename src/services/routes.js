@@ -13,6 +13,7 @@ export const routes = {
   ADMIN_CREATE_PRODUCT: "/admin/create-product",
   ADMIN_UPDATE_PRODUCT: "/admin/update-product",
   ABOUT_DEV_PAGE: "/about-developers",
+  CLIENT_PAGE: "/client",
 
   AUTH: "/auth",
 };

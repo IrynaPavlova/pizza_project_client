@@ -10,7 +10,7 @@ import styles from "./Header.module.css";
 import LanguageSelector from "../LanguageSelector";
 import AuthorizationBar from "../AuthorizationBar";
 import Spinner from "../Spinner";
-import ShoppingCart from "../ShoppingCart";
+import ShoppingCartContainer from "../ShoppingCart/ShoppingCartContainer";
 import MainMenu from "../MainMenu/MainMenu";
 import MobileMainMenu from "../MobileMainMenu";
 import Authentication from "../Authentication";
@@ -77,7 +77,7 @@ const Header = (props) => {
             <PizzaIcon />
           </Link>
           <Media query="(min-width: 768px)" render={() => <MainMenu />} />
-          <ShoppingCart />
+          <ShoppingCartContainer />
           <Authentication
             isModalActive={isModalActive}
             setIsModalActive={setIsModalActive}

@@ -35,14 +35,21 @@
   cursor: pointer;
 }
 
-.siteName:hover:after {
+.siteName::after {
   content: "";
-  width: 149px;
+  width: 150px;
   height: 3px;
   display: block;
   background-color: #ff6c00;
-  border-radius: 4px;
   margin: 0 auto;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.25s;
+}
+
+.siteName:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .phoneContainer {
@@ -61,7 +68,12 @@
 }
 
 .phoneFooter {
-  color: #fff;
+  color: lightColor;
+}
+
+.phoneFooter:hover {
+  color: lightColor;
+  text-decoration: none;
 }
 
 .socialsContainer {
@@ -120,8 +132,9 @@
   margin: 0 auto;
 }
 
-.devLink {
+a.devLink {
   color: #ff6c00;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {

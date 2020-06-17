@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { FormattedMessage } from "react-intl";
+
 import AdminOrdersListItem from "../AdminOrdersListItem/AdminOrdersListItem";
 import Spinner from "../Spinner/Spinner";
 import styles from "./AdminOrderList.module.css";
@@ -12,7 +14,7 @@ export default function AdminOrderList() {
   const [items, setItems] = useState([]);
   const [filters, setFilter] = useState("Новые");
 
-  const options = ["Новые","Выполненные","Все"] ;
+  const options = ["Новые", "Выполненные", "Все"];
 
   useEffect(() => {
     fetch("https://evening-caverns-34846.herokuapp.com/orders")
@@ -41,7 +43,9 @@ export default function AdminOrderList() {
     } else {
       return !items.length ? (
         <div className={styles.noOrderContainer}>
-          <p className={styles.noOrderText}>There are no orders yet</p>
+          <p className={styles.noOrderText}>
+            <FormattedMessage id="orders.no" />
+          </p>
         </div>
       ) : (
         <div className={styles.orderContainer}>
@@ -81,10 +85,7 @@ export default function AdminOrderList() {
             </ul>
             <ul>
               {orders.map((item) => {
-                if (
-                  filters === "Новые" &&
-                  item.status === "new"
-                ) {
+                if (filters === "Новые" && item.status === "new") {
                   return <AdminOrdersListItem key={item._id} item={item} />;
                 }
               })}
