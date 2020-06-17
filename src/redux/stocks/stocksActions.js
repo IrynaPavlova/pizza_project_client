@@ -16,6 +16,10 @@ const deleteStockRequest = createAction("stocks/deleteStockRequest");
 const deleteStockSuccess = createAction("stocks/deleteStockSuccess");
 const deleteStockError = createAction("stocks/deleteStockError");
 
+const sendFileRequest = createAction("stocks/sendFileRequest");
+const sendFileSuccess = createAction("stocks/sendFileSuccess");
+const sendFileError = createAction("stocks/sendFileError");
+
 export default {
   getStocksSuccess,
   getStocksRequest,
@@ -29,4 +33,7 @@ export default {
   deleteStockRequest,
   deleteStockSuccess,
   deleteStockError,
+  sendFileRequest,
+  sendFileSuccess,
+  sendFileError,
 };

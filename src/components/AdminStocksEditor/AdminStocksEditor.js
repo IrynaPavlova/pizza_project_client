@@ -18,11 +18,11 @@ function AdminStocksEditor({ onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const stocksItem = new FormData();
+    const stocksItem = new FormData();
     // stocksItem.append('Title', stocksTitle);
     // stocksItem.append('Description', stocksDescription);
-    // stocksItem.append('File', stocksFile);
-    // onSubmit(stocksItem);
+    stocksItem.append('File', stocksFile);
+    onSubmit(stocksItem);
 
     const newStock = {
       title: stocksTitle,
@@ -43,24 +43,36 @@ function AdminStocksEditor({ onSubmit }) {
           onChange={handleLoadFile}
         />
       </label>
-      <label className={styles.formLabel}>
-        Название акции:
-        <input
-          className={styles.formInput}
-          value={stocksTitle}
-          onChange={handleChangeTitle}
-        />
-      </label>
-      <label className={styles.formLabel}>
-        Описание акции:
-        <input
-          className={styles.formInput}
-          value={stocksDescription}
-          onChange={handleChangeDescription}
-        />
-      </label>
-      <button type="submit">Отправить акцию</button>
+      
+      <button type="submit">Отправить файл</button>
     </form>
+    // <form className={styles.form} onSubmit={handleSubmit}>
+    //   <label className={styles.formLabel}>
+    //     Загрузить файл:
+    //     <input
+    //       type="file"
+    //       className={styles.formInput}
+    //       onChange={handleLoadFile}
+    //     />
+    //   </label>
+    //   <label className={styles.formLabel}>
+    //     Название акции:
+    //     <input
+    //       className={styles.formInput}
+    //       value={stocksTitle}
+    //       onChange={handleChangeTitle}
+    //     />
+    //   </label>
+    //   <label className={styles.formLabel}>
+    //     Описание акции:
+    //     <input
+    //       className={styles.formInput}
+    //       value={stocksDescription}
+    //       onChange={handleChangeDescription}
+    //     />
+    //   </label>
+    //   <button type="submit">Отправить акцию</button>
+    // </form>
   );
 }
 

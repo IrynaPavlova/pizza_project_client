@@ -1,7 +1,7 @@
-import axios from 'axios';
-import stocksActions from './stocksActions';
+import axios from "axios";
+import stocksActions from "./stocksActions";
 
-const BASE_URL = 'https://evening-caverns-34846.herokuapp.com';
+const BASE_URL = "https://evening-caverns-34846.herokuapp.com";
 
 axios.defaults.baseURL = BASE_URL;
 
@@ -9,16 +9,22 @@ const fetchStocks = () => (dispatch) => {
   dispatch(stocksActions.getStocksRequest());
 
   axios
-    .get('/promo')
+    .get("/promo")
     .then(({ data }) => dispatch(stocksActions.getStocksSuccess(data.promo)))
     .catch((error) => dispatch(stocksActions.getStocksError(error)));
+};
+
+const sendFile = (file) => (dispatch) => {
+  dispatch(stocksActions.sendFileRequest());
+
+  axios.post("/images", file).then(console.log);
 };
 
 const sendStock = (stock) => (dispatch) => {
   dispatch(stocksActions.sendStockRequest());
 
   axios
-    .post('/promo', stock)
+    .post("/promo", stock)
     .then((res) => console.log(res))
     .catch((error) => dispatch(stocksActions.sendStockError(error)));
 };

@@ -9,8 +9,7 @@ import AboutDevelopersPage from '../pages/AboutDevelopersPage/AboutDevelopersPag
 
 import AdminPage from '../pages/AdminPage/AdminPageContainer';
 
-import AdminStocksEditor from './AdminStocksEditor'; // !!Убрать!!
-import AdminStocksList from './AdminStocksList'; // !!Убрать!!
+import AdminStocksPage from '../pages/AdminStocksPage'
 
 import AuthPage from '../pages/AuthPage';
 
@@ -39,7 +38,7 @@ const App = () => {
           <Route path={routes.PIZZA} component={PizzaList} />
           <Route path={routes.PROMO} component={PromoList} />
           <Route path={routes.ORDER_PAGE} component={OrderPage} />
-          <Route path={routes.ADMIN_PAGE} component={AdminStocksList} />
+          <Route path={routes.ADMIN_PAGE} component={AdminStocksPage} />
           {/* !!Восстановить AdminPage!! */}
           <Route path={routes.ABOUT_DEV_PAGE} component={AboutDevelopersPage} />
           <Route path={routes.AUTH} component={AuthPage} />
