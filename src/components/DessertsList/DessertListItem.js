@@ -31,11 +31,17 @@ const DessertListItem = ({
       <img src={images} alt="" width="280" className={dessertImg} />
       <div className={dessertDescription}>
         <h2 className={dessertTittle}>{name[local]}</h2>
-        <span className={dessertWeight}>Вес: {description}</span>
+        <span className={dessertWeight}>
+          <FormattedMessage id="weight" />
+          {description}
+          <FormattedMessage id="g" />
+        </span>
         <div className={dessertOrder}>
           <div className={dessertPriceContainer}>
             <span className={dessertPrice}>{price}.00</span>
-            <span className={dessertCurrency}> {currency}</span>
+            <span className={dessertCurrency}>
+              <FormattedMessage id="grn" />
+            </span>
           </div>
 
           <button

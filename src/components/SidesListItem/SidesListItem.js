@@ -20,7 +20,11 @@ const SidesListItem = ({
       </div>
       <div className={styles.menuItem_content}>
         <h2 className={styles.menuItem_headline}>{name[local]}</h2>
-        <p className={styles.menuItem_size}>Вес: {description}</p>
+        <p className={styles.menuItem_size}>
+          <FormattedMessage id="weight" />
+          {description}
+          <FormattedMessage id="g" />
+        </p>
         <div className={styles.menuItem_wrapper}>
           <p className={styles.menuItem_price}>
             {price}.00 {currency}

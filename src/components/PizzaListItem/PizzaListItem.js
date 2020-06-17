@@ -65,7 +65,9 @@ class PizzaListItem extends Component {
               <span className={styles.price}>
                 {product.price[selectedSize]}.00
               </span>
-              <span className={styles.currency}> {product.currency}</span>
+              <span className={styles.currency}>
+                <FormattedMessage id="grn" />
+              </span>
 
               <button type="submit" className={styles.addCart} type="submit">
                 <FormattedMessage id="orders.chart" />
