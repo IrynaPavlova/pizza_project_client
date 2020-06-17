@@ -1,34 +1,36 @@
-import React, { useState } from "react";
-import styles from "./AdminStocksEditor.module.css";
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import stocksOperations from '../../redux/stocks/stocksOperations';
+import styles from './AdminStocksEditor.module.css';
 
 //FIXME: Вернуть изначальные значения в файле App
 
-export default function AdminStocksEditor() {
+function AdminStocksEditor({ onSubmit }) {
   const [stocksFile, setStockFile] = useState(null);
   const handleLoadFile = ({ target }) => setStockFile(target.files[0]);
 
-  console.log(stocksFile);
-
-  const [stocksTitle, setStockTitle] = useState("");
+  const [stocksTitle, setStockTitle] = useState('');
   const handleChangeTitle = ({ target }) => setStockTitle(target.value);
 
-  const [stocksDescription, setStocksDescription] = useState("");
+  const [stocksDescription, setStocksDescription] = useState('');
   const handleChangeDescription = ({ target }) =>
     setStocksDescription(target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const stocksItem = new FormData();
-    stocksItem.append("stocksTitle", stocksTitle);
-    stocksItem.append("stocksDescription", stocksDescription);
-    stocksItem.append("stocksFile", stocksFile);
-    console.log(stocksItem);
-    const testPackage = {
-      stocksTitle,
-      stocksDescription,
-      stocksFile,
+    // const stocksItem = new FormData();
+    // stocksItem.append('Title', stocksTitle);
+    // stocksItem.append('Description', stocksDescription);
+    // stocksItem.append('File', stocksFile);
+    // onSubmit(stocksItem);
+
+    const newStock = {
+      title: stocksTitle,
+      description: stocksDescription,
+      file: stocksFile,
     };
-    console.log(testPackage);
+
+    onSubmit(newStock);
   };
 
   return (
@@ -61,3 +63,9 @@ export default function AdminStocksEditor() {
     </form>
   );
 }
+
+const mapDispatchToProps = {
+  onSubmit: stocksOperations.sendStock,
+};
+
+export default connect(null, mapDispatchToProps)(AdminStocksEditor);

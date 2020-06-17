@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -8,25 +8,25 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from "redux-persist";
-import storage from "redux-persist/lib/storage";
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 // routes
-import authReducer from "./auth/authReducer";
-import productReducer from "./product/productReducer";
-import globalReducer from "./global/globalReducer";
-import orderReducer from "./order/orderReducer";
-
+import authReducer from './auth/authReducer';
+import productReducer from './product/productReducer';
+import globalReducer from './global/globalReducer';
+import orderReducer from './order/orderReducer';
+import stocksReducer from './stocks/stocksReducer';
 
 const authPersistConfig = {
-  key: "auth",
+  key: 'auth',
   storage,
-  whitelist: ["token"],
+  whitelist: ['token'],
 };
 
 const OrderPersistConfig = {
-  key: "userOrderList",
+  key: 'userOrderList',
   storage,
-  whitelist: ["userOrderList"],
+  whitelist: ['userOrderList'],
 };
 
 export const store = configureStore({
@@ -35,6 +35,7 @@ export const store = configureStore({
     products: productReducer,
     global: globalReducer,
     orders: persistReducer(OrderPersistConfig, orderReducer),
+    stocks: stocksReducer,
   },
   middleware: getDefaultMiddleware({
     serializableCheck: {
