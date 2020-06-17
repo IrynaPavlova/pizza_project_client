@@ -1,4 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
+import { NavLink, Route } from "react-router-dom";
+import { routes } from "../../services/routes";
+import AboutDevelopers from "../../components/AboutDevelopers";
 
 import Facebook from "../../assets/icons/facebook.svg";
 import Instagram from "../../assets/icons/insta.svg";
@@ -10,6 +13,9 @@ import styles from "./Footer.module.css";
 
 const Footer = () => (
   <>
+    <Route path="/devs">
+      <AboutDevelopers />
+    </Route>
     <div className={styles.footerContainer}>
       <div className={styles.footerOverlay}></div>
       <div className={styles.footerItemsContainer}>
@@ -67,7 +73,10 @@ const Footer = () => (
     </div>
     <div className={styles.developers}>
       <p className={styles.developersText}>
-        Сайт разработан <a className={styles.devLink}>студентами GoIt</a>
+        Сайт разработан {""}
+        <NavLink to={routes.DEVELOPERS} className={styles.devLink}>
+          студентами GoIt
+        </NavLink>
       </p>
     </div>
   </>
