@@ -53,9 +53,25 @@ const userOrderListReducer = createReducer([], {
   },
 });
 
+//попробовать перенести в редакс
+function getSum(userOrderList) {
+  return userOrderList.reduce(function (sum, { itemsCount, productprice }) {
+    return sum + itemsCount * productprice;
+  }, 0);
+}
+
+const sumToPay = createReducer(0, {
+  [orderActions.updateSumToPay]: (state, _) => getSum(state.productsList),
+});
+
+const userOrderList = combineReducers({
+  productsList: userOrderListReducer,
+  sumToPay,
+});
+
 export default combineReducers({
   items: ordersReducer,
-  userOrderList: userOrderListReducer,
+  userOrderList,
   errorReducer,
   loadingReducer,
 });
