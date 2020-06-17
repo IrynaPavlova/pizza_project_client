@@ -13,7 +13,6 @@ import AdminPage from "../pages/AdminPage/AdminPageContainer";
 
 import AuthPage from "../pages/AuthPage";
 
-import PromoList from "../components/PromoList";
 import PizzaList from "../components/PizzaList/PizzaListContainer";
 
 import Header from "./Header";
@@ -26,6 +25,7 @@ import localMessages from "../languages";
 const DessertsList = lazy(() => import("../components/DessertsList"));
 const DrinkList = lazy(() => import("../components/DrinkList"));
 const SidesList = lazy(() => import("../components/SidesList"));
+const PromoList = lazy(() => import("../components/PromoList"));
 
 const App = () => {
   const dispatch = useDispatch();
