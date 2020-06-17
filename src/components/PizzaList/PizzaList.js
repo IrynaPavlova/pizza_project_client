@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { FormattedMessage } from "react-intl";
 
 import PizzaListItem from "../PizzaListItem/PizzaListItemContainer";
@@ -6,6 +7,7 @@ import PizzaListItem from "../PizzaListItem/PizzaListItemContainer";
 import styles from "./PizzaList.module.css";
 
 export default function PizzaListForTest({ products }) {
+  const local = useSelector((state) => state.local);
   return (
     <div className={styles.pizzaListWrapper}>
       <h2 className={styles.pizzaHeading}>
@@ -14,7 +16,7 @@ export default function PizzaListForTest({ products }) {
       <ul className={styles.pizzaList}>
         {products.map((product, index) => {
           if (product.subcategory === "classic") {
-            return <PizzaListItem {...product} key={index} />;
+            return <PizzaListItem {...product} key={index} local={local} />;
           }
         })}
       </ul>

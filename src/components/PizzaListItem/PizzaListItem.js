@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import T from "prop-types";
+import { FormattedMessage } from "react-intl";
+
 import styles from "./PizzaListItem.module.css";
 
 // import PropTypes from "prop-types";
@@ -32,7 +34,7 @@ class PizzaListItem extends Component {
           <img src={product.images} className={styles.imageItem} alt="" />
         </div>
         <div className={styles.descriptionContainer}>
-          <p className={styles.heading}>{product.name}</p>
+          <p className={styles.heading}>{product.name[this.props.local]}</p>
           <ul className={styles.ingredients}>
             {product.ingredients.map((ingredient) => (
               <li key={ingredient._id}>
@@ -66,7 +68,7 @@ class PizzaListItem extends Component {
               <span className={styles.currency}> {product.currency}</span>
 
               <button type="submit" className={styles.addCart} type="submit">
-                В корзину
+                <FormattedMessage id="orders.chart" />
               </button>
             </div>
           </form>
