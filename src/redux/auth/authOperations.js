@@ -2,8 +2,6 @@ import axios from "axios";
 import authActions from "./authActions";
 
 axios.defaults.baseURL = "https://evening-caverns-34846.herokuapp.com/";
-axios.defaults.headers.post["Content-Type"] = "application/json";
-axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";
 
 const token = {
   set(token) {
@@ -58,8 +56,20 @@ const getCurrentUser = () => (dispatch, getState) => {
 
   axios
     .get("/auth/current")
-    .then(({ data }) => dispatch(authActions.getCurrentUserSuccess(data)))
+    .then(({ data }) => {
+      console.log(data.user);
+      dispatch(authActions.getCurrentUserSuccess(data));
+    })
     .catch(({ message }) => authActions.getCurrentUserError(message));
+};
+
+const getUserOrders = (id) => (dispatch) => {
+  dispatch(authActions.getUserOrdersRequest());
+
+  axios
+    .get(`/users/${id}`)
+    .then(({ data }) => dispatch(authActions.getUserOrdersSuccess(data)))
+    .catch(({ message }) => authActions.getUserOrdersError(message));
 };
 
 const logOut = () => (dispatch) => {
@@ -74,4 +84,11 @@ const logOut = () => (dispatch) => {
     .catch(({ message }) => dispatch(authActions.logoutError(message)));
 };
 
-export default { register, logOut, logIn, logInSocial, getCurrentUser };
+export default {
+  register,
+  logOut,
+  logIn,
+  logInSocial,
+  getCurrentUser,
+  getUserOrders,
+};
