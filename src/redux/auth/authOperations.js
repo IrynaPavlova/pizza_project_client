@@ -56,20 +56,20 @@ const getCurrentUser = () => (dispatch, getState) => {
 
   axios
     .get("/auth/current")
-    .then(({ data }) => dispatch(authActions.getCurrentUserSuccess(data)))
+    .then(({ data }) => {
+      console.log(data.user);
+      dispatch(authActions.getCurrentUserSuccess(data));
+    })
     .catch(({ message }) => authActions.getCurrentUserError(message));
 };
 
-const gerUser = (id) => (dispatch) => {
-  dispatch(authActions.getUserRequest());
+const getUserOrders = (id) => (dispatch) => {
+  dispatch(authActions.getUserOrdersRequest());
 
   axios
     .get(`/users/${id}`)
-    .then(({ data }) => {
-      console.log(data);
-      // dispatch(authActions.getUserSuccess(data))
-    })
-    .catch(({ message }) => authActions.getUserError(message));
+    .then(({ data }) => dispatch(authActions.getUserOrdersSuccess(data)))
+    .catch(({ message }) => authActions.getUserOrdersError(message));
 };
 
 const logOut = () => (dispatch) => {
@@ -90,5 +90,5 @@ export default {
   logIn,
   logInSocial,
   getCurrentUser,
-  gerUser,
+  getUserOrders,
 };

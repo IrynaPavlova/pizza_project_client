@@ -13,6 +13,11 @@ const basicUserInfo = (_, { payload }) => ({
   id: payload.user._id,
 });
 
+const OrdersUserInfo = (state, { payload }) => ({
+  ...state,
+  orders: payload.user.orders,
+});
+
 const initialUserState = { username: null, email: null, id: null };
 
 const user = createReducer(initialUserState, {
@@ -20,6 +25,7 @@ const user = createReducer(initialUserState, {
   [authActions.loginSuccess]: basicUserInfo,
   [authActions.loginSocial]: socialLogin,
   [authActions.getCurrentUserSuccess]: basicUserInfo,
+  [authActions.getUserOrdersSuccess]: OrdersUserInfo,
   [authActions.logoutSuccess]: () => initialUserState,
 });
 
@@ -35,10 +41,12 @@ const error = createReducer(null, {
   [authActions.loginError]: (_, { payload }) => payload,
   [authActions.logoutError]: (_, { payload }) => payload,
   [authActions.getCurrentUserError]: (_, { payload }) => payload,
+  [authActions.getUserOrdersError]: (_, { payload }) => payload,
   [authActions.registerRequest]: () => null,
   [authActions.loginRequest]: () => null,
   [authActions.logoutRequest]: () => null,
   [authActions.getCurrentUserRequest]: () => null,
+  [authActions.getUserOrdersRequest]: () => null,
 });
 
 const loading = createReducer(false, {
@@ -54,9 +62,9 @@ const loading = createReducer(false, {
   [authActions.getCurrentUserRequest]: () => true,
   [authActions.getCurrentUserSuccess]: () => false,
   [authActions.getCurrentUserError]: () => false,
-  [authActions.getUserRequest]: () => true,
-  [authActions.getUserSuccess]: () => false,
-  [authActions.getUserError]: () => false,
+  [authActions.getUserOrdersRequest]: () => true,
+  [authActions.getUserOrdersSuccess]: () => false,
+  [authActions.getUserOrdersError]: () => false,
 });
 
 export default combineReducers({
