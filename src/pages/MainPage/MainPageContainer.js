@@ -8,18 +8,8 @@ class MainPageContainer extends Component {
     this.props.productItems();
   }
 
-  // handleFetch = () => {
-  //   this.props.productItems("5e9f6e261c9d44000022b4c8");
-  // };
-
   render() {
-    return (
-      <MainPage {...this.props} />
-      //   <button type="button" onClick={this.handleFetch}>
-      //     Fetch
-      //   </button>
-      // </>
-    );
+    return <MainPage {...this.props} />;
   }
 }
 

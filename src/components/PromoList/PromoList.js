@@ -1,18 +1,27 @@
-import React from "react";
-
-import promos from "../../services/promo.json";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 import styles from "./PromoList.module.css";
 import PromoListItem from "../PromoListItem";
 
 export default function PromoList() {
+  const [promoCollection, setpromoColection] = useState([]);
+  useEffect(() => {
+    axios.get("/promo").then(({ data }) => setpromoColection(data.promo));
+  }, []);
+
   return (
-    <div className={styles.promoListWrapper}>
-      <ul>
-        {promos.map((promo, index) => {
-          return <PromoListItem {...promo} key={index} />;
-        })}
-      </ul>
-    </div>
+    <ul className={styles.promoList}>
+      {promoCollection.map(({ _id, images, title, description }) => {
+        return (
+          <PromoListItem
+            key={_id}
+            images={images}
+            title={title}
+            description={description}
+          />
+        );
+      })}
+    </ul>
   );
 }
