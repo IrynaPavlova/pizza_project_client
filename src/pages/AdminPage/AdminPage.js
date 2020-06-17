@@ -1,6 +1,8 @@
 import React, { Suspense } from "react";
 import { routes } from "../../services/routes";
 import { NavLink, Switch, Route, Redirect } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
+
 import Spinner from "../../components/Spinner";
 import AdminOrderList from "../../components/AdminOrderList/AdminOrderList";
 import forExmCreateProd from "./forExmCreateProd";
@@ -20,7 +22,7 @@ export default function AdminPage() {
               className={styles.adminMenuItem}
               activeClassName={styles.adminMenuActiveItem}
             >
-              Принятые заказы
+              <FormattedMessage id="orders.accepted" />
             </NavLink>
           </li>
           <li>
@@ -29,7 +31,7 @@ export default function AdminPage() {
               className={styles.adminMenuItem}
               activeClassName={styles.adminMenuActiveItem}
             >
-              Создать новый продукт
+              <FormattedMessage id="product.create" />
             </NavLink>
           </li>
           <li>
@@ -38,7 +40,7 @@ export default function AdminPage() {
               className={styles.adminMenuItem}
               activeClassName={styles.adminMenuActiveItem}
             >
-              Редактировать продукт
+              <FormattedMessage id="product.edit" />
             </NavLink>
           </li>
         </ul>

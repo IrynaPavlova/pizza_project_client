@@ -1,18 +1,19 @@
-import React, { Component } from 'react';
-import { connect, useSelector, useDispatch } from 'react-redux';
+import React, { Component } from "react";
+import { connect, useSelector, useDispatch } from "react-redux";
+import { FormattedMessage } from "react-intl";
 
 // import products from '../../services/products.json';
 
-import { productSelectors, productOperations } from '../../redux/product';
+import { productSelectors, productOperations } from "../../redux/product";
 
-import DessertsListItem from './DessertListItem';
-import styles from './DessertsList.module.css';
+import DessertsListItem from "./DessertListItem";
+import styles from "./DessertsList.module.css";
 
 const { dessertsHeading, dessertList } = styles;
 
 class DesertList extends Component {
   componentDidMount() {
-    this.props.onFetchProductDesserts('desserts');
+    this.props.onFetchProductDesserts("desserts");
   }
   render() {
     const { products } = this.props;
@@ -20,9 +21,11 @@ class DesertList extends Component {
     // console.log(products);
     return (
       <>
-        <h2 className={dessertsHeading}>Десерты</h2>
+        <h2 className={dessertsHeading}>
+          <FormattedMessage id="desserts" />
+        </h2>
         <ul className={dessertList}>
-          {products.map(product => (
+          {products.map((product) => (
             <DessertsListItem key={product._id} {...product} />
           ))}
         </ul>
@@ -31,7 +34,7 @@ class DesertList extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return { products: productSelectors.getProducts(state) };
 };
 
