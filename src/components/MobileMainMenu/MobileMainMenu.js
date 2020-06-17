@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
 
 import { routes } from "../../services/routes";
 
@@ -48,7 +49,7 @@ export default function MobileMainMenu({
                     className={styles.mainMenuItem}
                     activeClassName={styles.mainMenuActiveItem}
                   >
-                    Акции
+                    <FormattedMessage id="promo" />
                   </NavLink>
                 </li>
                 <li>
@@ -58,7 +59,7 @@ export default function MobileMainMenu({
                     className={styles.mainMenuItem}
                     activeClassName={styles.mainMenuActiveItem}
                   >
-                    Пицца
+                    <FormattedMessage id="pizza" />
                   </NavLink>
                 </li>
                 <li>
@@ -68,7 +69,7 @@ export default function MobileMainMenu({
                     className={styles.mainMenuItem}
                     activeClassName={styles.mainMenuActiveItem}
                   >
-                    Напитки
+                    <FormattedMessage id="drinks" />
                   </NavLink>
                 </li>
                 <li>
@@ -78,7 +79,7 @@ export default function MobileMainMenu({
                     className={styles.mainMenuItem}
                     activeClassName={styles.mainMenuActiveItem}
                   >
-                    Сайды
+                    <FormattedMessage id="sides" />
                   </NavLink>
                 </li>
                 <li>
@@ -88,18 +89,7 @@ export default function MobileMainMenu({
                     className={styles.mainMenuItem}
                     activeClassName={styles.mainMenuActiveItem}
                   >
-                    Десерты
-                  </NavLink>
-                </li>
-
-                <li>
-                  <NavLink
-                    to={routes.ABOUT_DEV_PAGE}
-                    onClick={closeMenu}
-                    className={styles.mainMenuItem}
-                    activeClassName={styles.mainMenuActiveItem}
-                  >
-                    О разработчиках
+                    <FormattedMessage id="desserts" />
                   </NavLink>
                 </li>
                 <li>
