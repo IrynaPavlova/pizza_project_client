@@ -15,6 +15,7 @@ import authReducer from "./auth/authReducer";
 import productReducer from "./product/productReducer";
 import globalReducer from "./global/globalReducer";
 import orderReducer from "./order/orderReducer";
+import localReducer from "./local/localReducer";
 
 const authPersistConfig = {
   key: "auth",
@@ -34,6 +35,7 @@ export const store = configureStore({
     products: productReducer,
     global: globalReducer,
     orders: persistReducer(OrderPersistConfig, orderReducer),
+    local: localReducer,
   },
   middleware: getDefaultMiddleware({
     serializableCheck: {

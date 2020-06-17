@@ -1,4 +1,6 @@
 import React from "react";
+import { FormattedMessage } from "react-intl";
+
 import PizzaListItem from "../PizzaListItem/PizzaListItemContainer";
 // import productsJSON from "../../services/products.json";
 import styles from "./PizzaList.module.css";
@@ -6,7 +8,9 @@ import styles from "./PizzaList.module.css";
 export default function PizzaListForTest({ products }) {
   return (
     <div className={styles.pizzaListWrapper}>
-      <h2 className={styles.pizzaHeading}>Пицца: Классическая</h2>
+      <h2 className={styles.pizzaHeading}>
+        <FormattedMessage id="pizza.classic" />
+      </h2>
       <ul className={styles.pizzaList}>
         {products.map((product, index) => {
           if (product.subcategory === "classic") {
@@ -14,7 +18,9 @@ export default function PizzaListForTest({ products }) {
           }
         })}
       </ul>
-      <h2 className={styles.pizzaHeading}>Пицца: Фирменная</h2>
+      <h2 className={styles.pizzaHeading}>
+        <FormattedMessage id="pizza.special" />
+      </h2>
       <ul className={styles.pizzaList}>
         {products.map((product, index) => {
           if (product.subcategory === "branded") {
@@ -23,7 +29,9 @@ export default function PizzaListForTest({ products }) {
         })}
       </ul>
 
-      <h2 className={styles.pizzaHeading}>Пицца: Премиум</h2>
+      <h2 className={styles.pizzaHeading}>
+        <FormattedMessage id="pizza.premium" />
+      </h2>
       <ul className={styles.pizzaList}>
         {products.map((product, index) => {
           if (product.subcategory === "premium") {
