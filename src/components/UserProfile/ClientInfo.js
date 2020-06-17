@@ -19,4 +19,3 @@ export const ClientInfo = ({ username, email }) => (
   </div>
 );
 
-//<ClientInfo username={"test username"} telephone={"123456789"} email={"test@mail.com"}/>

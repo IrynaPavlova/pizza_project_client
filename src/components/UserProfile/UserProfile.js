@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Spinner from "../Spinner/Spinner";
 import { ClientOrders } from "./ClientOrders";
 import { ClientInfo } from "./ClientInfo";
-import styles from "./ClientInfo.module.css";
+import styles from "./UserProfile.module.css";
 
 // GET "https://evening-caverns-34846.herokuapp.com/users/id"
 
@@ -21,7 +21,6 @@ export default function UserProfile() {
         (result) => {
           setUser({ ...result });
           setIsLoaded(false);
-          //console.log(result.user.orders.length);
         },
         (error) => {
           setIsLoaded(false);
@@ -43,8 +42,12 @@ export default function UserProfile() {
         {user.user && (
           <ClientInfo username={user.user.username} email={user.user.email} />
         )}
-        {user.user && (<ClientOrders orders={user.user} />)}
-        <div className={styles.orderBtn}><a href="/pizza">Заказать пиццу</a></div>
+        {user.user && <ClientOrders orders={user.user} />}
+        <div className={styles.orderBtn}>
+          <a href="/pizza" className={styles.orderBtnText}>
+            Новый заказ
+          </a>
+        </div>
       </div>
     </>
   );

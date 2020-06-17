@@ -25,8 +25,9 @@ export const ClientOrders = (orders) => {
           <p className={styles.noOrdersText}>У вас еще нет заказов</p>
         </div>
       ) : (
-        <div>
-          <ol>{ordersList}</ol>
+        <div className={styles.clientOrderContainer}>
+          <h4 className={styles.clientOrderTitle}>История Ваших заказов</h4>
+          <ul className={styles.clientOrdersList}>{ordersList}</ul>
         </div>
       )}
     </>
