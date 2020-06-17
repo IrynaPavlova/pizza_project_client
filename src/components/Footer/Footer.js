@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { NavLink, Route } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import { routes } from "../../services/routes";
 import AboutDevelopers from "../../components/AboutDevelopers";
+import { FormattedMessage } from "react-intl";
 
 import Facebook from "../../assets/icons/facebook.svg";
 import Instagram from "../../assets/icons/insta.svg";
@@ -73,10 +74,10 @@ const Footer = () => (
     </div>
     <div className={styles.developers}>
       <p className={styles.developersText}>
-        Сайт разработан {""}
-        <NavLink to={routes.DEVELOPERS} className={styles.devLink}>
-          студентами GoIt
-        </NavLink>
+        <FormattedMessage id="site developed" />
+        <Link to={routes.DEVELOPERS} className={styles.devLink}>
+          <FormattedMessage id="goit students" />
+        </Link>
       </p>
     </div>
   </>
