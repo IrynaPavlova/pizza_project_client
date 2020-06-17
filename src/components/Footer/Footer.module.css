@@ -5,34 +5,51 @@
   background-image: url(../../assets/img/footerbg.svg);
   background-size: cover;
   background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerOverlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(39, 39, 39, 0.8);
+  /* opacity: 0.6; */
+  position: absolute;
+}
+
+.footerItemsContainer {
+  z-index: 1;
 }
 
 .siteName {
   padding-top: 70px;
-  margin-bottom: 4px;
+  margin-bottom: 16px;
   font-size: 18px;
   line-height: 20px;
   letter-spacing: 0.25px;
   text-align: center;
   color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
 }
 
-.border {
-  margin: 0 auto;
-  margin-bottom: 30px;
+.siteName:hover:after {
+  content: "";
   width: 149px;
   height: 3px;
   display: block;
   background-color: #ff6c00;
   border-radius: 4px;
+  margin: 0 auto;
 }
 
 .phoneContainer {
   margin: 0 auto;
   margin-bottom: 30px;
-  width: 175px;
+  width: 215px;
   font-family: OswaldBold;
-  font-size: 1rem;
+  font-size: 20px;
   line-height: 1.5;
   letter-spacing: 0.065em;
   text-transform: uppercase;
@@ -89,6 +106,23 @@
   padding-left: 12px;
 }
 
+.developers {
+  padding-top: 27px;
+  padding-bottom: 27px;
+  text-align: center;
+}
+
+.developersText {
+  font-family: RobotoRegular;
+  font-size: 12px;
+  line-height: 20px;
+  margin: 0 auto;
+}
+
+.devLink {
+  color: #ff6c00;
+}
+
 @media screen and (min-width: 768px) {
   .footerContainer {
     background-image: url(../../assets/img/Footerbgtab.svg);
@@ -111,16 +145,20 @@
   .phoneContainer {
     order: -1;
     padding-bottom: 172px;
-    margin-left: 10px;
-    margin-right: 91px;
+
+    margin-right: 80px;
     margin-bottom: 0;
   }
 
   .socialsContainer {
     order: -1;
     position: absolute;
-    left: 27%;
+    left: 31%;
     bottom: 39px;
+  }
+
+  .developersText {
+    font-size: 18px;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -136,7 +174,7 @@
 
   .phoneContainer {
     padding-bottom: 95px;
-    margin-right: 590px;
+    margin-right: 557px;
   }
 
   .socialsContainer {
