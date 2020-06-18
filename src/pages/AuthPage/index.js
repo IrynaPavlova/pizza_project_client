@@ -17,10 +17,12 @@ const AuthPage = () => {
     const username = params.get("name");
     const token = params.get("token");
     const email = params.get("email");
+    const id = params.get("id");
     const user = {
       username,
       email,
       token,
+      id,
     };
     dispatch(authOperations.logInSocial(user));
     history.replace("/");

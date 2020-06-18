@@ -5,19 +5,27 @@ import authActions from "./authActions";
 const socialLogin = (_, { payload }) => ({
   username: payload.username,
   email: payload.email,
+  id: payload._id,
 });
 const basicUserInfo = (_, { payload }) => ({
   username: payload.user.username,
   email: payload.user.email,
+  id: payload.user._id,
 });
 
-const initialUserState = { username: null, email: null };
+const OrdersUserInfo = (state, { payload }) => ({
+  ...state,
+  orders: payload.user.orders,
+});
+
+const initialUserState = { username: null, email: null, id: null };
 
 const user = createReducer(initialUserState, {
   [authActions.registerSuccess]: basicUserInfo,
   [authActions.loginSuccess]: basicUserInfo,
   [authActions.loginSocial]: socialLogin,
   [authActions.getCurrentUserSuccess]: basicUserInfo,
+  [authActions.getUserOrdersSuccess]: OrdersUserInfo,
   [authActions.logoutSuccess]: () => initialUserState,
 });
 
@@ -33,10 +41,12 @@ const error = createReducer(null, {
   [authActions.loginError]: (_, { payload }) => payload,
   [authActions.logoutError]: (_, { payload }) => payload,
   [authActions.getCurrentUserError]: (_, { payload }) => payload,
+  [authActions.getUserOrdersError]: (_, { payload }) => payload,
   [authActions.registerRequest]: () => null,
   [authActions.loginRequest]: () => null,
   [authActions.logoutRequest]: () => null,
   [authActions.getCurrentUserRequest]: () => null,
+  [authActions.getUserOrdersRequest]: () => null,
 });
 
 const loading = createReducer(false, {
@@ -52,6 +62,9 @@ const loading = createReducer(false, {
   [authActions.getCurrentUserRequest]: () => true,
   [authActions.getCurrentUserSuccess]: () => false,
   [authActions.getCurrentUserError]: () => false,
+  [authActions.getUserOrdersRequest]: () => true,
+  [authActions.getUserOrdersSuccess]: () => false,
+  [authActions.getUserOrdersError]: () => false,
 });
 
 export default combineReducers({

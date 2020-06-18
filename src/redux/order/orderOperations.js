@@ -31,10 +31,10 @@ const addProdToOrderList = (product, productType) => (dispatch, getState) => {
   const doesExistItem = getState().orders.userOrderList.productsList.some(
     (orderItem) =>
       orderItem.productId === product._id && orderItem.type === productType
-    //c проверкой по цене- это отдельный уникальный элемент
+    //c проверкой по типу(размер для пиццы) - это отдельный уникальный элемент
   );
   if (doesExistItem) {
-    return; //можно дописать, чтобы выводило сообщение, что продукт уже добавлен как на розетке
+    return; //сюда можно дописать, чтобы выводило сообщение, что продукт уже добавлен как на розетке
   }
   const newItem = {
     productId: product._id,

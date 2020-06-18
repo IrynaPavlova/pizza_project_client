@@ -3,7 +3,7 @@ import React from "react";
 import ShoppingCartIcon from "../utils/ShoppingCartIcon";
 import styles from "./shoppingCart.module.css";
 
-const ShoppingCart = ({ amount = 0, price, onOpenOrderPage }) => {
+const ShoppingCart = ({ amount = 0, price }) => {
   if (amount === 0) {
     return (
       <div>
@@ -16,20 +16,22 @@ const ShoppingCart = ({ amount = 0, price, onOpenOrderPage }) => {
     );
   }
   return (
-    <div className={styles.shoppingCartWrapper} onClick={onOpenOrderPage}>
-      <div className={styles.shoppingIconsWrapper}>
-        <div className={styles.productsAmount}>
-          <span className={styles.productsAmountText}>{amount}</span>
-        </div>
+    <a className={styles.cartLink} href="/order">
+      <div className={styles.shoppingCartWrapper}>
+        <div className={styles.shoppingIconsWrapper}>
+          <div className={styles.productsAmount}>
+            <span className={styles.productsAmountText}>{amount}</span>
+          </div>
 
-        <ShoppingCartIcon />
+          <ShoppingCartIcon />
+        </div>
+        <div className={styles.productsPriceWrapper}>
+          <span className={styles.productsPrice}>
+            {price.toFixed(2)} <b>грн.</b>
+          </span>
+        </div>
       </div>
-      <div className={styles.productsPriceWrapper}>
-        <span className={styles.productsPrice}>
-          {price.toFixed(2)} <b>грн.</b>
-        </span>
-      </div>
-    </div>
+    </a>
   );
 };
 
