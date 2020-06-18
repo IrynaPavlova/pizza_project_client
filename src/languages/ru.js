@@ -37,7 +37,7 @@ export default {
   "orders.accepted": "Принятые заказы",
   "orders.no": "Пока нет принятых заказов",
   "orders.new": "Новые",
-  "oders.done": "Выполненные",
+  "orders.done": "Выполненные",
   "orders.all": "Все",
   "orders.chart": "В корзину",
   "product.create": "Создать новый продукт",

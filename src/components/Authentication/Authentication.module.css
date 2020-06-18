@@ -43,6 +43,7 @@
 .formInput:hover,
 .formInput:focus {
   border: 1px solid rgba(39, 39, 39, 0.6);
+  outline: none;
 }
 .formInput::placeholder {
   color: #27272780;
@@ -87,6 +88,11 @@
   fill: tomato;
 }
 
+.buttonToClose:focus,
+.buttonToClose:focus:active {
+  outline: none;
+}
+
 .formButton {
   width: 260px;
   max-height: 50px;
@@ -108,6 +114,7 @@
   background-color: #ff5900;
   border: solid 2px #ff5900;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  outline: none;
 }
 .formButton:active {
   background-color: #ff6c00;
@@ -148,6 +155,7 @@
   background-color: rgba(39, 39, 39, 0.3);
   border: solid 2px rgba(39, 39, 39, 0.01);
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  outline: none;
 }
 .linkToRegister:active {
   background-color: rgba(39, 39, 39, 0.2);
@@ -160,6 +168,20 @@
   flex-direction: row;
   justify-content: center;
   margin-bottom: 40px;
+}
+.socialRegistration a:focus,
+.socialRegistration a:focus:active {
+  outline: none;
+}
+.socialRegistration a:focus .googleSocial,
+.socialRegistration a:focus .facebookSocial {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.5);
+}
+.socialRegistration a:focus .facebookSocial {
+  background-color: #3075ff;
+  transform: scale(1.1);
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.5);
 }
 
 .googleSocial {
@@ -179,6 +201,7 @@
 .googleSocial:focus {
   transform: scale(1.1);
   box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.5);
+  outline: none;
 }
 
 .facebookSocial {
@@ -188,7 +211,9 @@
   background-color: #4267b2;
   border-radius: 50%;
   border: 1px solid #4267b2;
-  padding-top: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: all 0.3s ease;
 }
 .facebookSocial:hover,
@@ -196,6 +221,7 @@
   background-color: #3075ff;
   transform: scale(1.1);
   box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.5);
+  outline: none;
 }
 
 .backToEnterLink {
@@ -211,6 +237,7 @@
 .backToEnterLink:hover,
 .backToEnterLink:focus {
   color: #ff6c00;
+  outline: none;
 }
 
 @media screen and (min-width: 48rem) {
