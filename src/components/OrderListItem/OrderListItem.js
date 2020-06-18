@@ -5,12 +5,12 @@ import { FormattedMessage } from "react-intl";
 
 const OrdersListItem = ({
   name,
-  // id,
+  id,
   img,
   ingredients,
   price,
   // currency,
-  IncrementItem,
+  onIncrementItem,
   // DecrementItem,
   onRemoveItem,
   itemsCount,
@@ -25,7 +25,7 @@ const OrdersListItem = ({
       <button
         type="button"
         className={styles.deleteButton}
-        onClick={onRemoveItem}
+        onClick={() => onRemoveItem(id)}
       >
         <img src={closeBtn} alt="delete-btn" />
       </button>
@@ -41,12 +41,13 @@ const OrdersListItem = ({
           </p>
 
           <div className={styles.amountContainer}>
-            <button className={styles.deleteBtn} onClick={console.log("click")}>
+            <button className={styles.deleteBtn} onClick={() => {}}>
               -
             </button>
             <p className={styles.amountNumber}>{itemsCount}</p>
             <button
               className={[styles.deleteBtn, styles.incrementBtn].join(" ")}
+              onClick={() => {}}
             >
               +
             </button>

@@ -6,7 +6,8 @@ import OrderListItem from "../OrderListItem/OrderListItem";
 import { FormattedMessage } from "react-intl";
 // import orderItems from "../../services/orderItems.json";
 
-const OrderList = () => {
+//TODO edit to hooks
+const OrderList = ({ deleteProdToOrderList, updateItemsCount }) => {
   const dispatch = useDispatch();
   const userOrder = useSelector(
     (state) => state.orders.userOrderList.productsList
@@ -18,26 +19,30 @@ const OrderList = () => {
     }, 0);
   };
 
-  const removeItem = useCallback(() => {
-    dispatch({ type: "orders/deleteProdToOrderList" });
-  }, [dispatch]);
+  // const removeItem = useCallback(() => {
+  //   dispatch({ type: "orders/deleteProdToOrderList" });
+  // }, [dispatch]);
 
   const orderListPrice = getSum(userOrder);
 
   return (
     <div className={styles.orderList}>
-      <h2 className={styles.orderListTitle}>Ваш заказ</h2>
+      <h2 className={styles.orderListTitle}>
+        <FormattedMessage id="order" />
+      </h2>
       <ul>
         {userOrder.map(
           ({ productId, productName, productprice, product, itemsCount }) => (
             <OrderListItem
               key={productId}
+              id={productId}
               img={product.images}
               name={productName}
               price={productprice}
               ingredients={product.ingredients}
               itemsCount={itemsCount}
-              onRemoveItem={removeItem}
+              onRemoveItem={deleteProdToOrderList}
+              onIncrementItem={updateItemsCount}
               // incrementItem={incrementItem}
             />
           )
