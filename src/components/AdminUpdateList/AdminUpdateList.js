@@ -13,22 +13,38 @@ export default function AdminOrderList() {
   const [listType, setListType] = useState(null);
 
   useEffect(() => dispatch(productOperations.fetchProducts()), []);
-
   return (
     <>
       {isLoading && <Spinner />}
       <div className={styles.buttons_container}>
-        <button className={styles.button} onClick={() => setListType("pizza")}>
+        <button
+          className={`${styles.button} ${
+            listType === "pizza" ? styles.button_active : ""
+          }`}
+          onClick={() => setListType("pizza")}
+        >
           Пиццы
         </button>
-        <button className={styles.button} onClick={() => setListType("sides")}>
-          Гарниры
+        <button
+          className={`${styles.button} ${
+            listType === "sides" ? styles.button_active : ""
+          }`}
+          onClick={() => setListType("sides")}
+        >
+          Сайды
         </button>
-        <button className={styles.button} onClick={() => setListType("drinks")}>
+        <button
+          className={`${styles.button} ${
+            listType === "drinks" ? styles.button_active : ""
+          }`}
+          onClick={() => setListType("drinks")}
+        >
           Напитки
         </button>
         <button
-          className={styles.button}
+          className={`${styles.button} ${
+            listType === "desserts" ? styles.button_active : ""
+          }`}
           onClick={() => setListType("desserts")}
         >
           Десерты
@@ -38,115 +54,27 @@ export default function AdminOrderList() {
         {listType === "pizza" &&
           products
             .filter(({ categories }) => categories === "pizza")
-            .map(
-              ({
-                _id,
-                ingredients,
-                categories,
-                sku,
-                name,
-                description,
-                price,
-                subcategory,
-                images,
-              }) => (
-                <AdminUpdateListItem
-                  key={_id}
-                  ingredients={ingredients}
-                  categories={categories}
-                  sku={sku}
-                  name={name}
-                  description={description}
-                  price={price}
-                  subcategory={subcategory}
-                  images={images}
-                />
-              )
-            )}
+            .map((product) => (
+              <AdminUpdateListItem key={product._id} product={product} />
+            ))}
         {listType === "sides" &&
           products
             .filter(({ categories }) => categories === "sides")
-            .map(
-              ({
-                _id,
-                ingredients,
-                categories,
-                sku,
-                name,
-                description,
-                price,
-                subcategory,
-                images,
-              }) => (
-                <AdminUpdateListItem
-                  key={_id}
-                  ingredients={ingredients}
-                  categories={categories}
-                  sku={sku}
-                  name={name}
-                  description={description}
-                  price={price}
-                  subcategory={subcategory}
-                  images={images}
-                />
-              )
-            )}
+            .map((product) => (
+              <AdminUpdateListItem key={product._id} product={product} />
+            ))}
         {listType === "drinks" &&
           products
             .filter(({ categories }) => categories === "drinks")
-            .map(
-              ({
-                _id,
-                ingredients,
-                categories,
-                sku,
-                name,
-                description,
-                price,
-                subcategory,
-                images,
-              }) => (
-                <AdminUpdateListItem
-                  key={_id}
-                  ingredients={ingredients}
-                  categories={categories}
-                  sku={sku}
-                  name={name}
-                  description={description}
-                  price={price}
-                  subcategory={subcategory}
-                  images={images}
-                />
-              )
-            )}
+            .map((product) => (
+              <AdminUpdateListItem key={product._id} product={product} />
+            ))}
         {listType === "desserts" &&
           products
             .filter(({ categories }) => categories === "desserts")
-            .map(
-              ({
-                _id,
-                ingredients,
-                categories,
-                sku,
-                name,
-                description,
-                price,
-                subcategory,
-                images,
-              }) => (
-                <AdminUpdateListItem
-                  key={_id}
-                  ingredients={ingredients}
-                  categories={categories}
-                  sku={sku}
-                  name={name}
-                  description={description}
-                  price={price}
-                  subcategory={subcategory}
-                  images={images}
-                />
-              )
-            )}
+            .map((product) => (
+              <AdminUpdateListItem key={product._id} product={product} />
+            ))}
       </div>
     </>
   );

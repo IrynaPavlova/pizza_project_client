@@ -1,6 +1,10 @@
 import React from "react";
 import styles from "./OrderListItem.module.css";
 import closeBtn from "../../assets/img/remove_order_item_button.svg";
+<<<<<<< HEAD
+=======
+import { FormattedMessage } from "react-intl";
+>>>>>>> dev
 
 const OrdersListItem = ({
   name,
@@ -13,8 +17,11 @@ const OrdersListItem = ({
   // DecrementItem,
   onRemoveItem,
   itemsCount,
+  local,
 }) => {
-  const ingredientsList = ingredients.map((item) => [item.name]).join(", ");
+  const ingredientsList = ingredients
+    .map((item) => [item.name[local]])
+    .join(", ");
   return (
     <div className={styles.orderItemCard}>
       <img src={img} alt={name} className={styles.itemImg} />
@@ -26,12 +33,18 @@ const OrdersListItem = ({
         <img src={closeBtn} alt="delete-btn" />
       </button>
       <div className={styles.contentWrapper}>
-        <h5 className={styles.productName}>{name}</h5>
+        <h5 className={styles.productName}>{name[local]}</h5>
         <p className={styles.ingredientsText}>{ingredientsList}</p>
         <div className={styles.orderDetailsWrapper}>
           <p className={styles.priceText}>
             {price}
+<<<<<<< HEAD
             <span className={styles.currencyText}>грн.</span>
+=======
+            <span className={styles.currencyText}>
+              <FormattedMessage id="grn" />
+            </span>
+>>>>>>> dev
           </p>
 
           <div className={styles.amountContainer}>
