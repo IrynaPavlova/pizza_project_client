@@ -37,7 +37,7 @@ export default {
   "orders.accepted": "Прийнятi замовлення",
   "orders.no": "Пока нема принятих замовлень",
   "orders.new": "Новi",
-  "oders.done": "Виконанi",
+  "orders.done": "Виконанi",
   "orders.all": "Всi",
   "orders.chart": "До корзини",
   "product.create": "Створити новий продукт",
