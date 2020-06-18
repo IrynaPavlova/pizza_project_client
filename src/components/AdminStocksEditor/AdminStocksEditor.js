@@ -40,21 +40,24 @@ function AdminStocksEditor({ onSubmitFile, onSubmit, linkFile }) {
     <>
       {!linkFile && (
         <form className={styles.form} onSubmit={handleSubmitFile}>
-          <label className={styles.formLabel}>
-            Загрузить файл:
-            <input
-              type="file"
-              className={styles.formInput}
-              onChange={handleLoadFile}
-            />
+          <label className={styles.labelFile} for="file">
+            Загрузить файл
           </label>
-
-          <button type="submit">Отправить файл</button>
+          <input
+            type="file"
+            name="file"
+            id="file"
+            className={styles.inputFile}
+            onChange={handleLoadFile}
+          />
+          <button type="submit" className={styles.formButton}>
+            Отправить файл
+          </button>
         </form>
       )}
       {linkFile && (
         <form className={styles.form} onSubmit={handleSubmit}>
-          <label className={styles.formLabel}>
+          <label>
             <input
               value={linkFile}
               disabled={true}
@@ -62,23 +65,32 @@ function AdminStocksEditor({ onSubmitFile, onSubmit, linkFile }) {
               onChange={handleLoadFile}
             />
           </label>
-          <label className={styles.formLabel}>
-            Название акции:
-            <input
-              className={styles.formInput}
-              value={stocksTitle}
-              onChange={handleChangeTitle}
-            />
+          <label className={styles.formLabel} for="promoName">
+            Название акции
           </label>
-          <label className={styles.formLabel}>
-            Описание акции:
-            <input
-              className={styles.formInput}
-              value={stocksDescription}
-              onChange={handleChangeDescription}
-            />
+
+          <input
+            name="promoName"
+            id="promoName"
+            className={styles.formInput}
+            value={stocksTitle}
+            onChange={handleChangeTitle}
+          />
+          <label className={styles.formLabel} for="promoDescription">
+            Описание акции
           </label>
-          <button type="submit">Отправить акцию</button>
+
+          <input
+            name="promoDescription"
+            id="promoDescription"
+            className={styles.formInput}
+            value={stocksDescription}
+            onChange={handleChangeDescription}
+          />
+
+          <button type="submit" className={styles.formButton}>
+            Отправить акцию
+          </button>
         </form>
       )}
     </>
