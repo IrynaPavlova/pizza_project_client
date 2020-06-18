@@ -5,6 +5,7 @@
 }
 
 .OrderPageContainer {
+  margin-bottom: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,4 +21,10 @@
   color: borderColor; /* Цвет линии для остальных браузеров */
   background-color: borderColor; /* Цвет линии для браузера Firefox и Opera */
   height: 1px;
+}
+
+@media (min-width: 768px) {
+  .OrderPageContainer {
+    margin-bottom: 64px;
+  }
 }

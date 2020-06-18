@@ -48,11 +48,11 @@ const addProdToOrderList = (product, productType) => (dispatch, getState) => {
   dispatch(orderActions.addProdToOrderList(newItem));
 };
 
-const deleteProdToOrderList = (index) => (dispatch) =>
-  dispatch(orderActions.deleteProdToOrderList(index));
+const deleteProdToOrderList = (id) => (dispatch) =>
+  dispatch(orderActions.deleteProdToOrderList(id));
 
-const updateItemsCount = (index, itemsCount) => (dispatch) => {
-  dispatch(orderActions.updateItemsCount(index, itemsCount));
+const updateItemsCount = (id, itemsCount) => (dispatch) => {
+  dispatch(orderActions.updateItemsCount(id, itemsCount));
 };
 
 export default {
