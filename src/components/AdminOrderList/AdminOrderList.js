@@ -96,7 +96,7 @@ export default function AdminOrderList() {
               })}
             </ul>
             <ul>
-              {orders.map((item) => {
+              {items.map((item) => {
                 if (
                   filters === localMessages[local]["orders.new"] &&
                   item.status === "new"
