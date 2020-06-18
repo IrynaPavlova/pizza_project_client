@@ -2,6 +2,7 @@
 @value accentColor, primaryColor, lightColor, secondaryTextFontSize, thirdHeaderFontStyle, borderColor, primaryTextColor from variables;
 
 .clientOrderTitle {
+  font-family: "OswaldMedium";
   text-align: center;
   color: primaryColor;
   font-size: 1.2rem;
@@ -15,6 +16,12 @@
   font-family: "OswaldRegular";
   color: accentColor;
   margin-bottom: 0;
+}
+
+.productAmount {
+  font-family: "OswaldRegular";
+  color: primaryTextColor;
+  font-size: 12px;
 }
 
 .orderPrice {
@@ -41,6 +48,10 @@
 
   .clientOrdersList {
     padding-top: 30px;
+  }
+
+  .productAmount {
+    font-size: 14px;
   }
 
   .orderPrice {

@@ -7,19 +7,25 @@ export const ClientOrders = (orders) => {
   const ordersList = userOrders.map((item) => (
     <li key={item._id}>
       <span className={styles.orderDate}>{item.createdAt.slice(0, 10)}</span>
-      <p className={styles.productTitle}>
-        {item.productsList[0].productName} (
-        <span>{item.productsList[0].type}</span>) -{" "}
-        <span>{item.productsList[0].itemsCount} шт.</span>
-      </p>
-      <span className={styles.orderPrice}>Стоимость заказа: {item.sumToPay} грн.</span>
+      <div className={styles.productTitle}>
+        {item.productsList.map((i) => (
+          <div key={i._id}>
+            {i.productName}{" "}
+            <span className={styles.productAmount}>
+              {i.type} - {i.itemsCount} шт.
+            </span>
+          </div>
+        ))}
+      </div>
+      <span className={styles.orderPrice}>
+        Стоимость заказа: {item.sumToPay} грн.
+      </span>
       <hr />
     </li>
   ));
 
   return (
     <>
-      {" "}
       {!userOrders ? (
         <div>
           <p className={styles.noOrdersText}>У вас еще нет заказов</p>

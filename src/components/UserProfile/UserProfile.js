@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useSelector } from "react";
+//import { authSelectors, authOperations } from "../../redux/auth"
 import Spinner from "../Spinner/Spinner";
 import { ClientOrders } from "./ClientOrders";
 import { ClientInfo } from "./ClientInfo";
@@ -8,10 +9,21 @@ import styles from "./UserProfile.module.css";
 
 const id = "5e79e86a1005c628d790e8f0";
 
+//const id = useSelector(authSelectors.getUserId);
+//const orders = useSelector(authSelectors.getUserOrders);
+
 export default function UserProfile() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [user, setUser] = useState({});
+
+
+  // useEffect(() => {
+  //   if (id) {
+  //     console.log("ID:", id);
+  //     //dispatch(authOperations.getUser(id));
+  //   }
+  // }, []);
 
   useEffect(() => {
     setIsLoaded(true);
