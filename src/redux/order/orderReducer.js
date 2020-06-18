@@ -42,7 +42,9 @@ const userOrderListReducer = createReducer([], {
     action.payload,
   ],
   [orderActions.deleteProdToOrderList]: (state, action) =>
-    state.splice(action.payload, 1), // state.filter((orders) => orders.id !== action.payload),
+    state.filter(
+      (products) => products.productsList.productId !== action.payload
+    ), //state.splice(action.payload, 1),
   [orderActions.updateItemsCount]: (state, action) => {
     const { index, itemsCount } = action.payload;
     const updatedItem = {

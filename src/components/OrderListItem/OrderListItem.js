@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./OrderListItem.module.css";
 import closeBtn from "../../assets/img/remove_order_item_button.svg";
-const currency = "грн";
 
 const OrdersListItem = ({
   name,
@@ -10,16 +9,20 @@ const OrdersListItem = ({
   ingredients,
   price,
   // currency,
-  // IncrementItem,
+  IncrementItem,
   // DecrementItem,
-  // onDeleteItem,
+  onRemoveItem,
   itemsCount,
 }) => {
   const ingredientsList = ingredients.map((item) => [item.name]).join(", ");
   return (
     <div className={styles.orderItemCard}>
       <img src={img} alt={name} className={styles.itemImg} />
-      <button type="button" className={styles.deleteButton}>
+      <button
+        type="button"
+        className={styles.deleteButton}
+        onClick={onRemoveItem}
+      >
         <img src={closeBtn} alt="delete-btn" />
       </button>
       <div className={styles.contentWrapper}>
@@ -28,11 +31,13 @@ const OrdersListItem = ({
         <div className={styles.orderDetailsWrapper}>
           <p className={styles.priceText}>
             {price}
-            <span className={styles.currencyText}>{currency}</span>
+            <span className={styles.currencyText}>грн.</span>
           </p>
 
           <div className={styles.amountContainer}>
-            <button className={styles.deleteBtn}>-</button>
+            <button className={styles.deleteBtn} onClick={console.log("click")}>
+              -
+            </button>
             <p className={styles.amountNumber}>{itemsCount}</p>
             <button
               className={[styles.deleteBtn, styles.incrementBtn].join(" ")}
