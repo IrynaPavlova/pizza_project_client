@@ -18,7 +18,7 @@ export default {
   password: "Пароль",
   "password min": "Пароль(мінімум 6 символів)",
   social: "Увiйти через соцiальну мережу",
-  "pizza.classic": "Пiца: Классична",
+  "pizza.classic": "Пiца: Класична",
   "pizza.special": "Пiца: Фiрмова",
   "pizza.premium": "Пiца: Премiум",
   "site developed": "Сайт разроблено ",
