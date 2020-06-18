@@ -37,7 +37,7 @@ export default {
   "orders.accepted": "Accepted orders",
   "orders.no": "There are no orders yet",
   "orders.new": "New",
-  "oders.done": "Done",
+  "orders.done": "Done",
   "orders.all": "All",
   "orders.chart": "To cart",
   "product.create": "Create new product",
