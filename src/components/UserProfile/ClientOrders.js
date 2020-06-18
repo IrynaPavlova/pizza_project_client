@@ -1,11 +1,12 @@
 import React from "react";
+import { authSelectors } from "../../redux/auth";
 import { useSelector } from "react-redux";
 import { FormattedMessage } from "react-intl";
 
 import styles from "./ClientOrders.module.css";
 
-export const ClientOrders = (orders) => {
-  const local = useSelector((state) => state.local);
+export const ClientOrders = () => {
+  const orders = useSelector(authSelectors.getUserOrders());
 
   const userOrders = orders.orders["orders"];
 
@@ -17,7 +18,7 @@ export const ClientOrders = (orders) => {
           <div key={i._id}>
             {i.productName}{" "}
             <span className={styles.productAmount}>
-              {i.type} - {i.itemsCount} <FormattedMessage id="q"/>
+              {i.type} - {i.itemsCount} <FormattedMessage id="q" />
             </span>
           </div>
         ))}

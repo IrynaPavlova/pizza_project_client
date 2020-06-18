@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { authSelectors, authOperations } from "../../redux/auth";
 import { FormattedMessage } from "react-intl";
+import { routes } from "../../services/routes";
 
 import styles from "./AuthorizationBar.module.css";
 
@@ -19,7 +21,9 @@ export default function AuthorizationBar({
     <div>
       {isAuthenticated ? (
         <div className={styles.userWrapper}>
-          <p className={styles.name}>{name}</p>
+          <Link to={routes.CLIENT_PAGE}>
+            <p className={styles.name}>{name}</p>
+          </Link>
           <button
             type="button"
             className={styles.logoutButton}

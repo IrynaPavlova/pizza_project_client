@@ -136,10 +136,10 @@ export default function LoginPage({ setIsModalActive, setIsLogining }) {
       </p>
       <div className={styles.socialRegistration}>
         <a href="https://evening-caverns-34846.herokuapp.com/auth/google">
-          <button className={styles.googleSocial} type="button"></button>
+          <div className={styles.googleSocial}></div>
         </a>
         <a href="https://evening-caverns-34846.herokuapp.com/auth/facebook">
-          <button className={styles.facebookSocial} type="button">
+          <div className={styles.facebookSocial}>
             <svg
               width="11"
               height="20"
@@ -152,7 +152,7 @@ export default function LoginPage({ setIsModalActive, setIsLogining }) {
                 fill="white"
               />
             </svg>
-          </button>
+          </div>
         </a>
       </div>
     </div>
