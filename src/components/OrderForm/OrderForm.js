@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { FormattedMessage } from "react-intl";
+
+import languages from "../../languages";
 import styles from "./OrderForm.module.css";
 
 export default function OrderForm() {
+  const local = useSelector((state) => state.local);
   const [number, setNumber] = useState("");
   const [city, setCity] = useState("");
   const [street, setStreet] = useState("");
@@ -36,13 +41,13 @@ export default function OrderForm() {
         id="dynamic-label-input"
         value={number}
         name="number"
-        placeholder="Номер телефона"
+        placeholder={languages[local]["phone number"]}
         className={styles.input}
         onChange={handleChangeNumber}
         required
       />
       <label htmlFor="dynamic-label-input" className={styles.label}>
-        Номер телефона
+        <FormattedMessage id="phone number" />
       </label>
       {/* </div> */}
       {/* <div className={styles.formContainer}> */}
@@ -51,12 +56,12 @@ export default function OrderForm() {
         id="dynamic-label-input"
         value={city}
         name="city"
-        placeholder="Город"
+        placeholder={languages[local].city}
         className={styles.input}
         onChange={handleChangeCity}
       />
       <label htmlFor="dynamic-label-input" className={styles.label}>
-        Город
+        <FormattedMessage id="city" />
       </label>
       {/* </div> */}
       {/* <div className={styles.formContainer}> */}
@@ -65,12 +70,12 @@ export default function OrderForm() {
         id="dynamic-label-input"
         value={street}
         name="street"
-        placeholder="Улица"
+        placeholder={languages[local].street}
         className={styles.input}
         onChange={handleChangeStreet}
       />
       <label htmlFor="dynamic-label-input" className={styles.label}>
-        Улица
+        <FormattedMessage id="street" />
       </label>
       {/* </div> */}
       {/* <div className={styles.formContainer}> */}
@@ -79,16 +84,16 @@ export default function OrderForm() {
         id="dynamic-label-input"
         value={house}
         name="house"
-        placeholder="Дом, квартира"
+        placeholder={languages[local].house}
         className={styles.input}
         onChange={handleChangeHouse}
       />
       <label htmlFor="dynamic-label-input" className={styles.label}>
-        Дом, квартира
+        <FormattedMessage id="house" />
       </label>
       {/* </div> */}
       <button className={styles.submit} type="submit">
-        Заказать
+        <FormattedMessage id="order2" />
       </button>
     </form>
   );

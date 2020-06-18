@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { authSelectors, authOperations } from "../../redux/auth";
+import { FormattedMessage } from "react-intl";
 
 import styles from "./AuthorizationBar.module.css";
 
@@ -24,7 +25,7 @@ export default function AuthorizationBar({
             className={styles.logoutButton}
             onClick={onLogout}
           >
-            Выйти
+            <FormattedMessage id="logout" />
           </button>
         </div>
       ) : (
@@ -32,11 +33,11 @@ export default function AuthorizationBar({
           type="button"
           className={darkStyle || styles.loginButton}
           onClick={() => {
-            setIsMobileMenuOpen(false);
+            // setIsMobileMenuOpen(false);
             setIsModalActive(true);
           }}
         >
-          Войти
+          <FormattedMessage id="login" />
         </button>
       )}
     </div>

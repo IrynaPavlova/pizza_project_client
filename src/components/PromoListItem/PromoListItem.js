@@ -2,20 +2,20 @@ import React from "react";
 
 import styles from "./PromoListItem.module.css";
 
-function PromoListItem(props) {
+function PromoListItem({ _id, images, title, description }) {
   return (
-    <li key={props._id}>
+    <li className={styles.promoListItem} key={_id}>
       <div className={styles.promoListItemWrapper}>
         <img
           className={styles.promoListItemImg}
           width="280"
-          height="192"
-          src={props.promoImg[0]}
+          height="190"
+          src={images}
           alt=""
         />
         <div className={styles.promoListItemTextWrapper}>
-          <h2 className={styles.promoName}>{props.promoName}</h2>
-          <p className={styles.promoText}>{props.promoText}</p>
+          <h2 className={styles.promoName}>{title}</h2>
+          <p className={styles.promoText}>{description}</p>
         </div>
       </div>
     </li>

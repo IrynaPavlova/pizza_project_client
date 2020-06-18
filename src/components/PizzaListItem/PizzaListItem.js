@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import T from "prop-types";
+import { FormattedMessage } from "react-intl";
+
 import styles from "./PizzaListItem.module.css";
 
 // import PropTypes from "prop-types";
@@ -28,15 +30,17 @@ class PizzaListItem extends Component {
     const { selectedSize } = this.state;
     return (
       <li key={product._id} className={styles.pizzaListCard}>
-        <div>
+        <div className={styles.imageItemBlock}>
           <img src={product.images} className={styles.imageItem} alt="" />
         </div>
         <div className={styles.descriptionContainer}>
-          <p className={styles.heading}>{product.name}</p>
+          <p className={styles.heading}>{product.name[this.props.local]}</p>
           <ul className={styles.ingredients}>
             {product.ingredients.map((ingredient) => (
               <li key={ingredient._id}>
-                <span className={styles.ingredientItem}>{ingredient.name}</span>
+                <span className={styles.ingredientItem}>
+                  {ingredient.name[this.props.local]}
+                </span>
               </li>
             ))}
           </ul>
@@ -63,10 +67,12 @@ class PizzaListItem extends Component {
               <span className={styles.price}>
                 {product.price[selectedSize]}.00
               </span>
-              <span className={styles.currency}> {product.currency}</span>
+              <span className={styles.currency}>
+                <FormattedMessage id="grn" />
+              </span>
 
               <button type="submit" className={styles.addCart} type="submit">
-                В корзину
+                <FormattedMessage id="orders.chart" />
               </button>
             </div>
           </form>
