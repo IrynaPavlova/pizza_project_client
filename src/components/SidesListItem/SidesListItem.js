@@ -27,7 +27,7 @@ const SidesListItem = ({
         </p>
         <div className={styles.menuItem_wrapper}>
           <p className={styles.menuItem_price}>
-            {price}.00 {currency}
+            {price}.00 <FormattedMessage id="grn" />
           </p>
           <button
             className={styles.button}

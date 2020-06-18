@@ -38,7 +38,9 @@ class PizzaListItem extends Component {
           <ul className={styles.ingredients}>
             {product.ingredients.map((ingredient) => (
               <li key={ingredient._id}>
-                <span className={styles.ingredientItem}>{ingredient.name}</span>
+                <span className={styles.ingredientItem}>
+                  {ingredient.name[this.props.local]}
+                </span>
               </li>
             ))}
           </ul>
