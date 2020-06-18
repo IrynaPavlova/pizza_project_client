@@ -1,10 +1,7 @@
 import React from "react";
 import styles from "./OrderListItem.module.css";
 import closeBtn from "../../assets/img/remove_order_item_button.svg";
-<<<<<<< HEAD
-=======
 import { FormattedMessage } from "react-intl";
->>>>>>> dev
 
 const OrdersListItem = ({
   name,
@@ -38,13 +35,9 @@ const OrdersListItem = ({
         <div className={styles.orderDetailsWrapper}>
           <p className={styles.priceText}>
             {price}
-<<<<<<< HEAD
-            <span className={styles.currencyText}>грн.</span>
-=======
             <span className={styles.currencyText}>
               <FormattedMessage id="grn" />
             </span>
->>>>>>> dev
           </p>
 
           <div className={styles.amountContainer}>
