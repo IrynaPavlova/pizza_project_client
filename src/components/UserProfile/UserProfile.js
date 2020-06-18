@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { FormattedMessage } from "react-intl";
+
 import Spinner from "../Spinner/Spinner";
 import { ClientOrders } from "./ClientOrders";
 import { ClientInfo } from "./ClientInfo";
+
+import languages from "../../languages";
 import styles from "./UserProfile.module.css";
 
 // GET "https://evening-caverns-34846.herokuapp.com/users/id"
@@ -9,6 +14,7 @@ import styles from "./UserProfile.module.css";
 const id = "5e79e86a1005c628d790e8f0";
 
 export default function UserProfile() {
+  const local = useSelector((state) => state.local);
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [user, setUser] = useState({});
@@ -33,7 +39,9 @@ export default function UserProfile() {
     <>
       {error && (
         <div>
-          <p>Ой... что-то пошло не так. Попробуйте снова.</p>
+          <p>
+            <FormattedMessage id="error" />
+          </p>
         </div>
       )}
 
@@ -45,7 +53,7 @@ export default function UserProfile() {
         {user.user && <ClientOrders orders={user.user} />}
         <div className={styles.orderBtn}>
           <a href="/pizza" className={styles.orderBtnText}>
-            Новый заказ
+            <FormattedMessage id="new order" />
           </a>
         </div>
       </div>

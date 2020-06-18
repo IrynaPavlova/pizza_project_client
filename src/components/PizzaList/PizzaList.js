@@ -26,7 +26,7 @@ export default function PizzaListForTest({ products }) {
       <ul className={styles.pizzaList}>
         {products.map((product, index) => {
           if (product.subcategory === "branded") {
-            return <PizzaListItem {...product} key={index} />;
+            return <PizzaListItem {...product} key={index} local={local} />;
           }
         })}
       </ul>
@@ -37,7 +37,7 @@ export default function PizzaListForTest({ products }) {
       <ul className={styles.pizzaList}>
         {products.map((product, index) => {
           if (product.subcategory === "premium") {
-            return <PizzaListItem {...product} key={index} />;
+            return <PizzaListItem {...product} key={index} local={local} />;
           }
         })}
       </ul>
