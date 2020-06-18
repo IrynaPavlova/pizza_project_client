@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styles from "./OrderList.module.css";
 import OrderListItem from "../OrderListItem/OrderListItem";
+import { FormattedMessage } from "react-intl";
 // import orderItems from "../../services/orderItems.json";
 
 class orderList extends Component {
@@ -14,7 +15,9 @@ class orderList extends Component {
     const orderListPrice = this.getSum(this.props.userOrderList);
     return (
       <div className={styles.orderList}>
-        <h2 className={styles.orderListTitle}>Ваш заказ</h2>
+        <h2 className={styles.orderListTitle}>
+          <FormattedMessage id="order" />
+        </h2>
         <ul>
           {orderItems.map(
             ({ productId, productName, productprice, product, itemsCount }) => (
@@ -25,13 +28,16 @@ class orderList extends Component {
                 price={productprice}
                 ingredients={product.ingredients}
                 itemsCount={itemsCount}
+                local={this.props.local}
               />
             )
           )}
         </ul>
         <p className={styles.orderListPrice}>
           {orderListPrice || "0"}
-          <span className={styles.orderListPriceCurrency}> грн.</span>
+          <span className={styles.orderListPriceCurrency}>
+            <FormattedMessage id="grn" />
+          </span>
         </p>
       </div>
     );
