@@ -1,15 +1,10 @@
 @value colors: "../../stylesheet/vars.css";
-@value accentColor, primaryColor, secondaryBackgroundColor, lightColor from colors;
+@value accentColor, primaryColor, secondaryBackgroundColor, lightColor, primaryBackgroundColor from colors;
 
 @import "../../stylesheet/fonts.css";
 
-img {
-  display: block;
-  width: 100%;
-}
-
 @media screen and (min-width: 320px) {
-  .menu_item {
+  .menuItem {
     width: 280px;
     margin-bottom: 20px;
     background: #fafafa;
@@ -18,83 +13,95 @@ img {
     cursor: pointer;
     transition: transform 0.2s linear;
   }
-  .menu_item:hover {
+  .menuItem:hover {
     transform: scale(1.05);
   }
-  .body_text {
-    text-align: left;
-    padding: 20px 16px;
+  .menuItem_imageBlock {
+    width: 100%;
+    height: 192px;
   }
-  .headline {
-    font-family: Oswald;
-    font-style: normal;
-    font-weight: 700;
+  .menuItem_img {
+    display: block;
+    box-shadow: 0px 0px 2px #00000029;
+    background: lightColor;
+    width: 100%;
+    height: 192px;
+    object-fit: contain;
+  }
+  .menuItem_content {
+    text-align: left;
+    padding: 16px 16px 10px;
+  }
+  .menuItem_headline {
+    font-family: OswaldMedium;
     font-size: 24px;
     line-height: 24px;
-
-    /* or 100% */
     letter-spacing: 0.4px;
-
     mix-blend-mode: normal;
     color: accentColor;
-    padding-bottom: 20px;
+    height: 70px;
+    margin: 0;
   }
-  .size {
-    display: block;
-    width: 40px;
-    height: 40px;
-    padding: 10px 0;
-    border-radius: 50%;
-    background: secondaryBackgroundColor;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
+  .menuItem_size {
+    margin-bottom: 20px;
+    font-family: RobotoRegular;
+    font-size: 16px;
     line-height: 20px;
-    /* identical to box height, or 100% */
     letter-spacing: 0.25px;
-    text-align: center;
-    color: primaryColor;
+    color: primaryBackgroundColor;
   }
-  .price {
-    display: inline-block;
-    padding-top: 20px;
-    margin-right: 54px;
-    width: 90px;
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
+  .menuItem_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .menuItem_price {
+    font-family: RobotoBold;
     font-size: 20px;
     line-height: 20px;
-    /* identical to box height, or 100% */
     letter-spacing: 0.25px;
     color: primaryColor;
   }
   .button {
-    display: inline-block;
-    padding: 10px 16px;
-    background: accentColor;
-    color: lightColor;
+    font-family: RobotoRegular;
+    font-weight: 500;
+    font-size: 14px;
+    font-style: normal;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    width: 100px;
+    height: 36px;
+    background: linear-gradient(#ff6c00, #cf5803) #ff6c00;
     border: none;
+    outline: 0 !important;
     border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 1px #ffffff33 inset, 0 3px 5px #00010680,
+      0 0 1px 1px #00010633;
+    text-shadow: 0 -1px 2px #00000033;
+    transition: 0.2s ease-in-out;
+  }
+
+  .button:hover:not(:active) {
+    background: linear-gradient(#ff6c00, #ffae00) #ff6c00;
+  }
+  .button:active {
+    background: linear-gradient(#bd5307, #924208) #bd5307;
+    box-shadow: 0 0px #ffffff33 inset, 0 0px 0px #00010680,
+      0 0 0px 0px #00010633;
   }
 }
 @media screen and (min-width: 768px) {
-  .menu_item {
+  .menuItem {
     width: 354px;
     flex-flow: wrap row;
     justify-content: space-between;
   }
-  .price {
-    margin-right: 130px;
-  }
 }
 @media screen and (min-width: 1170px) {
-  .menu_item {
+  .menuItem {
     width: 270px;
-  }
-  .price {
-    margin-right: 46px;
+    margin-bottom: 0;
   }
 }

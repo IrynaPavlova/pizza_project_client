@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import styles from "./PizzaListItem.module.css";
 
 // import PropTypes from "prop-types";
 
 function PizzaListItem(product) {
+  const local = useSelector((state) => state.local);
+
   const [selectedSize, setSelectedSize] = useState("M");
   // const size = ["M", "L", "XL"];
   function handleChange(event) {
@@ -16,11 +19,13 @@ function PizzaListItem(product) {
         <img src={product.images} className={styles.imageItem} alt="" />
       </div>
       <div className={styles.descriptionContainer}>
-        <p className={styles.heading}>{product.name}</p>
+        <p className={styles.heading}>{product.name[local]}</p>
         <ul className={styles.ingredients}>
           {product.ingredients.map((ingredient) => (
             <li key={ingredient._id}>
-              <span className={styles.ingredientItem}>{ingredient.name}</span>
+              <span className={styles.ingredientItem}>
+                {ingredient.name[local]}
+              </span>
             </li>
           ))}
         </ul>
@@ -47,7 +52,10 @@ function PizzaListItem(product) {
             <span className={styles.price}>
               {product.price[selectedSize]}.00
             </span>
-            <span className={styles.currency}> {product.currency}</span>
+            <span className={styles.currency}>
+              {" "}
+              <FormattedMessage id="grn" />
+            </span>
 
             <button className={styles.addCart} type="submit" onClick={() => {}}>
               В корзину

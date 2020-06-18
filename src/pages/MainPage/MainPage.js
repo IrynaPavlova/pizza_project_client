@@ -1,17 +1,22 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, useState, useEffect } from "react";
+import axios from "axios";
 
 import Slider from "../../components/Slider";
 import Spinner from "../../components/Spinner";
 import ProductContainer from "../../components/ProductContainer";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-// const PizzaList = lazy(() => import("../../components/PizzaList/PizzaList"));
 import PizzaList from "../../components/PizzaList/PizzaListContainer.js";
 
 const MainPage = () => {
+  const [promoCollection, setpromoColection] = useState([]);
+  useEffect(() => {
+    axios.get("/promo").then(({ data }) => setpromoColection(data.promo));
+  }, []);
   return (
     <>
-      <Slider />
+      <Slider items={promoCollection} />
+
       <Suspense fallback={<Spinner />}>
         <ProductContainer>
           <PizzaList />

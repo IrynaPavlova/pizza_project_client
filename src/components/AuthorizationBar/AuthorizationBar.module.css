@@ -26,6 +26,7 @@
   font-family: RobotoRegular;
   font-size: primaryTextFontSize;
   margin: 0 30px 0 0;
+  cursor: pointer;
 }
 
 /* @media (min-width: 768px) {

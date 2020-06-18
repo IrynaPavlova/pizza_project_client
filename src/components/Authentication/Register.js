@@ -1,10 +1,15 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { authOperations } from "../../redux/auth";
 import { useFormik } from "formik";
+import { FormattedMessage } from "react-intl";
+
+import languages from "../../languages";
 import styles from "./Authentication.module.css";
 
 export default function ({ setIsModalActive, setIsLogining }) {
+  const local = useSelector((state) => state.local);
+
   const dispatch = useDispatch();
 
   const formik = useFormik({
@@ -78,7 +83,9 @@ export default function ({ setIsModalActive, setIsLogining }) {
 
   return (
     <div className={styles.section}>
-      <h1 className={styles.title}>Регистрация</h1>
+      <h1 className={styles.title}>
+        <FormattedMessage id="register" />
+      </h1>
       <button
         className={styles.buttonToClose}
         type="button"
@@ -109,7 +116,7 @@ export default function ({ setIsModalActive, setIsLogining }) {
             className={`${styles.formInput}
             ${touched.name && !errors.name ? styles.accepted : ""}
             ${touched.name && errors.name ? styles.error : ""}`}
-            placeholder="Имя"
+            placeholder={languages[local].name}
           />
           {errors.name && touched.name && errors.name}
         </label>
@@ -137,7 +144,7 @@ export default function ({ setIsModalActive, setIsLogining }) {
             className={`${styles.formInput}
             ${touched.password && !errors.password ? styles.accepted : ""}
             ${touched.password && errors.password ? styles.error : ""}`}
-            placeholder="Пароль(минимум 6 символов)"
+            placeholder={languages[local]["password min"]}
           />
           {errors.password && touched.password && errors.password}
         </label>
@@ -147,14 +154,14 @@ export default function ({ setIsModalActive, setIsLogining }) {
           className={styles.formButton}
           disabled={isSubmitting}
         >
-          Зарегистрироваться
+          <FormattedMessage id="register" />
         </button>
         <button
           disabled={isSubmitting}
           className={styles.backToEnterLink}
           onClick={() => setIsLogining(true)}
         >
-          Вернуться ко входу
+          <FormattedMessage id="return" />
         </button>
       </form>
     </div>

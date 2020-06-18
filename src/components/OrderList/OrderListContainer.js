@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+
 import OrderList from "./OrderList";
 import { orderOperations, orderSelectors } from "../../redux/order";
+import { getLocal } from "../../redux/local/localSelectors";
 
 class OrderListContainer extends Component {
   render() {
@@ -10,10 +12,15 @@ class OrderListContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { userOrderList: orderSelectors.getUserOrder(state) };
+  return {
+    userOrderList: orderSelectors.getUserOrder(state),
+    local: getLocal(state),
+  };
 };
 
 const mapDispatchToProps = {
+  deleteProdToOrderList: orderOperations.deleteProdToOrderList,
+  updateItemsCount: orderOperations.updateItemsCount,
   //   onFetchProductPizza: productOperations.fetchProductsByCategory,
 };
 

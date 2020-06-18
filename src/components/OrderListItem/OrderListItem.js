@@ -1,41 +1,53 @@
 import React from "react";
 import styles from "./OrderListItem.module.css";
 import closeBtn from "../../assets/img/remove_order_item_button.svg";
-const currency = "грн";
+import { FormattedMessage } from "react-intl";
 
 const OrdersListItem = ({
   name,
-  // id,
+  id,
   img,
   ingredients,
   price,
   // currency,
-  // IncrementItem,
+  onIncrementItem,
   // DecrementItem,
-  // onDeleteItem,
+  onRemoveItem,
   itemsCount,
+  local,
 }) => {
-  const ingredientsList = ingredients.map((item) => [item.name]).join(", ");
+  const ingredientsList = ingredients
+    .map((item) => [item.name[local]])
+    .join(", ");
   return (
     <div className={styles.orderItemCard}>
       <img src={img} alt={name} className={styles.itemImg} />
-      <button type="button" className={styles.deleteButton}>
+      <button
+        type="button"
+        className={styles.deleteButton}
+        onClick={() => onRemoveItem(id)}
+      >
         <img src={closeBtn} alt="delete-btn" />
       </button>
       <div className={styles.contentWrapper}>
-        <h5 className={styles.productName}>{name}</h5>
+        <h5 className={styles.productName}>{name[local]}</h5>
         <p className={styles.ingredientsText}>{ingredientsList}</p>
         <div className={styles.orderDetailsWrapper}>
           <p className={styles.priceText}>
             {price}
-            <span className={styles.currencyText}>{currency}</span>
+            <span className={styles.currencyText}>
+              <FormattedMessage id="grn" />
+            </span>
           </p>
 
           <div className={styles.amountContainer}>
-            <button className={styles.deleteBtn}>-</button>
+            <button className={styles.deleteBtn} onClick={() => {}}>
+              -
+            </button>
             <p className={styles.amountNumber}>{itemsCount}</p>
             <button
               className={[styles.deleteBtn, styles.incrementBtn].join(" ")}
+              onClick={() => {}}
             >
               +
             </button>

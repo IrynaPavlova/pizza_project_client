@@ -41,8 +41,11 @@ const userOrderListReducer = createReducer([], {
     ...state,
     action.payload,
   ],
-  [orderActions.deleteProdToOrderList]: (state, action) =>
-    state.splice(action.payload, 1), // state.filter((orders) => orders.id !== action.payload),
+  [orderActions.deleteProdToOrderList]: (state, action) => {
+    return state.filter((product) => product.productId !== action.payload);
+  },
+
+  //state.splice(action.payload, 1),
   [orderActions.updateItemsCount]: (state, action) => {
     const { index, itemsCount } = action.payload;
     const updatedItem = {
@@ -53,20 +56,8 @@ const userOrderListReducer = createReducer([], {
   },
 });
 
-//попробовать перенести в редакс
-function getSum(userOrderList) {
-  return userOrderList.reduce(function (sum, { itemsCount, productprice }) {
-    return sum + itemsCount * productprice;
-  }, 0);
-}
-
-const sumToPay = createReducer(0, {
-  [orderActions.updateSumToPay]: (state, _) => getSum(state.productsList),
-});
-
 const userOrderList = combineReducers({
   productsList: userOrderListReducer,
-  sumToPay,
 });
 
 export default combineReducers({

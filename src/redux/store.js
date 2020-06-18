@@ -11,11 +11,19 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 // routes
+<<<<<<< HEAD
 import authReducer from './auth/authReducer';
 import productReducer from './product/productReducer';
 import globalReducer from './global/globalReducer';
 import orderReducer from './order/orderReducer';
 import stocksReducer from './stocks/stocksReducer';
+=======
+import authReducer from "./auth/authReducer";
+import productReducer from "./product/productReducer";
+import globalReducer from "./global/globalReducer";
+import orderReducer from "./order/orderReducer";
+import localReducer from "./local/localReducer";
+>>>>>>> dev
 
 const authPersistConfig = {
   key: 'auth',
@@ -35,7 +43,11 @@ export const store = configureStore({
     products: productReducer,
     global: globalReducer,
     orders: persistReducer(OrderPersistConfig, orderReducer),
+<<<<<<< HEAD
     stocks: stocksReducer,
+=======
+    local: localReducer,
+>>>>>>> dev
   },
   middleware: getDefaultMiddleware({
     serializableCheck: {

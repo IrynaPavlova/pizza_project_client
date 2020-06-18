@@ -1,23 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./adminUpdateListItem.module.css";
+import { useSelector } from "react-redux";
 
-const AdminUpdateListItem = ({
-  ingredients,
-  categories,
-  sku,
-  name,
-  description,
-  price,
-  subcategory,
-  images,
-}) => {
+const AdminUpdateListItem = ({ product }) => {
+  const local = useSelector((state) => state.local);
+  const {
+    ingredients,
+    categories,
+    sku,
+    name,
+    description,
+    price,
+    subcategory,
+    images,
+  } = product;
+
   return (
     <div className={style.editCard}>
       <img src={images} alt={images} className={style.editCard__image} />
       <div className={style.editForm}>
         <h4>Название</h4>
-        <p className={style.editForm__name}>{name}</p>
+        <p className={style.editForm__name}>{name[local]}</p>
         <h4>Категория</h4>
         <p className={style.editForm__category}>{categories}</p>
         <h4>Подкатегория</h4>
@@ -27,7 +31,7 @@ const AdminUpdateListItem = ({
         <h4>Состав</h4>
         <ul className={style.editForm__ingredients}>
           {ingredients.map((el) => (
-            <li key={el._id}>{el.name}</li>
+            <li key={el._id}>{el.name[local]}</li>
           ))}
         </ul>
         <h4>Описание</h4>
