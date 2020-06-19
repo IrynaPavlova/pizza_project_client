@@ -29,9 +29,9 @@ const logIn = (credentials) => (dispatch) => {
 
   axios
     .post("/auth/login", credentials)
-    .then((response) => {
-      token.set(response.data.token);
-      dispatch(authActions.loginSuccess(response.data));
+    .then(({ data }) => {
+      token.set(data.token);
+      dispatch(authActions.loginSuccess(data));
     })
     .catch(({ message }) => dispatch(authActions.loginError(message)));
 };
@@ -56,10 +56,7 @@ const getCurrentUser = () => (dispatch, getState) => {
 
   axios
     .get("/auth/current")
-    .then(({ data }) => {
-      console.log(data.user);
-      dispatch(authActions.getCurrentUserSuccess(data));
-    })
+    .then(({ data }) => dispatch(authActions.getCurrentUserSuccess(data)))
     .catch(({ message }) => authActions.getCurrentUserError(message));
 };
 

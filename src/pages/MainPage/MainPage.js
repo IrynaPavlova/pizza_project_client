@@ -11,7 +11,8 @@ import PizzaList from "../../components/PizzaList/PizzaListContainer.js";
 const MainPage = () => {
   const [promoCollection, setpromoColection] = useState([]);
   useEffect(() => {
-    axios.get("/promo").then(({ data }) => setpromoColection(data.promo));
+     //console.log->setpromoColection
+    axios.get("/promo").then(({ data }) => console.log(data.promo));
   }, []);
   return (
     <>

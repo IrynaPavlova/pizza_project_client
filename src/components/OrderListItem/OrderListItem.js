@@ -1,7 +1,9 @@
 import React from "react";
+import {useSelector} from 'react-redux'
 import styles from "./OrderListItem.module.css";
 import closeBtn from "../../assets/img/remove_order_item_button.svg";
 import { FormattedMessage } from "react-intl";
+import { localSelectors } from "../../redux/local";
 
 const OrdersListItem = ({
   name,
@@ -14,8 +16,8 @@ const OrdersListItem = ({
   // DecrementItem,
   onRemoveItem,
   itemsCount,
-  local,
 }) => {
+  const local = useSelector((state) => localSelectors.getLocal(state));
   const ingredientsList = ingredients
     .map((item) => [item.name[local]])
     .join(", ");
