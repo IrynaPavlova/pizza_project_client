@@ -29,7 +29,8 @@
 
 .editForm__btn {
   font-size: 16px;
-  padding: 10px 100px;
+  width: 220px;
+  padding: 10px 0;
   border: none;
   background: #ff6c00;
   border-radius: 4px;
