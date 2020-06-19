@@ -23,7 +23,7 @@ export default function UserProfile() {
 
   useEffect(() => {
     if (id) {
-      dispatch(authOperations.getUser(id));
+      dispatch(authOperations.getUserOrders(id));
     }
   }, []);
 
