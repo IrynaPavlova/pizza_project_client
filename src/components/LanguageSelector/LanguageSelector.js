@@ -22,7 +22,9 @@ export default function LanguageSelector({ darkStyle }) {
       onChange={handleChange}
       className={darkStyle || styles.languageSelect}
     >
-      <option value="Rus">РУС</option>
+      <option className={styles.option} value="Rus">
+        РУС
+      </option>
       <option value="Rkr">УКР</option>
       <option value="Eng">ENG</option>
     </select>
