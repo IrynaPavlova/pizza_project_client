@@ -6,11 +6,9 @@ import { FormattedMessage } from "react-intl";
 import styles from "./ClientOrders.module.css";
 
 export const ClientOrders = () => {
-  const orders = useSelector(authSelectors.getUserOrders());
+  const orders = useSelector(authSelectors.getUserOrders);
 
-  const userOrders = orders.orders["orders"];
-
-  const ordersList = userOrders.map((item) => (
+  const ordersList = orders.map((item) => (
     <li key={item._id}>
       <span className={styles.orderDate}>{item.createdAt.slice(0, 10)}</span>
       <div className={styles.productTitle}>
@@ -33,7 +31,7 @@ export const ClientOrders = () => {
 
   return (
     <>
-      {!userOrders ? (
+      {!orders ? (
         <div>
           <p className={styles.noOrdersText}>
             <FormattedMessage id="orders.no" />
