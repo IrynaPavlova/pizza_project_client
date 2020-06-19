@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import stocksOperations from '../../redux/stocks/stocksOperations';
-import stocksSelector from '../../redux/stocks/stocksSelector';
-import styles from './AdminStocksEditor.module.css';
-
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import stocksOperations from "../../redux/stocks/stocksOperations";
+import stocksSelector from "../../redux/stocks/stocksSelector";
+import styles from "./AdminStocksEditor.module.css";
+import getFileName from "./utils";
 //FIXME: Вернуть изначальные значения в файле App
 
 function AdminStocksEditor({ onSubmitFile, onSubmit, linkFile }) {
   const [stocksFile, setStockFile] = useState(null);
   const handleLoadFile = ({ target }) => setStockFile(target.files[0]);
 
-  const [stocksTitle, setStockTitle] = useState('');
+  const [stocksTitle, setStockTitle] = useState("");
   const handleChangeTitle = ({ target }) => setStockTitle(target.value);
 
-  const [stocksDescription, setStocksDescription] = useState('');
+  const [stocksDescription, setStocksDescription] = useState("");
   const handleChangeDescription = ({ target }) =>
     setStocksDescription(target.value);
 
   const handleSubmitFile = (e) => {
     e.preventDefault();
     const stocksItem = new FormData();
-    stocksItem.append('file', stocksFile);
+    stocksItem.append("file", stocksFile);
 
     onSubmitFile(stocksItem);
   };
@@ -40,16 +40,19 @@ function AdminStocksEditor({ onSubmitFile, onSubmit, linkFile }) {
     <>
       {!linkFile && (
         <form className={styles.form} onSubmit={handleSubmitFile}>
-          <label className={styles.labelFile} htmlFor="file">
-            Загрузить файл
-          </label>
-          <input
-            type="file"
-            name="file"
-            id="file"
-            className={styles.inputFile}
-            onChange={handleLoadFile}
-          />
+          <div className={styles.fileUpload}>
+            <label className={styles.uploadLabel}>
+              <input
+                type="file"
+                name="file"
+                id="uploadeFile"
+                className={styles.uploadInput}
+                onChange={getFileName}
+              />
+              <span className={styles.uploadSpan}>загрузить файл</span>
+            </label>
+          </div>
+          <div id="fileName" className={styles.fileName}></div>
           <button type="submit" className={styles.formButton}>
             Отправить файл
           </button>
