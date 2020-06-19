@@ -1,14 +1,15 @@
-import React, { Suspense } from "react";
-import { routes } from "../../services/routes";
-import { NavLink, Switch, Route, Redirect } from "react-router-dom";
-import { FormattedMessage } from "react-intl";
+import React, { Suspense } from 'react';
+import { routes } from '../../services/routes';
+import { NavLink, Switch, Route, Redirect } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
-import Spinner from "../../components/Spinner";
-import AdminOrderList from "../../components/AdminOrderList/AdminOrderList";
-import forExmCreateProd from "./forExmCreateProd";
-import forExmEditPromo from "./forExmEditPromo";
-import AdminUpdateList from "../../components/AdminUpdateList";
-import styles from "./AdminPage.module.css";
+import Spinner from '../../components/Spinner';
+import AdminOrderList from '../../components/AdminOrderList/AdminOrderList';
+import forExmCreateProd from './forExmCreateProd';
+import forExmEditPromo from './forExmEditPromo';
+import AdminUpdateList from '../../components/AdminUpdateList';
+import AdminStocksPage from '../../pages/AdminStocksPage';
+import styles from './AdminPage.module.css';
 
 export default function AdminPage() {
   return (
