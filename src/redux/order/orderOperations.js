@@ -3,7 +3,18 @@ import orderActions from "./orderActions";
 
 axios.defaults.baseURL = "https://evening-caverns-34846.herokuapp.com/";
 
-const addOrder = () => (dispatch) => {};
+const addOrder = ({ orderObject }) => (dispatch) => {
+  dispatch(orderActions.addOrderRequest());
+
+  axios.post("/orders", {
+    ...orderObject,
+  }).then(({data})=> {
+    dispatch(orderActions.addOrderSuccess(data))
+    console.log(data)
+  }).catch((error)=> 
+  dispatch(orderActions.addOrderError(error))
+  );
+};
 
 const updateOrder = (id) => (dispatch) => {};
 
