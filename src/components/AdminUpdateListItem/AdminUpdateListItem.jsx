@@ -12,7 +12,7 @@ const AdminUpdateListItem = ({ product }) => {
       <p className={style.editForm__name}>{name[local]}</p>
       <Link to="#">
         <button type="button" className={style.editForm__btn}>
-          Edit
+          Редактировать
         </button>
       </Link>
     </div>
