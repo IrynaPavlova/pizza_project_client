@@ -2,10 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import style from "./adminUpdateListItem.module.css";
-import { useSelector } from "react-redux";
+//import { useSelector } from "react-redux";
 
 const AdminUpdateListItem = ({ productForEdit }) => {
-  const local = useSelector((state) => state.local);
+  const local = useSelector(state => state.local);
   const { name, images } = productForEdit.product;
   return (
     <div className={style.editCard}>
