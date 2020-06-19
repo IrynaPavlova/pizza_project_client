@@ -2,16 +2,15 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import style from "./adminUpdateListItem.module.css";
-//import { useSelector } from "react-redux";
 
-const AdminUpdateListItem = ({ productForEdit }) => {
-  const local = useSelector(state => state.local);
-  const { name, images } = productForEdit.product;
+const AdminUpdateListItem = ({ product }) => {
+  const local = useSelector((state) => state.local);
+  const { name, images } = product;
   return (
     <div className={style.editCard}>
       <img src={images} alt={images} className={style.editCard__image} />
       <p className={style.editForm__name}>{name[local]}</p>
-      <Link to="#" className={style.editForm__link}>
+      <Link to="#">
         <button type="button" className={style.editForm__btn}>
           Edit
         </button>
