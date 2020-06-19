@@ -12,9 +12,8 @@
   margin-bottom: 20px;
 }
 
-
 .card::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -39,10 +38,10 @@
 
 .cardImgContainer {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  bottom: 10px;
-  right: 10px;
+  top: 5px;
+  left: 5px;
+  bottom: 5px;
+  right: 5px;
   background: #000;
   z-index: 1;
   transition: 0.5s;
@@ -71,9 +70,9 @@
 }
 
 .name {
-  font-size: secondaryTextFontSize;
+  font-size: 1.5rem;
   color: primaryColor;
-  font-family: "Rokkitt";
+  font-family: 'Rokkitt';
 }
 
 .link {
