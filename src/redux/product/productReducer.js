@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux';
-import { createReducer } from '@reduxjs/toolkit';
-import productActions from './productActions';
+import { combineReducers } from "redux";
+import { createReducer } from "@reduxjs/toolkit";
+import productActions from "./productActions";
 
 const productReducer = createReducer([], {
   [productActions.productsSuccess]: (state, { payload }) => payload,
@@ -27,7 +27,7 @@ const loadingReducer = createReducer(false, {
 });
 
 export default combineReducers({
-  productReducer,
+  items: productReducer,
   errorReducer,
-  loadingReducer,
+  loading: loadingReducer,
 });

@@ -1,0 +1,19 @@
+@value variables: '../../stylesheet/vars.css';
+@value accentColor, secondaryTextFontSize, primaryTextFontSize from variables;
+
+.title {
+  text-align: center;
+  font-size: primaryTextFontSize;
+  margin-bottom: 26px;
+  font-family: OswaldRegular;
+}
+.secondaryColor {
+  color: accentColor;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: secondaryTextFontSize;
+    margin-bottom: 30px;
+  }
+}

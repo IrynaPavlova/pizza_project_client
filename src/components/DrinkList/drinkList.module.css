@@ -1,0 +1,33 @@
+@value colors: "../../stylesheet/vars.css";
+@value primaryColor from colors;
+
+@import "../../stylesheet/fonts.css";
+
+@media screen and (min-width: 320px) {
+  .menu {
+    margin: 0 auto;
+    width: 320px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 768px) {
+  .menu {
+    width: 768px;
+    padding: 15px;
+    flex-flow: wrap row;
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 1170px) {
+  .menu {
+    display: grid;
+    grid-template-columns: repeat(4, 270px);
+    grid-auto-rows: minmax(300px, auto);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    width: 1170px;
+    padding: 16px 32px;
+  }
+}

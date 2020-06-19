@@ -1,0 +1,60 @@
+@value variables: '../../stylesheet/vars.css';
+@value accentColor, primaryColor, lightColor, secondaryTextFontSize, thirdHeaderFontStyle, borderColor, primaryTextColor from variables;
+
+.clientOrderTitle {
+  font-family: "OswaldMedium";
+  text-align: center;
+  color: primaryColor;
+  font-size: 1.2rem;
+}
+
+.orderDate {
+  font-family: "OswaldMedium";
+}
+
+.productTitle {
+  font-family: "OswaldRegular";
+  color: accentColor;
+  margin-bottom: 0;
+}
+
+.productAmount {
+  font-family: "OswaldRegular";
+  color: primaryTextColor;
+  font-size: 12px;
+}
+
+.orderPrice {
+  font-family: "Rokkitt";
+  color: primaryTextColor;
+}
+
+.noOrdersText {
+  text-align: center;
+  color: accentColor;
+}
+
+@media screen and (min-width: 1200px) {
+  .clientOrderContainer {
+    display: flex;
+    flex-direction: column;
+    padding-left: 60px;
+    min-width: 600px;
+  }
+
+  .clientOrderTitle {
+    padding-top: 12px;
+  }
+
+  .clientOrdersList {
+    padding-top: 30px;
+  }
+
+  .productAmount {
+    font-size: 14px;
+  }
+
+  .orderPrice {
+    padding-left: 60%;
+  }
+}

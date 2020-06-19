@@ -1,0 +1,83 @@
+@value variables: '../../stylesheet/vars.css';
+@value primaryColor, secondaryBackgroundColor, accentColor, primaryTextFontSize from variables;
+
+.container {
+  width: 220px;
+  background-color: #fafafa;
+  padding: 40px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  margin-bottom: 30px;
+}
+
+.authBar {
+  border: none;
+  background-color: transparent;
+  color: primaryColor;
+}
+
+.mainMenuItem {
+  position: relative;
+  z-index: 0;
+  font-family: OswaldRegular;
+  font-size: primaryTextFontSize;
+  color: primaryColor;
+  text-transform: uppercase;
+  transition: color 0.25s;
+}
+
+.mainMenuItems li:not(:last-of-type) {
+  margin-bottom: 30px;
+}
+
+.mainMenuItem::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: right;
+  width: 100%;
+  height: 4px;
+  background-color: accentColor;
+  transition: transform 0.25s;
+}
+
+.mainMenuItem:hover {
+  color: accentColor;
+  text-decoration: none;
+}
+
+.mainMenuItem:hover::before {
+  transform: translateX(-50%) scaleX(1);
+  transform-origin: left;
+}
+
+.mainMenuActiveItem {
+  color: accentColor;
+}
+
+.mainMenuActiveItem::before {
+  transform: translateX(-50%) scaleX(1);
+  transform-origin: left;
+}
+
+.languageSelector {
+  display: block;
+  width: 120px;
+  height: 22px;
+  background-color: transparent;
+  border: 1px solid secondaryBackgroundColor;
+  border-radius: 4px;
+  color: primaryColor;
+  font-family: RobotoRegular;
+  font-size: primaryTextFontSize;
+}

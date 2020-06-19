@@ -3,7 +3,7 @@ import React from "react";
 export default function MenuBurgerIcon({ styles }) {
   return (
     <svg
-      className={styles}
+      style={{ cursor: "pointer" }}
       width="22"
       height="10"
       viewBox="0 0 22 10"
