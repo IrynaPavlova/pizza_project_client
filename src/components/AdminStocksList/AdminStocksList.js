@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import stocksOperations from "../../redux/stocks/stocksOperations";
-import stocksSelector from "../../redux/stocks/stocksSelector";
-import { connect } from "react-redux";
-import styles from "./AdminStocksList.module.css";
+import React, { useState, useEffect } from 'react';
+import stocksOperations from '../../redux/stocks/stocksOperations';
+import stocksSelector from '../../redux/stocks/stocksSelector';
+import { connect } from 'react-redux';
+import styles from './AdminStocksList.module.css';
 
 function AdminStocksList({ elements, onFetchStocks }) {
   useEffect(() => {
@@ -14,8 +14,8 @@ function AdminStocksList({ elements, onFetchStocks }) {
   return (
     <div className={styles.cardList}>
       {elements.map(({ title, description, images, _id }) => (
-        <div key={title} className={styles.card}>
-          <h1>{title}</h1> <p>{description}</p>
+        <div key={images} className={styles.card}>
+          <h1>{title.ru}</h1> <p>{description.ru}</p>
           <p>{_id}</p>
           <img src={images} alt={title} className={styles.cardImg} />
         </div>

@@ -66,7 +66,7 @@ export default function AdminPage() {
             path={routes.ADMIN_UPDATE_PRODUCT}
             component={AdminUpdateList}
           />
-          <Route path={routes.ADMIN_UPDATE_PROMO} component={forExmEditPromo} />
+          <Route path={routes.ADMIN_UPDATE_PROMO} component={AdminStocksPage} />
           <Redirect to={routes.ADMIN_ORDER_LISTS} />
         </Switch>
       </div>
