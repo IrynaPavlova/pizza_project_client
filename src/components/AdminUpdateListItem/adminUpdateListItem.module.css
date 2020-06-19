@@ -30,6 +30,7 @@
   height: 36px;
 }
 .editForm__btn {
+  font-size: 14px;
   width: inherit;
   height: inherit;
   border: none;
