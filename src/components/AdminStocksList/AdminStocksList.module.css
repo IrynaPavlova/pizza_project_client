@@ -8,30 +8,3 @@
   color: #27272780;
 }
 
-.card {
-  box-shadow: 5px 5px 5px 5px #0000001f;
-  margin: 0 auto 20px;
-  width: 700px;
-  position: relative;
-  border-radius: 10px;
-}
-
-.cardImg {
-  display: block;
-  width: 500px;
-  height: 300px;
-  border-radius: 5px;
-  margin: 0 auto 10px auto;
-}
-.title {
-  padding: 20px 0 0 20px;
-  color: #ff6c00;
-}
-.description {
-  padding: 20px 0 0 20px;
-  font-size: 20px;
-}
-.id {
-  padding: 20px 0 0 20px;
-  margin-bottom: 20px;
-}

@@ -30,7 +30,7 @@ const sendStock = (stock) => (dispatch) => {
 
   axios
     .post("/promo", stock)
-    .then((res) => console.log(res))
+    .then(({ data }) => dispatch(stocksActions.sendStockSuccess(data.newPromo)))
     .catch((error) => dispatch(stocksActions.sendStockError(error)));
 };
 
@@ -38,7 +38,7 @@ const updateStock = (stockId, newStock) => (dispatch) => {
   dispatch(stocksActions.updateStockRequest());
 
   axios
-    .put(`/promo/:${stockId}`, newStock)
+    .put(`/promo/${stockId}`, newStock)
     .then((res) => dispatch(stocksActions.updateStockSuccess(res)))
     .catch((error) => dispatch(stocksActions.updateStockError(error)));
 };
@@ -46,9 +46,13 @@ const updateStock = (stockId, newStock) => (dispatch) => {
 const deleteStock = (stockId) => (dispatch) => {
   dispatch(stocksActions.deleteStockRequest());
 
+  console.log(stockId);
+
   axios
-    .delete(`/promo/:${stockId}`, stockId)
-    .then((res) => dispatch(stocksActions.deleteStockSuccess(res)))
+    .delete(`/promo/${stockId}`, stockId)
+    .then(({ data }) =>
+      dispatch(stocksActions.deleteStockSuccess(data.deletedPromo._id))
+    )
     .catch((error) => dispatch(stocksActions.deleteStockError(error)));
 };
 
