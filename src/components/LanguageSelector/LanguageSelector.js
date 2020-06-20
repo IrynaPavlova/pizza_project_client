@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import localActions from "../../redux/local/localActions";
@@ -16,6 +16,18 @@ export default function LanguageSelector({ darkStyle }) {
       dispatch(localActions.setUkrLanguage());
     }
   }
+  useEffect(() => {
+    const local = localStorage.getItem("local");
+    if (local) {
+      if (local.lang === "Rus") {
+        dispatch(localActions.setRusLanguage());
+      } else if (local.lang === "Eng") {
+        dispatch(localActions.setEngLanguage());
+      } else {
+        dispatch(localActions.setUkrLanguage());
+      }
+    } else return;
+  }, []);
 
   return (
     <select

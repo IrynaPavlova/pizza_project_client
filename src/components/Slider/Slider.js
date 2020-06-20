@@ -5,7 +5,7 @@ import { Carousel } from "react-bootstrap";
 import styles from "./Slider.module.css";
 
 export default function Slideview(props) {
-  const local = useSelector((state) => state.local);
+  const local = useSelector((state) => state.local.lang);
   return (
     <Carousel controls={false}>
       {props.items.map(({ _id, images, title, description }) => {
