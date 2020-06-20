@@ -11,7 +11,7 @@ const DrinkListItem = ({
   currency,
   images,
 }) => {
-  const local = useSelector((state) => state.local);
+  const local = useSelector((state) => state.local.lang);
   return (
     <li className={styles.menuItem}>
       <div className={styles.menuItem_imageBlock}>

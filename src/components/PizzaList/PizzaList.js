@@ -7,7 +7,7 @@ import PizzaListItem from "../PizzaListItem/PizzaListItemContainer";
 import styles from "./PizzaList.module.css";
 
 export default function PizzaListForTest({ products }) {
-  const local = useSelector((state) => state.local);
+  const local = useSelector((state) => state.local.lang);
   return (
     <div className={styles.pizzaListWrapper}>
       <h2 className={styles.pizzaHeading}>

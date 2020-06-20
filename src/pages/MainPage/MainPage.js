@@ -11,13 +11,11 @@ import PizzaList from "../../components/PizzaList/PizzaListContainer.js";
 const MainPage = () => {
   const [promoCollection, setpromoColection] = useState([]);
   useEffect(() => {
-     //console.log->setpromoColection
-    axios.get("/promo").then(({ data }) => console.log(data.promo));
+    axios.get("/promo").then(({ data }) => setpromoColection(data.promo));
   }, []);
   return (
     <>
       <Slider items={promoCollection} />
-
       <Suspense fallback={<Spinner />}>
         <ProductContainer>
           <PizzaList />

@@ -25,7 +25,7 @@ const DessertListItem = ({
   currency,
   images,
 }) => {
-  const local = useSelector((state) => state.local);
+  const local = useSelector((state) => state.local.lang);
   return (
     <li className={dessertItem}>
       <img src={images} alt="" width="280" className={dessertImg} />

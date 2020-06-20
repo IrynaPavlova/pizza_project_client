@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import stocksOperations from '../../redux/stocks/stocksOperations';
-import stocksSelector from '../../redux/stocks/stocksSelector';
-import styles from './AdminStocksEditor.module.css';
+import React, { useState } from "react";
+import { FormattedMessage } from "react-intl";
+import { connect } from "react-redux";
+import stocksOperations from "../../redux/stocks/stocksOperations";
+import stocksSelector from "../../redux/stocks/stocksSelector";
+import styles from "./AdminStocksEditor.module.css";
 
 //FIXME: Вернуть изначальные значения в файле App
 
@@ -10,17 +11,17 @@ function AdminStocksEditor({ onSubmitFile, onSubmit, linkFile }) {
   const [stocksFile, setStockFile] = useState(null);
   const handleLoadFile = ({ target }) => setStockFile(target.files[0]);
 
-  const [stocksTitle, setStockTitle] = useState('');
+  const [stocksTitle, setStockTitle] = useState("");
   const handleChangeTitle = ({ target }) => setStockTitle(target.value);
 
-  const [stocksDescription, setStocksDescription] = useState('');
+  const [stocksDescription, setStocksDescription] = useState("");
   const handleChangeDescription = ({ target }) =>
     setStocksDescription(target.value);
 
   const handleSubmitFile = (e) => {
     e.preventDefault();
     const stocksItem = new FormData();
-    stocksItem.append('file', stocksFile);
+    stocksItem.append("file", stocksFile);
 
     onSubmitFile(stocksItem);
   };
@@ -41,7 +42,7 @@ function AdminStocksEditor({ onSubmitFile, onSubmit, linkFile }) {
       {!linkFile && (
         <form className={styles.form} onSubmit={handleSubmitFile}>
           <label className={styles.labelFile} htmlFor="file">
-            Загрузить файл
+            <FormattedMessage id="upload" />
           </label>
           <input
             type="file"
@@ -51,7 +52,7 @@ function AdminStocksEditor({ onSubmitFile, onSubmit, linkFile }) {
             onChange={handleLoadFile}
           />
           <button type="submit" className={styles.formButton}>
-            Отправить файл
+            <FormattedMessage id="send" />
           </button>
         </form>
       )}
@@ -66,7 +67,7 @@ function AdminStocksEditor({ onSubmitFile, onSubmit, linkFile }) {
             />
           </label>
           <label className={styles.formLabel} for="promoName">
-            Название акции
+            <FormattedMessage id="promo.name" />
           </label>
 
           <input
@@ -77,7 +78,7 @@ function AdminStocksEditor({ onSubmitFile, onSubmit, linkFile }) {
             onChange={handleChangeTitle}
           />
           <label className={styles.formLabel} for="promoDescription">
-            Описание акции
+            <FormattedMessage id="promo.about" />
           </label>
 
           <input
@@ -89,7 +90,7 @@ function AdminStocksEditor({ onSubmitFile, onSubmit, linkFile }) {
           />
 
           <button type="submit" className={styles.formButton}>
-            Отправить акцию
+            <FormattedMessage id="promo.send" />
           </button>
         </form>
       )}

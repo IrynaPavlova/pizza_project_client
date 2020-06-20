@@ -7,12 +7,12 @@ import Spinner from "../Spinner/Spinner";
 import styles from "./AdminOrderList.module.css";
 import orders from "../../services/orders.json";
 
-import localMessages from "../../languages/index";
+import localMessages from "../../languages";
 
 //"GET" https://evening-caverns-34846.herokuapp.com/orders
 
 export default function AdminOrderList() {
-  const local = useSelector((state) => state.local);
+  const local = useSelector((state) => state.local.lang);
 
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -26,6 +26,7 @@ export default function AdminOrderList() {
   ];
 
   useEffect(() => {
+    console.log(typeof local);
     fetch("https://evening-caverns-34846.herokuapp.com/orders")
       .then((res) => res.json())
       .then(
