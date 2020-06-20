@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import style from "./adminUpdateListItem.module.css";
 
 const AdminUpdateListItem = ({ product }) => {
-  const local = useSelector((state) => state.local);
+  const local = useSelector((state) => state.local.lang);
   const { name, images } = product;
   return (
     <div className={style.editCard}>

@@ -1,3 +1,4 @@
+import { combineReducers } from "@reduxjs/toolkit";
 import { createReducer } from "@reduxjs/toolkit";
 import localActions from "./localActions";
 
@@ -7,4 +8,4 @@ const localRuducer = createReducer("ru", {
   [localActions.setRusLanguage]: (_, action) => "ru",
 });
 
-export default localRuducer;
+export default combineReducers({ lang: localRuducer });
