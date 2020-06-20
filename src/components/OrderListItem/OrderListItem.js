@@ -11,9 +11,8 @@ const OrdersListItem = ({
   img,
   ingredients,
   price,
-  // currency,
   onIncrementItem,
-  // DecrementItem,
+  onDecrementItem,
   onRemoveItem,
   itemsCount,
 }) => {
@@ -43,13 +42,16 @@ const OrdersListItem = ({
           </p>
 
           <div className={styles.amountContainer}>
-            <button className={styles.deleteBtn} onClick={() => {}}>
+            <button
+              className={styles.deleteBtn}
+              onClick={() => onDecrementItem({ id })}
+            >
               -
             </button>
             <p className={styles.amountNumber}>{itemsCount}</p>
             <button
               className={[styles.deleteBtn, styles.incrementBtn].join(" ")}
-              onClick={() => {}}
+              onClick={() => onIncrementItem({ id })}
             >
               +
             </button>

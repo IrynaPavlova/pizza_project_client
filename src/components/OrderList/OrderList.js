@@ -7,7 +7,11 @@ import { FormattedMessage } from "react-intl";
 // import orderItems from "../../services/orderItems.json";
 
 //TODO edit to hooks
-const OrderList = ({ deleteProdToOrderList, updateItemsCount }) => {
+const OrderList = ({
+  deleteProdToOrderList,
+  incrementItemsCount,
+  decrementItemsCount,
+}) => {
   const dispatch = useDispatch();
   const userOrder = useSelector(
     (state) => state.orders.userOrderList.productsList
@@ -49,8 +53,8 @@ const OrderList = ({ deleteProdToOrderList, updateItemsCount }) => {
               ingredients={productIngredients}
               itemsCount={itemsCount}
               onRemoveItem={deleteProdToOrderList}
-              onIncrementItem={updateItemsCount}
-              // incrementItem={incrementItem}
+              onIncrementItem={incrementItemsCount}
+              onDecrementItem={decrementItemsCount}
             />
           )
         )}
