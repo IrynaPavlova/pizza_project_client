@@ -26,9 +26,9 @@ const Footer = () => (
 
         <div className={styles.phoneContainer}>
           <img src={Phone} alt="Phone" className={styles.phoneImg}></img>
-          <a href="tel:+380444444444" className={styles.phoneFooter}>
+          <Link href="tel:+380444444444" className={styles.phoneFooter}>
             +38 044 444 44 44
-          </a>
+          </Link>
         </div>
         <div className={styles.socialsContainer}>
           <span className={styles.iconsContainer}>
