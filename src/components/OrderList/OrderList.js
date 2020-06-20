@@ -1,6 +1,6 @@
-import React, { useCallback } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { orderOperations } from "../../redux/order";
+import React from "react";
+import { useSelector } from "react-redux";
+// import { orderOperations } from "../../redux/order";
 import styles from "./OrderList.module.css";
 import OrderListItem from "../OrderListItem/OrderListItem";
 import { FormattedMessage } from "react-intl";
@@ -39,6 +39,7 @@ const OrderList = ({
             productImg,
             itemsCount,
             productIngredients,
+            type,
           }) => (
             <OrderListItem
               key={productId + productprice}
@@ -51,6 +52,7 @@ const OrderList = ({
               onRemoveItem={deleteProdToOrderList}
               onIncrementItem={incrementItemsCount}
               onDecrementItem={decrementItemsCount}
+              type={type}
             />
           )
         )}

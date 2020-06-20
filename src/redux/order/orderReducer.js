@@ -40,15 +40,23 @@ const userOrderListReducer = createReducer([], {
   [orderActions.addProdToOrderList]: (state, action) => {
     return [...state, action.payload];
   },
+
   [orderActions.deleteProdToOrderList]: (state, action) => {
-    return state.filter((product) => product.productId !== action.payload);
+    return state.filter((product) => {
+      if (
+        product.type === action.payload.type &&
+        product.productId === action.payload.id
+      ) {
+        return false;
+      }
+      return true;
+    });
   },
 
-  //state.splice(action.payload, 1),
   [orderActions.incrementItemsCount]: (state, action) => {
-    const { id } = action.payload;
+    const { id, type } = action.payload;
     return state.map((item, index) => {
-      if (item.productId === id) {
+      if (item.productId === id && item.type === type) {
         return {
           ...item,
           itemsCount: item.itemsCount + 1,
@@ -59,9 +67,9 @@ const userOrderListReducer = createReducer([], {
   },
 
   [orderActions.decrementItemsCount]: (state, action) => {
-    const { id } = action.payload;
+    const { id, type } = action.payload;
     return state.map((item, index) => {
-      if (item.productId === id && item.itemsCount > 1) {
+      if (item.productId === id && item.itemsCount > 1 && item.type === type) {
         return {
           ...item,
           itemsCount: item.itemsCount - 1,

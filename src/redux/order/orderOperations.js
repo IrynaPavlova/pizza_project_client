@@ -61,8 +61,8 @@ const addProdToOrderList = (product, productType) => (dispatch, getState) => {
   dispatch(orderActions.addProdToOrderList(newItem));
 };
 
-const deleteProdToOrderList = (id) => (dispatch) =>
-  dispatch(orderActions.deleteProdToOrderList(id));
+const deleteProdToOrderList = (id, type) => (dispatch) =>
+  dispatch(orderActions.deleteProdToOrderList(id, type));
 
 const incrementItemsCount = (id) => (dispatch) => {
   dispatch(orderActions.incrementItemsCount(id));
