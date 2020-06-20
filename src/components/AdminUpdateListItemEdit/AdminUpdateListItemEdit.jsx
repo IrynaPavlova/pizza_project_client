@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FormattedMessage } from "react-intl";
+
 import style from "./adminUpdateListItemEdit.module.css";
 import Axios from "axios";
 
@@ -61,35 +63,45 @@ export const AdminUpdateListItemEdit = ({ productForEdit }) => {
         className={style.image}
       />
       <form id="editForm" onSubmit={handleForm} className={style.editForm}>
-        <h4>Фото</h4>
+        <h4>
+          <FormattedMessage id="photo" />
+        </h4>
         <input
           type="text"
           value={images}
           onChange={(ev) => setImage(ev.target.value)}
           className={style.editForm__input}
         />
-        <h4>Название</h4>
+        <h4>
+          <FormattedMessage id="product.name" />
+        </h4>
         <input
           type="text"
           value={name}
           onChange={(ev) => setName(ev.target.value)}
           className={style.editForm__input}
         />
-        <h4>Категория</h4>
+        <h4>
+          <FormattedMessage id="product.category" />
+        </h4>
         <input
           type="text"
           value={categories}
           onChange={(ev) => setCategory(ev.target.value)}
           className={style.editForm__input}
         />
-        <h4>Подкатегория</h4>
+        <h4>
+          <FormattedMessage id="subcategory" />
+        </h4>
         <input
           type="text"
           value={subcategory}
           onChange={(ev) => setSubcategory(ev.target.value)}
           className={style.editForm__input}
         />
-        <h4>Цена</h4>
+        <h4>
+          <FormattedMessage id="price" />
+        </h4>
         <div className={style.editForm__price}>
           {productForEdit.product.categories === "pizza" ? (
             <>
@@ -125,7 +137,9 @@ export const AdminUpdateListItemEdit = ({ productForEdit }) => {
           )}
         </div>
 
-        <h4>Описание</h4>
+        <h4>
+          <FormattedMessage id="product.about" />
+        </h4>
         <textarea
           value={description}
           onChange={(ev) => setDescription(ev.target.value)}

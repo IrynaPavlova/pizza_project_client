@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { FormattedMessage } from "react-intl";
 import { useDispatch, useSelector } from "react-redux";
 import { productOperations, productSelectors } from "../../redux/product";
 import AdminUpdateListItem from "../AdminUpdateListItem/AdminUpdateListItem";
@@ -12,7 +13,7 @@ export default function AdminOrderList() {
 
   const [listType, setListType] = useState(null);
 
-  useEffect(() => dispatch(productOperations.fetchProducts()), []);
+  useEffect(() => dispatch(productOperations.fetchProducts()), [dispatch]);
   return (
     <>
       {isLoading && <Spinner />}
@@ -23,7 +24,7 @@ export default function AdminOrderList() {
           }`}
           onClick={() => setListType("pizza")}
         >
-          Пиццы
+          <FormattedMessage id="pizza" />
         </button>
         <button
           className={`${styles.button} ${
@@ -31,7 +32,7 @@ export default function AdminOrderList() {
           }`}
           onClick={() => setListType("sides")}
         >
-          Сайды
+          <FormattedMessage id="sides" />
         </button>
         <button
           className={`${styles.button} ${
@@ -39,7 +40,7 @@ export default function AdminOrderList() {
           }`}
           onClick={() => setListType("drinks")}
         >
-          Напитки
+          <FormattedMessage id="drinks" />
         </button>
         <button
           className={`${styles.button} ${
@@ -47,7 +48,7 @@ export default function AdminOrderList() {
           }`}
           onClick={() => setListType("desserts")}
         >
-          Десерты
+          <FormattedMessage id="desserts" />
         </button>
       </div>
       <div className={styles.items_container}>
