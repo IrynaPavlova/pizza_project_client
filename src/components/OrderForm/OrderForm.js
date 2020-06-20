@@ -7,10 +7,14 @@ import styles from "./OrderForm.module.css";
 
 export default function OrderForm() {
   const dispatch = useDispatch();
-
-  const creator = useSelector((state)=> authSelectors.getUserId(state)); 
-  const name = useSelector((state)=> authSelectors.getUserName(state));
-  const productsList = useSelector((state)=> orderSelectors.getUserOrder(state))
+  const isAuthenticated = useSelector((state) =>
+    authSelectors.isAuthenticated(state)
+  );
+  const creator = useSelector((state) => authSelectors.getUserId(state));
+  const name = useSelector((state) => authSelectors.getUserName(state));
+  const productsList = useSelector((state) =>
+    orderSelectors.getUserOrder(state)
+  );
   const sumToPay = getSum(productsList);
 
   const [phone, setPhone] = useState("");
@@ -32,8 +36,6 @@ export default function OrderForm() {
       name,
     };
 
-    console.log(orderObject)
-
     dispatch(orderOperations.addOrder({ orderObject }));
 
     setPhone("");
@@ -54,7 +56,7 @@ export default function OrderForm() {
   const handleChangeHouse = ({ target: { value } }) => {
     setHouse(value);
   };
-  return (
+  return isAuthenticated ? (
     <form className={styles.contactForm} onSubmit={handleSubmit}>
       {/* <div className={styles.formContainer}> */}
       <input
@@ -117,5 +119,8 @@ export default function OrderForm() {
         Заказать
       </button>
     </form>
+  ) : (
+
+    <h3>Чтобы оформить заказ, нужно авторизоваться</h3>
   );
 }
