@@ -12,7 +12,7 @@ const OrderList = ({
   incrementItemsCount,
   decrementItemsCount,
 }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const userOrder = useSelector(
     (state) => state.orders.userOrderList.productsList
   );
@@ -23,13 +23,9 @@ const OrderList = ({
     }, 0);
   };
 
-  // const removeItem = useCallback(() => {
-  //   dispatch({ type: "orders/deleteProdToOrderList" });
-  // }, [dispatch]);
-
   const orderListPrice = getSum(userOrder);
 
-  return (
+  return userOrder.length > 0 ? (
     <div className={styles.orderList}>
       <h2 className={styles.orderListTitle}>
         <FormattedMessage id="order" />
@@ -64,6 +60,8 @@ const OrderList = ({
         <span className={styles.orderListPriceCurrency}> грн.</span>
       </p>
     </div>
+  ) : (
+    <h2 className={styles.orderListEmpty}>Ваша корзина пуста</h2>
   );
 };
 
