@@ -8,12 +8,29 @@ import styles from "./AdminUpdateList.module.css";
 
 export default function AdminOrderList() {
   const dispatch = useDispatch();
+  const local = useSelector((state) => state.local.lang);
   const products = useSelector(productSelectors.getProducts);
   const isLoading = useSelector(productSelectors.getLoading);
 
-  const [listType, setListType] = useState(null);
+  const [listType, setListType] = useState("pizza");
+  const [filterProductsBy, setFilterProductsBy] = useState("");
 
   useEffect(() => dispatch(productOperations.fetchProducts()), [dispatch]);
+
+  const filteredProducts = products
+    .filter(({ categories }) => categories === listType)
+    .filter(({ name }) =>
+      name[local].toLowerCase().includes(filterProductsBy.toLowerCase())
+    );
+
+  const changeCategorie = (type) => {
+    if (type === listType) {
+      return;
+    }
+    setFilterProductsBy("");
+    setListType(type);
+  };
+
   return (
     <>
       {isLoading && <Spinner />}
@@ -22,7 +39,7 @@ export default function AdminOrderList() {
           className={`${styles.button} ${
             listType === "pizza" ? styles.button_active : ""
           }`}
-          onClick={() => setListType("pizza")}
+          onClick={() => changeCategorie("pizza")}
         >
           <FormattedMessage id="pizza" />
         </button>
@@ -30,7 +47,7 @@ export default function AdminOrderList() {
           className={`${styles.button} ${
             listType === "sides" ? styles.button_active : ""
           }`}
-          onClick={() => setListType("sides")}
+          onClick={() => changeCategorie("sides")}
         >
           <FormattedMessage id="sides" />
         </button>
@@ -38,7 +55,7 @@ export default function AdminOrderList() {
           className={`${styles.button} ${
             listType === "drinks" ? styles.button_active : ""
           }`}
-          onClick={() => setListType("drinks")}
+          onClick={() => changeCategorie("drinks")}
         >
           <FormattedMessage id="drinks" />
         </button>
@@ -46,36 +63,22 @@ export default function AdminOrderList() {
           className={`${styles.button} ${
             listType === "desserts" ? styles.button_active : ""
           }`}
-          onClick={() => setListType("desserts")}
+          onClick={() => changeCategorie("desserts")}
         >
           <FormattedMessage id="desserts" />
         </button>
       </div>
+      <input
+        type="text"
+        value={filterProductsBy}
+        placeholder="Поиск"
+        className={styles.input}
+        onChange={({ target: { value } }) => setFilterProductsBy(value)}
+      />
       <div className={styles.items_container}>
-        {listType === "pizza" &&
-          products
-            .filter(({ categories }) => categories === "pizza")
-            .map((product) => (
-              <AdminUpdateListItem key={product._id} product={product} />
-            ))}
-        {listType === "sides" &&
-          products
-            .filter(({ categories }) => categories === "sides")
-            .map((product) => (
-              <AdminUpdateListItem key={product._id} product={product} />
-            ))}
-        {listType === "drinks" &&
-          products
-            .filter(({ categories }) => categories === "drinks")
-            .map((product) => (
-              <AdminUpdateListItem key={product._id} product={product} />
-            ))}
-        {listType === "desserts" &&
-          products
-            .filter(({ categories }) => categories === "desserts")
-            .map((product) => (
-              <AdminUpdateListItem key={product._id} product={product} />
-            ))}
+        {filteredProducts.map((product) => (
+          <AdminUpdateListItem key={product._id} product={product} />
+        ))}
       </div>
     </>
   );

@@ -18,7 +18,7 @@ export default function AdminOrdersListItem({ item }) {
       <ul className={styles.itemsList}>
         {item.productsList.map((product) => (
           <li className={styles.itemsListItem}>
-            <h4 className={styles.itemName}>{product.productName}</h4>
+            {/* <h4 className={styles.itemName}>{product.productName[local]}</h4> */}
             <p className={styles.itemSize}>{product.type}</p>
             <p className={styles.itemsCount}>{product.itemsCount}</p>
           </li>
