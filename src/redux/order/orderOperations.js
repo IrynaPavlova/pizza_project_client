@@ -51,12 +51,12 @@ const addProdToOrderList = (product, productType) => (dispatch, getState) => {
 const deleteProdToOrderList = (id) => (dispatch) =>
   dispatch(orderActions.deleteProdToOrderList(id));
 
-// const incrementItemsCount = (id) => (dispatch) => {
-//   dispatch(orderActions.incrementItemsCount(id));
-// };
-
 const incrementItemsCount = (id) => (dispatch) => {
   dispatch(orderActions.incrementItemsCount(id));
+};
+
+const decrementItemsCount = (id) => (dispatch) => {
+  dispatch(orderActions.decrementItemsCount(id));
 };
 
 export default {
@@ -67,4 +67,5 @@ export default {
   addProdToOrderList,
   deleteProdToOrderList,
   incrementItemsCount,
+  decrementItemsCount,
 };

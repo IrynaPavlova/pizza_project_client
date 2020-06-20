@@ -57,13 +57,19 @@ const userOrderListReducer = createReducer([], {
       }
       return item;
     });
+  },
 
-    // const { index, itemsCount } = action.payload;
-    // const updatedItem = {
-    //   ...state[index],
-    //   itemsCount: itemsCount,
-    // };
-    // return state.splice(index, 1, updatedItem);
+  [orderActions.decrementItemsCount]: (state, action) => {
+    const { id } = action.payload;
+    return state.map((item, index) => {
+      if (item.productId === id && item.itemsCount > 1) {
+        return {
+          ...item,
+          itemsCount: item.itemsCount - 1,
+        };
+      }
+      return item;
+    });
   },
 });
 

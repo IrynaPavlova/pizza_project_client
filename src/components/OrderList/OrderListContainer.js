@@ -20,8 +20,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   deleteProdToOrderList: orderOperations.deleteProdToOrderList,
-  updateItemsCount: orderOperations.incrementItemsCount,
-  //   onFetchProductPizza: productOperations.fetchProductsByCategory,
+  incrementItemsCount: orderOperations.incrementItemsCount,
+  decrementItemsCount: orderOperations.decrementItemsCount,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrderListContainer);
