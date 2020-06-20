@@ -1,6 +1,6 @@
-import React, { useCallback } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { orderOperations } from "../../redux/order";
+import React from "react";
+import { useSelector } from "react-redux";
+// import { orderOperations } from "../../redux/order";
 import styles from "./OrderList.module.css";
 import OrderListItem from "../OrderListItem/OrderListItem";
 import { FormattedMessage } from "react-intl";
@@ -12,7 +12,7 @@ const OrderList = ({
   incrementItemsCount,
   decrementItemsCount,
 }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const userOrder = useSelector(
     (state) => state.orders.userOrderList.productsList
   );
@@ -23,13 +23,9 @@ const OrderList = ({
     }, 0);
   };
 
-  // const removeItem = useCallback(() => {
-  //   dispatch({ type: "orders/deleteProdToOrderList" });
-  // }, [dispatch]);
-
   const orderListPrice = getSum(userOrder);
 
-  return (
+  return userOrder.length > 0 ? (
     <div className={styles.orderList}>
       <h2 className={styles.orderListTitle}>
         <FormattedMessage id="order" />
@@ -43,6 +39,7 @@ const OrderList = ({
             productImg,
             itemsCount,
             productIngredients,
+            type,
           }) => (
             <OrderListItem
               key={productId + productprice}
@@ -55,6 +52,7 @@ const OrderList = ({
               onRemoveItem={deleteProdToOrderList}
               onIncrementItem={incrementItemsCount}
               onDecrementItem={decrementItemsCount}
+              type={type}
             />
           )
         )}
@@ -64,6 +62,8 @@ const OrderList = ({
         <span className={styles.orderListPriceCurrency}> грн.</span>
       </p>
     </div>
+  ) : (
+    <h2 className={styles.orderListEmpty}>Ваша корзина пуста</h2>
   );
 };
 

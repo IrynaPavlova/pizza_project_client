@@ -1,5 +1,5 @@
 import React from "react";
-import {useSelector} from 'react-redux'
+import { useSelector } from "react-redux";
 import styles from "./OrderListItem.module.css";
 import closeBtn from "../../assets/img/remove_order_item_button.svg";
 import { FormattedMessage } from "react-intl";
@@ -15,6 +15,7 @@ const OrdersListItem = ({
   onDecrementItem,
   onRemoveItem,
   itemsCount,
+  type,
 }) => {
   const local = useSelector((state) => localSelectors.getLocal(state));
   const ingredientsList = ingredients
@@ -26,7 +27,7 @@ const OrdersListItem = ({
       <button
         type="button"
         className={styles.deleteButton}
-        onClick={() => onRemoveItem(id)}
+        onClick={() => onRemoveItem({ id, type })}
       >
         <img src={closeBtn} alt="delete-btn" />
       </button>
@@ -44,14 +45,14 @@ const OrdersListItem = ({
           <div className={styles.amountContainer}>
             <button
               className={styles.deleteBtn}
-              onClick={() => onDecrementItem({ id })}
+              onClick={() => onDecrementItem({ id, type })}
             >
               -
             </button>
             <p className={styles.amountNumber}>{itemsCount}</p>
             <button
               className={[styles.deleteBtn, styles.incrementBtn].join(" ")}
-              onClick={() => onIncrementItem({ id })}
+              onClick={() => onIncrementItem({ id, type })}
             >
               +
             </button>
