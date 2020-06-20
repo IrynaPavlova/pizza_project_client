@@ -37,10 +37,9 @@ const loadingReducer = createReducer(false, {
 //Работаем с листом заказа пользователя
 
 const userOrderListReducer = createReducer([], {
-  [orderActions.addProdToOrderList]: (state, action) => [
-    ...state,
-    action.payload,
-  ],
+  [orderActions.addProdToOrderList]: (state, action) => {
+    return [...state, action.payload];
+  },
   [orderActions.deleteProdToOrderList]: (state, action) => {
     return state.filter((product) => product.productId !== action.payload);
   },
