@@ -5,7 +5,7 @@ import styles from "./PizzaListItem.module.css";
 // import PropTypes from "prop-types";
 
 function PizzaListItem(product) {
-  const local = useSelector((state) => state.local);
+  const local = useSelector((state) => state.local.lang);
 
   const [selectedSize, setSelectedSize] = useState("M");
   // const size = ["M", "L", "XL"];

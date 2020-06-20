@@ -52,9 +52,17 @@
 
 .items_container {
   max-width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 270px;
+  grid-template-rows: auto;
+  gap: 25px 30px;
+  margin-bottom: 60px;
+}
+
+@media screen and (min-width: 42rem) {
+  .items_container {
+    grid-template-columns: 270px 270px;
+  }
 }
 
 @media screen and (min-width: 48rem) {
@@ -63,5 +71,17 @@
   }
   .button:not(:last-of-type) {
     margin-right: 18px;
+  }
+}
+
+@media screen and (min-width: 64rem) {
+  .items_container {
+    grid-template-columns: 270px 270px 270px;
+  }
+}
+
+@media screen and (min-width: 82rem) {
+  .items_container {
+    grid-template-columns: 270px 270px 270px 270px;
   }
 }

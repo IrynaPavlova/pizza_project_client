@@ -1,8 +1,10 @@
 @import "../../stylesheet/fonts.css";
 
 .sliderWrapper {
-  width: 100%;
+  position: relative;
+  max-width: 1200px;
   height: 350px;
+  margin: 0 auto;
 }
 
 .sliderOverlay {
@@ -12,6 +14,10 @@
   left: 0px;
   top: 0px;
   background: rgba(39, 39, 39, 0.6);
+}
+
+.sliderImg {
+  object-fit: cover;
 }
 
 .sliderContent {

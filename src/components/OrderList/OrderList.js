@@ -36,14 +36,21 @@ const OrderList = ({
       </h2>
       <ul>
         {userOrder.map(
-          ({ productId, productName, productprice, product, itemsCount }) => (
+          ({
+            productId,
+            productName,
+            productprice,
+            productImg,
+            itemsCount,
+            productIngredients,
+          }) => (
             <OrderListItem
-              key={productId}
+              key={productId + productprice}
               id={productId}
-              img={product.images}
+              img={productImg}
               name={productName}
               price={productprice}
-              ingredients={product.ingredients}
+              ingredients={productIngredients}
               itemsCount={itemsCount}
               onRemoveItem={deleteProdToOrderList}
               onIncrementItem={incrementItemsCount}

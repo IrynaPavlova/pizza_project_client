@@ -1,9 +1,13 @@
 import React from "react";
 import moment from "moment";
+import { useSelector } from "react-redux";
+import { FormattedMessage } from "react-intl";
 
 import styles from "./AdminOrdersListItem.module.css";
 
 export default function AdminOrdersListItem({ item }) {
+  const local = useSelector((state) => state.local.lang);
+
   return (
     <div className={styles.orderWrapper}>
       <div className={styles.dateWrapper}>
@@ -21,10 +25,14 @@ export default function AdminOrdersListItem({ item }) {
         ))}
       </ul>
       <div className={styles.sumWrapper}>
-        <p className={styles.sumToPay}>Сумма к оплате</p>
+        <p className={styles.sumToPay}>
+          <FormattedMessage id="orders.sum" />
+        </p>
         <p className={styles.totalSum}>
           {item.sumToPay}
-          <span className={styles.currency}>грн</span>
+          <span className={styles.currency}>
+            <FormattedMessage id="grn" />
+          </span>
         </p>
       </div>
       <div className={styles.orderContacts}>
@@ -33,7 +41,9 @@ export default function AdminOrdersListItem({ item }) {
         <p>Иван</p>
       </div>
       <div className={styles.orderCheckbox}>
-        <p>Выполнен</p>
+        <p>
+          <FormattedMessage id="orders.done" />
+        </p>
         <input type="checkbox" name="orderDone" />
       </div>
     </div>

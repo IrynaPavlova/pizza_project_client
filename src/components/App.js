@@ -11,6 +11,8 @@ import AboutDevelopersPage from "../pages/AboutDevelopersPage/AboutDevelopersPag
 
 import AdminPage from "../pages/AdminPage/AdminPageContainer";
 
+import AdminStocksPage from "../pages/AdminStocksPage";
+
 import AuthPage from "../pages/AuthPage";
 
 import PizzaList from "../components/PizzaList/PizzaListContainer";
@@ -30,7 +32,7 @@ const PromoList = lazy(() => import("../components/PromoList"));
 const App = () => {
   const dispatch = useDispatch();
 
-  const local = useSelector((state) => state.local);
+  const local = useSelector((state) => state.local.lang);
 
   useEffect(() => {
     dispatch(authOperations.getCurrentUser());

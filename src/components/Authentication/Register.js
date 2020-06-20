@@ -8,13 +8,13 @@ import languages from "../../languages";
 import styles from "./Authentication.module.css";
 
 export default function ({ setIsModalActive, setIsLogining }) {
-  const local = useSelector((state) => state.local);
+  const local = useSelector((state) => state.local.lang);
 
   const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: {
-      name: "",
+      username: "",
       email: "",
       password: "",
     },
@@ -22,7 +22,7 @@ export default function ({ setIsModalActive, setIsLogining }) {
       setSubmitting(true);
 
       const user = {
-        name: values.name,
+        username: values.username,
         email: values.email,
         password: values.password,
       };
@@ -35,8 +35,10 @@ export default function ({ setIsModalActive, setIsLogining }) {
     },
     validate: (values) => {
       const errors = {};
-      if (!values.name) {
-        errors.name = <p className={styles.formInputError}>Name is Required</p>;
+      if (!values.username) {
+        errors.username = (
+          <p className={styles.formInputError}>Name is Required</p>
+        );
       }
       if (!values.email) {
         errors.email = (
@@ -109,16 +111,16 @@ export default function ({ setIsModalActive, setIsLogining }) {
         <label className={styles.formLabel}>
           <input
             type="text"
-            name="name"
-            value={values.name}
+            name="username"
+            value={values.username}
             onBlur={handleBlur}
             onChange={handleChange}
             className={`${styles.formInput}
-            ${touched.name && !errors.name ? styles.accepted : ""}
-            ${touched.name && errors.name ? styles.error : ""}`}
+            ${touched.username && !errors.username ? styles.accepted : ""}
+            ${touched.username && errors.username ? styles.error : ""}`}
             placeholder={languages[local].name}
           />
-          {errors.name && touched.name && errors.name}
+          {errors.username && touched.username && errors.username}
         </label>
         <label className={styles.formLabel}>
           <input

@@ -16,14 +16,14 @@ import styles from "./UserProfile.module.css";
 
 export default function UserProfile() {
   const dispatch = useDispatch();
-  const id = useSelector(authSelectors.getUserId());
-  const username = useSelector(authSelectors.getUserName());
-  const email = useSelector(authSelectors.getUserEmail());
-  const isAuthenticated = useSelector(authSelectors.isAuthenticated());
+  const username = useSelector(authSelectors.getUserName);
+  const id = useSelector(authSelectors.getUserId);
+  const email = useSelector(authSelectors.getUserEmail);
+  const isAuthenticated = useSelector(authSelectors.isAuthenticated);
 
   useEffect(() => {
     if (id) {
-      dispatch(authOperations.getUser(id));
+      dispatch(authOperations.getUserOrders(id));
     }
   }, []);
 

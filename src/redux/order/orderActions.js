@@ -22,8 +22,6 @@ const deleteProdToOrderList = createAction("orders/deleteProdToOrderList");
 const incrementItemsCount = createAction("orders/incrementItemsCount");
 const decrementItemsCount = createAction("orders/decrementItemsCount");
 
-const updateSumToPay = createAction("orders/updateSumToPay");
-
 export default {
   ordersRequest,
   ordersSuccess,
@@ -40,6 +38,6 @@ export default {
   addProdToOrderList,
   deleteProdToOrderList,
   incrementItemsCount,
-  updateSumToPay,
+  // updateSumToPay,
   decrementItemsCount,
 };

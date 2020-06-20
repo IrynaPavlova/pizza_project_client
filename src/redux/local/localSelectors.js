@@ -1,1 +1,3 @@
-export const getLocal = (state) => state.local;
+export const getLocal = (state) => state.local.lang;
+
+export default { getLocal };
