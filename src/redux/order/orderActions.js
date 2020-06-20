@@ -19,7 +19,7 @@ const updateOrderError = createAction("orders/updateOrderError");
 //Создаем лист заказа пользователя
 const addProdToOrderList = createAction("orders/addProdToOrderList");
 const deleteProdToOrderList = createAction("orders/deleteProdToOrderList");
-const updateItemsCount = createAction("orders/updateItemsCount");
+const incrementItemsCount = createAction("orders/incrementItemsCount");
 
 const updateSumToPay = createAction("orders/updateSumToPay");
 
@@ -38,6 +38,6 @@ export default {
   updateOrderError,
   addProdToOrderList,
   deleteProdToOrderList,
-  updateItemsCount,
+  incrementItemsCount,
   updateSumToPay,
 };

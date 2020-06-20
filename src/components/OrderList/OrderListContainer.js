@@ -20,7 +20,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   deleteProdToOrderList: orderOperations.deleteProdToOrderList,
-  updateItemsCount: orderOperations.updateItemsCount,
+  updateItemsCount: orderOperations.incrementItemsCount,
   //   onFetchProductPizza: productOperations.fetchProductsByCategory,
 };
 

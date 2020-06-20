@@ -51,8 +51,12 @@ const addProdToOrderList = (product, productType) => (dispatch, getState) => {
 const deleteProdToOrderList = (id) => (dispatch) =>
   dispatch(orderActions.deleteProdToOrderList(id));
 
-const updateItemsCount = (id, itemsCount) => (dispatch) => {
-  dispatch(orderActions.updateItemsCount(id, itemsCount));
+// const incrementItemsCount = (id) => (dispatch) => {
+//   dispatch(orderActions.incrementItemsCount(id));
+// };
+
+const incrementItemsCount = (id) => (dispatch) => {
+  dispatch(orderActions.incrementItemsCount(id));
 };
 
 export default {
@@ -62,5 +66,5 @@ export default {
   updateOrder,
   addProdToOrderList,
   deleteProdToOrderList,
-  updateItemsCount,
+  incrementItemsCount,
 };

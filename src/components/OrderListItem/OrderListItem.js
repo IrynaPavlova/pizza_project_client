@@ -16,6 +16,10 @@ const OrdersListItem = ({
   itemsCount,
   local,
 }) => {
+  // const updatedItemsCount = () => {
+  //   return itemsCount + 1;
+  // };
+  // const count = 5;
   const ingredientsList = ingredients
     .map((item) => [item.name[local]])
     .join(", ");
@@ -47,7 +51,9 @@ const OrdersListItem = ({
             <p className={styles.amountNumber}>{itemsCount}</p>
             <button
               className={[styles.deleteBtn, styles.incrementBtn].join(" ")}
-              onClick={() => {}}
+              onClick={() => {
+                onIncrementItem({ id });
+              }}
             >
               +
             </button>
