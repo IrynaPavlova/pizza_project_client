@@ -21,6 +21,8 @@ const OrdersListItem = ({
   const ingredientsList = ingredients
     .map((item) => [item.name[local]])
     .join(", ");
+
+  //TODO make "type" block in item
   return (
     <div className={styles.orderItemCard}>
       <img src={img} alt={name} className={styles.itemImg} />

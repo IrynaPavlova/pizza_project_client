@@ -41,6 +41,10 @@ const userOrderListReducer = createReducer([], {
     return [...state, action.payload];
   },
 
+  [orderActions.clearOrderList]: () => {
+    return [];
+  },
+
   [orderActions.deleteProdToOrderList]: (state, action) => {
     return state.filter((product) => {
       if (
