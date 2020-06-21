@@ -2,6 +2,10 @@ p {
   margin: 0;
 }
 
+.dessertConainer {
+  padding: 20px 0 20px;
+}
+
 .dessertsHeading {
   font-family: OswaldMedium;
   font-style: normal;
@@ -31,7 +35,7 @@ p {
 
 .dessertImg {
   width: 100%;
-  /* height: auto; */
+  height: 192px;
   object-fit: cover;
   box-shadow: 0px 0px 2px #00000029;
   margin-bottom: 20px;
@@ -116,19 +120,19 @@ p {
   background: linear-gradient(#ff6c00, #ffae00) #ff6c00;
 }
 .dessertButton:active {
-  /* color: #272727; */
   background: linear-gradient(#bd5307, #924208) #bd5307;
   box-shadow: 0 0px #ffffff33 inset, 0 0px 0px #00010680, 0 0 0px 0px #00010633;
 }
 
 @media screen and (min-width: 768px) {
+  .dessertConainer {
+    padding: 30px 0 30px;
+  }
+
   .dessertList {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
     max-width: 748px;
-    /* margin: 0 auto; */
-    padding-bottom: 30px;
   }
 
   .dessertItem {
@@ -153,9 +157,11 @@ p {
 }
 
 @media screen and (min-width: 1200px) {
+  .dessertConainer {
+    padding: 50px 0 50px;
+  }
   .dessertList {
     max-width: 1170px;
-    padding-bottom: 60px;
   }
 
   .dessertItem {

@@ -14,6 +14,9 @@ const addOrder = ({ orderObject }) => (dispatch) => {
       dispatch(orderActions.addOrderSuccess(data));
       console.log(data);
     })
+    .then(() => {
+      dispatch(orderActions.clearOrderList());
+    })
     .catch((error) => dispatch(orderActions.addOrderError(error)));
 };
 
@@ -54,12 +57,15 @@ const addProdToOrderList = (product, productType) => (dispatch, getState) => {
     type: productType,
     itemsCount: 1,
     //нет в макете order,но нужен для отрисовки компонента orderList
-    productprice: Number(product.price[productType] || product.price), //должно сработать для всех продуктов
+    productprice: Number(product.price[productType] || product.price.price), //должно сработать для всех продуктов
     productImg: product.images,
     productIngredients: product.ingredients,
   };
   dispatch(orderActions.addProdToOrderList(newItem));
 };
+
+const clearOrderList = () => (dispatch) =>
+  dispatch(orderActions.clearOrderList());
 
 const deleteProdToOrderList = (id, type) => (dispatch) =>
   dispatch(orderActions.deleteProdToOrderList(id, type));
@@ -81,4 +87,5 @@ export default {
   deleteProdToOrderList,
   incrementItemsCount,
   decrementItemsCount,
+  clearOrderList,
 };

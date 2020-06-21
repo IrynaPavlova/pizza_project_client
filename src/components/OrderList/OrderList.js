@@ -6,6 +6,8 @@ import OrderListItem from "../OrderListItem/OrderListItem";
 import { FormattedMessage } from "react-intl";
 // import orderItems from "../../services/orderItems.json";
 
+// const getOrderTime = () => new Date().toLocaleTimeString().slice(0, -3);
+
 //TODO edit to hooks
 const OrderList = ({
   deleteProdToOrderList,

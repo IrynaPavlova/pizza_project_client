@@ -14,6 +14,7 @@ class SidesList extends Component {
     const { products } = this.props;
     return (
       <>
+        {/* <h1 className={styles.title}>Сайды</h1> */}
         <ul className={styles.menu}>
           {products.map((product) => (
             <SidesListItem key={product._id} {...product} />
