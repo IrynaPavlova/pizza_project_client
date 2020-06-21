@@ -19,9 +19,8 @@ const updateOrderError = createAction("orders/updateOrderError");
 //Создаем лист заказа пользователя
 const addProdToOrderList = createAction("orders/addProdToOrderList");
 const deleteProdToOrderList = createAction("orders/deleteProdToOrderList");
-const updateItemsCount = createAction("orders/updateItemsCount");
-
-const updateSumToPay = createAction("orders/updateSumToPay");
+const incrementItemsCount = createAction("orders/incrementItemsCount");
+const decrementItemsCount = createAction("orders/decrementItemsCount");
 
 export default {
   ordersRequest,
@@ -38,6 +37,7 @@ export default {
   updateOrderError,
   addProdToOrderList,
   deleteProdToOrderList,
-  updateItemsCount,
-  updateSumToPay,
+  incrementItemsCount,
+  // updateSumToPay,
+  decrementItemsCount,
 };

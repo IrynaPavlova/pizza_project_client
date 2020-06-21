@@ -40,6 +40,10 @@
   letter-spacing: 0.01em;
 }
 
+.orderListEmpty {
+  margin-bottom: 50px;
+}
+
 @media (min-width: 768px) {
   .orderList {
     width: 738px;
@@ -48,6 +52,9 @@
   .orderListTitle {
     font-size: secondaryHeaderFontSize;
     margin-bottom: 43px;
+  }
+  .orderListEmpty {
+    margin-bottom: 50px;
   }
 }
 
@@ -63,5 +70,9 @@
     margin-bottom: 43px;
     line-height: 53px;
     letter-spacing: 0.01em;
+  }
+
+  .orderListEmpty {
+    margin-bottom: 50px;
   }
 }

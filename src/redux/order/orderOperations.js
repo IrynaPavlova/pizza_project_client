@@ -6,14 +6,15 @@ axios.defaults.baseURL = "https://evening-caverns-34846.herokuapp.com/";
 const addOrder = ({ orderObject }) => (dispatch) => {
   dispatch(orderActions.addOrderRequest());
 
-  axios.post("/orders", {
-    ...orderObject,
-  }).then(({data})=> {
-    dispatch(orderActions.addOrderSuccess(data))
-    console.log(data)
-  }).catch((error)=> 
-  dispatch(orderActions.addOrderError(error))
-  );
+  axios
+    .post("/orders", {
+      ...orderObject,
+    })
+    .then(({ data }) => {
+      dispatch(orderActions.addOrderSuccess(data));
+      console.log(data);
+    })
+    .catch((error) => dispatch(orderActions.addOrderError(error)));
 };
 
 const updateOrder = (id) => (dispatch) => {};
@@ -54,16 +55,21 @@ const addProdToOrderList = (product, productType) => (dispatch, getState) => {
     itemsCount: 1,
     //нет в макете order,но нужен для отрисовки компонента orderList
     productprice: Number(product.price[productType] || product.price), //должно сработать для всех продуктов
-    product,
+    productImg: product.images,
+    productIngredients: product.ingredients,
   };
   dispatch(orderActions.addProdToOrderList(newItem));
 };
 
-const deleteProdToOrderList = (id) => (dispatch) =>
-  dispatch(orderActions.deleteProdToOrderList(id));
+const deleteProdToOrderList = (id, type) => (dispatch) =>
+  dispatch(orderActions.deleteProdToOrderList(id, type));
 
-const updateItemsCount = (id, itemsCount) => (dispatch) => {
-  dispatch(orderActions.updateItemsCount(id, itemsCount));
+const incrementItemsCount = (id) => (dispatch) => {
+  dispatch(orderActions.incrementItemsCount(id));
+};
+
+const decrementItemsCount = (id) => (dispatch) => {
+  dispatch(orderActions.decrementItemsCount(id));
 };
 
 export default {
@@ -73,5 +79,6 @@ export default {
   updateOrder,
   addProdToOrderList,
   deleteProdToOrderList,
-  updateItemsCount,
+  incrementItemsCount,
+  decrementItemsCount,
 };

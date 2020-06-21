@@ -1,9 +1,11 @@
 import React from "react";
+import {FormattedMessage} from "react-intl";
 
 import ShoppingCartIcon from "../utils/ShoppingCartIcon";
 import styles from "./shoppingCart.module.css";
 
 const ShoppingCart = ({ amount = 0, price }) => {
+
   if (amount === 0) {
     return (
       <div>
@@ -27,7 +29,10 @@ const ShoppingCart = ({ amount = 0, price }) => {
         </div>
         <div className={styles.productsPriceWrapper}>
           <span className={styles.productsPrice}>
-            {price.toFixed(2)} <b>грн.</b>
+            {price.toFixed(2)}{" "}
+            <b>
+              <FormattedMessage id="grn" />
+            </b>
           </span>
         </div>
       </div>

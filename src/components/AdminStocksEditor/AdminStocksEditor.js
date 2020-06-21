@@ -1,9 +1,14 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import stocksOperations from "../../redux/stocks/stocksOperations";
-import stocksSelector from "../../redux/stocks/stocksSelector";
-import styles from "./AdminStocksEditor.module.css";
-import getFileName from "./utils";
+import React, { useState } from 'react';
+
+import { FormattedMessage } from 'react-intl';
+
+import { connect } from 'react-redux';
+import stocksOperations from '../../redux/stocks/stocksOperations';
+import stocksSelector from '../../redux/stocks/stocksSelector';
+import styles from './AdminStocksEditor.module.css';
+
+import getFileName from './utils';
+
 //FIXME: Вернуть изначальные значения в файле App
 
 function AdminStocksEditor({ editMode, onSubmitFile, onSubmit, linkFile }) {
@@ -13,10 +18,10 @@ function AdminStocksEditor({ editMode, onSubmitFile, onSubmit, linkFile }) {
     return setStockFile(target.files[0]);
   };
 
-  const [stocksTitle, setStockTitle] = useState("");
+  const [stocksTitle, setStockTitle] = useState('');
   const handleChangeTitle = ({ target }) => setStockTitle(target.value);
 
-  const [stocksDescription, setStocksDescription] = useState("");
+  const [stocksDescription, setStocksDescription] = useState('');
   const handleChangeDescription = ({ target }) =>
     setStocksDescription(target.value);
 
@@ -24,8 +29,7 @@ function AdminStocksEditor({ editMode, onSubmitFile, onSubmit, linkFile }) {
     e.preventDefault();
     console.log(stocksFile);
     const stocksItem = new FormData();
-    stocksItem.append("file", stocksFile);
-    const object = { ru: { file: stocksFile } };
+    stocksItem.append('file', stocksFile);
 
     onSubmitFile(stocksItem);
   };
@@ -43,7 +47,7 @@ function AdminStocksEditor({ editMode, onSubmitFile, onSubmit, linkFile }) {
 
   return (
     <>
-      {!linkFile && editMode === "add" && (
+      {!linkFile && editMode === 'add' && (
         <form className={styles.form} onSubmit={handleSubmitFile}>
           <div
             className={stocksFile ? styles.fileUploadGreen : styles.fileUpload}
@@ -60,12 +64,13 @@ function AdminStocksEditor({ editMode, onSubmitFile, onSubmit, linkFile }) {
             </label>
           </div>
           <div id="fileName" className={styles.fileName}></div>
+
           <button type="submit" className={styles.formButton}>
-            Отправить файл
+            <FormattedMessage id="send" />
           </button>
         </form>
       )}
-      {linkFile && editMode === "add" && (
+      {linkFile && editMode === 'add' && (
         <form className={styles.form} onSubmit={handleSubmit}>
           <label>
             <input
@@ -75,6 +80,7 @@ function AdminStocksEditor({ editMode, onSubmitFile, onSubmit, linkFile }) {
               onChange={handleLoadFile}
             />
           </label>
+
           <label className={styles.formLabel} htmlFor="promoName">
             Название акции
           </label>
@@ -86,6 +92,7 @@ function AdminStocksEditor({ editMode, onSubmitFile, onSubmit, linkFile }) {
             value={stocksTitle}
             onChange={handleChangeTitle}
           />
+
           <label className={styles.formLabel} htmlFor="promoDescription">
             Описание акции
           </label>
@@ -99,7 +106,7 @@ function AdminStocksEditor({ editMode, onSubmitFile, onSubmit, linkFile }) {
           />
 
           <button type="submit" className={styles.formButton}>
-            Отправить акцию
+            <FormattedMessage id="promo.send" />
           </button>
         </form>
       )}

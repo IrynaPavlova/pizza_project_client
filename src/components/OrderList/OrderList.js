@@ -1,14 +1,18 @@
-import React, { useCallback } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { orderOperations } from "../../redux/order";
+import React from "react";
+import { useSelector } from "react-redux";
+// import { orderOperations } from "../../redux/order";
 import styles from "./OrderList.module.css";
 import OrderListItem from "../OrderListItem/OrderListItem";
 import { FormattedMessage } from "react-intl";
 // import orderItems from "../../services/orderItems.json";
 
 //TODO edit to hooks
-const OrderList = ({ deleteProdToOrderList, updateItemsCount }) => {
-  const dispatch = useDispatch();
+const OrderList = ({
+  deleteProdToOrderList,
+  incrementItemsCount,
+  decrementItemsCount,
+}) => {
+  // const dispatch = useDispatch();
   const userOrder = useSelector(
     (state) => state.orders.userOrderList.productsList
   );
@@ -19,31 +23,36 @@ const OrderList = ({ deleteProdToOrderList, updateItemsCount }) => {
     }, 0);
   };
 
-  // const removeItem = useCallback(() => {
-  //   dispatch({ type: "orders/deleteProdToOrderList" });
-  // }, [dispatch]);
-
   const orderListPrice = getSum(userOrder);
 
-  return (
+  return userOrder.length > 0 ? (
     <div className={styles.orderList}>
       <h2 className={styles.orderListTitle}>
         <FormattedMessage id="order" />
       </h2>
       <ul>
         {userOrder.map(
-          ({ productId, productName, productprice, product, itemsCount }) => (
+          ({
+            productId,
+            productName,
+            productprice,
+            productImg,
+            itemsCount,
+            productIngredients,
+            type,
+          }) => (
             <OrderListItem
-              key={productId}
+              key={productId + productprice}
               id={productId}
-              img={product.images}
+              img={productImg}
               name={productName}
               price={productprice}
-              ingredients={product.ingredients}
+              ingredients={productIngredients}
               itemsCount={itemsCount}
               onRemoveItem={deleteProdToOrderList}
-              onIncrementItem={updateItemsCount}
-              // incrementItem={incrementItem}
+              onIncrementItem={incrementItemsCount}
+              onDecrementItem={decrementItemsCount}
+              type={type}
             />
           )
         )}
@@ -53,6 +62,8 @@ const OrderList = ({ deleteProdToOrderList, updateItemsCount }) => {
         <span className={styles.orderListPriceCurrency}> грн.</span>
       </p>
     </div>
+  ) : (
+    <h2 className={styles.orderListEmpty}>Ваша корзина пуста</h2>
   );
 };
 

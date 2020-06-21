@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FormattedMessage } from "react-intl";
 import { useSelector, useDispatch } from "react-redux";
 import { orderOperations, orderSelectors } from "../../redux/order";
 import { authSelectors } from "../../redux/auth";
@@ -7,10 +8,15 @@ import styles from "./OrderForm.module.css";
 
 export default function OrderForm() {
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) =>
+    authSelectors.isAuthenticated(state)
+  );
 
-  const creator = useSelector((state)=> authSelectors.getUserId(state)); 
-  const name = useSelector((state)=> authSelectors.getUserName(state));
-  const productsList = useSelector((state)=> orderSelectors.getUserOrder(state))
+  const creator = useSelector((state) => authSelectors.getUserId(state));
+  const name = useSelector((state) => authSelectors.getUserName(state));
+  const productsList = useSelector((state) =>
+    orderSelectors.getUserOrder(state)
+  );
   const sumToPay = getSum(productsList);
 
   const [phone, setPhone] = useState("");
@@ -32,8 +38,6 @@ export default function OrderForm() {
       name,
     };
 
-    console.log(orderObject)
-
     dispatch(orderOperations.addOrder({ orderObject }));
 
     setPhone("");
@@ -54,7 +58,7 @@ export default function OrderForm() {
   const handleChangeHouse = ({ target: { value } }) => {
     setHouse(value);
   };
-  return (
+  return isAuthenticated ? (
     <form className={styles.contactForm} onSubmit={handleSubmit}>
       {/* <div className={styles.formContainer}> */}
       <input
@@ -68,7 +72,7 @@ export default function OrderForm() {
         required
       />
       <label htmlFor="dynamic-label-input" className={styles.label}>
-        Номер телефона
+        <FormattedMessage id="phone number" />
       </label>
       {/* </div> */}
       {/* <div className={styles.formContainer}> */}
@@ -82,7 +86,7 @@ export default function OrderForm() {
         onChange={handleChangeCity}
       />
       <label htmlFor="dynamic-label-input" className={styles.label}>
-        Город
+        <FormattedMessage id="city" />
       </label>
       {/* </div> */}
       {/* <div className={styles.formContainer}> */}
@@ -96,7 +100,7 @@ export default function OrderForm() {
         onChange={handleChangeStreet}
       />
       <label htmlFor="dynamic-label-input" className={styles.label}>
-        Улица
+        <FormattedMessage id="street" />
       </label>
       {/* </div> */}
       {/* <div className={styles.formContainer}> */}
@@ -110,12 +114,15 @@ export default function OrderForm() {
         onChange={handleChangeHouse}
       />
       <label htmlFor="dynamic-label-input" className={styles.label}>
-        Дом, квартира
+        <FormattedMessage id="house" />
       </label>
       {/* </div> */}
       <button className={styles.submit} type="submit">
-        Заказать
+        <FormattedMessage id="order2" />
       </button>
     </form>
+  ) : (
+
+    <h3>Чтобы оформить заказ, нужно авторизоваться</h3>
   );
 }
