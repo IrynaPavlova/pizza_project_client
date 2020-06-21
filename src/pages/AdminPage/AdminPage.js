@@ -8,6 +8,7 @@ import AdminOrderList from "../../components/AdminOrderList/AdminOrderList";
 import forExmCreateProd from "./forExmCreateProd";
 import forExmEditPromo from "./forExmEditPromo";
 import AdminUpdateList from "../../components/AdminUpdateList";
+import AdminStocksPage from "../../pages/AdminStocksPage";
 import styles from "./AdminPage.module.css";
 
 export default function AdminPage() {
@@ -49,7 +50,7 @@ export default function AdminPage() {
               className={styles.adminMenuItem}
               activeClassName={styles.adminMenuActiveItem}
             >
-              Редактировать акции
+              <FormattedMessage id="promo.edit" />
             </NavLink>
           </li>
         </ul>
@@ -65,7 +66,7 @@ export default function AdminPage() {
             path={routes.ADMIN_UPDATE_PRODUCT}
             component={AdminUpdateList}
           />
-          <Route path={routes.ADMIN_UPDATE_PROMO} component={forExmEditPromo} />
+          <Route path={routes.ADMIN_UPDATE_PROMO} component={AdminStocksPage} />
           <Redirect to={routes.ADMIN_ORDER_LISTS} />
         </Switch>
       </div>

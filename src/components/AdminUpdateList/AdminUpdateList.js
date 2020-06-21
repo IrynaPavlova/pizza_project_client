@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { FormattedMessage } from "react-intl";
 import { useDispatch, useSelector } from "react-redux";
 import { productOperations, productSelectors } from "../../redux/product";
 import AdminUpdateListItem from "../AdminUpdateListItem/AdminUpdateListItem";
@@ -7,12 +8,29 @@ import styles from "./AdminUpdateList.module.css";
 
 export default function AdminOrderList() {
   const dispatch = useDispatch();
+  const local = useSelector((state) => state.local.lang);
   const products = useSelector(productSelectors.getProducts);
   const isLoading = useSelector(productSelectors.getLoading);
 
-  const [listType, setListType] = useState(null);
+  const [listType, setListType] = useState("pizza");
+  const [filterProductsBy, setFilterProductsBy] = useState("");
 
-  useEffect(() => dispatch(productOperations.fetchProducts()), []);
+  useEffect(() => dispatch(productOperations.fetchProducts()), [dispatch]);
+
+  const filteredProducts = products
+    .filter(({ categories }) => categories === listType)
+    .filter(({ name }) =>
+      name[local].toLowerCase().includes(filterProductsBy.toLowerCase())
+    );
+
+  const changeCategorie = (type) => {
+    if (type === listType) {
+      return;
+    }
+    setFilterProductsBy("");
+    setListType(type);
+  };
+
   return (
     <>
       {isLoading && <Spinner />}
@@ -21,60 +39,46 @@ export default function AdminOrderList() {
           className={`${styles.button} ${
             listType === "pizza" ? styles.button_active : ""
           }`}
-          onClick={() => setListType("pizza")}
+          onClick={() => changeCategorie("pizza")}
         >
-          Пиццы
+          <FormattedMessage id="pizza" />
         </button>
         <button
           className={`${styles.button} ${
             listType === "sides" ? styles.button_active : ""
           }`}
-          onClick={() => setListType("sides")}
+          onClick={() => changeCategorie("sides")}
         >
-          Сайды
+          <FormattedMessage id="sides" />
         </button>
         <button
           className={`${styles.button} ${
             listType === "drinks" ? styles.button_active : ""
           }`}
-          onClick={() => setListType("drinks")}
+          onClick={() => changeCategorie("drinks")}
         >
-          Напитки
+          <FormattedMessage id="drinks" />
         </button>
         <button
           className={`${styles.button} ${
             listType === "desserts" ? styles.button_active : ""
           }`}
-          onClick={() => setListType("desserts")}
+          onClick={() => changeCategorie("desserts")}
         >
-          Десерты
+          <FormattedMessage id="desserts" />
         </button>
       </div>
+      <input
+        type="text"
+        value={filterProductsBy}
+        placeholder="Поиск"
+        className={styles.input}
+        onChange={({ target: { value } }) => setFilterProductsBy(value)}
+      />
       <div className={styles.items_container}>
-        {listType === "pizza" &&
-          products
-            .filter(({ categories }) => categories === "pizza")
-            .map((product) => (
-              <AdminUpdateListItem key={product._id} product={product} />
-            ))}
-        {listType === "sides" &&
-          products
-            .filter(({ categories }) => categories === "sides")
-            .map((product) => (
-              <AdminUpdateListItem key={product._id} product={product} />
-            ))}
-        {listType === "drinks" &&
-          products
-            .filter(({ categories }) => categories === "drinks")
-            .map((product) => (
-              <AdminUpdateListItem key={product._id} product={product} />
-            ))}
-        {listType === "desserts" &&
-          products
-            .filter(({ categories }) => categories === "desserts")
-            .map((product) => (
-              <AdminUpdateListItem key={product._id} product={product} />
-            ))}
+        {filteredProducts.map((product) => (
+          <AdminUpdateListItem key={product._id} product={product} />
+        ))}
       </div>
     </>
   );

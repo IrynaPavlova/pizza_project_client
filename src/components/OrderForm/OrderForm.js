@@ -1,13 +1,25 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 import { FormattedMessage } from "react-intl";
-
-import languages from "../../languages";
+import { useSelector, useDispatch } from "react-redux";
+import { orderOperations, orderSelectors } from "../../redux/order";
+import { authSelectors } from "../../redux/auth";
+import getSum from "../utils/getSum";
 import styles from "./OrderForm.module.css";
 
 export default function OrderForm() {
-  const local = useSelector((state) => state.local);
-  const [number, setNumber] = useState("");
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) =>
+    authSelectors.isAuthenticated(state)
+  );
+
+  const creator = useSelector((state) => authSelectors.getUserId(state));
+  const name = useSelector((state) => authSelectors.getUserName(state));
+  const productsList = useSelector((state) =>
+    orderSelectors.getUserOrder(state)
+  );
+  const sumToPay = getSum(productsList);
+
+  const [phone, setPhone] = useState("");
   const [city, setCity] = useState("");
   const [street, setStreet] = useState("");
   const [house, setHouse] = useState("");
@@ -15,14 +27,27 @@ export default function OrderForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setNumber("");
+    const deliveryAddress = `${city}/${street}/${house}`;
+
+    const orderObject = {
+      creator,
+      productsList,
+      deliveryAddress,
+      sumToPay,
+      phone,
+      name,
+    };
+
+    dispatch(orderOperations.addOrder({ orderObject }));
+
+    setPhone("");
     setCity("");
     setStreet("");
     setHouse("");
   };
 
   const handleChangeNumber = ({ target: { value } }) => {
-    setNumber(value);
+    setPhone(value);
   };
   const handleChangeCity = ({ target: { value } }) => {
     setCity(value);
@@ -33,15 +58,15 @@ export default function OrderForm() {
   const handleChangeHouse = ({ target: { value } }) => {
     setHouse(value);
   };
-  return (
+  return isAuthenticated ? (
     <form className={styles.contactForm} onSubmit={handleSubmit}>
       {/* <div className={styles.formContainer}> */}
       <input
         type="number"
         id="dynamic-label-input"
-        value={number}
-        name="number"
-        placeholder={languages[local]["phone number"]}
+        value={phone}
+        name="phone"
+        placeholder="Номер телефона"
         className={styles.input}
         onChange={handleChangeNumber}
         required
@@ -56,7 +81,7 @@ export default function OrderForm() {
         id="dynamic-label-input"
         value={city}
         name="city"
-        placeholder={languages[local].city}
+        placeholder="Город"
         className={styles.input}
         onChange={handleChangeCity}
       />
@@ -70,7 +95,7 @@ export default function OrderForm() {
         id="dynamic-label-input"
         value={street}
         name="street"
-        placeholder={languages[local].street}
+        placeholder="Улица"
         className={styles.input}
         onChange={handleChangeStreet}
       />
@@ -84,7 +109,7 @@ export default function OrderForm() {
         id="dynamic-label-input"
         value={house}
         name="house"
-        placeholder={languages[local].house}
+        placeholder="Дом, квартира"
         className={styles.input}
         onChange={handleChangeHouse}
       />
@@ -96,5 +121,8 @@ export default function OrderForm() {
         <FormattedMessage id="order2" />
       </button>
     </form>
+  ) : (
+
+    <h3>Чтобы оформить заказ, нужно авторизоваться</h3>
   );
 }

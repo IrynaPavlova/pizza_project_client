@@ -8,7 +8,7 @@ import languages from "../../languages";
 import styles from "./Authentication.module.css";
 
 export default function ({ setIsModalActive, setIsLogining }) {
-  const local = useSelector((state) => state.local);
+  const local = useSelector((state) => state.local.lang);
 
   const dispatch = useDispatch();
 

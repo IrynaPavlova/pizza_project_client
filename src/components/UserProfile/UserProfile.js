@@ -26,6 +26,7 @@ export default function UserProfile() {
   useEffect(() => {
     if (id) {
       dispatch(authOperations.getCurrentUser(id));
+      dispatch(authOperations.getUserOrders(id));
     }
   }, []);
 

@@ -71,12 +71,12 @@ secondaryTextFontSize from variables;
   margin-right: 15px;
 }
 
-.phoneFooter {
-  color: lightColor;
+a {
+  color: #fff;
 }
 
 .phoneFooter:hover {
-  color: lightColor;
+  color: #fff;
   text-decoration: none;
 }
 
