@@ -7,27 +7,39 @@
   .menu {
     margin: 0 auto;
     width: 320px;
-    padding: 20px;
+    padding: 50px 20px;
     display: flex;
     flex-direction: column;
+  }
+  .title {
+    font-family: OswaldMedium;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    margin-bottom: 20px;
+    color: primaryColor;
+    margin: 0;
   }
 }
 @media screen and (min-width: 768px) {
   .menu {
     width: 768px;
-    padding: 15px;
+    padding: 50px 15px;
     flex-flow: wrap row;
     justify-content: space-between;
   }
 }
-@media screen and (min-width: 1170px) {
+@media screen and (min-width: 1200px) {
   .menu {
     display: grid;
     grid-template-columns: repeat(4, 270px);
     grid-auto-rows: minmax(300px, auto);
-    grid-column-gap: 20px;
+    grid-column-gap: 30px;
     grid-row-gap: 20px;
-    width: 1170px;
-    padding: 16px 32px;
+    width: 1200px;
+    padding: 50px 0;
   }
 }
