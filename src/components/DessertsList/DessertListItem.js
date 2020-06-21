@@ -1,9 +1,10 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { FormattedMessage } from "react-intl";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { orderOperations } from '../../redux/order';
+import { FormattedMessage } from 'react-intl';
 
 // import cheesecacke from '../../assets/img/desserts/cheesecacke.jpg';
-import styles from "./DessertsList.module.css";
+import styles from './DessertsList.module.css';
 
 const {
   dessertItem,
@@ -18,14 +19,18 @@ const {
   dessertImg,
 } = styles;
 
-const DessertListItem = ({
-  name,
-  description,
-  price: { price },
-  currency,
-  images,
-}) => {
-  const local = useSelector((state) => state.local.lang);
+const DessertListItem = props => {
+  const { _id, name, description, price, images } = props;
+
+  const local = useSelector(state => state.local.lang);
+
+  // const product = useSelector(state => state.products.items);
+  const defaultSize = 'M';
+  const dispatch = useDispatch();
+  const onAddProductToOrder = () =>
+    dispatch(orderOperations.addProdToOrderList(props, defaultSize));
+
+  // console.log(product);
   return (
     <li className={dessertItem}>
       <img src={images} alt="" width="280" className={dessertImg} />
@@ -38,7 +43,7 @@ const DessertListItem = ({
         </span>
         <div className={dessertOrder}>
           <div className={dessertPriceContainer}>
-            <span className={dessertPrice}>{price}.00</span>
+            <span className={dessertPrice}>{`${price.price}.00 `}</span>
             <span className={dessertCurrency}>
               <FormattedMessage id="grn" />
             </span>
@@ -47,7 +52,7 @@ const DessertListItem = ({
           <button
             className={dessertButton}
             type="submit"
-            // onClick={() => console.log}
+            onClick={onAddProductToOrder}
           >
             <FormattedMessage id="orders.chart" />
           </button>
