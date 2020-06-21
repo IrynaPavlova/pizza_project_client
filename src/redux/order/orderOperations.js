@@ -14,6 +14,9 @@ const addOrder = ({ orderObject }) => (dispatch) => {
       dispatch(orderActions.addOrderSuccess(data));
       console.log(data);
     })
+    .then(() => {
+      dispatch(orderActions.clearOrderList());
+    })
     .catch((error) => dispatch(orderActions.addOrderError(error)));
 };
 
@@ -61,6 +64,9 @@ const addProdToOrderList = (product, productType) => (dispatch, getState) => {
   dispatch(orderActions.addProdToOrderList(newItem));
 };
 
+const clearOrderList = () => (dispatch) =>
+  dispatch(orderActions.clearOrderList());
+
 const deleteProdToOrderList = (id, type) => (dispatch) =>
   dispatch(orderActions.deleteProdToOrderList(id, type));
 
@@ -81,4 +87,5 @@ export default {
   deleteProdToOrderList,
   incrementItemsCount,
   decrementItemsCount,
+  clearOrderList,
 };
