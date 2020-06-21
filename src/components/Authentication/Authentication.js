@@ -8,10 +8,11 @@ import Notification from "../Notification";
 
 export default function Authentication({ isModalActive, setIsModalActive }) {
   const hasError = useSelector(authSelectors.getError);
+  const local = useSelector((state) => state.local.lang);
   const [isLogining, setIsLogining] = useState(true);
   return (
     <>
-      {hasError && <Notification message={hasError} />}
+      {hasError && <Notification message={hasError[local]} />}
       {isModalActive && (
         <Modal onClose={setIsModalActive}>
           {isLogining ? (
