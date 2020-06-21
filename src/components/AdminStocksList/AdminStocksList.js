@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import stocksOperations from "../../redux/stocks/stocksOperations";
-import stocksSelector from "../../redux/stocks/stocksSelector";
-import { connect, useSelector } from "react-redux";
-import styles from "./AdminStocksList.module.css";
+import React, { useEffect } from 'react';
 
-function AdminStocksList({ elements, onFetchStocks }) {
-  const local = useSelector((state) => state.local.lang);
+import { connect } from 'react-redux';
+import AdminStockListItem from './AdminStockListItem';
+import stocksOperations from '../../redux/stocks/stocksOperations';
+import stocksSelector from '../../redux/stocks/stocksSelector';
+import styles from './AdminStocksList.module.css';
 
+function AdminStocksList({ elements, onFetchStocks, onChange }) {
   useEffect(() => {
     onFetchStocks();
   }, []);
@@ -14,15 +14,20 @@ function AdminStocksList({ elements, onFetchStocks }) {
   console.log(elements);
 
   return (
-    <div className={styles.cardList}>
-      {elements.map(({ title, description, images, _id }) => (
-        <div key={images} className={styles.card}>
-          <h1>{title[local]}</h1> <p>{description[local]}</p>
-          <p>{_id}</p>
-          <img src={images} alt={title} className={styles.cardImg} />
-        </div>
-      ))}
-    </div>
+    elements && (
+      <div className={styles.cardList}>
+        {elements.map(({ title, description, images, _id }) => (
+          <AdminStockListItem
+            onChange={onChange}
+            key={_id}
+            title={title}
+            description={description}
+            images={images}
+            id={_id}
+          />
+        ))}
+      </div>
+    )
   );
 }
 

@@ -1,27 +1,35 @@
-import React, { useState } from "react";
-import { FormattedMessage } from "react-intl";
-import { connect } from "react-redux";
-import stocksOperations from "../../redux/stocks/stocksOperations";
-import stocksSelector from "../../redux/stocks/stocksSelector";
-import styles from "./AdminStocksEditor.module.css";
+import React, { useState } from 'react';
+
+import { FormattedMessage } from 'react-intl';
+
+import { connect } from 'react-redux';
+import stocksOperations from '../../redux/stocks/stocksOperations';
+import stocksSelector from '../../redux/stocks/stocksSelector';
+import styles from './AdminStocksEditor.module.css';
+
+import getFileName from './utils';
 
 //FIXME: Вернуть изначальные значения в файле App
 
-function AdminStocksEditor({ onSubmitFile, onSubmit, linkFile }) {
+function AdminStocksEditor({ editMode, onSubmitFile, onSubmit, linkFile }) {
   const [stocksFile, setStockFile] = useState(null);
-  const handleLoadFile = ({ target }) => setStockFile(target.files[0]);
+  const handleLoadFile = ({ target }) => {
+    getFileName();
+    return setStockFile(target.files[0]);
+  };
 
-  const [stocksTitle, setStockTitle] = useState("");
+  const [stocksTitle, setStockTitle] = useState('');
   const handleChangeTitle = ({ target }) => setStockTitle(target.value);
 
-  const [stocksDescription, setStocksDescription] = useState("");
+  const [stocksDescription, setStocksDescription] = useState('');
   const handleChangeDescription = ({ target }) =>
     setStocksDescription(target.value);
 
   const handleSubmitFile = (e) => {
     e.preventDefault();
+    console.log(stocksFile);
     const stocksItem = new FormData();
-    stocksItem.append("file", stocksFile);
+    stocksItem.append('file', stocksFile);
 
     onSubmitFile(stocksItem);
   };
@@ -29,8 +37,8 @@ function AdminStocksEditor({ onSubmitFile, onSubmit, linkFile }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newStock = {
-      title: stocksTitle,
-      description: stocksDescription,
+      title: { ru: stocksTitle },
+      description: { ru: stocksDescription },
       images: linkFile,
     };
 
@@ -39,24 +47,30 @@ function AdminStocksEditor({ onSubmitFile, onSubmit, linkFile }) {
 
   return (
     <>
-      {!linkFile && (
+      {!linkFile && editMode === 'add' && (
         <form className={styles.form} onSubmit={handleSubmitFile}>
-          <label className={styles.labelFile} htmlFor="file">
-            <FormattedMessage id="upload" />
-          </label>
-          <input
-            type="file"
-            name="file"
-            id="file"
-            className={styles.inputFile}
-            onChange={handleLoadFile}
-          />
+          <div
+            className={stocksFile ? styles.fileUploadGreen : styles.fileUpload}
+          >
+            <label className={styles.uploadLabel}>
+              <input
+                type="file"
+                name="file"
+                id="uploadeFile"
+                className={styles.uploadInput}
+                onChange={handleLoadFile}
+              />
+              <span className={styles.uploadSpan}>загрузить файл</span>
+            </label>
+          </div>
+          <div id="fileName" className={styles.fileName}></div>
+
           <button type="submit" className={styles.formButton}>
             <FormattedMessage id="send" />
           </button>
         </form>
       )}
-      {linkFile && (
+      {linkFile && editMode === 'add' && (
         <form className={styles.form} onSubmit={handleSubmit}>
           <label>
             <input
@@ -66,8 +80,9 @@ function AdminStocksEditor({ onSubmitFile, onSubmit, linkFile }) {
               onChange={handleLoadFile}
             />
           </label>
-          <label className={styles.formLabel} for="promoName">
-            <FormattedMessage id="promo.name" />
+
+          <label className={styles.formLabel} htmlFor="promoName">
+            Название акции
           </label>
 
           <input
@@ -77,8 +92,9 @@ function AdminStocksEditor({ onSubmitFile, onSubmit, linkFile }) {
             value={stocksTitle}
             onChange={handleChangeTitle}
           />
-          <label className={styles.formLabel} for="promoDescription">
-            <FormattedMessage id="promo.about" />
+
+          <label className={styles.formLabel} htmlFor="promoDescription">
+            Описание акции
           </label>
 
           <input

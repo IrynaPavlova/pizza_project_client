@@ -57,7 +57,7 @@ const addProdToOrderList = (product, productType) => (dispatch, getState) => {
     type: productType,
     itemsCount: 1,
     //нет в макете order,но нужен для отрисовки компонента orderList
-    productprice: Number(product.price[productType] || product.price), //должно сработать для всех продуктов
+    productprice: Number(product.price[productType] || product.price.price), //должно сработать для всех продуктов
     productImg: product.images,
     productIngredients: product.ingredients,
   };
