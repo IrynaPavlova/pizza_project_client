@@ -13,6 +13,7 @@ const stocksReducer = createReducer([], {
 const linkReducer = createReducer(null, {
   [stocksActions.sendFileSuccess]: (state, { payload }) => payload,
   [stocksActions.sendStockSuccess]: (state, { payload }) => null,
+  [stocksActions.cancelInput]: (state, { payload }) => null,
 });
 
 export default combineReducers({ items: stocksReducer, fileLink: linkReducer });

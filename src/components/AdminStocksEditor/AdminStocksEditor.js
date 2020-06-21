@@ -1,37 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage } from "react-intl";
 
-import { connect } from 'react-redux';
-import stocksOperations from '../../redux/stocks/stocksOperations';
-import stocksSelector from '../../redux/stocks/stocksSelector';
-import styles from './AdminStocksEditor.module.css';
+import { connect } from "react-redux";
+import stocksOperations from "../../redux/stocks/stocksOperations";
+import stocksActions from "../../redux/stocks/stocksActions";
+import stocksSelector from "../../redux/stocks/stocksSelector";
+import styles from "./AdminStocksEditor.module.css";
 
-import getFileName from './utils';
+import getFileName from "./utils";
 
 //FIXME: Вернуть изначальные значения в файле App
 
-function AdminStocksEditor({ editMode, onSubmitFile, onSubmit, linkFile }) {
+function AdminStocksEditor({
+  editMode,
+  onSubmitFile,
+  onSubmit,
+  linkFile,
+  onCancel,
+}) {
   const [stocksFile, setStockFile] = useState(null);
   const handleLoadFile = ({ target }) => {
     getFileName();
-    return setStockFile(target.files[0]);
+    const stocksItem = new FormData();
+    stocksItem.append("file", target.files[0]);
+
+    onSubmitFile(stocksItem);
   };
 
-  const [stocksTitle, setStockTitle] = useState('');
+  const [stocksTitle, setStockTitle] = useState("");
   const handleChangeTitle = ({ target }) => setStockTitle(target.value);
 
-  const [stocksDescription, setStocksDescription] = useState('');
+  const [stocksDescription, setStocksDescription] = useState("");
   const handleChangeDescription = ({ target }) =>
     setStocksDescription(target.value);
 
   const handleSubmitFile = (e) => {
     e.preventDefault();
-    console.log(stocksFile);
-    const stocksItem = new FormData();
-    stocksItem.append('file', stocksFile);
-
-    onSubmitFile(stocksItem);
   };
 
   const handleSubmit = (e) => {
@@ -43,11 +48,20 @@ function AdminStocksEditor({ editMode, onSubmitFile, onSubmit, linkFile }) {
     };
 
     onSubmit(newStock);
+    cancelInput();
+  };
+
+  const cancelInput = () => {
+    setStockFile(null);
+    setStockTitle("");
+    setStocksDescription("");
+    console.log(stocksFile);
+    onCancel();
   };
 
   return (
     <>
-      {!linkFile && editMode === 'add' && (
+      {!linkFile && editMode === "add" && (
         <form className={styles.form} onSubmit={handleSubmitFile}>
           <div
             className={stocksFile ? styles.fileUploadGreen : styles.fileUpload}
@@ -60,7 +74,9 @@ function AdminStocksEditor({ editMode, onSubmitFile, onSubmit, linkFile }) {
                 className={styles.uploadInput}
                 onChange={handleLoadFile}
               />
-              <span className={styles.uploadSpan}>загрузить файл</span>
+              <span className={styles.uploadSpan}>
+                {stocksFile ? "файл загружен" : "загрузить файл"}
+              </span>
             </label>
           </div>
           <div id="fileName" className={styles.fileName}></div>
@@ -70,45 +86,54 @@ function AdminStocksEditor({ editMode, onSubmitFile, onSubmit, linkFile }) {
           </button>
         </form>
       )}
-      {linkFile && editMode === 'add' && (
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <label>
+      {linkFile && editMode === "add" && (
+        <>
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <label>
+              <input
+                value={linkFile}
+                disabled={true}
+                className={styles.formInput}
+                onChange={handleLoadFile}
+              />
+            </label>
+
+            <label className={styles.formLabel} htmlFor="promoName">
+              Название акции
+            </label>
+
             <input
-              value={linkFile}
-              disabled={true}
+              name="promoName"
+              id="promoName"
               className={styles.formInput}
-              onChange={handleLoadFile}
+              value={stocksTitle}
+              onChange={handleChangeTitle}
             />
-          </label>
 
-          <label className={styles.formLabel} htmlFor="promoName">
-            Название акции
-          </label>
+            <label className={styles.formLabel} htmlFor="promoDescription">
+              Описание акции
+            </label>
 
-          <input
-            name="promoName"
-            id="promoName"
-            className={styles.formInput}
-            value={stocksTitle}
-            onChange={handleChangeTitle}
-          />
+            <input
+              name="promoDescription"
+              id="promoDescription"
+              className={styles.formInput}
+              value={stocksDescription}
+              onChange={handleChangeDescription}
+            />
 
-          <label className={styles.formLabel} htmlFor="promoDescription">
-            Описание акции
-          </label>
-
-          <input
-            name="promoDescription"
-            id="promoDescription"
-            className={styles.formInput}
-            value={stocksDescription}
-            onChange={handleChangeDescription}
-          />
-
-          <button type="submit" className={styles.formButton}>
-            <FormattedMessage id="promo.send" />
-          </button>
-        </form>
+            <button type="submit" className={styles.formButton}>
+              <FormattedMessage id="promo.send" />
+            </button>
+            <button
+              type="button"
+              onClick={cancelInput}
+              className={styles.formButton}
+            >
+              Отмена
+            </button>
+          </form>
+        </>
       )}
     </>
   );
@@ -121,6 +146,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   onSubmitFile: stocksOperations.sendFile,
   onSubmit: stocksOperations.sendStock,
+  onCancel: stocksActions.cancelInput,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdminStocksEditor);

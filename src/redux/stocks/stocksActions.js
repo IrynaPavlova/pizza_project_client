@@ -20,6 +20,8 @@ const sendFileRequest = createAction("stocks/sendFileRequest");
 const sendFileSuccess = createAction("stocks/sendFileSuccess");
 const sendFileError = createAction("stocks/sendFileError");
 
+const cancelInput = createAction("stocks/cancelInput");
+
 export default {
   getStocksSuccess,
   getStocksRequest,
@@ -36,4 +38,5 @@ export default {
   sendFileRequest,
   sendFileSuccess,
   sendFileError,
+  cancelInput,
 };
