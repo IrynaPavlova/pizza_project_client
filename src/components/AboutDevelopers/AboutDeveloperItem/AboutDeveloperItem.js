@@ -1,16 +1,21 @@
-import React from "react";
-import styles from "./AboutDeveloperItem.module.css";
-import { facebook, linkedIn, instagram } from "./../../utils/SocialIcons";
-import checkedSocialNetworkLink from "../../utils/checkedSocialNetworkLink";
-import PropTypes from "prop-types";
+import React from 'react';
+import styles from './AboutDeveloperItem.module.css';
+import {
+  facebook,
+  linkedIn,
+  instagram,
+  gitHub,
+} from './../../utils/SocialIcons';
+import checkedSocialNetworkLink from '../../utils/checkedSocialNetworkLink';
+import PropTypes from 'prop-types';
 
 const DEFAULT_AVATAR =
-  "https://i.ibb.co/d5yKB57/85622928-default-avatar-profile-icon-grey-photo-placeholder-illustrations-vectors.jpg";
+  'https://i.ibb.co/d5yKB57/85622928-default-avatar-profile-icon-grey-photo-placeholder-illustrations-vectors.jpg';
 
-function AboutDeveloperItem({ name, avatarLink, social }) {
-  const socialNetworkFacebook = checkedSocialNetworkLink(social, "facebook");
-  const socialNetworkInstagramm = checkedSocialNetworkLink(social, "instagram");
-  const socialNetworkLinkedIn = checkedSocialNetworkLink(social, "linkedin");
+function AboutDeveloperItem({ name, avatarLink, social, github = '' }) {
+  const socialNetworkFacebook = checkedSocialNetworkLink(social, 'facebook');
+  const socialNetworkInstagramm = checkedSocialNetworkLink(social, 'instagram');
+  const socialNetworkLinkedIn = checkedSocialNetworkLink(social, 'linkedin');
 
   return (
     <div className={styles.card}>
@@ -24,18 +29,43 @@ function AboutDeveloperItem({ name, avatarLink, social }) {
       <div className={styles.description}>
         <h2 className={styles.name}>{name}</h2>
         {socialNetworkFacebook && (
-          <a href={social} className={styles.link} target="_blank" rel="noopener noreferrer">
+          <a
+            href={social}
+            className={styles.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {facebook}
           </a>
         )}
         {socialNetworkInstagramm && (
-          <a href={social} className={styles.link} target="_blank" rel="noopener noreferrer">
+          <a
+            href={social}
+            className={styles.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {instagram}
           </a>
         )}
         {socialNetworkLinkedIn && (
-          <a href={social} className={styles.link} target="_blank" rel="noopener noreferrer">
+          <a
+            href={social}
+            className={styles.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {linkedIn}
+          </a>
+        )}
+        {github && (
+          <a
+            href={github}
+            className={styles.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {gitHub}
           </a>
         )}
       </div>
