@@ -4,7 +4,6 @@ const baseURL = "https://evening-caverns-34846.herokuapp.com";
 
 const headers = {
     'Content-Type': 'multipart/form-data',
-    'Access-Control-Allow-Origin': '*',
 }
 
 const getAllIngredients = async () => {
@@ -17,7 +16,10 @@ const postNewProduct = (product) => {
 };
 
 const postImage = async (file) => {
-    return await axios.post(`${baseURL}/images`, file, {headers}).data;
+    const data = new FormData();
+    data.append('file', file);
+
+    return await axios.post(`${baseURL}/images`, {'file': file}, {headers}).data;
 };
 
 export {getAllIngredients, postNewProduct, postImage}
