@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { FormattedMessage } from "react-intl";
 
 import { productSelectors, productOperations } from "../../redux/product";
 
@@ -13,24 +14,26 @@ class DrinkList extends Component {
   render() {
     const { products } = this.props;
     return (
-      <>
-        <h2 className={styles.title}>Напитки</h2>
+      <div className={styles.containerList}>
+        <h2 className={styles.title}>
+          <FormattedMessage id="drinks" />
+        </h2>
         <ul className={styles.menu}>
-          {products.map(product => (
+          {products.map((product) => (
             <DrinkListItem key={product._id} {...product} />
           ))}
         </ul>
-      </>
+      </div>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return { products: productSelectors.getProducts(state) };
 };
 
 const mapDispatchToProps = {
-  onFetchProductDrinks: productOperations.fetchProductsByCategory
+  onFetchProductDrinks: productOperations.fetchProductsByCategory,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DrinkList);

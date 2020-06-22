@@ -4,10 +4,12 @@
 @import "../../stylesheet/fonts.css";
 
 @media screen and (min-width: 320px) {
+  .containerList {
+    padding: 50px 0;
+  }
   .menu {
     margin: 0 auto;
     width: 320px;
-    padding: 50px 20px;
     display: flex;
     flex-direction: column;
   }
@@ -15,19 +17,19 @@
     font-family: OswaldMedium;
     font-style: normal;
     font-weight: 500;
-    font-size: 24px;
-    line-height: 36px;
+    font-size: 36px;
+    line-height: 53px;
     text-align: center;
     letter-spacing: 0.01em;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     color: primaryColor;
-    margin: 0;
+    margin-bottom: 40px;
   }
 }
 @media screen and (min-width: 768px) {
   .menu {
     width: 768px;
-    padding: 50px 15px;
+    padding: 0 15px;
     flex-flow: wrap row;
     justify-content: space-between;
   }
@@ -40,6 +42,5 @@
     grid-column-gap: 30px;
     grid-row-gap: 20px;
     width: 1200px;
-    padding: 50px 0;
   }
 }
