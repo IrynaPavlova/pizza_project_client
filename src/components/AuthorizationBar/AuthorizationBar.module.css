@@ -13,6 +13,11 @@
   display: flex;
   justify-content: space-between;
 }
+
+.userWrapper a {
+  text-decoration: none !important;
+}
+
 .logoutButton {
   border: none;
   background-color: transparent;
