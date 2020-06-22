@@ -10,10 +10,10 @@ const DrinkListItem = (props) => {
 
   const local = useSelector((state) => state.local.lang);
 
-  const defaultSize = "M";
+  // const defaultSize = "M";// изменили на серваке, больше не обязательное, можно не передавать
   const dispatch = useDispatch();
   const onAddProductToOrder = () =>
-    dispatch(orderOperations.addProdToOrderList(props, defaultSize));
+    dispatch(orderOperations.addProdToOrderList(props));
   return (
     <li className={styles.menuItem}>
       <div className={styles.menuItem_imageBlock}>
