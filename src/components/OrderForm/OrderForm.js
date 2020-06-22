@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FormattedMessage } from "react-intl";
 import { useSelector, useDispatch } from "react-redux";
 import { orderOperations, orderSelectors } from "../../redux/order";
 import { authSelectors } from "../../redux/auth";
 import getSum from "../utils/getSum";
 import styles from "./OrderForm.module.css";
+
+const getOrderTime = () => new Date().toLocaleTimeString().slice(0, -3);
 
 export default function OrderForm() {
   const dispatch = useDispatch();
@@ -17,12 +19,20 @@ export default function OrderForm() {
   const productsList = useSelector((state) =>
     orderSelectors.getUserOrder(state)
   );
+
   const sumToPay = getSum(productsList);
 
   const [phone, setPhone] = useState("");
   const [city, setCity] = useState("");
   const [street, setStreet] = useState("");
   const [house, setHouse] = useState("");
+  const [orderTime, setOrderTime] = useState(null);
+
+  useEffect(() => {
+    if (productsList.length > 0) {
+      setOrderTime(null);
+    }
+  }, [productsList]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,6 +54,8 @@ export default function OrderForm() {
     setCity("");
     setStreet("");
     setHouse("");
+
+    setOrderTime(getOrderTime());
   };
 
   const handleChangeNumber = ({ target: { value } }) => {
@@ -58,71 +70,76 @@ export default function OrderForm() {
   const handleChangeHouse = ({ target: { value } }) => {
     setHouse(value);
   };
-  return isAuthenticated ? (
-    <form className={styles.contactForm} onSubmit={handleSubmit}>
-      {/* <div className={styles.formContainer}> */}
-      <input
-        type="number"
-        id="dynamic-label-input"
-        value={phone}
-        name="phone"
-        placeholder="Номер телефона"
-        className={styles.input}
-        onChange={handleChangeNumber}
-        required
-      />
-      <label htmlFor="dynamic-label-input" className={styles.label}>
-        <FormattedMessage id="phone number" />
-      </label>
-      {/* </div> */}
-      {/* <div className={styles.formContainer}> */}
-      <input
-        type="text"
-        id="dynamic-label-input"
-        value={city}
-        name="city"
-        placeholder="Город"
-        className={styles.input}
-        onChange={handleChangeCity}
-      />
-      <label htmlFor="dynamic-label-input" className={styles.label}>
-        <FormattedMessage id="city" />
-      </label>
-      {/* </div> */}
-      {/* <div className={styles.formContainer}> */}
-      <input
-        type="text"
-        id="dynamic-label-input"
-        value={street}
-        name="street"
-        placeholder="Улица"
-        className={styles.input}
-        onChange={handleChangeStreet}
-      />
-      <label htmlFor="dynamic-label-input" className={styles.label}>
-        <FormattedMessage id="street" />
-      </label>
-      {/* </div> */}
-      {/* <div className={styles.formContainer}> */}
-      <input
-        type="text"
-        id="dynamic-label-input"
-        value={house}
-        name="house"
-        placeholder="Дом, квартира"
-        className={styles.input}
-        onChange={handleChangeHouse}
-      />
-      <label htmlFor="dynamic-label-input" className={styles.label}>
-        <FormattedMessage id="house" />
-      </label>
-      {/* </div> */}
-      <button className={styles.submit} type="submit">
-        <FormattedMessage id="order2" />
-      </button>
-    </form>
-  ) : (
 
-    <h3>Чтобы оформить заказ, нужно авторизоваться</h3>
-  );
+  if (orderTime !== null) {
+    return (
+      <h3>Ваш заказ принят в {orderTime}, ожидайте курьера в течении часа</h3>
+    );
+  } else
+    return isAuthenticated && productsList.length > 0 ? (
+      <form className={styles.contactForm} onSubmit={handleSubmit}>
+        {/* <div className={styles.formContainer}> */}
+        <input
+          type="number"
+          id="dynamic-label-input"
+          value={phone}
+          name="phone"
+          placeholder="Номер телефона"
+          className={styles.input}
+          onChange={handleChangeNumber}
+          required
+        />
+        <label htmlFor="dynamic-label-input" className={styles.label}>
+          <FormattedMessage id="phone number" />
+        </label>
+        {/* </div> */}
+        {/* <div className={styles.formContainer}> */}
+        <input
+          type="text"
+          id="dynamic-label-input"
+          value={city}
+          name="city"
+          placeholder="Город"
+          className={styles.input}
+          onChange={handleChangeCity}
+        />
+        <label htmlFor="dynamic-label-input" className={styles.label}>
+          <FormattedMessage id="city" />
+        </label>
+        {/* </div> */}
+        {/* <div className={styles.formContainer}> */}
+        <input
+          type="text"
+          id="dynamic-label-input"
+          value={street}
+          name="street"
+          placeholder="Улица"
+          className={styles.input}
+          onChange={handleChangeStreet}
+        />
+        <label htmlFor="dynamic-label-input" className={styles.label}>
+          <FormattedMessage id="street" />
+        </label>
+        {/* </div> */}
+        {/* <div className={styles.formContainer}> */}
+        <input
+          type="text"
+          id="dynamic-label-input"
+          value={house}
+          name="house"
+          placeholder="Дом, квартира"
+          className={styles.input}
+          onChange={handleChangeHouse}
+        />
+        <label htmlFor="dynamic-label-input" className={styles.label}>
+          <FormattedMessage id="house" />
+        </label>
+        {/* </div> */}
+        <button className={styles.submit} type="submit">
+          <FormattedMessage id="order2" />
+        </button>
+      </form>
+    ) : (
+      <h3>Чтобы оформить заказ, нужно авторизоваться</h3>
+    );
 }
