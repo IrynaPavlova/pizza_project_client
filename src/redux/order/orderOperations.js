@@ -43,25 +43,29 @@ const getOrdersById = (id) => (dispatch) => {
 //Создаем лист заказа пользователя
 
 const addProdToOrderList = (product, productType) => (dispatch, getState) => {
+  dispatch(orderActions.successAddProdToOrder(false));
+  const newProductPrice = Number(
+    product.price[productType] || product.price.price
+  );
+
   const doesExistItem = getState().orders.userOrderList.productsList.some(
     (orderItem) =>
       orderItem.productId === product._id &&
-      orderItem.productprice === product.price.price
-    //c проверкой по типу(размер для пиццы) - это отдельный уникальный элемент
+      orderItem.productprice === newProductPrice
   );
+
   if (doesExistItem) {
-    return; //сюда можно дописать, чтобы выводило сообщение, что продукт уже добавлен как на розетке
+    dispatch(orderActions.successAddProdToOrder(false));
+    return dispatch(orderActions.errorAddProdToOrder(true));
   }
   let newItem = {
     productId: product._id,
     productName: product.name,
     itemsCount: 1,
-    //нет в макете order,но нужен для отрисовки компонента orderList
-    productprice: Number(product.price[productType] || product.price.price), //должно сработать для всех продуктов
+    productprice: newProductPrice,
     productImg: product.images,
     productIngredients: product.ingredients,
   };
-  console.log(productType);
 
   if (productType) {
     newItem = {
@@ -71,13 +75,18 @@ const addProdToOrderList = (product, productType) => (dispatch, getState) => {
   }
 
   dispatch(orderActions.addProdToOrderList(newItem));
+  dispatch(orderActions.successAddProdToOrder(true));
+  dispatch(orderActions.errorAddProdToOrder(false));
 };
 
 const clearOrderList = () => (dispatch) =>
   dispatch(orderActions.clearOrderList());
 
-const deleteProdToOrderList = (id, type) => (dispatch) =>
+const deleteProdToOrderList = (id, type) => (dispatch) => {
+  dispatch(orderActions.successAddProdToOrder(false));
+  dispatch(orderActions.errorAddProdToOrder(false));
   dispatch(orderActions.deleteProdToOrderList(id, type));
+};
 
 const incrementItemsCount = (id) => (dispatch) => {
   dispatch(orderActions.incrementItemsCount(id));

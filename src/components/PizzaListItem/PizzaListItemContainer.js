@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { orderOperations } from "../../redux/order";
+import { orderOperations, orderSelectors } from "../../redux/order";
 import PizzaListItem from "./PizzaListItem";
 
 class PizzaListItemContainer extends Component {
@@ -9,8 +9,18 @@ class PizzaListItemContainer extends Component {
   }
 }
 
+const MapStateToProps = (state) => {
+  return {
+    errorAddProdToOrder: orderSelectors.errorAddProdToOrder(state),
+    successAddProdToOrder: orderSelectors.successAddProdToOrder(state),
+  };
+};
+
 const MapDispatchToProps = {
   onAddProductToOrder: orderOperations.addProdToOrderList,
 };
 
-export default connect(null, MapDispatchToProps)(PizzaListItemContainer);
+export default connect(
+  MapStateToProps,
+  MapDispatchToProps
+)(PizzaListItemContainer);

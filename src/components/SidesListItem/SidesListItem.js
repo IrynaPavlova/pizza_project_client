@@ -1,8 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FormattedMessage } from "react-intl";
+import Notification from "../Notification";
 
-import { orderOperations } from "../../redux/order";
+import { orderOperations, orderSelectors } from "../../redux/order";
 import styles from "../DrinkListItem/drinkListItem.module.css";
 
 const SidesListItem = (props) => {
@@ -10,12 +11,22 @@ const SidesListItem = (props) => {
 
   const local = useSelector((state) => state.local.lang);
 
-  // const defaultSize = "M";// изменили на серваке, больше не обязательное, можно не передавать
   const dispatch = useDispatch();
   const onAddProductToOrder = () =>
     dispatch(orderOperations.addProdToOrderList(props));
+
+  const successAddProdToOrder = useSelector(
+    orderSelectors.successAddProdToOrder
+  );
+  const errorAddProdToOrder = useSelector(orderSelectors.errorAddProdToOrder);
+  const successMessage = "Продукт добавлен в корзину";
+  const errorMessage = "Этот продукт уже есть в корзине";
   return (
     <li className={styles.menuItem}>
+      {successAddProdToOrder && (
+        <Notification message={successMessage} confirm />
+      )}
+      {errorAddProdToOrder && <Notification message={errorMessage} confirm />}
       <div className={styles.menuItem_imageBlock}>
         <img src={images} alt={name[local]} className={styles.menuItem_img} />
       </div>

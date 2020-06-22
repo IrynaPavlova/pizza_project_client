@@ -84,8 +84,18 @@ const userOrderListReducer = createReducer([], {
   },
 });
 
+const ErrorAddProdToOrder = createReducer(null, {
+  [orderActions.errorAddProdToOrder]: (_, action) => action.payload,
+});
+
+const SuccessAddProdToOrder = createReducer(null, {
+  [orderActions.successAddProdToOrder]: (_, action) => action.payload,
+});
+
 const userOrderList = combineReducers({
   productsList: userOrderListReducer,
+  ErrorAddProdToOrder,
+  SuccessAddProdToOrder,
 });
 
 export default combineReducers({
