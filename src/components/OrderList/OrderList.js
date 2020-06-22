@@ -14,7 +14,6 @@ const OrderList = ({
   incrementItemsCount,
   decrementItemsCount,
 }) => {
-  // const dispatch = useDispatch();
   const userOrder = useSelector(
     (state) => state.orders.userOrderList.productsList
   );
