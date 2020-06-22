@@ -14,9 +14,9 @@ class SidesList extends Component {
     const { products } = this.props;
     return (
       <>
-        {/* <h1 className={styles.title}>Сайды</h1> */}
+        <h2 className={styles.title}>Сайды</h2>
         <ul className={styles.menu}>
-          {products.map((product) => (
+          {products.map(product => (
             <SidesListItem key={product._id} {...product} />
           ))}
         </ul>
@@ -25,12 +25,12 @@ class SidesList extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return { products: productSelectors.getProducts(state) };
 };
 
 const mapDispatchToProps = {
-  onFetchProductSides: productOperations.fetchProductsByCategory,
+  onFetchProductSides: productOperations.fetchProductsByCategory
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SidesList);
