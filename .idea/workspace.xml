@@ -20,17 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7671a017-7851-4b51-b33c-85206f1557e5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/admin/CreateNewProductButton/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminComponents/CreateNewProduct/CreateNewProduct.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminComponents/CreateNewProduct/CreateNewProduct.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/CreateNewProductButton/CreateNewProductButton.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminComponents/CreateNewProduct/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/CreateNewProduct/CreateNewProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/CreateNewProduct/CreateNewProduct.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/CreateNewProduct/CreateNewProduct.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/CreateNewProduct/CreateNewProduct.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +71,7 @@
       <workItem from="1592127125230" duration="20905000" />
       <workItem from="1592481569151" duration="1190000" />
       <workItem from="1592764749831" duration="2041000" />
+      <workItem from="1592811203919" duration="1204000" />
     </task>
     <servers />
   </component>
