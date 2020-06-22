@@ -22,7 +22,6 @@ const SidesListItem = (props) => {
       <div className={styles.menuItem_content}>
         <h2 className={styles.menuItem_headline}>{name[local]}</h2>
         <p className={styles.menuItem_size}>
-          {" "}
           <FormattedMessage id="weight" />
           {description}
           <FormattedMessage id="g" />

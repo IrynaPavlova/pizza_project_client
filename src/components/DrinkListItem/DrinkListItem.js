@@ -22,7 +22,7 @@ const DrinkListItem = (props) => {
       <div className={styles.menuItem_content}>
         <h2 className={styles.menuItem_headline}>{name[local]}</h2>
         <p className={styles.menuItem_size}>
-          <FormattedMessage id="size" />: {description}
+          <FormattedMessage id="volume" />: {description}
         </p>
         <div className={styles.menuItem_wrapper}>
           <p className={styles.menuItem_price}>

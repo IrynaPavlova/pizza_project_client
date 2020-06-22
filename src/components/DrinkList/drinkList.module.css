@@ -6,12 +6,13 @@
 @media screen and (min-width: 320px) {
   .containerList {
     padding: 50px 0;
+    width: 320px;
+    margin: 0 auto;
   }
   .menu {
-    margin: 0 auto;
-    width: 320px;
     display: flex;
     flex-direction: column;
+    width: 320px;
   }
   .title {
     font-family: OswaldMedium;
@@ -27,6 +28,9 @@
   }
 }
 @media screen and (min-width: 768px) {
+  .containerList {
+    width: 768px;
+  }
   .menu {
     width: 768px;
     padding: 0 15px;
@@ -35,6 +39,9 @@
   }
 }
 @media screen and (min-width: 1200px) {
+  .containerList {
+    width: 1200px;
+  }
   .menu {
     display: grid;
     grid-template-columns: repeat(4, 270px);
