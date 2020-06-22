@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import AdminOrdersListItem from "../AdminOrdersListItem/AdminOrdersListItem";
 import Spinner from "../Spinner/Spinner";
 import styles from "./AdminOrderList.module.css";
-import orders from "../../services/orders.json";
+// import orders from "../../services/orders.json";
 
 import localMessages from "../../languages";
 
@@ -26,7 +26,7 @@ export default function AdminOrderList() {
   ];
 
   useEffect(() => {
-    console.log(typeof local);
+    // console.log(typeof local);
     fetch("https://evening-caverns-34846.herokuapp.com/orders")
       .then((res) => res.json())
       .then(

@@ -2,17 +2,21 @@ import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
 import authActions from "./authActions";
 
-const socialLogin = (state, { payload }) => ({
-  ...state,
-  username: payload.username,
-  email: payload.email,
-  id: payload._id,
-});
+const socialLogin = (state, { payload }) => {
+  return {
+    ...state,
+    username: payload.username,
+    email: payload.email,
+    id: payload._id,
+    role: payload.role || "",
+  };
+};
 const basicUserInfo = (state, { payload }) => ({
   ...state,
   username: payload.user.username,
   email: payload.user.email,
   id: payload.user._id,
+  role: payload.user.role,
 });
 
 const OrdersUserInfo = (state, { payload }) => ({
@@ -20,7 +24,13 @@ const OrdersUserInfo = (state, { payload }) => ({
   orders: payload.user.orders,
 });
 
-const initialUserState = { username: null, email: null, id: null, orders: [] };
+const initialUserState = {
+  username: null,
+  email: null,
+  id: null,
+  role: "",
+  orders: [],
+};
 
 const user = createReducer(initialUserState, {
   [authActions.registerSuccess]: basicUserInfo,
