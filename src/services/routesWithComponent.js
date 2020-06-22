@@ -91,7 +91,7 @@ export default [
     exact: true,
     component: UserPage,
     private: false,
-    restricted: true, //ограниченная
+    restricted: false, //ограниченная
   },
   {
     path: routes.AUTH,
@@ -99,7 +99,7 @@ export default [
     exact: true,
     component: AuthPage,
     private: false,
-    restricted: true, //ограниченная
+    restricted: false, //ограниченная
   },
   {
     path: routes.ABOUT_DEV_PAGE,
@@ -117,44 +117,44 @@ export default [
     private: true,
     restricted: false,
   },
-  // {
-  //   path: routes.ADMIN_ORDER_LISTS,
-  //   label: "ADMIN_ORDER_LISTS",
-  //   exact: true,
-  //   component: AdminOrderList,
-  //   private: true,
-  //   restricted: false,
-  // },
-  // {
-  //   path: routes.ADMIN_CREATE_PRODUCT,
-  //   label: "ADMIN_CREATE_PRODUCT",
-  //   exact: true,
-  //   component: forExmCreateProd,
-  //   private: true,
-  //   restricted: false,
-  // },
-  // {
-  //   path: routes.ADMIN_UPDATE_PRODUCT,
-  //   label: "ADMIN_UPDATE_PRODUCT",
-  //   exact: true,
-  //   component: AdminUpdateList,
-  //   private: true,
-  //   restricted: false,
-  // },
-  // {
-  //   path: routes.ADMIN_UPDATE_PRODUCT_ITEM,
-  //   label: "ADMIN_UPDATE_PRODUCT_ITEM",
-  //   exact: true,
-  //   component: AdminUpdateListIremEdit,
-  //   private: true,
-  //   restricted: false,
-  // },
-  // {
-  //   path: routes.ADMIN_UPDATE_PROMO,
-  //   label: "ADMIN_UPDATE_PROMO",
-  //   exact: true,
-  //   component: AdminStocksPage,
-  //   private: true,
-  //   restricted: false,
-  // },
+  {
+    path: routes.ADMIN_ORDER_LISTS,
+    label: "ADMIN_ORDER_LISTS",
+    exact: true,
+    component: AdminOrderList,
+    private: true,
+    restricted: false,
+  },
+  {
+    path: routes.ADMIN_CREATE_PRODUCT,
+    label: "ADMIN_CREATE_PRODUCT",
+    exact: true,
+    component: forExmCreateProd,
+    private: true,
+    restricted: false,
+  },
+  {
+    path: routes.ADMIN_UPDATE_PRODUCT,
+    label: "ADMIN_UPDATE_PRODUCT",
+    exact: true,
+    component: AdminUpdateList,
+    private: true,
+    restricted: false,
+  },
+  {
+    path: routes.ADMIN_UPDATE_PRODUCT_ITEM,
+    label: "ADMIN_UPDATE_PRODUCT_ITEM",
+    exact: true,
+    component: AdminUpdateListIremEdit,
+    private: true,
+    restricted: false,
+  },
+  {
+    path: routes.ADMIN_UPDATE_PROMO,
+    label: "ADMIN_UPDATE_PROMO",
+    exact: true,
+    component: AdminStocksPage,
+    private: true,
+    restricted: false,
+  },
 ];
