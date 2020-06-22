@@ -133,6 +133,7 @@ p {
     display: flex;
     flex-wrap: wrap;
     max-width: 748px;
+    padding: 0 5px;
   }
 
   .dessertItem {
@@ -162,6 +163,7 @@ p {
   }
   .dessertList {
     max-width: 1170px;
+    padding: 0;
   }
 
   .dessertItem {
