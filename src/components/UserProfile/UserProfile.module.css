@@ -8,7 +8,7 @@
 }
 
 .orderBtn {
-  width: 120px;
+  width: 100px;
   height: 36px;
   margin: 0 auto;
   border: none;
@@ -48,6 +48,7 @@
 
   .orderBtn {
     position: sticky;
-    top: 50%
+    top: 50%;
+    margin: 0 auto;
   }
 }
