@@ -8,18 +8,18 @@ import styles from "./PizzaListItem.module.css";
 
 class PizzaListItem extends Component {
   static propTypes = {
-    onAddProductToOrder: T.func,
+    onAddProductToOrder: T.func
   };
 
   state = {
-    selectedSize: "M",
+    selectedSize: "M"
   };
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({ selectedSize: event.target.value });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     const selectedSize = this.state.selectedSize;
     event.preventDefault();
     this.props.onAddProductToOrder(this.props, selectedSize);
@@ -36,7 +36,7 @@ class PizzaListItem extends Component {
         <div className={styles.descriptionContainer}>
           <p className={styles.heading}>{product.name[this.props.local]}</p>
           <ul className={styles.ingredients}>
-            {product.ingredients.map((ingredient) => (
+            {product.ingredients.map(ingredient => (
               <li key={ingredient._id}>
                 <span className={styles.ingredientItem}>
                   {ingredient.name[this.props.local]}
@@ -71,7 +71,7 @@ class PizzaListItem extends Component {
                 <FormattedMessage id="grn" />
               </span>
 
-              <button type="submit" className={styles.addCart} type="submit">
+              <button type="submit" className={styles.addCart}>
                 <FormattedMessage id="orders.chart" />
               </button>
             </div>
