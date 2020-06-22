@@ -4,13 +4,13 @@ import {routes} from "../services/routes";
 import MainPage from "../pages/MainPage/MainPage";
 import OrderPage from "../pages/OrderPage/OrderPage";
 import Header from "./Header";
-import CreateNewProduct from "../admin/CreateNewProduct";
+import CreateNewProductButton from "../admin/CreateNewProductButton";
 
 const App = () => {
     return (
         <BrowserRouter>
             <Header/>
-            <CreateNewProduct/>
+            <CreateNewProductButton/>
             <Switch>
                 <Route path={routes.MAIN_PAGE} exact component={MainPage}/>
                 <Route path={routes.ORDER_PAGE} component={OrderPage}/>

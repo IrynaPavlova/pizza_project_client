@@ -7,8 +7,7 @@
     right: 0;
 }
 
-.modal::before {
-    content: "";
+.blackLayer {
     position: absolute;
     background-color: #000;
     width: 100%;
@@ -19,10 +18,34 @@
 .applyForm {
     background-color: #fff;
     position: absolute;
-    width: 460px;
+    width: 800px;
     padding: 20px;
     border-radius: 5px;
-    top: 50%;
+    top: 10px;
+    bottom: 10px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
+    transition: height 300ms ease-in-out;
+}
+
+.ingredientsContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.ingredient {
+    padding: 3px;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    margin-top: 8px;
+}
+
+.select {
+    margin-bottom: 10px;
+}
+
+.inputLabel {
+    display: block;
+    margin-bottom: 10px;
 }
