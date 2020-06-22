@@ -14,8 +14,9 @@ class DrinkList extends Component {
     const { products } = this.props;
     return (
       <>
+        <h2 className={styles.title}>Напитки</h2>
         <ul className={styles.menu}>
-          {products.map((product) => (
+          {products.map(product => (
             <DrinkListItem key={product._id} {...product} />
           ))}
         </ul>
@@ -24,12 +25,12 @@ class DrinkList extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return { products: productSelectors.getProducts(state) };
 };
 
 const mapDispatchToProps = {
-  onFetchProductDrinks: productOperations.fetchProductsByCategory,
+  onFetchProductDrinks: productOperations.fetchProductsByCategory
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DrinkList);
