@@ -1,10 +1,10 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { orderOperations } from '../../redux/order';
-import { FormattedMessage } from 'react-intl';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { orderOperations } from "../../redux/order";
+import { FormattedMessage } from "react-intl";
 
 // import cheesecacke from '../../assets/img/desserts/cheesecacke.jpg';
-import styles from './DessertsList.module.css';
+import styles from "./DessertsList.module.css";
 
 const {
   dessertItem,
@@ -19,16 +19,16 @@ const {
   dessertImg,
 } = styles;
 
-const DessertListItem = props => {
+const DessertListItem = (props) => {
   const { _id, name, description, price, images } = props;
 
-  const local = useSelector(state => state.local.lang);
+  const local = useSelector((state) => state.local.lang);
 
   // const product = useSelector(state => state.products.items);
-  const defaultSize = 'M';
+  // const defaultSize = 'M'; // изменили на серваке, больше не обязательное, можно не передавать
   const dispatch = useDispatch();
   const onAddProductToOrder = () =>
-    dispatch(orderOperations.addProdToOrderList(props, defaultSize));
+    dispatch(orderOperations.addProdToOrderList(props));
 
   // console.log(product);
   return (

@@ -45,22 +45,31 @@ const getOrdersById = (id) => (dispatch) => {
 const addProdToOrderList = (product, productType) => (dispatch, getState) => {
   const doesExistItem = getState().orders.userOrderList.productsList.some(
     (orderItem) =>
-      orderItem.productId === product._id && orderItem.type === productType
+      orderItem.productId === product._id &&
+      orderItem.productprice === product.price.price
     //c проверкой по типу(размер для пиццы) - это отдельный уникальный элемент
   );
   if (doesExistItem) {
     return; //сюда можно дописать, чтобы выводило сообщение, что продукт уже добавлен как на розетке
   }
-  const newItem = {
+  let newItem = {
     productId: product._id,
     productName: product.name,
-    type: productType,
     itemsCount: 1,
     //нет в макете order,но нужен для отрисовки компонента orderList
     productprice: Number(product.price[productType] || product.price.price), //должно сработать для всех продуктов
     productImg: product.images,
     productIngredients: product.ingredients,
   };
+  console.log(productType);
+
+  if (productType) {
+    newItem = {
+      ...newItem,
+      type: productType,
+    };
+  }
+
   dispatch(orderActions.addProdToOrderList(newItem));
 };
 
