@@ -1,11 +1,15 @@
 @value secondaryHeaderFontSize,primaryHeaderFontSize,accentColor,thirdHeaderFontStyle from "../../stylesheet/vars.css";
 
-.orderList {
+.orderListContainer {
   display: flex;
   flex-direction: column;
   width: 280px;
   border-bottom: 1px solid rgba(39, 39, 39, 0.1);
   margin-bottom: 64px;
+}
+
+.orderList {
+  margin-bottom: 20px;
 }
 
 .orderListPrice {
@@ -45,8 +49,12 @@
 }
 
 @media (min-width: 768px) {
-  .orderList {
+  .orderListContainer {
     width: 738px;
+  }
+
+  .orderList {
+    margin-bottom: 16px;
   }
 
   .orderListTitle {
@@ -59,7 +67,7 @@
 }
 
 @media (min-width: 1400px) {
-  .orderList {
+  .orderListContainer {
     width: 770px;
   }
 

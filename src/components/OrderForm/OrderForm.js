@@ -71,12 +71,12 @@ export default function OrderForm() {
     setHouse(value);
   };
 
-  if (orderTime !== null) {
+  if (!isAuthenticated) {
+    return <h3>Чтобы оформить заказ, нужно авторизоваться</h3>;
+  }
+
+  if (isAuthenticated && orderTime === null && productsList.length > 0) {
     return (
-      <h3>Ваш заказ принят в {orderTime}, ожидайте курьера в течении часа</h3>
-    );
-  } else
-    return isAuthenticated && productsList.length > 0 ? (
       <form className={styles.contactForm} onSubmit={handleSubmit}>
         {/* <div className={styles.formContainer}> */}
         <input
@@ -139,7 +139,25 @@ export default function OrderForm() {
           <FormattedMessage id="order2" />
         </button>
       </form>
-    ) : (
-      <h3>Чтобы оформить заказ, нужно авторизоваться</h3>
     );
+  } else if (orderTime !== null) {
+    return (
+      <h3>Ваш заказ принят в {orderTime}, ожидайте курьера в течении часа</h3>
+    );
+  } else return <></>;
 }
+
+// if (orderTime !== null) {
+//   return (
+//     <h3>Ваш заказ принят в {orderTime}, ожидайте курьера в течении часа</h3>
+//   );
+// }
+// if (!isAuthenticated) {
+//   return <h3>Чтобы оформить заказ, нужно авторизоваться</h3>;
+// }
+
+// !isAuthenticated ? (
+//   <h3>Чтобы оформить заказ, нужно авторизоваться</h3>
+// ) : (
+//   <h3>Ваш заказ принят в {orderTime}, ожидайте курьера в течении часа</h3>
+// );

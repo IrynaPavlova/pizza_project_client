@@ -71,7 +71,7 @@ class PizzaListItem extends Component {
                 <FormattedMessage id="grn" />
               </span>
 
-              <button type="submit" className={styles.addCart} type="submit">
+              <button type="submit" className={styles.addCart}>
                 <FormattedMessage id="orders.chart" />
               </button>
             </div>
