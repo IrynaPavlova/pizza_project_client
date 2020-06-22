@@ -6,7 +6,7 @@ import { IntlProvider } from "react-intl";
 import { authOperations } from "../redux/auth";
 import { authSelectors } from "../redux/auth";
 
-import AdminRoute from "./AdminRoute";
+import PrivatRoute from "./PrivatRoute";
 import PublicRoute from "./PublicRoute";
 import routes from "../services/routesWithComponent";
 
@@ -39,7 +39,7 @@ const App = () => {
           <Switch>
             {routes.map((route) =>
               route.private ? (
-                <AdminRoute key={route.label} {...route} isAdmin={isAdmin} />
+                <PrivatRoute key={route.label} {...route} isAdmin={isAdmin} />
               ) : (
                 <PublicRoute
                   key={route.label}
