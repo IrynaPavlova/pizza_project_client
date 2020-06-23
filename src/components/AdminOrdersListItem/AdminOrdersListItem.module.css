@@ -109,21 +109,8 @@ ul.itemsList {
   }
 }
 
-/* @media (min-width: 1200px) {
-  .orderNumber {
-    flex-basis: 30px;
+@media (min-width: 1200px) {
+  .sumWrapper {
+    flex-basis: 100px;
   }
-
-  .itemsList {
-    flex-basis: 700px;
-    margin-bottom: 0;
-  }
-
-  .itemName {
-    flex-basis: 400px;
-  }
-
-  .totalSum {
-    margin-bottom: 0;
-  }
-} */
+}

@@ -47,6 +47,8 @@ export default {
   "orders.done": "Done",
   "orders.all": "All",
   "orders.chart": "To cart",
+  "orders.sumToPay": "Sum to pay:",
+  "orders.empty": "Your cart is empty",
   "product.create": "Create new product",
   "product.edit": "Edit product",
   "product.name": "Name",
