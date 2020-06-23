@@ -6,23 +6,36 @@ import { orderOperations } from "../../redux/order";
 import Notification from "../Notification";
 import styles from "./PizzaListItem.module.css";
 
-const successMessage = <FormattedMessage id="order.success" />;
-const errorMessage = <FormattedMessage id="order.error" />;
-
 const sizes = ["M", "L", "XL"];
 
 function PizzaListItem(product) {
+  const local = useSelector((state) => state.local.lang);
+
   const { _id, name, price, ingredients, images } = product;
 
-  const local = useSelector((state) => state.local.lang);
   const dispatch = useDispatch();
   const [orderSizes, setOrderSizes] = useState(["M", "L", "XL"]);
   const [selectedSize, setSelectedSize] = useState("M");
   const onAddProductToOrder = () =>
     dispatch(orderOperations.addProdToOrderList(product, selectedSize));
 
-  const successMessage = `Пицца ${name[local]} добавлена в корзину`;
-  const errorMessage = `Пицца ${name[local]} уже есть в корзине`;
+  const successMessage = (
+    <FormattedMessage
+      id="order.success"
+      values={{
+        name: name[local],
+      }}
+    />
+  );
+
+  const errorMessage = (
+    <FormattedMessage
+      id="order.error"
+      values={{
+        name: name[local],
+      }}
+    />
+  );
 
   const [isAddedProdToOrder, setIsAddedProdToOrder] = useState(false);
   const [message, setMessage] = useState(successMessage);

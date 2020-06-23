@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { authSelectors, authOperations } from "../../redux/auth";
-import { Redirect } from 'react-router-dom'
+import { Redirect } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 import { FormattedMessage } from "react-intl";
 
-import Spinner from "../Spinner/Spinner";
 import { ClientOrders } from "./ClientOrders";
 import { ClientInfo } from "./ClientInfo";
 
 import styles from "./UserProfile.module.css";
-
 
 // GET "https://evening-caverns-34846.herokuapp.com/users/id"
 
@@ -30,8 +28,8 @@ export default function UserProfile() {
     }
   }, []);
 
-  if(!isAuthenticated) {
-    return <Redirect to="/"/>
+  if (!isAuthenticated) {
+    return <Redirect to="/" />;
   }
 
   return (
