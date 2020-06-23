@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
+import { useSelector } from "react-redux";
+import { authSelectors } from "../../redux/auth";
 
 import { routes } from "../../services/routes";
 
@@ -26,6 +28,8 @@ export default function MobileMainMenu({
   const closeMenu = () => {
     setIsMobileMenuOpen(false);
   };
+
+  const isAdmin = useSelector(authSelectors.getUserRole) === "admin";
 
   return (
     <>
@@ -92,16 +96,18 @@ export default function MobileMainMenu({
                     <FormattedMessage id="desserts" />
                   </NavLink>
                 </li>
-                <li>
-                  <NavLink
-                    to={routes.ADMIN_PAGE}
-                    onClick={closeMenu}
-                    className={styles.mainMenuItem}
-                    activeClassName={styles.mainMenuActiveItem}
-                  >
-                    Admin Page
-                  </NavLink>
-                </li>
+                {isAdmin && (
+                  <li>
+                    <NavLink
+                      to={routes.ADMIN_PAGE}
+                      onClick={closeMenu}
+                      className={styles.mainMenuItem}
+                      activeClassName={styles.mainMenuActiveItem}
+                    >
+                      Admin Page
+                    </NavLink>
+                  </li>
+                )}
               </ul>
             </nav>
             <div>
