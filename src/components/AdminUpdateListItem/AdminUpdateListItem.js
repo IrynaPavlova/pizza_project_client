@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
 import style from "./adminUpdateListItem.module.css";
 
 const AdminUpdateListItem = ({ product }) => {
@@ -12,7 +13,7 @@ const AdminUpdateListItem = ({ product }) => {
       <p className={style.editForm__name}>{name[local]}</p>
       <Link to="#">
         <button type="button" className={style.editForm__btn}>
-          Редактировать
+          <FormattedMessage id="edit" />
         </button>
       </Link>
     </div>

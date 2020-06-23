@@ -5,6 +5,7 @@ import { productOperations, productSelectors } from "../../redux/product";
 import AdminUpdateListItem from "../AdminUpdateListItem/AdminUpdateListItem";
 import Spinner from "../../components/Spinner";
 import styles from "./AdminUpdateList.module.css";
+import languages from "../../languages";
 
 let filteredProducts;
 
@@ -74,7 +75,7 @@ export default function AdminOrderList() {
         <input
           type="text"
           value={filterProductsBy}
-          placeholder="Поиск"
+          placeholder={languages[local].search}
           className={styles.input}
           onChange={({ target: { value } }) => setFilterProductsBy(value)}
         />
