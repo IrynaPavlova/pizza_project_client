@@ -45,12 +45,12 @@ export default function ({ setIsModalActive, setIsLogining }) {
           <p className={styles.formInputError}>Email is Required</p>
         );
       }
-      if (values.email && !values.email.includes("@")) {
-        errors.email = (
-          <p className={styles.formInputError}>
-            Email needs to include "@" symbol
-          </p>
-        );
+      if (
+        !values.email.match(
+          /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        )
+      ) {
+        errors.email = <p className={styles.formInputError}>Invalid email</p>;
       }
       if (!values.password) {
         errors.password = (
