@@ -10,7 +10,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  margin: 20px 0 10px;
   padding: 0 10px;
 }
 
@@ -19,10 +19,9 @@
   width: 200px;
   border-radius: 10px;
   font-size: 14px;
-  font-family: "Roboto", sans-serif;
+  font-family: "RobotoBold", sans-serif;
   text-transform: uppercase;
   background-color: #ff6c00;
-  font-weight: bold;
   border: none;
   transition: all 0.3s ease;
   margin: 8px 0;

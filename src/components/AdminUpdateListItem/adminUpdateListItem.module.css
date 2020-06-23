@@ -18,7 +18,7 @@
   margin-bottom: 16px;
 }
 .editForm__name {
-  font-family: Roboto, serif;
+  font-family: "RobotoRegular", sans-serif;
   font-size: 24px;
   color: #ff6c00;
   margin-bottom: 16px;
@@ -28,6 +28,7 @@
 }
 
 .editForm__btn {
+  font-family: "RobotoRegular", sans-serif;
   font-size: 16px;
   width: 220px;
   padding: 10px 0;
