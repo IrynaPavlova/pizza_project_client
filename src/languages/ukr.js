@@ -47,6 +47,8 @@ export default {
   "orders.done": "Виконанi",
   "orders.all": "Всi",
   "orders.chart": "До корзини",
+  "orders.sumToPay": "До оплати:",
+  "orders.empty": "Ваша корзина порожня",
   "product.create": "Створити продукт",
   "product.edit": "Редагувати продукт",
   "product.name": "Назва",

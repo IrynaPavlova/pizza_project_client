@@ -24,7 +24,7 @@ const OrdersListItem = ({
 
   //TODO make "type" block in item
   return (
-    <div className={styles.orderItemCard}>
+    <li className={styles.orderItemCard}>
       <img src={img} alt={name} className={styles.itemImg} />
       <button
         type="button"
@@ -66,7 +66,7 @@ const OrdersListItem = ({
           </div>
         </div>
       </div>
-    </div>
+    </li>
   );
 };
 
