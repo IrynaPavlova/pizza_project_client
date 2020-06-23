@@ -44,9 +44,11 @@ const OrdersListItem = ({
               <FormattedMessage id="grn" />
             </span>
           </p>
-          {}
-          <div className={styles.pizzaSize}>{type}</div>
-
+          {typeof type === "string" ? (
+            <div className={styles.pizzaSize}>{type}</div>
+          ) : (
+            <></>
+          )}
           <div className={styles.amountContainer}>
             <button
               className={styles.decrementBtn}
