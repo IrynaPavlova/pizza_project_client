@@ -10,6 +10,7 @@
 
 .orderDate {
   font-family: "OswaldMedium";
+  padding-left: 10px;
 }
 
 .productTitle {
@@ -25,13 +26,21 @@
 }
 
 .orderPrice {
-  font-family: "Rokkitt";
+  font-family: "RobotoRegular";
   color: primaryTextColor;
 }
 
 .noOrdersText {
   text-align: center;
   color: accentColor;
+}
+
+/*media*/
+
+@media screen and (min-width: 768px) {
+  .orderPrice {
+    padding-left: 60%;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -43,7 +52,12 @@
   }
 
   .clientOrderTitle {
+    font-size: 22px;
     padding-top: 12px;
+  }
+
+  .productTitle {
+    font-size: 22px;
   }
 
   .clientOrdersList {
@@ -52,9 +66,6 @@
 
   .productAmount {
     font-size: 14px;
-  }
-
-  .orderPrice {
-    padding-left: 60%;
+    line-height: 20px;
   }
 }

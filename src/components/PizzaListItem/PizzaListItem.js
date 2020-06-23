@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import T from "prop-types";
 import { FormattedMessage } from "react-intl";
+import Notification from "../Notification";
 
 import styles from "./PizzaListItem.module.css";
 
@@ -28,8 +29,18 @@ class PizzaListItem extends Component {
   render() {
     const product = this.props;
     const { selectedSize } = this.state;
+
+    const successMessage = "Продукт добавлен в корзину";
+    const errorMessage = "Этот продукт уже есть в корзине";
+
     return (
       <li key={product._id} className={styles.pizzaListCard}>
+        {this.props.successAddProdToOrder && (
+          <Notification message={successMessage} confirm />
+        )}
+        {this.props.errorAddProdToOrder && (
+          <Notification message={errorMessage} confirm />
+        )}
         <div className={styles.imageItemBlock}>
           <img src={product.images} className={styles.imageItem} alt="" />
         </div>

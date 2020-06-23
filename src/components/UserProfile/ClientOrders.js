@@ -6,6 +6,7 @@ import { FormattedMessage } from "react-intl";
 import styles from "./ClientOrders.module.css";
 
 export const ClientOrders = () => {
+  const local = useSelector((state) => state.local.lang);
   const orders = useSelector(authSelectors.getUserOrders);
 
   const ordersList = orders.map((item) => (
@@ -14,7 +15,7 @@ export const ClientOrders = () => {
       <div className={styles.productTitle}>
         {item.productsList.map((i) => (
           <div key={i._id}>
-            {i.productName}{" "}
+            {i.productName[local]}{" "}
             <span className={styles.productAmount}>
               {i.type} - {i.itemsCount} <FormattedMessage id="q" />
             </span>

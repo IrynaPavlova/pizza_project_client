@@ -8,6 +8,10 @@
   z-index: 4000;
 }
 
+.confirm {
+  background-color: #00cc18;
+}
+
 .text {
   display: inline-block;
   margin: 0 auto;
