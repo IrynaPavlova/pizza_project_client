@@ -1,0 +1,116 @@
+@value variables: '../../stylesheet/vars.css';
+@value secondaryTextFontSize, primaryColor, primaryTextColor, primaryTextFontSize from variables;
+
+p {
+  margin-bottom: 0;
+}
+
+p.totalSum {
+  margin-bottom: 0;
+}
+
+ul.itemsList {
+  margin-bottom: 0;
+}
+
+.orderWrapper {
+  margin: 0 auto;
+  /* width: 300px; */
+  max-width: 1200px;
+  border: 1px solid primaryColor;
+  margin-bottom: 12px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  font-family: RobotoRegular;
+  font-size: primaryTextFontSize;
+  color: primaryTextColor;
+}
+
+.dateWrapper {
+  width: 100px;
+  padding: 10px;
+  text-align: center;
+}
+.orderDate {
+  flex-basis: 50px;
+}
+
+.itemsList {
+  flex-basis: 250px;
+  margin-bottom: 20px;
+}
+
+.itemsListItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.itemName {
+  flex-basis: 120px;
+  font-family: OswaldRegular;
+  font-size: secondaryTextFontSize;
+  color: primaryColor;
+  text-transform: capitalize;
+}
+
+.itemSize {
+  flex-basis: 50px;
+  text-align: center;
+}
+
+.itemsCount {
+  flex-basis: 50px;
+  text-align: center;
+}
+
+.sumWrapper {
+  flex-basis: 100px;
+  text-align: center;
+}
+
+.sumToPay {
+  margin-bottom: 10px;
+}
+
+.orderContacts {
+  flex-basis: 250px;
+  text-align: center;
+}
+
+.orderCheckbox {
+  flex-basis: 60px;
+  text-align: center;
+}
+
+.totalSum {
+  flex-basis: 100px;
+  font-family: RobotoRegular;
+  font-size: secondaryTextFontSize;
+  color: primaryColor;
+  margin-bottom: 20px;
+}
+
+.currency {
+  font-size: 12px;
+  margin-left: 6px;
+}
+
+@media (min-width: 768px) {
+  .sumWrapper {
+    flex-basis: 80px;
+  }
+
+  .orderContacts {
+    flex-basis: 200px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .sumWrapper {
+    flex-basis: 100px;
+  }
+}

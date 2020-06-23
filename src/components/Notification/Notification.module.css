@@ -1,0 +1,43 @@
+.container {
+  background-color: red;
+  border-radius: 8px;
+  max-width: 260px;
+  position: fixed;
+  top: 80px;
+  right: 0;
+  z-index: 4000;
+}
+
+.card_container {
+  background-color: red;
+  border-radius: 8px;
+  max-width: 260px;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  z-index: 4000;
+}
+
+.confirm {
+  background-color: #00cc18;
+}
+
+.text {
+  display: inline-block;
+  margin: 0 auto;
+  color: snow;
+  padding: 14px;
+  font-size: 18px;
+}
+
+@media screen and (min-width: 30em) {
+  .text {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 48em) {
+  .text {
+    font-size: 22px;
+  }
+}

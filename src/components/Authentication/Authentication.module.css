@@ -1,0 +1,260 @@
+.section {
+  font-family: "Roboto", sans-serif;
+  font-style: bold;
+  font-weight: 500;
+  position: absolute;
+  width: 700px;
+  max-width: 88%;
+  padding: 5px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  box-shadow: 8px 12px 8px 12px #0000001f, 1px 2px 4px 1px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #000000;
+  padding-top: 40px;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formInput {
+  color: #272727;
+  padding: 17px 0px 17px 16px;
+  border: 1px solid rgba(39, 39, 39, 0.2);
+  border-radius: 4px;
+  width: 260px;
+
+  transition: border 0.3s ease;
+}
+.formInput:hover,
+.formInput:focus {
+  border: 1px solid rgba(39, 39, 39, 0.6);
+  outline: none;
+}
+.formInput::placeholder {
+  color: #27272780;
+}
+
+.error {
+  border: 1px solid red;
+}
+
+.accepted {
+  border: 1px solid #08ed00;
+}
+
+.formLabel {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.formInputError {
+  position: absolute;
+  top: -14px;
+  color: tomato;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.buttonToClose {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  display: block;
+  top: 20px;
+  right: 20px;
+  background-color: white;
+  border: none;
+}
+.buttonToClose svg path {
+  transition: fill 0.3s ease;
+}
+.buttonToClose:hover svg path,
+.buttonToClose:focus svg path {
+  fill: tomato;
+}
+
+.buttonToClose:focus,
+.buttonToClose:focus:active {
+  outline: none;
+}
+
+.formButton {
+  width: 260px;
+  max-height: 50px;
+  margin-top: 20px;
+  background-color: #ff6c00;
+  border: solid 2px #ff6c00;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 16px 0px;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+.formButton:hover,
+.formButton:focus {
+  background-color: #ff5900;
+  border: solid 2px #ff5900;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+.formButton:active {
+  background-color: #ff6c00;
+  border: solid 2px #ffbd8c;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+.formButton:disabled {
+  background-color: lightgray;
+}
+
+.socialTitle {
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: #272727;
+  margin-bottom: 16px;
+}
+
+.linkToRegister {
+  width: 260px;
+  max-height: 50px;
+  background-color: rgba(39, 39, 39, 0.2);
+  border-radius: 4px;
+  border: solid 2px rgba(56, 56, 56, 0.01);
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 16px 0px;
+  margin: 10px 0 30px 0;
+  color: #272727;
+  transition: all 0.3s ease;
+}
+.linkToRegister:hover,
+.linkToRegister:focus {
+  background-color: rgba(39, 39, 39, 0.3);
+  border: solid 2px rgba(39, 39, 39, 0.01);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+.linkToRegister:active {
+  background-color: rgba(39, 39, 39, 0.2);
+  border: solid 2px rgba(39, 39, 39, 0.1);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+.socialRegistration {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.socialRegistration a:focus,
+.socialRegistration a:focus:active {
+  outline: none;
+}
+.socialRegistration a:focus .googleSocial,
+.socialRegistration a:focus .facebookSocial {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.5);
+}
+.socialRegistration a:focus .facebookSocial {
+  background-color: #3075ff;
+  transform: scale(1.1);
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.5);
+}
+
+.googleSocial {
+  width: 44px;
+  height: 44px;
+  background-image: url("../../assets/img/google_icon.svg");
+  background-color: #ffffff;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  border: 1px solid #e5e5e5;
+  display: block;
+  margin-right: 14px;
+  transition: all 0.3s ease;
+}
+.googleSocial:hover,
+.googleSocial:focus {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.facebookSocial {
+  width: 44px;
+  height: 44px;
+  display: block;
+  background-color: #4267b2;
+  border-radius: 50%;
+  border: 1px solid #4267b2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+.facebookSocial:hover,
+.facebookSocial:focus {
+  background-color: #3075ff;
+  transform: scale(1.1);
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.backToEnterLink {
+  background-color: inherit;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #272727;
+  margin: 30px 0 40px 0;
+  transition: all 0.3s ease;
+}
+.backToEnterLink:hover,
+.backToEnterLink:focus {
+  color: #ff6c00;
+  outline: none;
+}
+
+@media screen and (min-width: 48rem) {
+  .section {
+    padding: 0;
+  }
+  .title {
+    font-size: 30px;
+    line-height: 35px;
+  }
+  .formInput {
+    width: 420px;
+  }
+  .formButton {
+    width: 420px;
+  }
+  .linkToRegister {
+    width: 420px;
+  }
+}

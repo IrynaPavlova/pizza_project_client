@@ -1,27 +1,28 @@
-import React from "react";
-import ProductContainer from "../../components/ProductContainer/ProductContainer";
-import Slider from "../../components/Slider/Slider";
+import React, { Suspense, useState, useEffect } from "react";
+import axios from "axios";
 
-//import PizzaList from "../../components/PizzaList/PizzaList"; раскоментировать для подключения реального PizzaList
-import PizzaListForTest from "../../components/PizzaList/PizzaListForTest";
-import PizzaListItem from "../../components/PizzaListItem/PizzaListItem";
-// import { Switch, Route } from 'react-router-dom';
-// import { routes } from '../../servises/routes';
-// import styles from './MainPage.module.css';
-import products from "../../services/products.json";
+import Slider from "../../components/Slider";
+import Spinner from "../../components/Spinner";
+import ProductContainer from "../../components/ProductContainer";
 
-function MainPage() {
+import "bootstrap/dist/css/bootstrap.min.css";
+import PizzaList from "../../components/PizzaList/PizzaListContainer.js";
+
+const MainPage = () => {
+  const [promoCollection, setpromoColection] = useState([]);
+  useEffect(() => {
+    axios.get("/promo").then(({ data }) => setpromoColection(data.promo));
+  }, []);
   return (
     <>
-      <Slider />
-      <ProductContainer>
-        {/* <PizzaList />  раскоментировать для подключения реального PizzaList */}
-        <PizzaListForTest />
-        {/* Using test product object from products.json for testing purposes  */}
-        <PizzaListItem products={products} />
-      </ProductContainer>
+      <Slider items={promoCollection} />
+      <Suspense fallback={<Spinner />}>
+        <ProductContainer>
+          <PizzaList />
+        </ProductContainer>
+      </Suspense>
     </>
   );
-}
+};
 
 export default MainPage;

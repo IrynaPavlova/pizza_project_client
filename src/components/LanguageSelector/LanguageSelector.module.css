@@ -8,6 +8,7 @@
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 4px;
+  outline: none;
   color: lightColor;
   font-family: RobotoRegular;
   font-size: primaryTextFontSize;

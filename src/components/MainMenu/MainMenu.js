@@ -1,10 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
+import { useSelector } from "react-redux";
+import { authSelectors } from "../../redux/auth";
 
 import { routes } from "../../services/routes";
 import styles from "./MainMenu.module.css";
 
 export default function MainMenu() {
+  const isAdmin = useSelector(authSelectors.getUserRole) === "admin";
+
   return (
     <nav>
       <ul className={styles.mainMenuItems}>
@@ -14,7 +19,7 @@ export default function MainMenu() {
             className={styles.mainMenuItem}
             activeClassName={styles.mainMenuActiveItem}
           >
-            Акции
+            <FormattedMessage id="promo" />
           </NavLink>
         </li>
         <li>
@@ -23,7 +28,7 @@ export default function MainMenu() {
             className={styles.mainMenuItem}
             activeClassName={styles.mainMenuActiveItem}
           >
-            Пицца
+            <FormattedMessage id="pizza" />
           </NavLink>
         </li>
         <li>
@@ -32,7 +37,7 @@ export default function MainMenu() {
             className={styles.mainMenuItem}
             activeClassName={styles.mainMenuActiveItem}
           >
-            Напитки
+            <FormattedMessage id="drinks" />
           </NavLink>
         </li>
         <li>
@@ -41,7 +46,7 @@ export default function MainMenu() {
             className={styles.mainMenuItem}
             activeClassName={styles.mainMenuActiveItem}
           >
-            Сайды
+            <FormattedMessage id="sides" />
           </NavLink>
         </li>
         <li>
@@ -50,10 +55,51 @@ export default function MainMenu() {
             className={styles.mainMenuItem}
             activeClassName={styles.mainMenuActiveItem}
           >
-            Десерты
+            <FormattedMessage id="desserts" />
           </NavLink>
         </li>
       </ul>
+      {/* <hr className={styles.line} /> */}
+      {isAdmin && (
+        <ul className={styles.adminMenuItems}>
+          <li>
+            <NavLink
+              to={routes.ADMIN_ORDER_LISTS}
+              className={styles.adminMenuItem}
+              activeClassName={styles.adminMenuActiveItem}
+            >
+              <FormattedMessage id="orders.accepted" />
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={routes.ADMIN_CREATE_PRODUCT}
+              className={styles.adminMenuItem}
+              activeClassName={styles.adminMenuActiveItem}
+            >
+              <FormattedMessage id="product.create" />
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={routes.ADMIN_UPDATE_PRODUCT}
+              className={styles.adminMenuItem}
+              activeClassName={styles.adminMenuActiveItem}
+            >
+              <FormattedMessage id="product.edit" />
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={routes.ADMIN_UPDATE_PROMO}
+              className={styles.adminMenuItem}
+              activeClassName={styles.adminMenuActiveItem}
+            >
+              <FormattedMessage id="promo.edit" />
+            </NavLink>
+          </li>
+        </ul>
+      )}
     </nav>
   );
 }

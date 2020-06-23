@@ -13,6 +13,11 @@
   display: flex;
   justify-content: space-between;
 }
+
+.userWrapper a {
+  text-decoration: none !important;
+}
+
 .logoutButton {
   border: none;
   background-color: transparent;
@@ -25,7 +30,8 @@
   color: accentColor;
   font-family: RobotoRegular;
   font-size: primaryTextFontSize;
-  margin-right: 30px;
+  margin: 0 30px 0 0;
+  cursor: pointer;
 }
 
 /* @media (min-width: 768px) {
