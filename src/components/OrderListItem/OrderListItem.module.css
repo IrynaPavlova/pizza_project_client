@@ -118,7 +118,8 @@
   height: 40px;
   border-radius: 50%;
   border: none;
-  background-color: rgba(39, 39, 39, 0.2);
+  background-color: rgba(255, 108, 0, 0.5);
+  color: white;
 }
 
 /*media*/
@@ -173,8 +174,8 @@
 
   .pizzaSize {
     position: absolute;
-    left: 5%;
-    top: 70%;
+    left: 33%;
+    top: 20%;
   }
 }
 
