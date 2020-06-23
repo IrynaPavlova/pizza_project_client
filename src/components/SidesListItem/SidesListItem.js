@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FormattedMessage } from "react-intl";
 import Notification from "../Notification";
 
-import { orderOperations, orderSelectors } from "../../redux/order";
+import { orderOperations } from "../../redux/order";
 import styles from "../DrinkListItem/drinkListItem.module.css";
+
+const successMessage = "Продукт добавлен в корзину";
+const errorMessage = "Этот продукт уже есть в корзине";
 
 const SidesListItem = (props) => {
   const { _id, name, description, price, images, currency } = props;
@@ -15,18 +18,22 @@ const SidesListItem = (props) => {
   const onAddProductToOrder = () =>
     dispatch(orderOperations.addProdToOrderList(props));
 
-  const successAddProdToOrder = useSelector(
-    orderSelectors.successAddProdToOrder
-  );
-  const errorAddProdToOrder = useSelector(orderSelectors.errorAddProdToOrder);
-  const successMessage = "Продукт добавлен в корзину";
-  const errorMessage = "Этот продукт уже есть в корзине";
+  const [isAddedProdToOrder, setIsAddedProdToOrder] = useState(false);
+  const [message, setMessage] = useState(successMessage);
+
+  const addProd = async () => {
+    if (isAddedProdToOrder) {
+      setIsAddedProdToOrder(false);
+      setMessage(errorMessage);
+      return await setTimeout(() => setIsAddedProdToOrder(true), 10);
+    }
+    onAddProductToOrder(props);
+    setIsAddedProdToOrder(true);
+  };
+
   return (
     <li className={styles.menuItem}>
-      {successAddProdToOrder && (
-        <Notification message={successMessage} confirm />
-      )}
-      {errorAddProdToOrder && <Notification message={errorMessage} confirm />}
+      {isAddedProdToOrder && <Notification message={message} confirm forCard />}
       <div className={styles.menuItem_imageBlock}>
         <img src={images} alt={name[local]} className={styles.menuItem_img} />
       </div>
@@ -47,7 +54,7 @@ const SidesListItem = (props) => {
           <button
             className={styles.button}
             type="button"
-            onClick={onAddProductToOrder}
+            onClick={() => addProd()}
           >
             <FormattedMessage id="orders.chart" />
           </button>

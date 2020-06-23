@@ -1,20 +1,43 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { FormattedMessage } from "react-intl";
+
+import { orderOperations } from "../../redux/order";
+import Notification from "../Notification";
 import styles from "./PizzaListItem.module.css";
 
-// import PropTypes from "prop-types";
+const successMessage = "Продукт добавлен в корзину";
+const errorMessage = "Этот продукт уже есть в корзине";
 
 function PizzaListItem(product) {
   const local = useSelector((state) => state.local.lang);
+  const dispatch = useDispatch();
+  const onAddProductToOrder = () =>
+    dispatch(orderOperations.addProdToOrderList(product));
 
   const [selectedSize, setSelectedSize] = useState("M");
   // const size = ["M", "L", "XL"];
-  function handleChange(event) {
-    setSelectedSize(event.target.value);
-  }
+
+  const [isAddedProdToOrder, setIsAddedProdToOrder] = useState(false);
+  const [message, setMessage] = useState(successMessage);
+
+  const addProd = async () => {
+    if (isAddedProdToOrder) {
+      setIsAddedProdToOrder(false);
+      setMessage(errorMessage);
+      return await setTimeout(() => setIsAddedProdToOrder(true), 10);
+    }
+    onAddProductToOrder(product);
+    setIsAddedProdToOrder(true);
+  };
+
+  const handleChange = ({ target: { value } }) => {
+    setSelectedSize(value);
+  };
 
   return (
     <li key={product._id} className={styles.pizzaListCard}>
+      {isAddedProdToOrder && <Notification message={message} confirm forCard />}
       <div>
         <img src={product.images} className={styles.imageItem} alt="" />
       </div>
@@ -57,7 +80,11 @@ function PizzaListItem(product) {
               <FormattedMessage id="grn" />
             </span>
 
-            <button className={styles.addCart} type="submit" onClick={() => {}}>
+            <button
+              className={styles.addCart}
+              type="button"
+              onClick={() => addProd()}
+            >
               В корзину
             </button>
           </div>
@@ -67,6 +94,4 @@ function PizzaListItem(product) {
   );
 }
 
-const MapDispatchToProps = { onAddContact: contactOperations.addContact };
-
-export default connect(null, MapDispatchToProps)(PizzaListItem);
+export default PizzaListItem;
