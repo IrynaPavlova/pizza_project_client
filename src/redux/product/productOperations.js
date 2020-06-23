@@ -1,6 +1,5 @@
 import axios from "axios";
 import productActions from "./productActions";
-import { orderActions } from "../order";
 
 axios.defaults.baseURL = "https://evening-caverns-34846.herokuapp.com/";
 
@@ -15,8 +14,6 @@ const fetchProducts = () => (dispatch) => {
 
 const fetchProductsByCategory = (category) => (dispatch) => {
   dispatch(productActions.byCategoryRequest());
-  dispatch(orderActions.successAddProdToOrder(false));
-  dispatch(orderActions.errorAddProdToOrder(false));
 
   axios
     .get(`/products/?category="${category}"`)

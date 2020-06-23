@@ -19,12 +19,14 @@ const App = () => {
   const dispatch = useDispatch();
 
   const local = useSelector((state) => state.local.lang);
-  const isAdmin = useSelector(authSelectors.getUserRole) === "admin";
-  const isAuthenticated = useSelector(authSelectors.isAuthenticated);
 
   useEffect(() => {
     dispatch(authOperations.getCurrentUser());
   }, [dispatch]);
+
+  const isAdmin = useSelector(authSelectors.getUserRole) === "admin";
+  const isAuthenticated = useSelector(authSelectors.isAuthenticated);
+
   return (
     <IntlProvider
       locale={local}
