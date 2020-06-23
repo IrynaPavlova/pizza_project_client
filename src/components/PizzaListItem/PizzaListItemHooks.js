@@ -8,26 +8,34 @@ import styles from "./PizzaListItem.module.css";
 
 const successMessage = "Продукт добавлен в корзину";
 const errorMessage = "Этот продукт уже есть в корзине";
+const sizes = ["M", "L", "XL"];
 
 function PizzaListItem(product) {
   const local = useSelector((state) => state.local.lang);
   const dispatch = useDispatch();
-  const onAddProductToOrder = () =>
-    dispatch(orderOperations.addProdToOrderList(product));
-
+  const [orderSizes, setOrderSizes] = useState(["M", "L", "XL"]);
   const [selectedSize, setSelectedSize] = useState("M");
-  // const size = ["M", "L", "XL"];
+  const onAddProductToOrder = () =>
+    dispatch(orderOperations.addProdToOrderList(product, selectedSize));
 
   const [isAddedProdToOrder, setIsAddedProdToOrder] = useState(false);
   const [message, setMessage] = useState(successMessage);
 
   const addProd = async () => {
     if (isAddedProdToOrder) {
+      if (orderSizes.includes(selectedSize)) {
+        setIsAddedProdToOrder(false);
+        setMessage(successMessage);
+        onAddProductToOrder(product);
+        setOrderSizes(orderSizes.filter((size) => size !== selectedSize));
+        return await setTimeout(() => setIsAddedProdToOrder(true), 10);
+      }
       setIsAddedProdToOrder(false);
       setMessage(errorMessage);
       return await setTimeout(() => setIsAddedProdToOrder(true), 10);
     }
     onAddProductToOrder(product);
+    setOrderSizes(orderSizes.filter((size) => size !== selectedSize));
     setIsAddedProdToOrder(true);
   };
 
@@ -55,7 +63,7 @@ function PizzaListItem(product) {
         <form>
           <div className={styles.sizePriceContainer}>
             <ul className={styles.radioButtonsList}>
-              {["M", "L", "XL"].map((size, index) => (
+              {sizes.map((size, index) => (
                 <li key={index}>
                   <label className={styles.sizeLabel}>
                     <input
