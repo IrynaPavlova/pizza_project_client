@@ -27,11 +27,11 @@ const OrderList = ({
   const orderListPrice = getSum(userOrder);
 
   return userOrder.length > 0 ? (
-    <div className={styles.orderList}>
+    <div className={styles.orderListContainer}>
       <h2 className={styles.orderListTitle}>
         <FormattedMessage id="order" />
       </h2>
-      <ul>
+      <ul className={styles.orderList}>
         {userOrder.map(
           ({
             productId,
@@ -59,6 +59,7 @@ const OrderList = ({
         )}
       </ul>
       <p className={styles.orderListPrice}>
+        <span className={styles.orderListToPayText}>К оплате:</span>
         {orderListPrice || "0"}
         <span className={styles.orderListPriceCurrency}> грн.</span>
       </p>
