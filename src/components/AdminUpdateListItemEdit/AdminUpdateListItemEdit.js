@@ -227,7 +227,9 @@ const AdminUpdateListItemEdit = () => {
                 <FormattedMessage id="update.addToComposition" />
               </button>
             </label>
-            <h4 className={style.editCard__title}>Цена</h4>
+            <h4 className={style.editCard__title}>
+              <FormattedMessage id="product.price" />
+            </h4>
             <div className={style.editForm__price}>
               {categories === "pizza" ? (
                 <>
@@ -235,13 +237,13 @@ const AdminUpdateListItemEdit = () => {
                   <input
                     type="text"
                     value={pricePizzaM}
-                    onChange={(ev) => setPricePizzaL(ev.target.value)}
+                    onChange={(ev) => setPricePizzaM(ev.target.value)}
                   />
                   <h4 className={style.editForm__priceTitle}>L</h4>
                   <input
                     type="text"
                     value={pricePizzaL}
-                    onChange={(ev) => setPricePizzaM(ev.target.value)}
+                    onChange={(ev) => setPricePizzaL(ev.target.value)}
                   />
                   <h4 className={style.editForm__priceTitle}>XL</h4>
                   <input
