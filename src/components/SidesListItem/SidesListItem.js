@@ -10,7 +10,7 @@ const successMessage = "Продукт добавлен в корзину";
 const errorMessage = "Этот продукт уже есть в корзине";
 
 const SidesListItem = (props) => {
-  const { _id, name, description, price, images, currency } = props;
+  const { name, description, price, images} = props;
 
   const local = useSelector((state) => state.local.lang);
 

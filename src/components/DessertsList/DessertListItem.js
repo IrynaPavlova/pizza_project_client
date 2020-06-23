@@ -30,8 +30,23 @@ const DessertListItem = (props) => {
   const onAddProductToOrder = () =>
     dispatch(orderOperations.addProdToOrderList(props));
 
-  const successMessage = `${name[local]} теперь в корзине`;
-  const errorMessage = `${name[local]} уже есть в корзине`;
+  const successMessage = (
+    <FormattedMessage
+      id="order.success"
+      values={{
+        name: name[local],
+      }}
+    />
+  );
+
+  const errorMessage = (
+    <FormattedMessage
+      id="order.error"
+      values={{
+        name: name[local],
+      }}
+    />
+  );
 
   const [isAddedProdToOrder, setIsAddedProdToOrder] = useState(false);
   const [message, setMessage] = useState(successMessage);
