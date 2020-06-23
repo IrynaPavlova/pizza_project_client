@@ -6,28 +6,28 @@ import Notification from "../Notification";
 import { orderOperations } from "../../redux/order";
 import styles from "../DrinkListItem/drinkListItem.module.css";
 
-const successMessage = (
-  <FormattedMessage
-    id="order.success"
-    values={{
-      name: name[local],
-    }}
-  />
-);
-
-const errorMessage = (
-  <FormattedMessage
-    id="order.error"
-    values={{
-      name: name[local],
-    }}
-  />
-);
-
 const SidesListItem = (props) => {
   const { name, description, price, images } = props;
 
   const local = useSelector((state) => state.local.lang);
+
+  const successMessage = (
+    <FormattedMessage
+      id="order.success"
+      values={{
+        name: name[local],
+      }}
+    />
+  );
+
+  const errorMessage = (
+    <FormattedMessage
+      id="order.error"
+      values={{
+        name: name[local],
+      }}
+    />
+  );
 
   const dispatch = useDispatch();
   const onAddProductToOrder = () =>

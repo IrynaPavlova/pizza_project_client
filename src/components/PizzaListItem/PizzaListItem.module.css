@@ -90,6 +90,11 @@
   position: relative;
 }
 
+.sizeLabel {
+  width: 40px;
+  height: 40px;
+}
+
 .radioButton {
   width: 40px;
   height: 40px;
