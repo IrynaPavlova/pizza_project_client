@@ -69,4 +69,10 @@ export default {
   "register.emailSym": "Email should contain @ symbol",
   "register.passReq": "Password is required",
   "register.passLength": "Password needs to have 6+ symbols",
+  "update.composition": "Composition",
+  "update.addIngredient": "Add ingredient",
+  "update.addToComposition": "Add to composition",
+  "update.saveChanges": "Save changes",
+  "delete product": "Delete product",
+  "return back": "Return to previous page",
 };
