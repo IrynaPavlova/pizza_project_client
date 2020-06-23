@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
 import style from "./adminUpdateListItemEdit.module.css";
 import Spinner from "../../components/Spinner";
 import Axios from "axios";
@@ -10,7 +11,6 @@ const AdminUpdateListItemEdit = ({ product }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [confirmEdit, setConfirmEdit] = useState(false);
   const [images, setImage] = useState(product.images);
-
   const [nameRu, setNameRu] = useState(product.name.ru);
   const [nameEn, setNameEn] = useState(product.name.en);
   const [nameUkr, setNameUkr] = useState(product.name.ukr);
@@ -124,7 +124,9 @@ const AdminUpdateListItemEdit = ({ product }) => {
                 onChange={handleImageFile}
                 className={style.editForm__photo}
               />
-              <p className={style.editForm__photoBtn}>Заменить фото</p>
+              <p className={style.editForm__photoBtn}>
+                <FormattedMessage id="photo" />
+              </p>
             </label>
             <h4 className={style.editCard__title}>Название</h4>
             <div className={style.editCard__titleName}>
@@ -150,7 +152,9 @@ const AdminUpdateListItemEdit = ({ product }) => {
                 className={style.editForm__input}
               />
             </div>
-            <h4 className={style.editCard__title}>Категория</h4>
+            <h4 className={style.editCard__title}>
+              <FormattedMessage id="product.category" />
+            </h4>
             <input
               type="text"
               value={categories}
@@ -159,7 +163,9 @@ const AdminUpdateListItemEdit = ({ product }) => {
             />
             {categories === "pizza" && (
               <>
-                <h4>Подкатегория</h4>
+                <h4>
+                  <FormattedMessage id="subcategory" />
+                </h4>
                 <input
                   type="text"
                   value={subcategory}
@@ -267,7 +273,10 @@ const AdminUpdateListItemEdit = ({ product }) => {
             <div className={style.confirmation}>
               <div className={style.confirmation__form}>
                 <p className={style.confirmation__formText}>{confirmEdit}</p>
-                <Link to="#" className={style.confirmation__formBtnLink}>
+                <Link
+                  to="/admin/update-product"
+                  className={style.confirmation__formBtnLink}
+                >
                   <button type="button" className={style.confirmation__formBtn}>
                     Вернутся на предыдущую страницу
                   </button>
