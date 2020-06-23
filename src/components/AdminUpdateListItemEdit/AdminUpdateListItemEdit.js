@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
+import { useLocation } from "react-router-dom";
 import style from "./adminUpdateListItemEdit.module.css";
 import Spinner from "../../components/Spinner";
 import Axios from "axios";
 
-const AdminUpdateListItemEdit = ({ product }) => {
+const AdminUpdateListItemEdit = () => {
+  let location = useLocation();
+  const product = location.state.product;
   const local = useSelector((state) => state.local.lang);
   const [isLoading, setIsLoading] = useState(true);
   const [confirmEdit, setConfirmEdit] = useState(false);
@@ -20,11 +23,9 @@ const AdminUpdateListItemEdit = ({ product }) => {
   const [pricePizzaM, setPricePizzaM] = useState(product.price.M);
   const [pricePizzaL, setPricePizzaL] = useState(product.price.L);
   const [pricePizzaXL, setPricePizzaXL] = useState(product.price.XL);
-
-  const [ingredients, setIngredients] = useState(product.ingredients);
+  const [ingredients, setIngredients] = useState([...product.ingredients]);
   const [newIngredient, setNewIngredient] = useState(0);
   const [ingredientsList, setIngredientsList] = useState(null);
-
   useEffect(() => {
     Axios.get("https://evening-caverns-34846.herokuapp.com/ingredients")
       .then((res) => {
@@ -46,7 +47,6 @@ const AdminUpdateListItemEdit = ({ product }) => {
     const data = new FormData();
     let file = ev.target.files[0];
     data.append("file", file);
-
     Axios.post("https://evening-caverns-34846.herokuapp.com/images", data)
       .then((res) => {
         setImage(res.data.image.file);
@@ -116,8 +116,10 @@ const AdminUpdateListItemEdit = ({ product }) => {
           />
 
           <form id="editForm" onSubmit={handleForm} className={style.editForm}>
-            <h4 className={style.editCard__title}>Фото</h4>
-            <label>
+            <h4 className={style.editCard__title}>
+              <FormattedMessage id="photo" />
+            </h4>
+            <label className={style.editCard__photoLabel}>
               <input
                 type="file"
                 accept="image/*"
@@ -128,23 +130,25 @@ const AdminUpdateListItemEdit = ({ product }) => {
                 <FormattedMessage id="photo" />
               </p>
             </label>
-            <h4 className={style.editCard__title}>Название</h4>
+            <h4 className={style.editCard__title}>
+              <FormattedMessage id="product.name" />
+            </h4>
             <div className={style.editCard__titleName}>
-              <p>Ru</p>
+              <p className={style.editCard__titleLang}>Ru</p>
               <input
                 type="text"
                 value={nameRu}
                 onChange={(ev) => setNameRu(ev.target.value)}
                 className={style.editForm__input}
               />
-              <p>En</p>
+              <p className={style.editCard__titleLang}>En</p>
               <input
                 type="text"
                 value={nameEn}
                 onChange={(ev) => setNameEn(ev.target.value)}
                 className={style.editForm__input}
               />
-              <p>Ukr</p>
+              <p className={style.editCard__titleLang}>Ukr</p>
               <input
                 type="text"
                 value={nameUkr}
@@ -163,8 +167,8 @@ const AdminUpdateListItemEdit = ({ product }) => {
             />
             {categories === "pizza" && (
               <>
-                <h4>
-                  <FormattedMessage id="subcategory" />
+                <h4 className={style.editCard__title}>
+                  <FormattedMessage id="product.subcategory" />
                 </h4>
                 <input
                   type="text"
@@ -174,7 +178,9 @@ const AdminUpdateListItemEdit = ({ product }) => {
                 />
               </>
             )}
-            <h4 className={style.editCard__title}>Состав</h4>
+            <h4 className={style.editCard__title}>
+              <FormattedMessage id="update.composition" />
+            </h4>
             <ul className={style.editForm__ingredients}>
               {ingredients.map((el, idx) => (
                 <li key={idx} className={style.editForm__ingredient}>
@@ -192,7 +198,9 @@ const AdminUpdateListItemEdit = ({ product }) => {
                 </li>
               ))}
             </ul>
-            <h4 className={style.editCard__title}>Добавить ингредиент</h4>
+            <h4 className={style.editCard__title}>
+              <FormattedMessage id="update.addIngredient" />
+            </h4>
             <label className={style.editForm__ingredientsSelect}>
               <select
                 value={newIngredient}
@@ -216,7 +224,7 @@ const AdminUpdateListItemEdit = ({ product }) => {
                 }
                 className={style.editForm__addIngredientBtn}
               >
-                Добавить в состав
+                <FormattedMessage id="update.addToComposition" />
               </button>
             </label>
             <h4 className={style.editCard__title}>Цена</h4>
@@ -258,7 +266,7 @@ const AdminUpdateListItemEdit = ({ product }) => {
             name="complete"
             className={style.editForm__btnSubmit}
           >
-            Сохранить изменения
+            <FormattedMessage id="update.saveChanges" />
           </button>
           <button
             form="editForm"
@@ -267,7 +275,7 @@ const AdminUpdateListItemEdit = ({ product }) => {
             className={style.editForm__btnSubmit}
             onClick={deleteItem}
           >
-            Удалить продукт
+            <FormattedMessage id="delete product" />
           </button>
           {confirmEdit && (
             <div className={style.confirmation}>
@@ -278,7 +286,7 @@ const AdminUpdateListItemEdit = ({ product }) => {
                   className={style.confirmation__formBtnLink}
                 >
                   <button type="button" className={style.confirmation__formBtn}>
-                    Вернутся на предыдущую страницу
+                    <FormattedMessage id="return back" />
                   </button>
                 </Link>
               </div>
