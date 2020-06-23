@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { NavLink, Switch, Route, Redirect } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 import Spinner from "../../components/Spinner";
 import { routes } from "../../services/routes";

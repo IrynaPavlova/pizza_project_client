@@ -37,12 +37,16 @@ export default function ({ setIsModalActive, setIsLogining }) {
       const errors = {};
       if (!values.username) {
         errors.username = (
-          <p className={styles.formInputError}>Name is Required</p>
+          <p className={styles.formInputError}>
+            <FormattedMessage id="register.nameReq" />
+          </p>
         );
       }
       if (!values.email) {
         errors.email = (
-          <p className={styles.formInputError}>Email is Required</p>
+          <p className={styles.formInputError}>
+            <FormattedMessage id="register.emailReq" />
+          </p>
         );
       }
       if (
@@ -50,17 +54,24 @@ export default function ({ setIsModalActive, setIsLogining }) {
           /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         )
       ) {
-        errors.email = <p className={styles.formInputError}>Invalid email</p>;
+        errors.email = (
+          <p className={styles.formInputError}>
+            {" "}
+            <FormattedMessage id="register.emailSym" />
+          </p>
+        );
       }
       if (!values.password) {
         errors.password = (
-          <p className={styles.formInputError}>Password is Required</p>
+          <p className={styles.formInputError}>
+            <FormattedMessage id="register.passReq" />
+          </p>
         );
       }
       if (values.password.length < 6) {
         errors.password = (
           <p className={styles.formInputError}>
-            Password needs to have 6+ symbols
+            <FormattedMessage id="register.passLength" />
           </p>
         );
       }

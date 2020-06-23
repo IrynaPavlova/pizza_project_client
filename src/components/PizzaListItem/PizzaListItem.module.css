@@ -80,17 +80,18 @@
 
 .radioButtonsList {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 140px;
   margin-bottom: 32px;
 }
 
-.radioButton {
-  width: 40.15px;
-  height: 40px;
-  margin-right: 10px;
+.radioButtonsList li {
+  position: relative;
 }
 
-input[type="radio"] {
-  width: 40.15px;
+.radioButton {
+  width: 40px;
   height: 40px;
   border-radius: 50%;
   border: none;
@@ -99,23 +100,23 @@ input[type="radio"] {
   -moz-appearance: none;
 }
 
-input[type="radio"]:focus {
+.radioButton:focus {
   outline: none;
 }
 
-input[type="radio"]:checked {
+.radioButton:checked {
   background-color: rgba(39, 39, 39, 0.8);
 }
 
-input[type="radio"]:checked ~ span:first-of-type {
+.radioButton:checked + .sizeText {
   color: white;
   font-weight: bold;
 }
 
-.sizeLabel span {
+.sizeText {
   position: absolute;
-  left: 40%;
-  top: 43%;
+  left: 50%;
+  top: 50%;
   font-size: 20px;
   font-family: RobotoRegular;
   font-style: normal;
@@ -125,7 +126,48 @@ input[type="radio"]:checked ~ span:first-of-type {
   text-align: center;
   transform: translate(-50%, -50%);
 }
-.sizeLabelL span {
+
+/* .radioButton:not(:last-of-type) {
+  margin-right: 10px;
+} */
+
+/* input[type="radio"] {
+  width: 40.15px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(39, 39, 39, 0.2);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+} */
+
+/* input[type="radio"]:focus {
+  outline: none;
+}
+
+input[type="radio"]:checked {
+  background-color: rgba(39, 39, 39, 0.8);
+} */
+
+/* input[type="radio"]:checked ~ span:first-of-type {
+  color: white;
+  font-weight: bold;
+} */
+/* 
+.sizeLabel span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 20px;
+  font-family: RobotoRegular;
+  font-style: normal;
+  font-weight: normal;
+  color: #272727;
+  overflow: hidden;
+  text-align: center;
+  transform: translate(-50%, -50%);
+} */
+/* .sizeLabelL span {
   position: absolute;
   left: 30%;
   top: -95%;
@@ -155,7 +197,7 @@ input[type="radio"]:checked ~ span:first-of-type {
 .sizeLabelL,
 .sizeLabelXL {
   position: relative;
-}
+} */
 
 .price {
   font-family: RobotoRegular;

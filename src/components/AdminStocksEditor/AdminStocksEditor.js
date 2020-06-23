@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { FormattedMessage } from 'react-intl';
-import { connect } from 'react-redux';
-import Spinner from '../../components/Spinner';
-import stocksOperations from '../../redux/stocks/stocksOperations';
-import stocksActions from '../../redux/stocks/stocksActions';
-import stocksSelector from '../../redux/stocks/stocksSelector';
-import styles from './AdminStocksEditor.module.css';
+import React, { useState } from "react";
+import { FormattedMessage } from "react-intl";
+import { connect } from "react-redux";
+import Spinner from "../../components/Spinner";
+import stocksOperations from "../../redux/stocks/stocksOperations";
+import stocksActions from "../../redux/stocks/stocksActions";
+import stocksSelector from "../../redux/stocks/stocksSelector";
+import styles from "./AdminStocksEditor.module.css";
 
-import getFileName from './utils';
+import getFileName from "./utils";
 
 //FIXME: Вернуть изначальные значения в файле App
 
@@ -23,29 +23,29 @@ function AdminStocksEditor({
   const handleLoadFile = ({ target }) => {
     getFileName();
     const stocksItem = new FormData();
-    stocksItem.append('file', target.files[0]);
+    stocksItem.append("file", target.files[0]);
 
     onSubmitFile(stocksItem);
   };
 
-  const [stocksTitleEn, setStockTitleEn] = useState('');
+  const [stocksTitleEn, setStockTitleEn] = useState("");
   const handleChangeTitleEn = ({ target }) => setStockTitleEn(target.value);
 
-  const [stocksTitleRu, setStockTitleRu] = useState('');
+  const [stocksTitleRu, setStockTitleRu] = useState("");
   const handleChangeTitleRu = ({ target }) => setStockTitleRu(target.value);
 
-  const [stocksTitleUkr, setStockTitleUkr] = useState('');
+  const [stocksTitleUkr, setStockTitleUkr] = useState("");
   const handleChangeTitleUkr = ({ target }) => setStockTitleUkr(target.value);
 
-  const [stocksDescriptionEn, setStocksDescriptionEn] = useState('');
+  const [stocksDescriptionEn, setStocksDescriptionEn] = useState("");
   const handleChangeDescriptionEn = ({ target }) =>
     setStocksDescriptionEn(target.value);
 
-  const [stocksDescriptionRu, setStocksDescriptionRu] = useState('');
+  const [stocksDescriptionRu, setStocksDescriptionRu] = useState("");
   const handleChangeDescriptionRu = ({ target }) =>
     setStocksDescriptionRu(target.value);
 
-  const [stocksDescriptionUkr, setStocksDescriptionUkr] = useState('');
+  const [stocksDescriptionUkr, setStocksDescriptionUkr] = useState("");
   const handleChangeDescriptionUkr = ({ target }) =>
     setStocksDescriptionUkr(target.value);
 
@@ -67,21 +67,21 @@ function AdminStocksEditor({
 
   const cancelInput = () => {
     setStockFile(null);
-    setStockTitleEn('');
-    setStocksDescriptionEn('');
-    setStockTitleRu('');
-    setStocksDescriptionRu('');
-    setStockTitleUkr('');
-    setStocksDescriptionUkr('');
-    document.getElementById('formStocks').reset();
+    setStockTitleEn("");
+    setStocksDescriptionEn("");
+    setStockTitleRu("");
+    setStocksDescriptionRu("");
+    setStockTitleUkr("");
+    setStocksDescriptionUkr("");
+    document.getElementById("formStocks").reset();
     onCancel();
-    document.getElementById('fileName').innerHTML = '';
+    document.getElementById("fileName").innerHTML = "";
   };
 
   return (
     <>
       {isLoading && <Spinner />}
-      {editMode === 'add' && (
+      {editMode === "add" && (
         <form className={styles.form} onSubmit={handleSubmit} id="formStocks">
           <div
             className={linkFile ? styles.fileUploadGreen : styles.fileUpload}
@@ -95,7 +95,7 @@ function AdminStocksEditor({
                 onChange={handleLoadFile}
               />
               <span className={styles.uploadSpan}>
-                {stocksFile ? 'файл загружен' : 'загрузить файл'}
+                {stocksFile ? "файл загружен" : "загрузить файл"}
               </span>
             </label>
           </div>

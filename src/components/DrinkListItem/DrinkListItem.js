@@ -15,8 +15,23 @@ const DrinkListItem = (props) => {
   const onAddProductToOrder = () =>
     dispatch(orderOperations.addProdToOrderList(props));
 
-  const successMessage = `${name[local]} теперь в корзине`;
-  const errorMessage = `${name[local]} уже есть в корзине`;
+  const successMessage = (
+    <FormattedMessage
+      id="order.success"
+      values={{
+        name: name[local],
+      }}
+    />
+  );
+
+  const errorMessage = (
+    <FormattedMessage
+      id="order.error"
+      values={{
+        name: name[local],
+      }}
+    />
+  );
 
   const [isAddedProdToOrder, setIsAddedProdToOrder] = useState(false);
   const [message, setMessage] = useState(successMessage);
@@ -40,7 +55,7 @@ const DrinkListItem = (props) => {
       <div className={styles.menuItem_content}>
         <h2 className={styles.menuItem_headline}>{name[local]}</h2>
         <p className={styles.menuItem_size}>
-          <FormattedMessage id="volume" />: {description}
+          <FormattedMessage id="volume" /> {description}
         </p>
         <div className={styles.menuItem_wrapper}>
           <p className={styles.menuItem_price}>
