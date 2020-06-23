@@ -266,7 +266,10 @@ const AdminUpdateListItemEdit = ({ product }) => {
             <div className={style.confirmation}>
               <div className={style.confirmation__form}>
                 <p className={style.confirmation__formText}>{confirmEdit}</p>
-                <Link to="#" className={style.confirmation__formBtnLink}>
+                <Link
+                  to="/admin/update-product"
+                  className={style.confirmation__formBtnLink}
+                >
                   <button type="button" className={style.confirmation__formBtn}>
                     Вернутся на предыдущую страницу
                   </button>
