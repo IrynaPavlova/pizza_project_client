@@ -75,12 +75,19 @@ a {
   color: #fff;
 }
 
+.phoneFooter {
+  color: #fff;
+}
+
 .phoneFooter:hover {
   color: #fff;
   text-decoration: none;
 }
 
 .socialsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding-bottom: 70px;
   margin: 0 auto;
   border-radius: 50px;
@@ -88,17 +95,17 @@ a {
 }
 
 .iconsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: rgba(255, 255, 255, 0.1);
-  padding: 11px;
-  padding-top: 16px;
-  padding-bottom: 10px;
   width: 40px;
-  height: 42px;
-  border-radius: 26px;
+  height: 40px;
+  border-radius: 50%;
   transition: 0.3s;
 }
 
-.iconsContainer:nth-child(-n + 3) {
+.iconsContainer:not(:last-of-type) {
   margin-right: 14px;
 }
 
@@ -109,7 +116,6 @@ a {
 .linkImg {
   width: 21px;
   height: 20px;
-  margin-bottom: 9px;
 }
 
 .phoneImg {

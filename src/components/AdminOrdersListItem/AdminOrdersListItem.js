@@ -9,7 +9,7 @@ export default function AdminOrdersListItem({ item }) {
   const local = useSelector((state) => state.local.lang);
 
   return (
-    <div className={styles.orderWrapper}>
+    <li className={styles.orderWrapper}>
       <div className={styles.dateWrapper}>
         <p className={styles.orderDate}>
           {moment(item.createdAt).format("h:MM a DD MMMM YY")}
@@ -18,7 +18,7 @@ export default function AdminOrdersListItem({ item }) {
       <ul className={styles.itemsList}>
         {item.productsList.map((product) => (
           <li className={styles.itemsListItem} key={product._id}>
-            {/* <h4 className={styles.itemName}>{product.productName[local]}</h4> */}
+            <h4 className={styles.itemName}>{product.productName[local]}</h4>
             <p className={styles.itemSize}>{product.type}</p>
             <p className={styles.itemsCount}>{product.itemsCount}</p>
           </li>
@@ -37,8 +37,8 @@ export default function AdminOrdersListItem({ item }) {
       </div>
       <div className={styles.orderContacts}>
         <p>{item.deliveryAddress}</p>
-        <p>044 444 44 44</p>
-        <p>Иван</p>
+        <p>{item.phone}</p>
+        <p>{item.name}</p>
       </div>
       <div className={styles.orderCheckbox}>
         <p>
@@ -46,6 +46,6 @@ export default function AdminOrdersListItem({ item }) {
         </p>
         <input type="checkbox" name="orderDone" />
       </div>
-    </div>
+    </li>
   );
 }

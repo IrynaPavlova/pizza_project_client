@@ -59,13 +59,19 @@ const OrderList = ({
         )}
       </ul>
       <p className={styles.orderListPrice}>
-        <span className={styles.orderListToPayText}>К оплате:</span>
+        <span className={styles.orderListToPayText}>
+          <FormattedMessage id="orders.sumToPay" />
+        </span>
         {orderListPrice || "0"}
-        <span className={styles.orderListPriceCurrency}> грн.</span>
+        <span className={styles.orderListPriceCurrency}>
+          <FormattedMessage id="grn" />
+        </span>
       </p>
     </div>
   ) : (
-    <h2 className={styles.orderListEmpty}>Ваша корзина пуста</h2>
+    <h2 className={styles.orderListEmpty}>
+      <FormattedMessage id="orders.empty" />
+    </h2>
   );
 };
 
