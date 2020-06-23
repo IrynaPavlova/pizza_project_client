@@ -33,6 +33,7 @@ const OrdersListItem = ({
       >
         <img src={closeBtn} alt="delete-btn" />
       </button>
+
       <div className={styles.contentWrapper}>
         <h5 className={styles.productName}>{name[local]}</h5>
         <p className={styles.ingredientsText}>{ingredientsList}</p>
@@ -43,17 +44,21 @@ const OrdersListItem = ({
               <FormattedMessage id="grn" />
             </span>
           </p>
-
+          {typeof type === "string" ? (
+            <div className={styles.pizzaSize}>{type}</div>
+          ) : (
+            <></>
+          )}
           <div className={styles.amountContainer}>
             <button
-              className={styles.deleteBtn}
+              className={styles.decrementBtn}
               onClick={() => onDecrementItem({ id, type })}
             >
               -
             </button>
             <p className={styles.amountNumber}>{itemsCount}</p>
             <button
-              className={[styles.deleteBtn, styles.incrementBtn].join(" ")}
+              className={[styles.decrementBtn, styles.incrementBtn].join(" ")}
               onClick={() => onIncrementItem({ id, type })}
             >
               +
