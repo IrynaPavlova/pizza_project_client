@@ -6,7 +6,7 @@ import Spinner from "../../components/Spinner";
 import Axios from "axios";
 
 const AdminUpdateListItemEdit = ({ product }) => {
-  useSelector((state) => state.local.lang);
+  const local = useSelector((state) => state.local.lang);
   const [isLoading, setIsLoading] = useState(true);
   const [confirmEdit, setConfirmEdit] = useState(false);
   const [images, setImage] = useState(product.images);
