@@ -6,17 +6,20 @@ import { orderOperations } from "../../redux/order";
 import Notification from "../Notification";
 import styles from "./PizzaListItem.module.css";
 
-const successMessage = "Продукт добавлен в корзину";
-const errorMessage = "Этот продукт уже есть в корзине";
 const sizes = ["M", "L", "XL"];
 
 function PizzaListItem(product) {
+  const { _id, name, price, ingredients, images } = product;
+
   const local = useSelector((state) => state.local.lang);
   const dispatch = useDispatch();
   const [orderSizes, setOrderSizes] = useState(["M", "L", "XL"]);
   const [selectedSize, setSelectedSize] = useState("M");
   const onAddProductToOrder = () =>
     dispatch(orderOperations.addProdToOrderList(product, selectedSize));
+
+  const successMessage = `Пицца ${name[local]} добавлена в корзину`;
+  const errorMessage = `Пицца ${name[local]} уже есть в корзине`;
 
   const [isAddedProdToOrder, setIsAddedProdToOrder] = useState(false);
   const [message, setMessage] = useState(successMessage);
@@ -44,15 +47,15 @@ function PizzaListItem(product) {
   };
 
   return (
-    <li key={product._id} className={styles.pizzaListCard}>
+    <li key={_id} className={styles.pizzaListCard}>
       {isAddedProdToOrder && <Notification message={message} confirm forCard />}
       <div>
-        <img src={product.images} className={styles.imageItem} alt="" />
+        <img src={images} className={styles.imageItem} alt="" />
       </div>
       <div className={styles.descriptionContainer}>
-        <p className={styles.heading}>{product.name[local]}</p>
+        <p className={styles.heading}>{name[local]}</p>
         <ul className={styles.ingredients}>
-          {product.ingredients.map((ingredient) => (
+          {ingredients.map((ingredient) => (
             <li key={ingredient._id}>
               <span className={styles.ingredientItem}>
                 {ingredient.name[local]}
@@ -80,9 +83,7 @@ function PizzaListItem(product) {
               ))}
             </ul>
 
-            <span className={styles.price}>
-              {product.price[selectedSize]}.00
-            </span>
+            <span className={styles.price}>{price[selectedSize]}.00</span>
             <span className={styles.currency}>
               {" "}
               <FormattedMessage id="grn" />
