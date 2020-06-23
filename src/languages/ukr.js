@@ -67,7 +67,7 @@ export default {
   "phone number": "Номер телефону",
   "register.nameReq": "Потрiбно ввести iм'я",
   "register.emailReq": "Потрiбно ввести email",
-  "register.emailSym": "Email повинен включати символ @",
+  "register.emailSym": "Некоректна адреса електронної пошти",
   "register.passReq": "Потрiбно ввести пароль",
   "register.passLength": "Пароль повинен бути довжиною 6+ символiв",
 };

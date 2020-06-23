@@ -66,7 +66,7 @@ export default {
   "phone number": "Phone number",
   "register.nameReq": "Name is required",
   "register.emailReq": "Email is required",
-  "register.emailSym": "Email should contain @ symbol",
+  "register.emailSym": "Invalid email adress",
   "register.passReq": "Password is required",
   "register.passLength": "Password needs to have 6+ symbols",
 };

@@ -49,9 +49,14 @@ export default function ({ setIsModalActive, setIsLogining }) {
           </p>
         );
       }
-      if (values.email && !values.email.includes("@")) {
+      if (
+        !values.email.match(
+          /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        )
+      ) {
         errors.email = (
           <p className={styles.formInputError}>
+            {" "}
             <FormattedMessage id="register.emailSym" />
           </p>
         );
