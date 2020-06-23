@@ -10,7 +10,6 @@ const AdminUpdateListItemEdit = ({ product }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [confirmEdit, setConfirmEdit] = useState(false);
   const [images, setImage] = useState(product.images);
-
   const [nameRu, setNameRu] = useState(product.name.ru);
   const [nameEn, setNameEn] = useState(product.name.en);
   const [nameUkr, setNameUkr] = useState(product.name.ukr);
