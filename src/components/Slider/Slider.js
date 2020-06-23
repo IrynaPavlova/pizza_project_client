@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { Carousel } from "react-bootstrap";
 
@@ -18,7 +18,7 @@ export default function Slideview(props) {
           >
             <div className={styles.sliderWrapper}>
               <img
-                className={styles.sliderImg + " " + "d-block w-100 h-100"}
+                className={styles.sliderImg + " d-block w-100 h-100"}
                 src={images}
                 alt=""
               />
