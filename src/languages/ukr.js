@@ -70,4 +70,10 @@ export default {
   "register.emailSym": "Некоректна адреса електронної пошти",
   "register.passReq": "Потрiбно ввести пароль",
   "register.passLength": "Пароль повинен бути довжиною 6+ символiв",
+  "update.composition": "Склад",
+  "update.addIngredient": "Додати iнгредiєнт",
+  "update.addToComposition": "Додати до складу",
+  "update.saveChanges": "Зберегти зміни",
+  "delete product": "Видалити продукт",
+  "return back": "Повернутися на попередню сторінку",
 };

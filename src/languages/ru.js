@@ -69,4 +69,10 @@ export default {
   "register.emailSym": "Некорректный адрес электронной почты",
   "register.passReq": "Требуется ввести пароль",
   "register.passLength": "Пароль должен быть длиной 6+ символов",
+  "update.composition": "Состав",
+  "update.addIngredient": "Добавить ингредиент",
+  "update.addToComposition": "Добавить в состав",
+  "update.saveChanges": "Сохранить изменения",
+  "delete product": "Удалить продукт",
+  "return back": "Вернутся на предыдущую страницу",
 };
