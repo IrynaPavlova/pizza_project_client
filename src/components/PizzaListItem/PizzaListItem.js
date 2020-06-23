@@ -30,8 +30,8 @@ class PizzaListItem extends Component {
     const product = this.props;
     const { selectedSize } = this.state;
 
-    const successMessage = "Продукт добавлен в корзину";
-    const errorMessage = "Этот продукт уже есть в корзине";
+    const successMessage = <FormattedMessage id="order.success" />;
+    const errorMessage = <FormattedMessage id="order.error" />;
 
     return (
       <li key={product._id} className={styles.pizzaListCard}>

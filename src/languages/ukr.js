@@ -1,6 +1,8 @@
 export default {
+  search: "Пошук",
   error: "Щосб пiшло не так",
   welcome: "Ласкаво просимо, ",
+  edit: "Редагувати",
   promo: "Акцii",
   pizza: "Пiца",
   drinks: "Напоi",
@@ -16,6 +18,8 @@ export default {
   weight: "Вага: ",
   g: "г.",
   q: "шт.",
+  notAuthenticated:
+    "Для того, щоб оформити замовлення, потрiбно авторизуватися",
   volume: "Об'єм: ",
   upload: "Завантажити файл",
   send: "Send file",
@@ -49,6 +53,10 @@ export default {
   "orders.chart": "До корзини",
   "orders.sumToPay": "До оплати:",
   "orders.empty": "Ваша корзина порожня",
+  "orders.appliedAt": "Ваше замовлення принято о ",
+  "orders.wait": ", очiкуйте на курьера на протязi години",
+  "order.success": "Продукт додано до корзини",
+  "order.error": "Цей продукт вже у корзинi",
   "product.create": "Створити продукт",
   "product.edit": "Редагувати продукт",
   "product.name": "Назва",

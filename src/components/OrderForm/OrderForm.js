@@ -5,6 +5,7 @@ import { orderOperations, orderSelectors } from "../../redux/order";
 import { authSelectors } from "../../redux/auth";
 import getSum from "../utils/getSum";
 import styles from "./OrderForm.module.css";
+import languages from "../../languages";
 
 const getOrderTime = () => new Date().toLocaleTimeString().slice(0, -3);
 
@@ -13,6 +14,7 @@ export default function OrderForm() {
   const isAuthenticated = useSelector((state) =>
     authSelectors.isAuthenticated(state)
   );
+  const local = useSelector((state) => state.local.lang);
 
   const creator = useSelector((state) => authSelectors.getUserId(state));
   const name = useSelector((state) => authSelectors.getUserName(state));
@@ -72,7 +74,11 @@ export default function OrderForm() {
   };
 
   if (!isAuthenticated) {
-    return <h3>Чтобы оформить заказ, нужно авторизоваться</h3>;
+    return (
+      <h3>
+        <FormattedMessage id="notAuthenticated" />
+      </h3>
+    );
   }
 
   if (isAuthenticated && orderTime === null && productsList.length > 0) {
@@ -84,7 +90,7 @@ export default function OrderForm() {
           id="dynamic-label-input"
           value={phone}
           name="phone"
-          placeholder="Номер телефона"
+          placeholder={languages[local]["phone number"]}
           className={styles.input}
           onChange={handleChangeNumber}
           required
@@ -99,7 +105,7 @@ export default function OrderForm() {
           id="dynamic-label-input"
           value={city}
           name="city"
-          placeholder="Город"
+          placeholder={languages[local].city}
           className={styles.input}
           onChange={handleChangeCity}
         />
@@ -113,7 +119,7 @@ export default function OrderForm() {
           id="dynamic-label-input"
           value={street}
           name="street"
-          placeholder="Улица"
+          placeholder={languages[local].street}
           className={styles.input}
           onChange={handleChangeStreet}
         />
@@ -127,7 +133,7 @@ export default function OrderForm() {
           id="dynamic-label-input"
           value={house}
           name="house"
-          placeholder="Дом, квартира"
+          placeholder={languages[local].house}
           className={styles.input}
           onChange={handleChangeHouse}
         />
@@ -142,7 +148,10 @@ export default function OrderForm() {
     );
   } else if (orderTime !== null) {
     return (
-      <h3>Ваш заказ принят в {orderTime}, ожидайте курьера в течении часа</h3>
+      <h3>
+        <FormattedMessage id="orders.appliedAt" />
+        {orderTime} <FormattedMessage id="orders.wait" />
+      </h3>
     );
   } else return <></>;
 }

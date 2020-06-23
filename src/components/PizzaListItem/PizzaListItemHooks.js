@@ -6,6 +6,9 @@ import { orderOperations } from "../../redux/order";
 import Notification from "../Notification";
 import styles from "./PizzaListItem.module.css";
 
+const successMessage = <FormattedMessage id="order.success" />;
+const errorMessage = <FormattedMessage id="order.error" />;
+
 const sizes = ["M", "L", "XL"];
 
 function PizzaListItem(product) {
@@ -94,7 +97,7 @@ function PizzaListItem(product) {
               type="button"
               onClick={() => addProd()}
             >
-              В корзину
+              <FormattedMessage id="orders.chart" />
             </button>
           </div>
         </form>
