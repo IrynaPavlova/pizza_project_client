@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
 import style from "./adminUpdateListItemEdit.module.css";
 import Spinner from "../../components/Spinner";
 import Axios from "axios";
@@ -123,7 +124,9 @@ const AdminUpdateListItemEdit = ({ product }) => {
                 onChange={handleImageFile}
                 className={style.editForm__photo}
               />
-              <p className={style.editForm__photoBtn}>Заменить фото</p>
+              <p className={style.editForm__photoBtn}>
+                <FormattedMessage id="photo" />
+              </p>
             </label>
             <h4 className={style.editCard__title}>Название</h4>
             <div className={style.editCard__titleName}>
@@ -149,7 +152,9 @@ const AdminUpdateListItemEdit = ({ product }) => {
                 className={style.editForm__input}
               />
             </div>
-            <h4 className={style.editCard__title}>Категория</h4>
+            <h4 className={style.editCard__title}>
+              <FormattedMessage id="product.category" />
+            </h4>
             <input
               type="text"
               value={categories}
@@ -158,7 +163,9 @@ const AdminUpdateListItemEdit = ({ product }) => {
             />
             {categories === "pizza" && (
               <>
-                <h4>Подкатегория</h4>
+                <h4>
+                  <FormattedMessage id="subcategory" />
+                </h4>
                 <input
                   type="text"
                   value={subcategory}
