@@ -9,15 +9,13 @@ import styles from './AdminStocksEditor.module.css';
 
 import getFileName from './utils';
 
-//FIXME: Вернуть изначальные значения в файле App
-
 function AdminStocksEditor({
-  editMode,
   onSubmitFile,
   onSubmit,
   onCancel,
   isLoading,
   linkFile,
+  editStock,
 }) {
   const [stocksFile, setStockFile] = useState(null);
   const handleLoadFile = ({ target }) => {
@@ -29,26 +27,41 @@ function AdminStocksEditor({
   };
 
   const [stocksTitleEn, setStockTitleEn] = useState('');
-  const handleChangeTitleEn = ({ target }) => setStockTitleEn(target.value);
+  const handleChangeTitleEn = ({ target: { value } }) => setStockTitleEn(value);
 
   const [stocksTitleRu, setStockTitleRu] = useState('');
-  const handleChangeTitleRu = ({ target }) => setStockTitleRu(target.value);
+  const handleChangeTitleRu = ({ target: { value } }) => setStockTitleRu(value);
 
   const [stocksTitleUkr, setStockTitleUkr] = useState('');
-  const handleChangeTitleUkr = ({ target }) => setStockTitleUkr(target.value);
+  const handleChangeTitleUkr = ({ target: { value } }) =>
+    setStockTitleUkr(value);
 
   const [stocksDescriptionEn, setStocksDescriptionEn] = useState('');
-  const handleChangeDescriptionEn = ({ target }) =>
-    setStocksDescriptionEn(target.value);
+  const handleChangeDescriptionEn = ({ target: { value } }) =>
+    setStocksDescriptionEn(value);
 
   const [stocksDescriptionRu, setStocksDescriptionRu] = useState('');
-  const handleChangeDescriptionRu = ({ target }) =>
-    setStocksDescriptionRu(target.value);
+  const handleChangeDescriptionRu = ({ target: { value } }) =>
+    setStocksDescriptionRu(value);
 
   const [stocksDescriptionUkr, setStocksDescriptionUkr] = useState('');
-  const handleChangeDescriptionUkr = ({ target }) =>
-    setStocksDescriptionUkr(target.value);
+  const handleChangeDescriptionUkr = ({ target: { value } }) =>
+    setStocksDescriptionUkr(value);
 
+  const [stock, setStock] = useState(null);
+  useEffect(() => {
+    setStock(editStock);
+    if (editStock) {
+      setStockFile(editStock.images);
+      setStockTitleEn(editStock.title.en);
+      setStocksDescriptionEn(editStock.description.en);
+      setStockTitleRu(editStock.title.ru);
+      setStocksDescriptionRu(editStock.description.ru);
+      setStockTitleUkr(editStock.title.ukr);
+      setStocksDescriptionUkr(editStock.description.ukr);
+    }
+  }, [editStock]);
+  console.log(stock);
   const handleSubmit = (e) => {
     e.preventDefault();
     const newStock = {
@@ -74,119 +87,115 @@ function AdminStocksEditor({
     setStockTitleUkr('');
     setStocksDescriptionUkr('');
     document.getElementById('formStocks').reset();
-    onCancel();
     document.getElementById('fileName').innerHTML = '';
+    onCancel();
   };
 
   return (
     <>
       {isLoading && <Spinner />}
-      {editMode === 'add' && (
-        <form className={styles.form} onSubmit={handleSubmit} id="formStocks">
-          <div
-            className={linkFile ? styles.fileUploadGreen : styles.fileUpload}
-          >
-            <label className={styles.uploadLabel}>
-              <input
-                type="file"
-                name="file"
-                id="uploadeFile"
-                className={styles.uploadInput}
-                onChange={handleLoadFile}
-              />
-              <span className={styles.uploadSpan}>
-                {stocksFile ? 'файл загружен' : 'загрузить файл'}
-              </span>
-            </label>
-          </div>
-          <div id="fileName" className={styles.fileName}></div>
-
-          <label className={styles.formLabel} htmlFor="promoNameEn">
-            Stock name
+      <form className={styles.form} onSubmit={handleSubmit} id="formStocks">
+        <div className={linkFile ? styles.fileUploadGreen : styles.fileUpload}>
+          <label className={styles.uploadLabel}>
+            <input
+              type="file"
+              name="file"
+              id="uploadeFile"
+              className={styles.uploadInput}
+              onChange={handleLoadFile}
+            />
+            <span className={styles.uploadSpan}>
+              {stocksFile ? 'файл загружен' : 'загрузить файл'}
+            </span>
           </label>
+        </div>
+        <div id="fileName" className={styles.fileName}></div>
 
-          <input
-            name="promoNameEn"
-            id="promoNameEn"
-            className={styles.formInput}
-            value={stocksTitleEn}
-            onChange={handleChangeTitleEn}
-          />
+        <label className={styles.formLabel} htmlFor="promoNameEn">
+          Stock name
+        </label>
 
-          <label className={styles.formLabel} htmlFor="promoDescriptionEn">
-            Stock Description
-          </label>
+        <input
+          name="promoNameEn"
+          id="promoNameEn"
+          className={styles.formInput}
+          value={stocksTitleEn}
+          onChange={handleChangeTitleEn}
+        />
 
-          <input
-            name="promoDescriptionEn"
-            id="promoDescriptionEn"
-            className={styles.formInput}
-            value={stocksDescriptionEn}
-            onChange={handleChangeDescriptionEn}
-          />
+        <label className={styles.formLabel} htmlFor="promoDescriptionEn">
+          Stock Description
+        </label>
 
-          <label className={styles.formLabel} htmlFor="promoNameRu">
-            Название акции
-          </label>
+        <input
+          name="promoDescriptionEn"
+          id="promoDescriptionEn"
+          className={styles.formInput}
+          value={stocksDescriptionEn}
+          onChange={handleChangeDescriptionEn}
+        />
 
-          <input
-            name="promoNameRu"
-            id="promoNameRu"
-            className={styles.formInput}
-            value={stocksTitleRu}
-            onChange={handleChangeTitleRu}
-          />
+        <label className={styles.formLabel} htmlFor="promoNameRu">
+          Название акции
+        </label>
 
-          <label className={styles.formLabel} htmlFor="promoDescriptionRu">
-            Описание акции
-          </label>
+        <input
+          name="promoNameRu"
+          id="promoNameRu"
+          className={styles.formInput}
+          value={stocksTitleRu}
+          onChange={handleChangeTitleRu}
+        />
 
-          <input
-            name="promoDescriptionRu"
-            id="promoDescriptionRu"
-            className={styles.formInput}
-            value={stocksDescriptionRu}
-            onChange={handleChangeDescriptionRu}
-          />
+        <label className={styles.formLabel} htmlFor="promoDescriptionRu">
+          Описание акции
+        </label>
 
-          <label className={styles.formLabel} htmlFor="promoNameUkr">
-            Назва акції
-          </label>
+        <input
+          name="promoDescriptionRu"
+          id="promoDescriptionRu"
+          className={styles.formInput}
+          value={stocksDescriptionRu}
+          onChange={handleChangeDescriptionRu}
+        />
 
-          <input
-            name="promoNameUkr"
-            id="promoNameUkr"
-            className={styles.formInput}
-            value={stocksTitleUkr}
-            onChange={handleChangeTitleUkr}
-          />
+        <label className={styles.formLabel} htmlFor="promoNameUkr">
+          Назва акції
+        </label>
 
-          <label className={styles.formLabel} htmlFor="promoDescriptionUkr">
-            Опис акції
-          </label>
+        <input
+          name="promoNameUkr"
+          id="promoNameUkr"
+          className={styles.formInput}
+          value={stocksTitleUkr}
+          onChange={handleChangeTitleUkr}
+        />
 
-          <input
-            name="promoDescriptionUkr"
-            id="promoDescriptionUkr"
-            className={styles.formInput}
-            value={stocksDescriptionUkr}
-            onChange={handleChangeDescriptionUkr}
-          />
+        <label className={styles.formLabel} htmlFor="promoDescriptionUkr">
+          Опис акції
+        </label>
 
-          {linkFile && (
-            <button type="submit" className={styles.formButton}>
-              <FormattedMessage id="promo.send" />
-            </button>
-          )}
-          <button
-            type="button"
-            onClick={cancelInput}
-            className={styles.formButton}
-          >
-            Отмена
+        <input
+          name="promoDescriptionUkr"
+          id="promoDescriptionUkr"
+          className={styles.formInput}
+          value={stocksDescriptionUkr}
+          onChange={handleChangeDescriptionUkr}
+        />
+
+        {linkFile && (
+          <button type="submit" className={styles.formButton}>
+            <FormattedMessage id="promo.send" />
           </button>
-        </form>
-      )}
+        )}
+        <button
+          type="button"
+          onClick={cancelInput}
+          className={styles.formButton}
+        >
+          Очистить форму
+        </button>
+      </form>
     </>
   );
 }
@@ -194,6 +203,7 @@ function AdminStocksEditor({
 const mapStateToProps = (state) => ({
   linkFile: stocksSelector.getFileLink(state),
   isLoading: stocksSelector.getLoading(state),
+  editStock: stocksSelector.getItem(state),
 });
 
 const mapDispatchToProps = {

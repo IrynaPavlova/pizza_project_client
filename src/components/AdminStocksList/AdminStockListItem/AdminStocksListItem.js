@@ -11,8 +11,9 @@ function AdminStocksListItem({
   onRemove,
   onChange,
 }) {
-  const handleClickOnChangeButton = (e) => {
+  const handleClickOnChangeButton = (id) => {
     window.scrollTo(0, 0);
+    onChange(id);
   };
 
   return (
@@ -36,7 +37,7 @@ function AdminStocksListItem({
         <button
           type="button"
           className={styles.button}
-          onClick={handleClickOnChangeButton}
+          onClick={() => handleClickOnChangeButton(id)}
         >
           Изменить акцию
         </button>
@@ -47,6 +48,7 @@ function AdminStocksListItem({
 
 const mapDispatchToProps = {
   onRemove: stocksOperation.deleteStock,
+  onChange: stocksOperation.getStockById,
 };
 
 export default connect(null, mapDispatchToProps)(AdminStocksListItem);
