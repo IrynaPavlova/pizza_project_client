@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import T from "prop-types";
 import { FormattedMessage } from "react-intl";
+import Notification from "../Notification";
 
 import styles from "./PizzaListItem.module.css";
 
@@ -8,18 +9,18 @@ import styles from "./PizzaListItem.module.css";
 
 class PizzaListItem extends Component {
   static propTypes = {
-    onAddProductToOrder: T.func
+    onAddProductToOrder: T.func,
   };
 
   state = {
-    selectedSize: "M"
+    selectedSize: "M",
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({ selectedSize: event.target.value });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     const selectedSize = this.state.selectedSize;
     event.preventDefault();
     this.props.onAddProductToOrder(this.props, selectedSize);
@@ -28,15 +29,25 @@ class PizzaListItem extends Component {
   render() {
     const product = this.props;
     const { selectedSize } = this.state;
+
+    const successMessage = "Продукт добавлен в корзину";
+    const errorMessage = "Этот продукт уже есть в корзине";
+
     return (
       <li key={product._id} className={styles.pizzaListCard}>
+        {this.props.successAddProdToOrder && (
+          <Notification message={successMessage} confirm />
+        )}
+        {this.props.errorAddProdToOrder && (
+          <Notification message={errorMessage} confirm />
+        )}
         <div className={styles.imageItemBlock}>
           <img src={product.images} className={styles.imageItem} alt="" />
         </div>
         <div className={styles.descriptionContainer}>
           <p className={styles.heading}>{product.name[this.props.local]}</p>
           <ul className={styles.ingredients}>
-            {product.ingredients.map(ingredient => (
+            {product.ingredients.map((ingredient) => (
               <li key={ingredient._id}>
                 <span className={styles.ingredientItem}>
                   {ingredient.name[this.props.local]}

@@ -5,12 +5,11 @@ import getSum from "../utils/getSum";
 import ShoppingCart from "./ShoppingCart";
 
 class ShoppingCartContainer extends Component {
-  
   render() {
     const amount = this.props.userOrderList.length;
     const totalPrice = getSum(this.props.userOrderList);
-    console.log("Amount:", amount);
-    console.log("Price:", totalPrice);
+    // console.log("Amount:", amount);
+    // console.log("Price:", totalPrice);
     return <ShoppingCart amount={amount} price={totalPrice} />;
   }
 }

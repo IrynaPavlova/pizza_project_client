@@ -1,7 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { orderOperations } from "../../redux/order";
+import { orderOperations, orderSelectors } from "../../redux/order";
 import { FormattedMessage } from "react-intl";
+import Notification from "../Notification";
 
 // import cheesecacke from '../../assets/img/desserts/cheesecacke.jpg';
 import styles from "./DessertsList.module.css";
@@ -25,14 +26,23 @@ const DessertListItem = (props) => {
   const local = useSelector((state) => state.local.lang);
 
   // const product = useSelector(state => state.products.items);
-  // const defaultSize = 'M'; // изменили на серваке, больше не обязательное, можно не передавать
   const dispatch = useDispatch();
   const onAddProductToOrder = () =>
     dispatch(orderOperations.addProdToOrderList(props));
 
-  // console.log(product);
+  const successAddProdToOrder = useSelector(
+    orderSelectors.successAddProdToOrder
+  );
+  const errorAddProdToOrder = useSelector(orderSelectors.errorAddProdToOrder);
+  const successMessage = "Продукт добавлен в корзину";
+  const errorMessage = "Этот продукт уже есть в корзине";
+
   return (
     <li className={dessertItem}>
+      {successAddProdToOrder && (
+        <Notification message={successMessage} confirm />
+      )}
+      {errorAddProdToOrder && <Notification message={errorMessage} confirm />}
       <img src={images} alt="" width="280" className={dessertImg} />
       <div className={dessertDescription}>
         <h2 className={dessertTittle}>{name[local]}</h2>
