@@ -35,6 +35,15 @@
   color: accentColor;
 }
 
+.orderListToPayText {
+  margin-top: 1px;
+  display: flex;
+  font-family: RobotoRegular;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-right: 5px;
+}
+
 .orderListTitle {
   font-family: OswaldRegular;
   font-weight: 500;
@@ -63,6 +72,10 @@
   }
   .orderListEmpty {
     margin-bottom: 50px;
+  }
+
+  .orderListToPayText {
+    font-size: 18px;
   }
 }
 

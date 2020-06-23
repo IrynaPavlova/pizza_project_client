@@ -59,6 +59,7 @@ const OrderList = ({
         )}
       </ul>
       <p className={styles.orderListPrice}>
+        <span className={styles.orderListToPayText}>К оплате:</span>
         {orderListPrice || "0"}
         <span className={styles.orderListPriceCurrency}> грн.</span>
       </p>
