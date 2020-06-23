@@ -8,6 +8,16 @@
   z-index: 4000;
 }
 
+.card_container {
+  background-color: red;
+  border-radius: 8px;
+  max-width: 260px;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  z-index: 4000;
+}
+
 .confirm {
   background-color: #00cc18;
 }
