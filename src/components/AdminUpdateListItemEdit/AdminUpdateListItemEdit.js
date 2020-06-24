@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 import { useLocation } from "react-router-dom";
+import ConfirmationWindow from "./ConfirmationWindow";
 import style from "./adminUpdateListItemEdit.module.css";
 import Spinner from "../../components/Spinner";
 import Axios from "axios";
@@ -19,14 +19,17 @@ const AdminUpdateListItemEdit = () => {
   const [nameUkr, setNameUkr] = useState(product.name.ukr);
   const [categories, setCategory] = useState(product.categories);
   const [subcategory, setSubcategory] = useState(product.subcategory);
-  const [price, setPrice] = useState(product.price.price);
+  const [priceNoPizza, setPriceNoPizza] = useState(product.price.price);
+  const [price, setPrice] = useState({});
   const [pricePizzaM, setPricePizzaM] = useState(product.price.M);
   const [pricePizzaL, setPricePizzaL] = useState(product.price.L);
   const [pricePizzaXL, setPricePizzaXL] = useState(product.price.XL);
   const [ingredients, setIngredients] = useState([...product.ingredients]);
   const [newIngredient, setNewIngredient] = useState(0);
   const [ingredientsList, setIngredientsList] = useState(null);
-  console.log(price);
+  const [description, setDescription] = useState(product.description);
+  console.log(product);
+  // console.log(price);
 
   useEffect(() => {
     Axios.get("https://evening-caverns-34846.herokuapp.com/ingredients")
@@ -39,11 +42,9 @@ const AdminUpdateListItemEdit = () => {
     if (categories === "pizza") {
       setPrice({ M: pricePizzaM, L: pricePizzaL, XL: pricePizzaXL });
     } else {
-      if (typeof price === "object") {
-        setPrice("");
-      }
+      setPrice({ price: priceNoPizza });
     }
-  }, [pricePizzaM, pricePizzaL, pricePizzaXL, categories]);
+  }, [pricePizzaM, pricePizzaL, pricePizzaXL, categories, priceNoPizza]);
   const deleteIngredient = (ev) => {
     ev.preventDefault();
     const delElemIndex = ingredients.findIndex(
@@ -72,12 +73,6 @@ const AdminUpdateListItemEdit = () => {
   const handleForm = (ev) => {
     ev.preventDefault();
     setIsLoading(false);
-    // if (categories === "pizza") {
-    //   setPrice({ M: pricePizzaM, L: pricePizzaM, XL: pricePizzaXL });
-
-    // }
-    console.log(price);
-
     const name = { ru: nameRu, ukr: nameUkr, en: nameEn };
     const editedItem = {
       ...product,
@@ -87,6 +82,7 @@ const AdminUpdateListItemEdit = () => {
       categories,
       subcategory,
       ingredients,
+      description,
     };
 
     Axios.put(
@@ -120,7 +116,7 @@ const AdminUpdateListItemEdit = () => {
       });
   };
   return (
-    <>
+    <div className={style.container}>
       {isLoading ? (
         <div className={style.editCard}>
           <img
@@ -128,7 +124,6 @@ const AdminUpdateListItemEdit = () => {
             alt={product.closeUpImages}
             className={style.editCard__image}
           />
-
           <form id="editForm" onSubmit={handleForm} className={style.editForm}>
             <h4 className={style.editCard__title}>
               <FormattedMessage id="photo" />
@@ -148,26 +143,26 @@ const AdminUpdateListItemEdit = () => {
               <FormattedMessage id="product.name" />
             </h4>
             <div className={style.editCard__titleName}>
-              <p className={style.editCard__titleLang}>Ru</p>
+              <p className={style.editCard__titleLang}>ru</p>
               <input
                 type="text"
                 value={nameRu}
                 onChange={(ev) => setNameRu(ev.target.value)}
-                className={style.editForm__input}
+                className={style.editForm__inputLang}
               />
-              <p className={style.editCard__titleLang}>En</p>
+              <p className={style.editCard__titleLang}>en</p>
               <input
                 type="text"
                 value={nameEn}
                 onChange={(ev) => setNameEn(ev.target.value)}
-                className={style.editForm__input}
+                className={style.editForm__inputLang}
               />
-              <p className={style.editCard__titleLang}>Ukr</p>
+              <p className={style.editCard__titleLang}>ukr</p>
               <input
                 type="text"
                 value={nameUkr}
                 onChange={(ev) => setNameUkr(ev.target.value)}
-                className={style.editForm__input}
+                className={style.editForm__inputLang}
               />
             </div>
             <h4 className={style.editCard__title}>
@@ -177,7 +172,7 @@ const AdminUpdateListItemEdit = () => {
               type="text"
               value={categories}
               onChange={(ev) => setCategory(ev.target.value)}
-              className={style.editForm__input}
+              className={style.editForm__inputCategory}
             />
             {categories === "pizza" && (
               <>
@@ -188,7 +183,7 @@ const AdminUpdateListItemEdit = () => {
                   type="text"
                   value={subcategory}
                   onChange={(ev) => setSubcategory(ev.target.value)}
-                  className={style.editForm__input}
+                  className={style.editForm__inputCategory}
                 />
               </>
             )}
@@ -204,10 +199,14 @@ const AdminUpdateListItemEdit = () => {
                   <button
                     type="button"
                     onClick={deleteIngredient}
-                    className={style.editForm__ingredientBtnDel}
                     data-id={el._id}
+                    className={style.editForm__ingredientBtnDel}
                   >
-                    &#10006;
+                    <img
+                      src="/static/media/remove_order_item_button.56fe91b0.svg"
+                      alt="del"
+                      className={style.editForm__ingredientBtnDelImage}
+                    ></img>
                   </button>
                 </li>
               ))}
@@ -252,27 +251,41 @@ const AdminUpdateListItemEdit = () => {
                   type="text"
                   value={pricePizzaM}
                   onChange={(ev) => setPricePizzaM(ev.target.value)}
+                  className={style.editForm__priceInput}
                 />
                 <h4 className={style.editForm__priceTitle}>L</h4>
                 <input
                   type="text"
                   value={pricePizzaL}
                   onChange={(ev) => setPricePizzaL(ev.target.value)}
+                  className={style.editForm__priceInput}
                 />
                 <h4 className={style.editForm__priceTitle}>XL</h4>
                 <input
                   type="text"
                   value={pricePizzaXL}
                   onChange={(ev) => setPricePizzaXL(ev.target.value)}
+                  className={style.editForm__priceInput}
                 />
               </div>
             ) : (
-              <input
-                type="text"
-                value={price}
-                onChange={(ev) => setPrice(ev.target.value)}
-                className={style.editForm__inputSinglePrice}
-              />
+              <>
+                <input
+                  type="text"
+                  value={priceNoPizza}
+                  onChange={(ev) => setPriceNoPizza(ev.target.value)}
+                  className={style.editForm__inputSinglePrice}
+                />
+                <p className={style.editCard__title}>
+                  <FormattedMessage id="product.description" />
+                </p>
+                <input
+                  type="text"
+                  value={description}
+                  onChange={(ev) => setDescription(ev.target.value)}
+                  className={style.editForm__inputDescription}
+                />
+              </>
             )}
           </form>
           <button
@@ -292,26 +305,14 @@ const AdminUpdateListItemEdit = () => {
           >
             <FormattedMessage id="delete product" />
           </button>
-          {confirmEdit && (
-            <div className={style.confirmation}>
-              <div className={style.confirmation__form}>
-                <p className={style.confirmation__formText}>{confirmEdit}</p>
-                <Link
-                  to="/admin/update-product"
-                  className={style.confirmation__formBtnLink}
-                >
-                  <button type="button" className={style.confirmation__formBtn}>
-                    <FormattedMessage id="return back" />
-                  </button>
-                </Link>
-              </div>
-            </div>
-          )}
+          <div onClick={() => setConfirmEdit(false)}>
+            {confirmEdit && <ConfirmationWindow confirmMassage={confirmEdit} />}
+          </div>
         </div>
       ) : (
         <Spinner />
       )}
-    </>
+    </div>
   );
 };
 export default AdminUpdateListItemEdit;
