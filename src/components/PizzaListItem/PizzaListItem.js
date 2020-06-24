@@ -89,17 +89,19 @@ class PizzaListItem extends Component {
                   </li>
                 ))}
               </ul>
-
-              <span className={styles.price}>
-                {product.price[selectedSize]}.00
-              </span>
-              <span className={styles.currency}>
-                <FormattedMessage id="grn" />
-              </span>
-
-              <button type="submit" className={styles.addCart}>
-                <FormattedMessage id="orders.chart" />
-              </button>
+              <div className={styles.sizePriceButtonWrapper}>
+                <div className={styles.sizePriceWrapper}>
+                  <span className={styles.price}>
+                    {product.price[selectedSize]}.00
+                  </span>
+                  <span className={styles.currency}>
+                    <FormattedMessage id="grn" />
+                  </span>
+                </div>
+                <button type="submit" className={styles.addCart}>
+                  <FormattedMessage id="orders.chart" />
+                </button>
+              </div>
             </div>
           </form>
         </div>
