@@ -1,0 +1,644 @@
+[
+  
+  {
+    "categories": "pizza",
+    "images": [
+      "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
+    ],
+    "closeUpImages": [
+      "https:evening-caverns-34846.herokuapp.com/upload_ac420720f3efb3b2121aa58b2abe92f6"
+    ],
+    "ingredients": [
+      { "_id": "5e85182d1c9d440000703883", "name": "моцарелла" },
+      { "_id": "5e9f56511c9d4400008812cd", "name": "пепперони" },
+      { "_id": "5e8517461c9d440000703881", "name": "помидоры" },
+      { "_id": "5e8519211c9d440000703886", "name": "соус барбекю" }
+    ],
+    "_id": "5e7a11285661db31d9c0b65e",
+    "subcategory": "classic",
+    "sku": 1120001,
+    "name": "Пепперони с томатами",
+    "description": "",
+    "price": { "M": "100", "L": "120", "XL": "140" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:01:12.762Z",
+    "createdAt": "2020-03-24T13:54:48.070Z",
+    "__v": 0
+  },
+  {
+    "categories": "pizza",
+    "images": [
+      "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
+    ],
+    "closeUpImages": [
+      "https:evening-caverns-34846.herokuapp.com/upload_31e07f86657d7fc10cee343b16acc662"
+    ],
+    "ingredients": [
+      { "_id": "5e85182d1c9d440000703883", "name": "моцарелла" },
+      { "_id": "5e9f56751c9d4400008812ce", "name": "соус томатный" }
+    ],
+    "_id": "5e7a11955661db31d9c0b65f",
+    "subcategory": "classic",
+    "sku": 1120002,
+    "name": "Маргарита",
+    "description": "",
+    "price": { "M": "80", "L": "100", "XL": "120" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:02:14.136Z",
+    "createdAt": "2020-03-24T13:56:37.340Z",
+    "__v": 0
+  },
+  {
+    "categories": "pizza",
+    "images": [
+      "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
+    ],
+    "closeUpImages": [
+      "https:evening-caverns-34846.herokuapp.com/upload_d00097f0e3b337b774ed639311091f9b"
+    ],
+    "ingredients": [
+      { "_id": "5e8518601c9d440000703884", "name": "курица" },
+      { "_id": "5e8518b91c9d440000703885", "name": "ананасы" },
+      { "_id": "5e85182d1c9d440000703883", "name": "моцарелла" },
+      { "_id": "5e9f56751c9d4400008812ce", "name": "соус томатный" }
+    ],
+    "_id": "5e7a11c6751c2a325ed1452e",
+    "subcategory": "classic",
+    "sku": 1120003,
+    "name": "Гавайская",
+    "description": "",
+    "price": { "M": "140", "L": "160", "XL": "180" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:02:50.486Z",
+    "createdAt": "2020-03-24T13:57:26.209Z",
+    "__v": 0
+  },
+  {
+    "categories": "pizza",
+    "images": [
+      "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
+    ],
+    "closeUpImages": [
+      "https:evening-caverns-34846.herokuapp.com/upload_56ef87d85a61eccaf3b9ce1b5d9e57ab"
+    ],
+    "ingredients": [
+      { "_id": "5e8518601c9d440000703884", "name": "курица" },
+      { "_id": "5e9f56b31c9d4400008812cf", "name": "лук" },
+      { "_id": "5e9f56d01c9d4400008812d0", "name": "бекон" },
+      { "_id": "5e9f56ef1c9d4400008812d1", "name": "грибы" },
+      { "_id": "5e85182d1c9d440000703883", "name": "моцарелла" },
+      { "_id": "5e8519211c9d440000703886", "name": "соус барбекю" }
+    ],
+    "_id": "5e7a12010d0c29326ed2ad86",
+    "subcategory": "branded",
+    "sku": 1120004,
+    "name": "Барбекю",
+    "description": "",
+    "price": { "M": "140", "L": "160", "XL": "180" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:03:28.744Z",
+    "createdAt": "2020-03-24T13:58:25.577Z",
+    "__v": 0
+  },
+  {
+    "categories": "pizza",
+    "images": [
+      "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
+    ],
+    "closeUpImages": [
+      "https:evening-caverns-34846.herokuapp.com/upload_4e15a136cbe3c1d32de9097cd4170bdd"
+    ],
+    "ingredients": [
+      { "_id": "5e9f570f1c9d4400008812d2", "name": "оливки" },
+      { "_id": "5e9f56b31c9d4400008812cf", "name": "лук" },
+      { "_id": "5e85197d1c9d440000703887", "name": "болгарский перец" },
+      { "_id": "5e9f56ef1c9d4400008812d1", "name": "грибы" },
+      { "_id": "5e85182d1c9d440000703883", "name": "моцарелла" },
+      { "_id": "5e8517461c9d440000703881", "name": "помидоры" },
+      { "_id": "5e9f56751c9d4400008812ce", "name": "соус томатный" }
+    ],
+    "_id": "5e7a122bceaced32bfb2ce3e",
+    "subcategory": "classic",
+    "sku": 1120005,
+    "name": "Овощная",
+    "description": "",
+    "price": { "M": "110", "L": "130", "XL": "150" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:04:50.607Z",
+    "createdAt": "2020-03-24T13:59:07.229Z",
+    "__v": 0
+  },
+  {
+    "categories": "pizza",
+    "images": [
+      "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
+    ],
+    "closeUpImages": [
+      "https:evening-caverns-34846.herokuapp.com/upload_25dd0bd5e46c02468febf5d977a1a964"
+    ],
+    "ingredients": [
+      { "_id": "5e9f572e1c9d4400008812d3", "name": "пармезан" },
+      { "_id": "5e9f57521c9d4400008812d4", "name": "колбаски баварские" },
+      { "_id": "5e85182d1c9d440000703883", "name": "моцарелла" },
+      { "_id": "5e8519211c9d440000703886", "name": "соус барбекю" }
+    ],
+    "_id": "5e7a12518dc6d632de113d51",
+    "subcategory": "branded",
+    "sku": 1120007,
+    "name": "Баварская",
+    "description": "",
+    "price": { "M": "150", "L": "170", "XL": "190" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:05:47.332Z",
+    "createdAt": "2020-03-24T13:59:45.029Z",
+    "__v": 0
+  },
+  {
+    "categories": "drinks",
+    "images": [
+      "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
+    ],
+    "closeUpImages": [],
+    "ingredients": [],
+    "_id": "5e7a12ac663deb32f1667629",
+    "sku": 1120008,
+    "name": "Пиво Hoegaarden",
+    "description": "0.5L",
+    "price": { "price": "50" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:07:19.061Z",
+    "createdAt": "2020-03-24T14:01:16.288Z",
+    "__v": 0
+  },
+  {
+    "categories": "drinks",
+    "images": [
+      "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
+    ],
+    "closeUpImages": [],
+    "ingredients": [],
+    "_id": "5e7a12db74e9a33305b1c0bd",
+    "sku": 1120009,
+    "name": "Сок апельсиновый Sandora",
+    "description": "1L",
+    "price": { "price": "30" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:08:15.933Z",
+    "createdAt": "2020-03-24T14:02:03.318Z",
+    "__v": 0
+  },
+  {
+    "categories": "pizza",
+    "images": [
+      "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ0"
+    ],
+    "closeUpImages": [
+      "https:evening-caverns-34846.herokuapp.com/upload_f32a8a682706c557f787931f5c7a9bc9"
+    ],
+    "ingredients": [
+      { "_id": "5e9f58581c9d4400008812d9", "name": "чеддер" },
+      { "_id": "5e9f572e1c9d4400008812d3", "name": "пармезан" },
+      { "_id": "5e85182d1c9d440000703883", "name": "моцарелла" },
+      { "_id": "5e9f58741c9d4400008812da", "name": "фета" },
+      { "_id": "5e9f74171c9d4400008812dd", "name": "данаблю" },
+      { "_id": "5e9f57b21c9d4400008812d6", "name": "соус сливочный" }
+    ],
+    "_id": "5e9f67662aaf9056fbca5db2",
+    "subcategory": "premium",
+    "sku": 1120006,
+    "name": "Пять сыров",
+    "description": "",
+    "price": { "M": "170", "L": "190", "XL": "210" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "createdAt": "2020-04-21T21:36:38.425Z",
+    "updatedAt": "2020-06-09T13:09:46.316Z",
+    "__v": 0
+  },
+  {
+    "categories": "pizza",
+    "images": [
+      "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
+    ],
+    "closeUpImages": [
+      "https:evening-caverns-34846.herokuapp.com/upload_f6f3feb5c163276e777da76b807ed46f"
+    ],
+    "ingredients": [
+      { "_id": "5e9f56b31c9d4400008812cf", "name": "лук" },
+      { "_id": "5e9f56d01c9d4400008812d0", "name": "бекон" },
+      { "_id": "5e9f57721c9d4400008812d5", "name": "ветчина" },
+      { "_id": "5e9f56ef1c9d4400008812d1", "name": "грибы" },
+      { "_id": "5e9f57dc1c9d4400008812d7", "name": "огурцы маринованные" },
+      { "_id": "5e9f57fa1c9d4400008812d8", "name": "соус чесночный" }
+    ],
+    "_id": "5e9f69882aaf9056fbca5db4",
+    "subcategory": "branded",
+    "sku": 1120009,
+    "name": "Кантри",
+    "description": "",
+    "price": { "M": "140", "L": "160", "XL": "180" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "createdAt": "2020-04-21T21:45:44.147Z",
+    "updatedAt": "2020-06-09T13:10:34.924Z",
+    "__v": 0
+  },
+  {
+    "categories": "pizza",
+    "images": [
+      "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
+    ],
+    "closeUpImages": [
+      "https:evening-caverns-34846.herokuapp.com/upload_0d4044906182a89cc8c2ba3f53d3425e"
+    ],
+    "ingredients": [
+      { "_id": "5e9f58a21c9d4400008812db", "name": "крем-сыр Филадельфия" },
+      { "_id": "5e9f58e11c9d4400008812dc", "name": "лосось" },
+      { "_id": "5e85182d1c9d440000703883", "name": "моцарелла" },
+      { "_id": "5e9f57b21c9d4400008812d6", "name": "соус сливочный" }
+    ],
+    "_id": "5e9f6b702aaf9056fbca5db5",
+    "subcategory": "premium",
+    "sku": 1120010,
+    "name": "Лосось Фила",
+    "description": "",
+    "price": { "M": "200", "L": "220", "XL": "240" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "createdAt": "2020-04-21T21:53:52.318Z",
+    "updatedAt": "2020-06-09T13:11:35.784Z",
+    "__v": 0
+  },
+  {
+    "categories": "drinks",
+    "images": [
+      "https:evening-caverns-34846.herokuapp.com/upload_122fc2cc750207d76e0460f27d26bd5a"
+    ],
+    "closeUpImages": [],
+    "ingredients": [],
+    "_id": "5e9f6d4d2aaf9056fbca5db7",
+    "sku": 1120011,
+    "name": "Пиво Stella Artois",
+    "description": "0.5L",
+    "price": { "price": "30" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "createdAt": "2020-04-21T22:01:49.715Z",
+    "updatedAt": "2020-06-09T13:14:07.501Z",
+    "__v": 0
+  },
+  {
+    "categories": "drinks",
+    "images": [
+      "https:evening-caverns-34846.herokuapp.com/upload_b1a57ca44d015d20ca6ea39a1bc63d98"
+    ],
+    "closeUpImages": [],
+    "ingredients": [],
+    "_id": "5e9f6dbf1c9d44000022b4c6",
+    "sku": 1120012,
+    "name": "Сок томатный Sandora",
+    "description": "1L",
+    "price": { "price": "30" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:16:27.925Z",
+    "createdAt": "2020-03-24T14:02:03.318Z",
+    "__v": 0
+  },
+  {
+    "categories": "drinks",
+    "images": [
+      "https:evening-caverns-34846.herokuapp.com/upload_d0e85fdf22ccf8bf3e5344dac3cc6564"
+    ],
+    "closeUpImages": [],
+    "ingredients": [],
+    "_id": "5e9f6e261c9d44000022b4c8",
+    "sku": 1120013,
+    "name": "Pepsi",
+    "description": "0.5L",
+    "price": { "price": "25" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:17:48.024Z",
+    "createdAt": "2020-03-24T14:02:03.318Z",
+    "__v": 0
+  },
+  {
+    "categories": "drinks",
+    "images": [
+      "https:evening-caverns-34846.herokuapp.com/upload_8f491068841d852ff3234c7fa83660f1"
+    ],
+    "closeUpImages": [],
+    "ingredients": [],
+    "_id": "5e9f6e5f1c9d44000022b4c9",
+    "sku": 1120013,
+    "name": "Aqua Minerale",
+    "description": "0.5L",
+    "price": { "price": "20" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:18:25.961Z",
+    "createdAt": "2020-03-24T14:02:03.318Z",
+    "__v": 0
+  },
+  {
+    "categories": "sides",
+    "images": [
+      "https:evening-caverns-34846.herokuapp.com/upload_8ef3f78a0a9c60819627a4c1a2007f4a"
+    ],
+    "closeUpImages": [],
+    "ingredients": [],
+    "_id": "5e9f6eee1c9d44000022b4cb",
+    "sku": 1120014,
+    "name": "Куриные стрипсы",
+    "description": "275 г.",
+    "price": { "price": "120" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:19:35.974Z",
+    "createdAt": "2020-03-24T14:02:03.318Z",
+    "__v": 0
+  },
+  {
+    "categories": "sides",
+    "images": [
+      "https:evening-caverns-34846.herokuapp.com/upload_c6f89969c124037e374f300810432b28"
+    ],
+    "closeUpImages": [],
+    "ingredients": [],
+    "_id": "5e9f6fbc1c9d44000022b4cc",
+    "sku": 1120015,
+    "name": "Куриные крылышки",
+    "description": "240 г.",
+    "price": { "price": "120" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:20:05.829Z",
+    "createdAt": "2020-03-24T14:02:03.318Z",
+    "__v": 0
+  },
+  {
+    "categories": "sides",
+    "images": [
+      "https:evening-caverns-34846.herokuapp.com/upload_6a11e9d9c3e1cff5170fd38066ed1b16"
+    ],
+    "closeUpImages": [],
+    "ingredients": [],
+    "_id": "5e9f6ff21c9d44000022b4cd",
+    "sku": 1120016,
+    "name": "Картофель по-селянски",
+    "description": "200 г.",
+    "price": { "price": "60" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:20:38.908Z",
+    "createdAt": "2020-03-24T14:02:03.318Z",
+    "__v": 0
+  },
+  {
+    "categories": "desserts",
+    "images": [
+      "https:evening-caverns-34846.herokuapp.com/upload_480cec6149b452cd2ea40e7f498299df"
+    ],
+    "closeUpImages": [],
+    "ingredients": [],
+    "_id": "5e9f70611c9d44000022b4ce",
+    "sku": 1120017,
+    "name": "Шоколадный фондан",
+    "description": "100 г.",
+    "price": { "price": "60" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:21:30.192Z",
+    "createdAt": "2020-03-24T14:02:03.318Z",
+    "__v": 0
+  },
+  {
+    "categories": "desserts",
+    "images": [
+      "https:evening-caverns-34846.herokuapp.com/upload_dc21fdcd6ec4242143c21f74febacedd"
+    ],
+    "closeUpImages": [],
+    "ingredients": [],
+    "_id": "5e9f70b01c9d44000022b4cf",
+    "sku": 1120018,
+    "name": "Чизкейк",
+    "description": "150 г.",
+    "price": { "price": "70" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:22:22.924Z",
+    "createdAt": "2020-03-24T14:02:03.318Z",
+    "__v": 0
+  },
+  {
+    "categories": "desserts",
+    "images": [
+      "https:evening-caverns-34846.herokuapp.com/upload_d5d4d938585ac464c9161687b3a8fc54"
+    ],
+    "closeUpImages": [],
+    "ingredients": [],
+    "_id": "5e9f70d71c9d44000022b4d0",
+    "sku": 1120019,
+    "name": "Тирамису",
+    "description": "120 г.",
+    "price": { "price": "70" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "updatedAt": "2020-06-09T13:23:51.523Z",
+    "createdAt": "2020-03-24T14:02:03.318Z",
+    "__v": 0
+  },
+  {
+    "categories": "drinks",
+    "images": [
+      "https:evening-caverns-34846.herokuapp.com/upload_ee423fa860858b79f80329a2018a3941"
+    ],
+    "closeUpImages": [],
+    "ingredients": [],
+    "_id": "5ea1e2c616fe737ab38f7a95",
+    "sku": 1120020,
+    "name": "7Up",
+    "description": "0.5L",
+    "price": { "price": "25" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "createdAt": "2020-04-23T18:47:34.060Z",
+    "updatedAt": "2020-06-09T13:24:34.047Z",
+    "__v": 0
+  },
+  {
+    "categories": "drinks",
+    "images": [
+      "https:evening-caverns-34846.herokuapp.com/upload_156dba994e4470b7231ca67e476b1acd"
+    ],
+    "closeUpImages": [],
+    "ingredients": [],
+    "_id": "5ea1e2f416fe737ab38f7a96",
+    "sku": 1120021,
+    "name": "Mirinda",
+    "description": "0.5L",
+    "price": { "price": "25" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "createdAt": "2020-04-23T18:48:20.706Z",
+    "updatedAt": "2020-06-09T13:25:13.553Z",
+    "__v": 0
+  },
+  {
+    "categories": "desserts",
+    "images": [
+      "https:evening-caverns-34846.herokuapp.com/upload_63ed39067923dbb544d1cd2fa3cf83ff"
+    ],
+    "closeUpImages": [],
+    "ingredients": [],
+    "_id": "5ea1ebd516fe737ab38f7a97",
+    "sku": 1120022,
+    "name": "Шоколадный синнабон",
+    "description": "150 г.",
+    "price": { "price": "60" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "createdAt": "2020-04-23T19:26:13.811Z",
+    "updatedAt": "2020-06-09T13:37:44.112Z",
+    "__v": 0
+  },
+  {
+    "categories": "sides",
+    "images": [
+      "https:evening-caverns-34846.herokuapp.com/upload_a4c78831c0c62dae363d166d2d1c557a"
+    ],
+    "closeUpImages": [],
+    "ingredients": [],
+    "_id": "5ea1ec8616fe737ab38f7a98",
+    "sku": 1120023,
+    "name": "Хлебец с сыром",
+    "description": "200 г.",
+    "price": { "price": "80" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "createdAt": "2020-04-23T19:29:10.413Z",
+    "updatedAt": "2020-06-10T12:59:29.604Z",
+    "__v": 0
+  },
+  {
+    "categories": "pizza",
+    "images": [
+      "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
+    ],
+    "closeUpImages": [
+      "https:evening-caverns-34846.herokuapp.com/upload_d7a673a5c3c3d97c418858074f7f2f16"
+    ],
+    "ingredients": [
+      { "_id": "5e9f56b31c9d4400008812cf", "name": "лук" },
+      { "_id": "5e9f56d01c9d4400008812d0", "name": "бекон" },
+      { "_id": "5e9f57721c9d4400008812d5", "name": "ветчина" },
+      { "_id": "5e9f56ef1c9d4400008812d1", "name": "грибы" },
+      { "_id": "5e85182d1c9d440000703883", "name": "моцарелла" },
+      { "_id": "5e9f57b21c9d4400008812d6", "name": "соус сливочный" }
+    ],
+    "_id": "5ea1ef6d16fe737ab38f7a99",
+    "subcategory": "branded",
+    "sku": 1120023,
+    "name": "Карбонара",
+    "description": "",
+    "price": { "M": "160", "L": "180", "XL": "200" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "createdAt": "2020-04-23T19:41:34.028Z",
+    "updatedAt": "2020-06-09T13:27:52.354Z",
+    "__v": 0
+  },
+  {
+    "categories": "pizza",
+    "images": [
+      "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ9"
+    ],
+    "closeUpImages": [
+      "https:evening-caverns-34846.herokuapp.com/upload_c737143e6485e8b07711a4fd85405106"
+    ],
+    "ingredients": [
+      { "_id": "5ea1f0a6a0cf9167c66d0ff1", "name": "говядина" },
+      { "_id": "5ea1f0cba0cf9167c66d0ff2", "name": "соус бургер" },
+      { "_id": "5e9f56b31c9d4400008812cf", "name": "лук" },
+      { "_id": "5e9f58581c9d4400008812d9", "name": "чеддер" }
+    ],
+    "_id": "5ea1f14b16fe737ab38f7a9a",
+    "subcategory": "premium",
+    "sku": 1120024,
+    "name": "Чизбургер",
+    "description": "",
+    "price": { "M": "180", "L": "200", "XL": "220" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "createdAt": "2020-04-23T19:49:31.696Z",
+    "updatedAt": "2020-06-09T13:28:33.241Z",
+    "__v": 0
+  },
+  {
+    "categories": "pizza",
+    "images": [
+      "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/recipe_legacy/1344-3-large.jpg?itok=n_EPr6zZ"
+    ],
+    "closeUpImages": [
+      "https:evening-caverns-34846.herokuapp.com/upload_974fd80800857653bcc51831374705af"
+    ],
+    "ingredients": [
+      { "_id": "5e9f58741c9d4400008812da", "name": "фета" },
+      { "_id": "5e9f570f1c9d4400008812d2", "name": "оливки" },
+      { "_id": "5e85197d1c9d440000703887", "name": "болгарский перец" },
+      { "_id": "5e9f56ef1c9d4400008812d1", "name": "грибы" },
+      { "_id": "5e85182d1c9d440000703883", "name": "моцарелла" },
+      { "_id": "5e8517461c9d440000703881", "name": "помидоры" },
+      { "_id": "5e9f57b21c9d4400008812d6", "name": "соус сливочный" },
+      { "_id": "5ea1f27da0cf9167c66d0ff3", "name": "шпинат" }
+    ],
+    "_id": "5ea1f33c16fe737ab38f7a9c",
+    "subcategory": "premium",
+    "sku": 1120024,
+    "name": "Шпинат и фета",
+    "description": "",
+    "price": { "M": "170", "L": "190", "XL": "210" },
+    "currency": "грн",
+    "creatorId": 1,
+    "likes": 0,
+    "createdAt": "2020-04-23T19:57:48.497Z",
+    "updatedAt": "2020-06-09T13:29:18.963Z",
+    "__v": 0
+  }
+]

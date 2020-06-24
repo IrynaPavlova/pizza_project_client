@@ -1,0 +1,44 @@
+@value variables: '../../stylesheet/vars.css';
+@value accentColor, lightColor, secondaryTextFontSize from variables;
+
+.shoppingCartWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.productsAmount {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: accentColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productsAmountText {
+  font-family: RobotoRegular;
+  font-size: 12px;
+  color: lightColor;
+  text-transform: uppercase;
+}
+
+.productsPriceWrapper {
+  padding: 20px;
+}
+
+.productsPrice {
+  font-family: RobotoBold;
+  font-size: secondaryTextFontSize;
+  color: accentColor;
+}
+
+.productsPrice b {
+  font-size: 0.8rem;
+}

@@ -19,4 +19,8 @@ const postImage = (file) => {
     return axios.post(`${baseURL}/images`, data);
 };
 
-export {getAllIngredients, postNewProduct, postImage}
+function fetchDevs() {
+  return axios.get('/developers');
+}
+
+export { fetchDevs, getAllIngredients, postNewProduct, postImage };

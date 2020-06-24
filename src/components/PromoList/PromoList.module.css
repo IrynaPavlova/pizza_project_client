@@ -1,0 +1,13 @@
+.promoList {
+  display: flex;
+  flex-direction: column;
+  max-width: 280px;
+  padding-top: 20px;
+  margin: 0 auto 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .promoList {
+    max-width: 720px;
+  }
+}

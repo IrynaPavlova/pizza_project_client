@@ -1,37 +1,58 @@
-import React from "react";
-import {BrowserRouter, Switch, Route, Redirect} from "react-router-dom";
-import {routes} from "../services/routes";
-import MainPage from "../pages/MainPage/MainPage";
-import OrderPage from "../pages/OrderPage/OrderPage";
-import Header from "./Header";
-import CreateNewProductButton from "../admin/CreateNewProductButton";
+import React, { Suspense, useEffect } from "react";
+import { BrowserRouter, Switch } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { IntlProvider } from "react-intl";
 
+import { authOperations } from "../redux/auth";
+import { authSelectors } from "../redux/auth";
+
+import PrivatRoute from "./PrivatRoute";
+import PublicRoute from "./PublicRoute";
+import routes from "../services/routesWithComponent";
+
+import Header from "./Header";
+import Spinner from "./Spinner";
+import Footer from "./Footer/Footer";
+
+import localMessages from "../languages";
 const App = () => {
-    return (
-        <BrowserRouter>
-            <Header/>
-            <CreateNewProductButton/>
-            <Switch>
-                <Route path={routes.MAIN_PAGE} exact component={MainPage}/>
-                <Route path={routes.ORDER_PAGE} component={OrderPage}/>
-                <Redirect to="#"/>
-            </Switch>
-            {/*<Footer/>*/}
-        </BrowserRouter>
-    );
+  const dispatch = useDispatch();
+  const local = useSelector((state) => state.local.lang);
+  const isAdmin = useSelector(authSelectors.getUserRole) === "admin";
+  const isAuthenticated = useSelector(authSelectors.isAuthenticated);
+
+  useEffect(() => {
+    dispatch(authOperations.getCurrentUser());
+  }, [dispatch]);
+
+  return (
+    <IntlProvider
+      locale={local}
+      defaultLocale="ru"
+      messages={localMessages[local]}
+    >
+      <BrowserRouter>
+        <Header />
+        <Suspense fallback={<Spinner />}>
+          <Switch>
+            {routes.map((route) =>
+              route.private ? (
+                <PrivatRoute key={route.label} {...route} isAdmin={isAdmin} />
+              ) : (
+                <PublicRoute
+                  key={route.label}
+                  {...route}
+                  isAuthenticated={isAuthenticated}
+                  restricted={route.restricted}
+                />
+              )
+            )}
+          </Switch>
+        </Suspense>
+        <Footer />
+      </BrowserRouter>
+    </IntlProvider>
+  );
 };
 
 export default App;
-
-// Rokkitt;
-// bold 700
-
-// Oswald;
-// bold
-// normal
-// 500
-
-// Roboto
-// normal
-// bold
-// 500

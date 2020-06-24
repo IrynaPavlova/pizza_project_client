@@ -1,0 +1,88 @@
+@import "../../stylesheet/fonts.css";
+
+.sliderWrapper {
+  position: relative;
+  max-width: 1200px;
+  height: 350px;
+  margin: 0 auto;
+}
+
+.sliderOverlay {
+  position: absolute;
+  width: 100%;
+  height: 350px;
+  left: 0px;
+  top: 0px;
+  background: rgba(39, 39, 39, 0.6);
+}
+
+.sliderImg {
+  object-fit: cover;
+}
+
+.sliderContent {
+  position: absolute;
+  padding-right: 25px;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-45%) translateY(-50%);
+}
+
+.slidePromoName {
+  color: snow;
+  text-transform: uppercase;
+  font-family: OswaldBold;
+  font-style: normal;
+  font-size: 28px;
+  line-height: 46px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.sliderPromoDescription {
+  color: snow;
+  font-family: RobotoBold;
+  font-style: normal;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.145em;
+  margin-left: 65px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.sliderPromoDescription::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 0;
+  transform: translateX(0);
+  width: 50px;
+  height: 4px;
+  background-color: #ff6c00;
+}
+
+@media (min-width: 768px) {
+  .sliderWrapper {
+    height: 500px;
+  }
+
+  .sliderOverlay {
+    height: 500px;
+  }
+
+  .slidePromoName {
+    font-size: 56px;
+    line-height: 90px;
+  }
+
+  .sliderPromoDescription {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .sliderPromoDescription::before {
+    top: 4px;
+  }
+}

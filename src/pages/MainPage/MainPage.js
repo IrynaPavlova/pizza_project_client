@@ -1,11 +1,28 @@
-import React from "react";
-// import { Switch, Route } from 'react-router-dom';
-// import { routes } from '../../servises/routes';
-// import styles from './MainPage.module.css';
-//import Header from "../../components/Header";
+import React, { Suspense, useState, useEffect } from "react";
+import axios from "axios";
+
+import Slider from "../../components/Slider";
+import Spinner from "../../components/Spinner";
+import ProductContainer from "../../components/ProductContainer";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import PizzaList from "../../components/PizzaList/PizzaListContainer.js";
 
 const MainPage = () => {
-  return <main>{/* <Header /> */}</main>;
+  const [promoCollection, setpromoColection] = useState([]);
+  useEffect(() => {
+    axios.get("/promo").then(({ data }) => setpromoColection(data.promo));
+  }, []);
+  return (
+    <>
+      <Slider items={promoCollection} />
+      <Suspense fallback={<Spinner />}>
+        <ProductContainer>
+          <PizzaList />
+        </ProductContainer>
+      </Suspense>
+    </>
+  );
 };
 
 export default MainPage;

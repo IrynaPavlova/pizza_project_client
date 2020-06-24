@@ -1,3 +1,30 @@
+@value borderColor,primaryHeaderFontSize,primaryTextFontSize from "../../stylesheet/vars.css";
+
 .list {
   display: flex;
+}
+
+.OrderPageContainer {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  font-family: RobotoRegular;
+  font-size: primaryTextFontSize;
+}
+
+.line {
+  margin-bottom: 20px;
+  border: none; /* Убираем границу для браузера Firefox */
+  color: borderColor; /* Цвет линии для остальных браузеров */
+  background-color: borderColor; /* Цвет линии для браузера Firefox и Opera */
+  height: 1px;
+}
+
+@media (min-width: 768px) {
+  .OrderPageContainer {
+    margin-bottom: 64px;
+  }
 }

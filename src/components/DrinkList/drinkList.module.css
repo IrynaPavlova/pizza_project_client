@@ -1,0 +1,53 @@
+@value colors: "../../stylesheet/vars.css";
+@value primaryColor from colors;
+
+@import "../../stylesheet/fonts.css";
+
+@media screen and (min-width: 320px) {
+  .containerList {
+    padding: 50px 0;
+    width: 320px;
+    margin: 0 auto;
+  }
+  .menu {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+  }
+  .title {
+    font-family: OswaldMedium;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 53px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    margin-bottom: 40px;
+    color: primaryColor;
+    margin-bottom: 40px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .containerList {
+    width: 768px;
+  }
+  .menu {
+    width: 768px;
+    padding: 0 15px;
+    flex-flow: wrap row;
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .containerList {
+    width: 1200px;
+  }
+  .menu {
+    display: grid;
+    grid-template-columns: repeat(4, 270px);
+    grid-auto-rows: minmax(300px, auto);
+    grid-column-gap: 30px;
+    grid-row-gap: 20px;
+    width: 1200px;
+  }
+}

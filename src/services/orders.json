@@ -1,0 +1,45 @@
+[
+  {
+    "_id": "5ee4cc38714f8c7ecc3824dc",
+    "creator": "5eaf0f7065bf9162f3746c0b",
+    "status":"completed",
+    "productsList": [
+      {
+        "_id": "5ee4cc38714f8c7ecc3824dd",
+        "product": "5e7a11285661db31d9c0b65e",
+        "productName": "Пепперони с томатами",
+        "type": "M",
+        "itemsCount": 1
+      }
+    
+    ],
+    "deliveryAddress": "Киев, ул.Шевченко, д.2, кв.3",
+    "sumToPay": 120,
+    "phone": "0505555555",
+    "name": "Маша",
+    "createdAt": "2020-06-13T12:53:12.826Z",
+    "updatedAt": "2020-06-13T12:53:12.826Z",
+    "__v": 0
+  },
+  {
+    "_id": "5ee4e7f9120ea0858a3c1555",
+    "creator": "5e79e86a1005c628d790e8f0",
+    "status":"non-completed",
+    "productsList": [
+      {
+        "_id": "5ee4e7f9120ea0858a3c1556",
+        "product": "5e7a11285661db31d9c0b65e",
+        "productName": "Классическая",
+        "type": "M",
+        "itemsCount": 1
+      }
+    ],
+    "deliveryAddress": "Киев, ул.Шевченко, д.2, кв.3",
+    "sumToPay": 120,
+    "phone": "0505555555",
+    "name": "Иван",
+    "createdAt": "2020-06-13T14:51:37.058Z",
+    "updatedAt": "2020-06-13T14:51:37.058Z",
+    "__v": 0
+  }
+]
