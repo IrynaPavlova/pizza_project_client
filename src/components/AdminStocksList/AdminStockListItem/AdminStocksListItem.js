@@ -11,14 +11,19 @@ function AdminStocksListItem({
   onRemove,
   onChange,
 }) {
-  const handleClickOnChangeButton = (e) => {
+  const handleClickOnChangeButton = (id) => {
     window.scrollTo(0, 0);
+    onChange(id);
   };
 
   return (
     <div className={styles.card}>
+      <h1 className={styles.title}>{title.en}</h1>
+      <p className={styles.description}>{description.en}</p>
       <h1 className={styles.title}>{title.ru}</h1>
       <p className={styles.description}>{description.ru}</p>
+      <h1 className={styles.title}>{title.ukr}</h1>
+      <p className={styles.description}>{description.ukr}</p>
       <p className={styles.id}>ID: {id}</p>
       <img src={images} alt={title} className={styles.cardImg} />
       <div className={styles.buttonContainer}>
@@ -32,7 +37,7 @@ function AdminStocksListItem({
         <button
           type="button"
           className={styles.button}
-          onClick={handleClickOnChangeButton}
+          onClick={() => handleClickOnChangeButton(id)}
         >
           Изменить акцию
         </button>
@@ -43,6 +48,7 @@ function AdminStocksListItem({
 
 const mapDispatchToProps = {
   onRemove: stocksOperation.deleteStock,
+  onChange: stocksOperation.getStockById,
 };
 
 export default connect(null, mapDispatchToProps)(AdminStocksListItem);

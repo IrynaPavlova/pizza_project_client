@@ -9,9 +9,7 @@ import styles from './AdminStocksList.module.css';
 function AdminStocksList({ elements, onFetchStocks, onChange }) {
   useEffect(() => {
     onFetchStocks();
-  }, []);
-
-  console.log(elements);
+  }, [onFetchStocks]);
 
   return (
     elements && (

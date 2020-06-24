@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { FormattedMessage } from "react-intl";
 
 import { productSelectors, productOperations } from "../../redux/product";
 
@@ -13,13 +14,16 @@ class SidesList extends Component {
   render() {
     const { products } = this.props;
     return (
-      <>
+      <div className={styles.containerList}>
+        <h1 className={styles.title}>
+          <FormattedMessage id="sides" />
+        </h1>
         <ul className={styles.menu}>
           {products.map((product) => (
             <SidesListItem key={product._id} {...product} />
           ))}
         </ul>
-      </>
+      </div>
     );
   }
 }

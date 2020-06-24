@@ -1,0 +1,45 @@
+.container {
+  background-color: red;
+  border-radius: 8px;
+  max-width: 260px;
+  position: fixed;
+  top: 80px;
+  right: 0;
+  z-index: 4000;
+}
+
+.card_container {
+  background-color: red;
+  border-radius: 8px;
+  max-width: 260px;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  /* z-index: 4000; */
+}
+
+.confirm {
+  background-color: rgba(255, 108, 0, 0.9);
+}
+
+.text {
+  display: inline-block;
+  font-family: "RobotoRegular";
+  font-weight: bold;
+  margin: 0 auto;
+  color: snow;
+  padding: 14px;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 30em) {
+  .text {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 48em) {
+  .text {
+    font-size: 16px;
+  }
+}

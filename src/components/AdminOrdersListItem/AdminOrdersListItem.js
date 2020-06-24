@@ -1,15 +1,20 @@
 import React from "react";
 import moment from "moment";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { FormattedMessage } from "react-intl";
 
 import styles from "./AdminOrdersListItem.module.css";
+import { orderOperations } from "../../redux/order";
 
 export default function AdminOrdersListItem({ item }) {
   const local = useSelector((state) => state.local.lang);
+  const dispatch = useDispatch();
+  const handleClickDone = () => {
+    dispatch(orderOperations.postOrderStutus(item._id));
+  };
 
   return (
-    <div className={styles.orderWrapper}>
+    <li className={styles.orderWrapper}>
       <div className={styles.dateWrapper}>
         <p className={styles.orderDate}>
           {moment(item.createdAt).format("h:MM a DD MMMM YY")}
@@ -17,8 +22,8 @@ export default function AdminOrdersListItem({ item }) {
       </div>
       <ul className={styles.itemsList}>
         {item.productsList.map((product) => (
-          <li className={styles.itemsListItem}>
-            {/* <h4 className={styles.itemName}>{product.productName[local]}</h4> */}
+          <li className={styles.itemsListItem} key={product._id}>
+            <h4 className={styles.itemName}>{product.productName[local]}</h4>
             <p className={styles.itemSize}>{product.type}</p>
             <p className={styles.itemsCount}>{product.itemsCount}</p>
           </li>
@@ -37,15 +42,26 @@ export default function AdminOrdersListItem({ item }) {
       </div>
       <div className={styles.orderContacts}>
         <p>{item.deliveryAddress}</p>
-        <p>044 444 44 44</p>
-        <p>Иван</p>
+        <p>{item.phone}</p>
+        <p>{item.name}</p>
       </div>
       <div className={styles.orderCheckbox}>
         <p>
           <FormattedMessage id="orders.done" />
         </p>
-        <input type="checkbox" name="orderDone" />
+        {item.status === "done" && (
+          <input
+            type="checkbox"
+            name="orderDone"
+            onClick={handleClickDone}
+            checked
+            disabled
+          />
+        )}
+        {item.status === "new" && (
+          <input type="checkbox" name="orderDone" onClick={handleClickDone} />
+        )}
       </div>
-    </div>
+    </li>
   );
 }

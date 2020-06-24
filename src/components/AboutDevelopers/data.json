@@ -7,7 +7,8 @@
   {
     "name": "Dmitriy Fedorenko",
     "avatarLink": "https://i.ibb.co/sHbxspb/photo-2020-06-11-17-55-45.jpg",
-    "social": "https://www.facebook.com/DeemonF/"
+    "social": "https://www.facebook.com/DeemonF/",
+    "github": "https://github.com/Deemon13"
   },
   {
     "name": "Eugene Gavrysh",
@@ -15,19 +16,28 @@
     "social": "https://www.facebook.com/profile.php?id=100002086644604"
   },
   {
+    "name": "Eugene Zhohlo",
+    "avatarLink": "https://i.ibb.co/dJMBX4v/photo-2020-06-23-13-38-24.jpg",
+    "social": "https://www.linkedin.com/in/%D0%B5%D0%B2%D0%B3%D0%B5%D0%BD%D0%B8%D0%B9-%D0%B6%D0%BE%D0%B3%D0%BB%D0%BE-028167187/",
+    "github": "https://github.com/marcusfenix1"
+  },
+  {
     "name": "Igor Kushnir",
     "avatarLink": "https://i.ibb.co/g9F5GXD/photo-2020-06-11-16-22-54.jpg",
-    "social": "https://www.facebook.com/emiliorosso777"
+    "social": "https://www.linkedin.com/in/%D0%B8%D0%B3%D0%BE%D1%80%D1%8C-%D0%BA%D1%83%D1%88%D0%BD%D0%B8%D1%80-39a31b7a/",
+    "github": "https://github.com/EmilioRosso?tab=repositories"
   },
   {
     "name": "Irina Pavlova",
     "avatarLink": "https://i.ibb.co/55Tpnxn/photo-2020-06-14-10-05-11.jpg",
-    "social": "http://linkedin.com/in/iryna-pavlova-0551241a2"
+    "social": "http://linkedin.com/in/iryna-pavlova-0551241a2",
+    "github": "https://github.com/IrynaPavlova"
   },
   {
     "name": "Ivan Shevchenko",
     "avatarLink": "https://i.ibb.co/72zXzDm/IMG-364827db533fb91dacb48da733853b8b-V.jpg",
-    "social": "https://www.facebook.com/profile.php?id=100009746169222"
+    "social": "https://www.facebook.com/profile.php?id=100009746169222",
+    "github": "https://github.com/Ks0daR"
   },
   {
     "name": "Maxim Yarmoliuk",
@@ -40,9 +50,21 @@
     "social": "https://www.linkedin.com/in/nick-khoroshkov/"
   },
   {
+    "name": "Nikita Holovnin",
+    "avatarLink": "https://i.ibb.co/Y8NDKg6/photo-2020-06-16-19-20-52.jpg",
+    "social": "https://www.linkedin.com/in/nikita-holovnin-73a5121a2/",
+    "github": "https://github.com/Daikiri-San"
+  },
+  {
     "name": "Rodion Pedyuk",
     "avatarLink": "https://i.ibb.co/4SSBD6K/photo-2020-06-12-17-42-57.jpg",
     "social": "https://www.linkedin.com/in/rodion-pedyuk-729149195/"
+  },
+  {
+    "name": "Roman Venglevskyi",
+    "avatarLink": "https://i.ibb.co/Ct35h9n/photo-2020-06-22-14-36-03.jpg",
+    "social": "https://www.linkedin.com/in/roman-venglevskyi-3373121a7/",
+    "github": "https://github.com/Venglevskyi"
   },
   {
     "name": "Tatiana Solodkaya",
@@ -52,7 +74,8 @@
   {
     "name": "Valeriia Chorna",
     "avatarLink": "https://i.ibb.co/smcStt7/photo-2020-06-11-17-53-55.jpg",
-    "social": "https://www.linkedin.com/in/valeriia-chorna-a6a2a461"
+    "social": "https://www.linkedin.com/in/valeriia-chorna-a6a2a461",
+    "github": "https://github.com/ValeriiaChorna"
   },
   {
     "name": "Vlad Huz",

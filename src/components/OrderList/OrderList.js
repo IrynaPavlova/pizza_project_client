@@ -6,13 +6,14 @@ import OrderListItem from "../OrderListItem/OrderListItem";
 import { FormattedMessage } from "react-intl";
 // import orderItems from "../../services/orderItems.json";
 
+// const getOrderTime = () => new Date().toLocaleTimeString().slice(0, -3);
+
 //TODO edit to hooks
 const OrderList = ({
   deleteProdToOrderList,
   incrementItemsCount,
   decrementItemsCount,
 }) => {
-  // const dispatch = useDispatch();
   const userOrder = useSelector(
     (state) => state.orders.userOrderList.productsList
   );
@@ -26,11 +27,11 @@ const OrderList = ({
   const orderListPrice = getSum(userOrder);
 
   return userOrder.length > 0 ? (
-    <div className={styles.orderList}>
+    <div className={styles.orderListContainer}>
       <h2 className={styles.orderListTitle}>
         <FormattedMessage id="order" />
       </h2>
-      <ul>
+      <ul className={styles.orderList}>
         {userOrder.map(
           ({
             productId,
@@ -58,12 +59,19 @@ const OrderList = ({
         )}
       </ul>
       <p className={styles.orderListPrice}>
+        <span className={styles.orderListToPayText}>
+          <FormattedMessage id="orders.sumToPay" />
+        </span>
         {orderListPrice || "0"}
-        <span className={styles.orderListPriceCurrency}> грн.</span>
+        <span className={styles.orderListPriceCurrency}>
+          <FormattedMessage id="grn" />
+        </span>
       </p>
     </div>
   ) : (
-    <h2 className={styles.orderListEmpty}>Ваша корзина пуста</h2>
+    <h2 className={styles.orderListEmpty}>
+      <FormattedMessage id="orders.empty" />
+    </h2>
   );
 };
 

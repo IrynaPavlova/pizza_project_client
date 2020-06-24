@@ -13,7 +13,7 @@
 }
 
 .card::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -72,9 +72,11 @@
 .name {
   font-size: 1.5rem;
   color: primaryColor;
-  font-family: 'Rokkitt';
+  font-family: "OswaldRegular";
+  margin-bottom: 6px;
 }
 
 .link {
   cursor: pointer;
+  margin-right: 10px;
 }

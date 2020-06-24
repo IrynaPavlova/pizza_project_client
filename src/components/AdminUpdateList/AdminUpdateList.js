@@ -5,6 +5,9 @@ import { productOperations, productSelectors } from "../../redux/product";
 import AdminUpdateListItem from "../AdminUpdateListItem/AdminUpdateListItem";
 import Spinner from "../../components/Spinner";
 import styles from "./AdminUpdateList.module.css";
+import languages from "../../languages";
+
+let filteredProducts;
 
 export default function AdminOrderList() {
   const dispatch = useDispatch();
@@ -16,13 +19,13 @@ export default function AdminOrderList() {
   const [filterProductsBy, setFilterProductsBy] = useState("");
 
   useEffect(() => dispatch(productOperations.fetchProducts()), [dispatch]);
-
-  const filteredProducts = products
-    .filter(({ categories }) => categories === listType)
-    .filter(({ name }) =>
-      name[local].toLowerCase().includes(filterProductsBy.toLowerCase())
-    );
-
+  if (products) {
+    filteredProducts = products
+      .filter(({ categories }) => categories === listType)
+      .filter(({ name }) =>
+        name[local].toLowerCase().includes(filterProductsBy.toLowerCase())
+      );
+  }
   const changeCategorie = (type) => {
     if (type === listType) {
       return;
@@ -68,18 +71,20 @@ export default function AdminOrderList() {
           <FormattedMessage id="desserts" />
         </button>
       </div>
-      <input
-        type="text"
-        value={filterProductsBy}
-        placeholder="Поиск"
-        className={styles.input}
-        onChange={({ target: { value } }) => setFilterProductsBy(value)}
-      />
-      <div className={styles.items_container}>
-        {filteredProducts.map((product) => (
-          <AdminUpdateListItem key={product._id} product={product} />
-        ))}
-      </div>
+      <section className={styles.page_container}>
+        <input
+          type="text"
+          value={filterProductsBy}
+          placeholder={languages[local].search}
+          className={styles.input}
+          onChange={({ target: { value } }) => setFilterProductsBy(value)}
+        />
+        <div className={styles.items_container}>
+          {filteredProducts.map((product) => (
+            <AdminUpdateListItem key={product._id} product={product} />
+          ))}
+        </div>
+      </section>
     </>
   );
 }

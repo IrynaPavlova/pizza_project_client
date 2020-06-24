@@ -1,126 +1,233 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage } from "react-intl";
+import { connect } from "react-redux";
+import Spinner from "../../components/Spinner";
+import stocksOperations from "../../redux/stocks/stocksOperations";
+import stocksActions from "../../redux/stocks/stocksActions";
+import stocksSelector from "../../redux/stocks/stocksSelector";
+import styles from "./AdminStocksEditor.module.css";
 
-import { connect } from 'react-redux';
-import stocksOperations from '../../redux/stocks/stocksOperations';
-import stocksSelector from '../../redux/stocks/stocksSelector';
-import styles from './AdminStocksEditor.module.css';
+import getFileName from "./utils";
 
-import getFileName from './utils';
-
-//FIXME: Вернуть изначальные значения в файле App
-
-function AdminStocksEditor({ editMode, onSubmitFile, onSubmit, linkFile }) {
+function AdminStocksEditor({
+  onSubmitFile,
+  onSubmit,
+  onUpdate,
+  onCancel,
+  isLoading,
+  linkFile,
+  editStock,
+}) {
   const [stocksFile, setStockFile] = useState(null);
   const handleLoadFile = ({ target }) => {
     getFileName();
-    return setStockFile(target.files[0]);
-  };
-
-  const [stocksTitle, setStockTitle] = useState('');
-  const handleChangeTitle = ({ target }) => setStockTitle(target.value);
-
-  const [stocksDescription, setStocksDescription] = useState('');
-  const handleChangeDescription = ({ target }) =>
-    setStocksDescription(target.value);
-
-  const handleSubmitFile = (e) => {
-    e.preventDefault();
-    console.log(stocksFile);
     const stocksItem = new FormData();
-    stocksItem.append('file', stocksFile);
+    stocksItem.append("file", target.files[0]);
 
     onSubmitFile(stocksItem);
   };
 
+  const [stocksTitleEn, setStockTitleEn] = useState("");
+
+  const handleChangeTitleEn = ({ target: { value } }) => setStockTitleEn(value);
+
+  const [stocksTitleRu, setStockTitleRu] = useState("");
+  const handleChangeTitleRu = ({ target: { value } }) => setStockTitleRu(value);
+
+  const [stocksTitleUkr, setStockTitleUkr] = useState("");
+  const handleChangeTitleUkr = ({ target: { value } }) =>
+    setStockTitleUkr(value);
+
+  const [stocksDescriptionEn, setStocksDescriptionEn] = useState("");
+  const handleChangeDescriptionEn = ({ target: { value } }) =>
+    setStocksDescriptionEn(value);
+
+  const [stocksDescriptionRu, setStocksDescriptionRu] = useState("");
+  const handleChangeDescriptionRu = ({ target: { value } }) =>
+    setStocksDescriptionRu(value);
+
+  const [stocksDescriptionUkr, setStocksDescriptionUkr] = useState("");
+  const handleChangeDescriptionUkr = ({ target: { value } }) =>
+    setStocksDescriptionUkr(value);
+
+  const [stock, setStock] = useState(null);
+  useEffect(() => {
+    setStock(editStock);
+    if (editStock) {
+      setStockFile(editStock.images);
+      setStockTitleEn(editStock.title.en);
+      setStocksDescriptionEn(editStock.description.en);
+      setStockTitleRu(editStock.title.ru);
+      setStocksDescriptionRu(editStock.description.ru);
+      setStockTitleUkr(editStock.title.ukr);
+      setStocksDescriptionUkr(editStock.description.ukr);
+    }
+  }, [editStock]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const newStock = {
-      title: { ru: stocksTitle },
-      description: { ru: stocksDescription },
+      title: { en: stocksTitleEn, ru: stocksTitleRu, ukr: stocksTitleUkr },
+      description: {
+        en: stocksDescriptionEn,
+        ru: stocksDescriptionRu,
+        ukr: stocksDescriptionUkr,
+      },
       images: linkFile,
     };
 
+    if (e.target.name === "update") {
+      onUpdate(stock._id, newStock);
+      cancelInput();
+      return;
+    }
+
     onSubmit(newStock);
+    cancelInput();
+  };
+
+  const cancelInput = () => {
+    setStockFile(null);
+    setStockTitleEn("");
+    setStocksDescriptionEn("");
+    setStockTitleRu("");
+    setStocksDescriptionRu("");
+    setStockTitleUkr("");
+    setStocksDescriptionUkr("");
+    document.getElementById("formStocks").reset();
+
+    document.getElementById("fileName").innerHTML = "";
+    onCancel();
   };
 
   return (
     <>
-      {!linkFile && editMode === 'add' && (
-        <form className={styles.form} onSubmit={handleSubmitFile}>
-          <div
-            className={stocksFile ? styles.fileUploadGreen : styles.fileUpload}
-          >
-            <label className={styles.uploadLabel}>
-              <input
-                type="file"
-                name="file"
-                id="uploadeFile"
-                className={styles.uploadInput}
-                onChange={handleLoadFile}
-              />
-              <span className={styles.uploadSpan}>загрузить файл</span>
-            </label>
-          </div>
-          <div id="fileName" className={styles.fileName}></div>
+      {isLoading && <Spinner />}
 
-          <button type="submit" className={styles.formButton}>
-            <FormattedMessage id="send" />
-          </button>
-        </form>
-      )}
-      {linkFile && editMode === 'add' && (
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <label>
+      <form className={styles.form} id="formStocks">
+        <div className={linkFile ? styles.fileUploadGreen : styles.fileUpload}>
+          <label className={styles.uploadLabel}>
             <input
-              value={linkFile}
-              disabled={true}
-              className={styles.formInput}
+              type="file"
+              name="file"
+              id="uploadeFile"
+              className={styles.uploadInput}
               onChange={handleLoadFile}
             />
+            <span className={styles.uploadSpan}>
+              {stocksFile ? "файл загружен" : "загрузить файл"}
+            </span>
           </label>
-
-          <label className={styles.formLabel} htmlFor="promoName">
-            Название акции
-          </label>
+        </div>
+        <div id="fileName" className={styles.fileName}></div>
+        <div>
+          <h2 className={styles.title}>Название акции</h2>
 
           <input
-            name="promoName"
-            id="promoName"
+            name="promoNameEn"
+            id="promoNameEn"
+            placeholder="Promo name on english"
             className={styles.formInput}
-            value={stocksTitle}
-            onChange={handleChangeTitle}
+            value={stocksTitleEn}
+            onChange={handleChangeTitleEn}
           />
-
-          <label className={styles.formLabel} htmlFor="promoDescription">
-            Описание акции
-          </label>
 
           <input
-            name="promoDescription"
-            id="promoDescription"
+            name="promoNameRu"
+            id="promoNameRu"
+            placeholder="Название акции на русском"
             className={styles.formInput}
-            value={stocksDescription}
-            onChange={handleChangeDescription}
+            value={stocksTitleRu}
+            onChange={handleChangeTitleRu}
           />
 
-          <button type="submit" className={styles.formButton}>
+          <input
+            name="promoNameUkr"
+            id="promoNameUkr"
+            placeholder="Назва акції українською"
+            className={styles.formInput}
+            value={stocksTitleUkr}
+            onChange={handleChangeTitleUkr}
+          />
+        </div>
+        <div>
+          <h2 className={styles.title}>Описание акции</h2>
+
+          <input
+            name="promoDescriptionEn"
+            id="promoDescriptionEn"
+            placeholder="Promo description on english"
+            className={styles.formInput}
+            value={stocksDescriptionEn}
+            onChange={handleChangeDescriptionEn}
+          />
+
+          <input
+            name="promoDescriptionRu"
+            id="promoDescriptionRu"
+            placeholder="Описание акции на русском"
+            className={styles.formInput}
+            value={stocksDescriptionRu}
+            onChange={handleChangeDescriptionRu}
+          />
+
+          <input
+            name="promoDescriptionUkr"
+            id="promoDescriptionUkr"
+            placeholder="Назва акції українською"
+            className={styles.formInput}
+            value={stocksDescriptionUkr}
+            onChange={handleChangeDescriptionUkr}
+          />
+        </div>
+
+        {linkFile && (
+          <button
+            type="submit"
+            name="onSubmit"
+            onClick={handleSubmit}
+            className={styles.formButton}
+          >
             <FormattedMessage id="promo.send" />
           </button>
-        </form>
-      )}
+        )}
+
+        {editStock && (
+          <button
+            type="submit"
+            name="update"
+            onClick={handleSubmit}
+            className={styles.formButton}
+          >
+            Обновить акцию
+          </button>
+        )}
+
+        <button
+          type="button"
+          onClick={cancelInput}
+          className={styles.formButton}
+        >
+          Очистить форму
+        </button>
+      </form>
     </>
   );
 }
 
 const mapStateToProps = (state) => ({
   linkFile: stocksSelector.getFileLink(state),
+  isLoading: stocksSelector.getLoading(state),
+  editStock: stocksSelector.getItem(state),
 });
 
 const mapDispatchToProps = {
   onSubmitFile: stocksOperations.sendFile,
   onSubmit: stocksOperations.sendStock,
+  onCancel: stocksActions.cancelInput,
+  onUpdate: stocksOperations.updateStock,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdminStocksEditor);

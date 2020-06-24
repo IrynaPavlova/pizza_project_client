@@ -1,11 +1,15 @@
 @value secondaryHeaderFontSize,primaryHeaderFontSize,accentColor,thirdHeaderFontStyle from "../../stylesheet/vars.css";
 
-.orderList {
+.orderListContainer {
   display: flex;
   flex-direction: column;
   width: 280px;
   border-bottom: 1px solid rgba(39, 39, 39, 0.1);
   margin-bottom: 64px;
+}
+
+.orderList {
+  margin-bottom: 20px;
 }
 
 .orderListPrice {
@@ -31,6 +35,15 @@
   color: accentColor;
 }
 
+.orderListToPayText {
+  margin-top: 1px;
+  display: flex;
+  font-family: RobotoRegular;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-right: 5px;
+}
+
 .orderListTitle {
   font-family: OswaldRegular;
   font-weight: 500;
@@ -45,8 +58,12 @@
 }
 
 @media (min-width: 768px) {
-  .orderList {
+  .orderListContainer {
     width: 738px;
+  }
+
+  .orderList {
+    margin-bottom: 16px;
   }
 
   .orderListTitle {
@@ -56,10 +73,14 @@
   .orderListEmpty {
     margin-bottom: 50px;
   }
+
+  .orderListToPayText {
+    font-size: 18px;
+  }
 }
 
 @media (min-width: 1400px) {
-  .orderList {
+  .orderListContainer {
     width: 770px;
   }
 

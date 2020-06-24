@@ -1,16 +1,17 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import localActions from "../../redux/local/localActions";
 import styles from "./LanguageSelector.module.css";
 
 export default function LanguageSelector({ darkStyle }) {
   const dispatch = useDispatch();
+  const currentLocal = useSelector((state) => state.local.lang);
 
   function handleChange({ target: { value } }) {
-    if (value === "Rus") {
+    if (value === "ru") {
       dispatch(localActions.setRusLanguage());
-    } else if (value === "Eng") {
+    } else if (value === "en") {
       dispatch(localActions.setEngLanguage());
     } else {
       dispatch(localActions.setUkrLanguage());
@@ -19,9 +20,9 @@ export default function LanguageSelector({ darkStyle }) {
   useEffect(() => {
     const local = localStorage.getItem("local");
     if (local) {
-      if (local.lang === "Rus") {
+      if (local.lang === "ru") {
         dispatch(localActions.setRusLanguage());
-      } else if (local.lang === "Eng") {
+      } else if (local.lang === "en") {
         dispatch(localActions.setEngLanguage());
       } else {
         dispatch(localActions.setUkrLanguage());
@@ -31,14 +32,15 @@ export default function LanguageSelector({ darkStyle }) {
 
   return (
     <select
+      value={currentLocal}
       onChange={handleChange}
       className={darkStyle || styles.languageSelect}
     >
-      <option className={styles.option} value="Rus">
+      <option className={styles.option} value="ru">
         РУС
       </option>
-      <option value="Rkr">УКР</option>
-      <option value="Eng">ENG</option>
+      <option value="ukr">УКР</option>
+      <option value="en">ENG</option>
     </select>
   );
 }

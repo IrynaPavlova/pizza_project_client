@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import T from "prop-types";
 import { FormattedMessage } from "react-intl";
+import Notification from "../Notification";
 
 import styles from "./PizzaListItem.module.css";
 
@@ -28,8 +29,33 @@ class PizzaListItem extends Component {
   render() {
     const product = this.props;
     const { selectedSize } = this.state;
+
+    const successMessage = (
+      <FormattedMessage
+        id="order.success"
+        values={{
+          name: name[local],
+        }}
+      />
+    );
+
+    const errorMessage = (
+      <FormattedMessage
+        id="order.error"
+        values={{
+          name: name[local],
+        }}
+      />
+    );
+
     return (
       <li key={product._id} className={styles.pizzaListCard}>
+        {this.props.successAddProdToOrder && (
+          <Notification message={successMessage} confirm />
+        )}
+        {this.props.errorAddProdToOrder && (
+          <Notification message={errorMessage} confirm />
+        )}
         <div className={styles.imageItemBlock}>
           <img src={product.images} className={styles.imageItem} alt="" />
         </div>
@@ -63,17 +89,19 @@ class PizzaListItem extends Component {
                   </li>
                 ))}
               </ul>
-
-              <span className={styles.price}>
-                {product.price[selectedSize]}.00
-              </span>
-              <span className={styles.currency}>
-                <FormattedMessage id="grn" />
-              </span>
-
-              <button type="submit" className={styles.addCart} type="submit">
-                <FormattedMessage id="orders.chart" />
-              </button>
+              <div className={styles.sizePriceButtonWrapper}>
+                <div className={styles.sizePriceWrapper}>
+                  <span className={styles.price}>
+                    {product.price[selectedSize]}.00
+                  </span>
+                  <span className={styles.currency}>
+                    <FormattedMessage id="grn" />
+                  </span>
+                </div>
+                <button type="submit" className={styles.addCart}>
+                  <FormattedMessage id="orders.chart" />
+                </button>
+              </div>
             </div>
           </form>
         </div>

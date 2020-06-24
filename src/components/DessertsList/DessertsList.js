@@ -1,40 +1,39 @@
-import React, { Component } from "react";
-import { connect, useSelector, useDispatch } from "react-redux";
-import { FormattedMessage } from "react-intl";
+import React, { Component } from 'react';
+import { connect} from 'react-redux';
+import { FormattedMessage } from 'react-intl';
 
-// import products from '../../services/products.json';
+import { productSelectors, productOperations } from '../../redux/product';
 
-import { productSelectors, productOperations } from "../../redux/product";
+import DessertsListItem from './DessertListItem';
+import styles from './DessertsList.module.css';
 
-import DessertsListItem from "./DessertListItem";
-import styles from "./DessertsList.module.css";
-
-const { dessertsHeading, dessertList } = styles;
+const { dessertConainer, dessertsHeading, dessertList } = styles;
 
 class DesertList extends Component {
   componentDidMount() {
-    this.props.onFetchProductDesserts("desserts");
+    this.props.onFetchProductDesserts('desserts');
   }
+
   render() {
     const { products } = this.props;
 
     // console.log(products);
     return (
-      <>
+      <div className={dessertConainer}>
         <h2 className={dessertsHeading}>
           <FormattedMessage id="desserts" />
         </h2>
         <ul className={dessertList}>
-          {products.map((product) => (
+          {products.map(product => (
             <DessertsListItem key={product._id} {...product} />
           ))}
         </ul>
-      </>
+      </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return { products: productSelectors.getProducts(state) };
 };
 
@@ -43,28 +42,3 @@ const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DesertList);
-
-// =======================
-
-// const DesertList = () => {
-//   const products = useSelector(productSelectors.getProducts);
-
-//   console.log(products);
-
-//   const desserts = products.filter(
-//     product => product.categories === 'desserts',
-//   );
-//   // console.log(desserts);
-//   return (
-//     <>
-//       <h2 className={dessertsHeading}>Десерты</h2>
-//       <ul className={dessertList}>
-//         {desserts.map(dessert => (
-//           <DessertsListItem key={dessert._id} {...dessert} />
-//         ))}
-//       </ul>
-//     </>
-//   );
-// };
-
-// export default DesertList;
