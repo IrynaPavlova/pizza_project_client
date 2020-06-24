@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 
 import { FormattedMessage } from "react-intl";
@@ -69,7 +68,6 @@ function AdminStocksEditor({
   const handleSubmit = (e) => {
     e.preventDefault();
 
-
     const newStock = {
       title: { en: stocksTitleEn, ru: stocksTitleRu, ukr: stocksTitleUkr },
       description: {
@@ -102,7 +100,6 @@ function AdminStocksEditor({
 
     document.getElementById("fileName").innerHTML = "";
     onCancel();
-
   };
 
   return (
@@ -122,7 +119,6 @@ function AdminStocksEditor({
             <span className={styles.uploadSpan}>
               {stocksFile ? "файл загружен" : "загрузить файл"}
             </span>
-
           </label>
         </div>
         <div id="fileName" className={styles.fileName}></div>
@@ -150,7 +146,7 @@ function AdminStocksEditor({
           <input
             name="promoNameUkr"
             id="promoNameUkr"
-            placeholder="Назва акції на українській"
+            placeholder="Назва акції українською"
             className={styles.formInput}
             value={stocksTitleUkr}
             onChange={handleChangeTitleUkr}
@@ -180,7 +176,7 @@ function AdminStocksEditor({
           <input
             name="promoDescriptionUkr"
             id="promoDescriptionUkr"
-            placeholder="Опис акції на українській"
+            placeholder="Назва акції українською"
             className={styles.formInput}
             value={stocksDescriptionUkr}
             onChange={handleChangeDescriptionUkr}
