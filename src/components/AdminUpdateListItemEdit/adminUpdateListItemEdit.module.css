@@ -85,6 +85,9 @@
   display: grid;
   grid-template-columns: 20% 80%;
 }
+.editForm__inputSinglePrice {
+  width: 100%;
+}
 .editForm__priceTitle {
   margin: 0;
 }

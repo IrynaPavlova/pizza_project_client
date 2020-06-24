@@ -19,13 +19,15 @@ const AdminUpdateListItemEdit = () => {
   const [nameUkr, setNameUkr] = useState(product.name.ukr);
   const [categories, setCategory] = useState(product.categories);
   const [subcategory, setSubcategory] = useState(product.subcategory);
-  const [price, setPrice] = useState(product.price);
+  const [price, setPrice] = useState(product.price.price);
   const [pricePizzaM, setPricePizzaM] = useState(product.price.M);
   const [pricePizzaL, setPricePizzaL] = useState(product.price.L);
   const [pricePizzaXL, setPricePizzaXL] = useState(product.price.XL);
   const [ingredients, setIngredients] = useState([...product.ingredients]);
   const [newIngredient, setNewIngredient] = useState(0);
   const [ingredientsList, setIngredientsList] = useState(null);
+  console.log(price);
+
   useEffect(() => {
     Axios.get("https://evening-caverns-34846.herokuapp.com/ingredients")
       .then((res) => {
@@ -33,6 +35,15 @@ const AdminUpdateListItemEdit = () => {
       })
       .catch((err) => console.log(err));
   }, []);
+  useEffect(() => {
+    if (categories === "pizza") {
+      setPrice({ M: pricePizzaM, L: pricePizzaL, XL: pricePizzaXL });
+    } else {
+      if (typeof price === "object") {
+        setPrice("");
+      }
+    }
+  }, [pricePizzaM, pricePizzaL, pricePizzaXL, categories]);
   const deleteIngredient = (ev) => {
     ev.preventDefault();
     const delElemIndex = ingredients.findIndex(
@@ -61,8 +72,12 @@ const AdminUpdateListItemEdit = () => {
   const handleForm = (ev) => {
     ev.preventDefault();
     setIsLoading(false);
-    categories === "pizza" &&
-      setPrice({ M: pricePizzaM, L: pricePizzaM, XL: pricePizzaXL });
+    // if (categories === "pizza") {
+    //   setPrice({ M: pricePizzaM, L: pricePizzaM, XL: pricePizzaXL });
+
+    // }
+    console.log(price);
+
     const name = { ru: nameRu, ukr: nameUkr, en: nameEn };
     const editedItem = {
       ...product,
@@ -80,7 +95,6 @@ const AdminUpdateListItemEdit = () => {
     )
       .then((res) => {
         setIsLoading(true);
-        console.log(res);
         setConfirmEdit("Редактирование проведено");
       })
       .catch((err) => {
@@ -230,37 +244,36 @@ const AdminUpdateListItemEdit = () => {
             <h4 className={style.editCard__title}>
               <FormattedMessage id="product.price" />
             </h4>
-            <div className={style.editForm__price}>
-              {categories === "pizza" ? (
-                <>
-                  <h4 className={style.editForm__priceTitle}>M</h4>
-                  <input
-                    type="text"
-                    value={pricePizzaM}
-                    onChange={(ev) => setPricePizzaM(ev.target.value)}
-                  />
-                  <h4 className={style.editForm__priceTitle}>L</h4>
-                  <input
-                    type="text"
-                    value={pricePizzaL}
-                    onChange={(ev) => setPricePizzaL(ev.target.value)}
-                  />
-                  <h4 className={style.editForm__priceTitle}>XL</h4>
-                  <input
-                    type="text"
-                    value={pricePizzaXL}
-                    onChange={(ev) => setPricePizzaXL(ev.target.value)}
-                  />
-                </>
-              ) : (
+
+            {categories === "pizza" ? (
+              <div className={style.editForm__price}>
+                <h4 className={style.editForm__priceTitle}>M</h4>
                 <input
                   type="text"
-                  value={price}
-                  onChange={(ev) => setPrice(ev.target.value)}
-                  className={style.editForm__input}
+                  value={pricePizzaM}
+                  onChange={(ev) => setPricePizzaM(ev.target.value)}
                 />
-              )}
-            </div>
+                <h4 className={style.editForm__priceTitle}>L</h4>
+                <input
+                  type="text"
+                  value={pricePizzaL}
+                  onChange={(ev) => setPricePizzaL(ev.target.value)}
+                />
+                <h4 className={style.editForm__priceTitle}>XL</h4>
+                <input
+                  type="text"
+                  value={pricePizzaXL}
+                  onChange={(ev) => setPricePizzaXL(ev.target.value)}
+                />
+              </div>
+            ) : (
+              <input
+                type="text"
+                value={price}
+                onChange={(ev) => setPrice(ev.target.value)}
+                className={style.editForm__inputSinglePrice}
+              />
+            )}
           </form>
           <button
             form="editForm"
