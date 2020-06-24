@@ -1,21 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FormattedMessage } from "react-intl";
+import Notification from "../Notification";
 
 import { orderOperations } from "../../redux/order";
 import styles from "../DrinkListItem/drinkListItem.module.css";
 
 const SidesListItem = (props) => {
-  const { _id, name, description, price, images, currency } = props;
+  const { name, description, price, images } = props;
 
   const local = useSelector((state) => state.local.lang);
 
-  // const defaultSize = "M";// изменили на серваке, больше не обязательное, можно не передавать
+  const successMessage = (
+    <FormattedMessage
+      id="order.success"
+      values={{
+        name: name[local],
+      }}
+    />
+  );
+
+  const errorMessage = (
+    <FormattedMessage
+      id="order.error"
+      values={{
+        name: name[local],
+      }}
+    />
+  );
+
   const dispatch = useDispatch();
   const onAddProductToOrder = () =>
     dispatch(orderOperations.addProdToOrderList(props));
+
+  const [isAddedProdToOrder, setIsAddedProdToOrder] = useState(false);
+  const [message, setMessage] = useState(successMessage);
+
+  const addProd = async () => {
+    if (isAddedProdToOrder) {
+      setIsAddedProdToOrder(false);
+      setMessage(errorMessage);
+      return await setTimeout(() => setIsAddedProdToOrder(true), 10);
+    }
+    onAddProductToOrder(props);
+    setIsAddedProdToOrder(true);
+  };
+
   return (
     <li className={styles.menuItem}>
+      {isAddedProdToOrder && <Notification message={message} confirm forCard />}
       <div className={styles.menuItem_imageBlock}>
         <img src={images} alt={name[local]} className={styles.menuItem_img} />
       </div>
@@ -36,7 +69,7 @@ const SidesListItem = (props) => {
           <button
             className={styles.button}
             type="button"
-            onClick={onAddProductToOrder}
+            onClick={() => addProd()}
           >
             <FormattedMessage id="orders.chart" />
           </button>

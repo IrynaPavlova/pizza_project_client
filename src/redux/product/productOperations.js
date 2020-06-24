@@ -32,4 +32,57 @@ const fetchProductById = (id) => (dispatch) => {
     .catch((error) => dispatch(productActions.byIdErrror(error)));
 };
 
-export default { fetchProducts, fetchProductsByCategory, fetchProductById };
+//for AdminPage
+const sendFile = (file) => (dispatch) => {
+  dispatch(productActions.sendFileRequest());
+  // console.log(file);
+  axios
+    .post("/images", file)
+    .then(({ data }) =>
+      dispatch(productActions.sendFileSuccess(data.image.file))
+    )
+    .catch((error) => dispatch(productActions.sendFileError(error)));
+};
+
+const sendProduct = (product) => (dispatch) => {
+  dispatch(productActions.sendProductRequest());
+
+  axios
+    .post("/products", product)
+    .then(({ data }) => dispatch(productActions.sendProductSuccess(data)))
+    //проверить что приходит в data
+    .catch((error) => dispatch(productActions.sendProductError(error)));
+};
+
+const updateProduct = (productId, newProduct) => (dispatch) => {
+  dispatch(productActions.updateProductRequest());
+
+  axios
+    .put(`/products/${productId}`, newProduct)
+    .then((res) => dispatch(productActions.updateProductSuccess(res)))
+    .catch((error) => dispatch(productActions.updateProductError(error)));
+};
+
+const deleteProduct = (productId) => (dispatch) => {
+  dispatch(productActions.deleteProductRequest());
+  // console.log(productId);
+
+  axios
+    .delete(`/products/${productId}`, productId)
+    .then(
+      ({ data }) => dispatch(productActions.deleteProductSuccess(data))
+      //проверить что приходит в data
+    )
+    .catch((error) => dispatch(productActions.deleteProductError(error)));
+};
+
+export default {
+  fetchProducts,
+  fetchProductsByCategory,
+  fetchProductById,
+
+  sendFile,
+  sendProduct,
+  updateProduct,
+  deleteProduct,
+};

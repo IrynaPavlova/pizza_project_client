@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { orderOperations } from "../../redux/order";
 import { FormattedMessage } from "react-intl";
+import Notification from "../Notification";
 
 // import cheesecacke from '../../assets/img/desserts/cheesecacke.jpg';
 import styles from "./DessertsList.module.css";
@@ -20,19 +21,49 @@ const {
 } = styles;
 
 const DessertListItem = (props) => {
-  const { _id, name, description, price, images } = props;
+  const { name, description, price, images } = props;
 
   const local = useSelector((state) => state.local.lang);
 
   // const product = useSelector(state => state.products.items);
-  // const defaultSize = 'M'; // изменили на серваке, больше не обязательное, можно не передавать
   const dispatch = useDispatch();
   const onAddProductToOrder = () =>
     dispatch(orderOperations.addProdToOrderList(props));
 
-  // console.log(product);
+  const successMessage = (
+    <FormattedMessage
+      id="order.success"
+      values={{
+        name: name[local],
+      }}
+    />
+  );
+
+  const errorMessage = (
+    <FormattedMessage
+      id="order.error"
+      values={{
+        name: name[local],
+      }}
+    />
+  );
+
+  const [isAddedProdToOrder, setIsAddedProdToOrder] = useState(false);
+  const [message, setMessage] = useState(successMessage);
+
+  const addProd = async () => {
+    if (isAddedProdToOrder) {
+      setIsAddedProdToOrder(false);
+      setMessage(errorMessage);
+      return await setTimeout(() => setIsAddedProdToOrder(true), 10);
+    }
+    onAddProductToOrder(props);
+    setIsAddedProdToOrder(true);
+  };
+
   return (
     <li className={dessertItem}>
+      {isAddedProdToOrder && <Notification message={message} confirm forCard />}
       <img src={images} alt="" width="280" className={dessertImg} />
       <div className={dessertDescription}>
         <h2 className={dessertTittle}>{name[local]}</h2>
@@ -52,7 +83,7 @@ const DessertListItem = (props) => {
           <button
             className={dessertButton}
             type="submit"
-            onClick={onAddProductToOrder}
+            onClick={() => addProd()}
           >
             <FormattedMessage id="orders.chart" />
           </button>

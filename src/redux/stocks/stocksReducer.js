@@ -42,7 +42,7 @@ const loadingReducer = createReducer(false, {
   [stocksActions.updateStockError]: (state, { payload }) => false,
   [stocksActions.deleteStockRequest]: (state, { payload }) => true,
   [stocksActions.deleteStockSuccess]: (state, { payload }) => false,
-  [stocksActions.updateStockError]: (state, { payload }) => false,
+  [stocksActions.deleteStockError]: (state, { payload }) => false,
 });
 
 const errorReducer = createReducer(null, {

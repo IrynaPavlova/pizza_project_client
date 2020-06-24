@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect, useSelector, useDispatch } from 'react-redux';
+import { connect} from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 
 import { productSelectors, productOperations } from '../../redux/product';

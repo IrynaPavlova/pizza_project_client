@@ -1,4 +1,6 @@
+
 import React, { useState, useEffect } from "react";
+
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import Spinner from "../../components/Spinner";
@@ -28,6 +30,7 @@ function AdminStocksEditor({
   };
 
   const [stocksTitleEn, setStockTitleEn] = useState("");
+
   const handleChangeTitleEn = ({ target: { value } }) => setStockTitleEn(value);
 
   const [stocksTitleRu, setStockTitleRu] = useState("");
@@ -63,8 +66,6 @@ function AdminStocksEditor({
     }
   }, [editStock]);
 
-  
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -98,13 +99,16 @@ function AdminStocksEditor({
     setStockTitleUkr("");
     setStocksDescriptionUkr("");
     document.getElementById("formStocks").reset();
+
     document.getElementById("fileName").innerHTML = "";
     onCancel();
+
   };
 
   return (
     <>
       {isLoading && <Spinner />}
+
       <form className={styles.form} id="formStocks">
         <div className={linkFile ? styles.fileUploadGreen : styles.fileUpload}>
           <label className={styles.uploadLabel}>
@@ -118,6 +122,7 @@ function AdminStocksEditor({
             <span className={styles.uploadSpan}>
               {stocksFile ? "файл загружен" : "загрузить файл"}
             </span>
+
           </label>
         </div>
         <div id="fileName" className={styles.fileName}></div>

@@ -5,7 +5,7 @@ import styles from "./Notification.module.css";
 
 let animation;
 
-function Notification({ message, confirm }) {
+function Notification({ message, confirm, forCard }) {
   const [apearNotice, setApearNotice] = useState(false);
 
   useEffect(() => {
@@ -20,7 +20,11 @@ function Notification({ message, confirm }) {
       in={apearNotice}
       unmountOnExit
     >
-      <div className={`${styles.container} ${confirm ? styles.confirm : ""}`}>
+      <div
+        className={`${forCard ? styles.card_container : styles.container} ${
+          confirm ? styles.confirm : ""
+        }`}
+      >
         {message && <p className={styles.text}>{message}</p>}
       </div>
     </CSSTransition>

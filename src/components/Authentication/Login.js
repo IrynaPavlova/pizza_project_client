@@ -34,19 +34,23 @@ export default function LoginPage({ setIsModalActive, setIsLogining }) {
       const errors = {};
       if (!values.email) {
         errors.email = (
-          <p className={styles.formInputError}>Email is Required</p>
+          <p className={styles.formInputError}>
+            <FormattedMessage id="register.emailReq" />
+          </p>
         );
       }
       if (values.email && !values.email.includes("@")) {
         errors.email = (
           <p className={styles.formInputError}>
-            Email needs to include "@" symbol
+            <FormattedMessage id="register.emailSym" />
           </p>
         );
       }
       if (!values.password) {
         errors.password = (
-          <p className={styles.formInputError}>Password is Required</p>
+          <p className={styles.formInputError}>
+            <FormattedMessage id="register.passReq" />
+          </p>
         );
       }
       return errors;

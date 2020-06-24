@@ -23,6 +23,7 @@ p {
 }
 
 .dessertItem {
+  position: relative;
   width: 280px;
   margin: 0 auto 30px;
   box-shadow: 0px 3px 4px #00000040, 0px 2px 2px #00000014,
