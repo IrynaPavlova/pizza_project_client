@@ -56,6 +56,8 @@ export default {
   "orders.wait": ", ожидайте курьера в течении часа",
   "order.success": "{name} добавлен в корзину",
   "order.error": "{name} уже есть в корзине",
+  "order.pizzaSuccess": "Пицца {name} добавлена в корзину",
+  "order.pizzaError": "Пицца {name} уже есть в корзине",
   "product.create": "Создать продукт",
   "product.edit": "Изменить продукт",
   "product.name": "Название",
