@@ -15,29 +15,31 @@
   position: absolute;
   top: 30px;
   right: 0;
-  z-index: 4000;
+  /* z-index: 4000; */
 }
 
 .confirm {
-  background-color: #00cc18;
+  background-color: rgba(255, 108, 0, 0.9);
 }
 
 .text {
   display: inline-block;
+  font-family: "RobotoRegular";
+  font-weight: bold;
   margin: 0 auto;
   color: snow;
   padding: 14px;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 @media screen and (min-width: 30em) {
   .text {
-    font-size: 20px;
+    font-size: 14px;
   }
 }
 
 @media screen and (min-width: 48em) {
   .text {
-    font-size: 22px;
+    font-size: 16px;
   }
 }
