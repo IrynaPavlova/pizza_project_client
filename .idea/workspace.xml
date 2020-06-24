@@ -21,6 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7671a017-7851-4b51-b33c-85206f1557e5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/CreateNewProduct/CreateNewProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/CreateNewProduct/CreateNewProduct.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/api.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,6 +73,8 @@
       <workItem from="1592481569151" duration="1190000" />
       <workItem from="1592764749831" duration="2041000" />
       <workItem from="1592811203919" duration="1204000" />
+      <workItem from="1592941875408" duration="847000" />
+      <workItem from="1592993623468" duration="1909000" />
     </task>
     <servers />
   </component>
@@ -91,9 +94,9 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="478" y="150" width="579" height="534" key="find.popup" timestamp="1592129566262">
+    <state x="478" y="150" width="579" height="534" key="find.popup" timestamp="1592820942755">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="478" y="150" width="579" height="534" key="find.popup/0.0.1536.834@0.0.1536.834" timestamp="1592129566262" />
+    <state x="478" y="150" width="579" height="534" key="find.popup/0.0.1536.834@0.0.1536.834" timestamp="1592820942755" />
   </component>
 </project>

@@ -29,8 +29,14 @@ const CreateNewProduct = ({visible, closeModal}) => {
         const [subCategory, changeSubCategory] = useState(pizzaCategories[0]);
         // const handle
         const [ingredients, setIngredients] = useState([]);
-        const [name, setName] = useState("");
+        const [ukrName, setUkrName] = useState("");
+        const [enName, setEnName] = useState("");
+        const [ruName, setRuName] = useState("");
         const [price, setPrice] = useState("");
+        const [M, setM] = useState("");
+        const [L, setL] = useState("");
+        const [XL, setXL] = useState("");
+        const [description, setDescription] = useState("");
         useEffect(() => {
                 getAllIngredients().then(data => {
                     if (JSON.stringify(data) !== JSON.stringify(ingredients)) setIngredients(data);
@@ -49,16 +55,34 @@ const CreateNewProduct = ({visible, closeModal}) => {
         const submitForm = async e => {
             e.persist();
             e.preventDefault();
-            console.log(await postImage(e.target.querySelector("#image").files[0]).file);
+            let res = await postImage(e.target.querySelector("#image").files[0])
+            const href = res.data.image.file;
             const product = {
                 categories: category.value,
-                subcategory: subCategory.value,
-                ingredients: activeIngredients,
                 currency: "грн",
-                price: {price},
-                name,
+                images: href,
+                name: {
+                    ukr: ukrName,
+                    en: enName,
+                    ru: ruName,
+                },
+                likes: 0,
+                sku: 0,
+                description: description,
             };
-            // postNewProduct(product);
+            if (category.value === categories.pizza) {
+                product.ingredients = activeIngredients;
+                product.subcategory = subCategory.value;
+                product.price = {
+                    M: M,
+                    L: L,
+                    XL: XL
+                };
+            } else {
+                product.price = {price};
+            }
+            res = await postNewProduct(product);
+            alert(res.data.status);
         };
         return (
             visible ?
@@ -70,13 +94,48 @@ const CreateNewProduct = ({visible, closeModal}) => {
                                 onChange={changeSubCategory} options={pizzaCategories}
                                 isDisabled={category.value !== categories.pizza}/>
                         <label className={styles.inputLabel}>
-                            <h4>Name</h4>
-                            <input type="text" value={name} onChange={e => setName(e.target.value)}/>
+                            <h4>Ukr Name</h4>
+                            <input type="text" value={ukrName} onChange={e => setUkrName(e.target.value)}/>
                         </label>
                         <label className={styles.inputLabel}>
+                            <h4>En Name</h4>
+                            <input type="text" value={enName} onChange={e => setEnName(e.target.value)}/>
+                        </label>
+                        <label className={styles.inputLabel}>
+                            <h4>Ru Name</h4>
+                            <input type="text" value={ruName} onChange={e => setRuName(e.target.value)}/>
+                        </label>
+                        {category.value === categories.pizza ?
+                            <>
+                            <label className={styles.inputLabel}>
+                                <h4>M</h4>
+                                <input type="text" value={M} onChange={e => setM(e.target.value)}/>
+                            </label>
+
+                            <label className={styles.inputLabel}>
+                                <h4>L</h4>
+                                <input type="text" value={L} onChange={e => setL(e.target.value)}/>
+                            </label>
+
+                            <label className={styles.inputLabel}>
+                            <h4>XL</h4>
+                            <input type="text" value={XL} onChange={e => setXL(e.target.value)}/>
+                            </label>
+                            </>
+
+                            :
+
+                            <label className={styles.inputLabel}>
                             <h4>Price</h4>
                             <input type="text" value={price} onChange={e => setPrice(e.target.value)}/>
+                            </label>
+                        }
+
+                        <label className={styles.inputLabel}>
+                            <h4>Description</h4>
+                            <input type="text" value={description} onChange={e => setDescription(e.target.value)}/>
                         </label>
+
                         <label className={styles.inputLabel}>
                             <h4>Image</h4>
                             <input type="file" id="image"/>
