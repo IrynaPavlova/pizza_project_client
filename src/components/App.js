@@ -17,7 +17,6 @@ import Footer from "./Footer/Footer";
 import localMessages from "../languages";
 const App = () => {
   const dispatch = useDispatch();
-
   const local = useSelector((state) => state.local.lang);
   const isAdmin = useSelector(authSelectors.getUserRole) === "admin";
   const isAuthenticated = useSelector(authSelectors.isAuthenticated);
@@ -25,6 +24,7 @@ const App = () => {
   useEffect(() => {
     dispatch(authOperations.getCurrentUser());
   }, [dispatch]);
+
   return (
     <IntlProvider
       locale={local}

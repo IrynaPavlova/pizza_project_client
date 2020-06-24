@@ -12,7 +12,7 @@ const addOrder = ({ orderObject }) => (dispatch) => {
     })
     .then(({ data }) => {
       dispatch(orderActions.addOrderSuccess(data));
-      console.log(data);
+      // console.log(data);
     })
     .then(() => {
       dispatch(orderActions.clearOrderList());
@@ -20,9 +20,19 @@ const addOrder = ({ orderObject }) => (dispatch) => {
     .catch((error) => dispatch(orderActions.addOrderError(error)));
 };
 
-const updateOrder = (id) => (dispatch) => {};
+const postOrderStutus = (id) => (dispatch) => {
+  dispatch(orderActions.postOrderStatusRequest());
+
+  axios
+    .post(`/status/${id}`)
+    .then(({ data }) =>
+      dispatch(orderActions.postOrderStatusSuccess(data.doneOrder))
+    )
+    .catch((error) => dispatch(orderActions.postOrderStatusError(error)));
+};
 
 const getOrders = () => (dispatch) => {
+  dispatch(orderActions.ordersError(null));
   dispatch(orderActions.ordersRequest());
 
   axios
@@ -43,7 +53,6 @@ const getOrdersById = (id) => (dispatch) => {
 //Создаем лист заказа пользователя
 
 const addProdToOrderList = (product, productType) => (dispatch, getState) => {
-  dispatch(orderActions.successAddProdToOrder(false));
   const newProductPrice = Number(
     product.price[productType] || product.price.price
   );
@@ -55,8 +64,7 @@ const addProdToOrderList = (product, productType) => (dispatch, getState) => {
   );
 
   if (doesExistItem) {
-    dispatch(orderActions.successAddProdToOrder(false));
-    return dispatch(orderActions.errorAddProdToOrder(true));
+    return;
   }
   let newItem = {
     productId: product._id,
@@ -75,16 +83,12 @@ const addProdToOrderList = (product, productType) => (dispatch, getState) => {
   }
 
   dispatch(orderActions.addProdToOrderList(newItem));
-  dispatch(orderActions.successAddProdToOrder(true));
-  dispatch(orderActions.errorAddProdToOrder(false));
 };
 
 const clearOrderList = () => (dispatch) =>
   dispatch(orderActions.clearOrderList());
 
 const deleteProdToOrderList = (id, type) => (dispatch) => {
-  dispatch(orderActions.successAddProdToOrder(false));
-  dispatch(orderActions.errorAddProdToOrder(false));
   dispatch(orderActions.deleteProdToOrderList(id, type));
 };
 
@@ -100,7 +104,7 @@ export default {
   addOrder,
   getOrders,
   getOrdersById,
-  updateOrder,
+  postOrderStutus,
   addProdToOrderList,
   deleteProdToOrderList,
   incrementItemsCount,
