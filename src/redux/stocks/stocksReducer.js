@@ -1,11 +1,15 @@
-import { combineReducers } from 'redux';
-import { createReducer } from '@reduxjs/toolkit';
-import stocksActions from './stocksActions';
+import { combineReducers } from "redux";
+import { createReducer } from "@reduxjs/toolkit";
+import stocksActions from "./stocksActions";
 
 const stocksReducer = createReducer([], {
   [stocksActions.getStocksSuccess]: (state, { payload }) => payload,
-  [stocksActions.sendStockSuccess]: (state, { payload }) => [...state, payload],
-  [stocksActions.updateStockSuccess]: (state, { payload }) => payload,
+  [stocksActions.sendStockSuccess]: (state, { payload }) => [
+    ...state,
+    payload,
+  ],
+  [stocksActions.updateStockSuccess]: (state, { payload }) =>
+    state.map((stock) => (stock._id === payload._id ? payload : stock)),
   [stocksActions.deleteStockSuccess]: (state, { payload }) =>
     state.filter((element) => element._id !== payload),
 });
@@ -42,12 +46,12 @@ const loadingReducer = createReducer(false, {
 });
 
 const errorReducer = createReducer(null, {
-  [stocksActions.getStocksError]: (state, { payload }) => payload,
-  [stocksActions.getStockByIdError]: (state, { payload }) => payload,
-  [stocksActions.sendFileError]: (state, { payload }) => payload,
-  [stocksActions.sendStockError]: (state, { payload }) => payload,
-  [stocksActions.updateStockError]: (state, { payload }) => payload,
-  [stocksActions.updateStockError]: (state, { payload }) => payload,
+  [stocksActions.getStocksError]: (state, { payload }) => payload.stack,
+  [stocksActions.getStockByIdError]: (state, { payload }) => payload.stack,
+  [stocksActions.sendFileError]: (state, { payload }) => payload.stack,
+  [stocksActions.sendStockError]: (state, { payload }) => payload.stack,
+  [stocksActions.updateStockError]: (state, { payload }) => payload.stack,
+  [stocksActions.updateStockError]: (state, { payload }) => payload.stack,
 });
 
 export default combineReducers({
