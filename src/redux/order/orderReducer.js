@@ -6,14 +6,19 @@ const ordersReducer = createReducer([], {
   [orderActions.ordersSuccess]: (state, { payload }) => payload,
   [orderActions.orderByIdSuccess]: (state, { payload }) => payload,
   [orderActions.addOrderSuccess]: (state, { payload }) => payload,
-  [orderActions.updateOrderSuccess]: (state, { payload }) => payload,
+  [orderActions.postOrderStatusSuccess]: (state, action) => {
+    return [
+      ...state.filter((item) => item._id !== action.payload._id),
+      action.payload,
+    ];
+  },
 });
 
 const errorReducer = createReducer(null, {
   [orderActions.ordersError]: (state, { payload }) => payload,
   [orderActions.orderByIdError]: (state, { payload }) => payload,
   [orderActions.addOrderError]: (state, { payload }) => payload,
-  [orderActions.updateOrderError]: (state, { payload }) => payload,
+  [orderActions.postOrderStatusError]: (state, { payload }) => payload,
 });
 
 const loadingReducer = createReducer(false, {
@@ -29,9 +34,9 @@ const loadingReducer = createReducer(false, {
   [orderActions.addOrderSuccess]: () => false,
   [orderActions.addOrderError]: () => false,
 
-  [orderActions.updateOrderRequest]: () => true,
-  [orderActions.updateOrderSuccess]: () => false,
-  [orderActions.updateOrderError]: () => false,
+  [orderActions.postOrderStatusRequest]: () => true,
+  [orderActions.postOrderStatusSuccess]: () => false,
+  [orderActions.postOrderStatusError]: () => false,
 });
 
 //Работаем с листом заказа пользователя

@@ -12,9 +12,9 @@ const addOrderRequest = createAction("orders/addOrderRequest");
 const addOrderSuccess = createAction("orders/addOrderSuccess");
 const addOrderError = createAction("orders/addOrderError");
 
-const updateOrderRequest = createAction("orders/updateOrderRequest");
-const updateOrderSuccess = createAction("orders/updateOrderSuccess");
-const updateOrderError = createAction("orders/updateOrderError");
+const postOrderStatusRequest = createAction("orders/postOrderStatusRequest");
+const postOrderStatusSuccess = createAction("orders/postOrderStatusSuccess");
+const postOrderStatusError = createAction("orders/postOrderStatusError");
 
 //Создаем лист заказа пользователя
 const addProdToOrderList = createAction("orders/addProdToOrderList");
@@ -33,9 +33,9 @@ export default {
   addOrderRequest,
   addOrderSuccess,
   addOrderError,
-  updateOrderRequest,
-  updateOrderSuccess,
-  updateOrderError,
+  postOrderStatusRequest,
+  postOrderStatusSuccess,
+  postOrderStatusError,
   addProdToOrderList,
   deleteProdToOrderList,
   incrementItemsCount,

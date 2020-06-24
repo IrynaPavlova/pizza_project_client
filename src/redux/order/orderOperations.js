@@ -20,9 +20,19 @@ const addOrder = ({ orderObject }) => (dispatch) => {
     .catch((error) => dispatch(orderActions.addOrderError(error)));
 };
 
-const updateOrder = (id) => (dispatch) => {};
+const postOrderStutus = (id) => (dispatch) => {
+  dispatch(orderActions.postOrderStatusRequest());
+
+  axios
+    .post(`/status/${id}`)
+    .then(({ data }) =>
+      dispatch(orderActions.postOrderStatusSuccess(data.doneOrder))
+    )
+    .catch((error) => dispatch(orderActions.postOrderStatusError(error)));
+};
 
 const getOrders = () => (dispatch) => {
+  dispatch(orderActions.ordersError(null));
   dispatch(orderActions.ordersRequest());
 
   axios
@@ -94,7 +104,7 @@ export default {
   addOrder,
   getOrders,
   getOrdersById,
-  updateOrder,
+  postOrderStutus,
   addProdToOrderList,
   deleteProdToOrderList,
   incrementItemsCount,

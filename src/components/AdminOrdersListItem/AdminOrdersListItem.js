@@ -1,12 +1,17 @@
 import React from "react";
 import moment from "moment";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { FormattedMessage } from "react-intl";
 
 import styles from "./AdminOrdersListItem.module.css";
+import { orderOperations } from "../../redux/order";
 
 export default function AdminOrdersListItem({ item }) {
   const local = useSelector((state) => state.local.lang);
+  const dispatch = useDispatch();
+  const handleClickDone = () => {
+    dispatch(orderOperations.postOrderStutus(item._id));
+  };
 
   return (
     <li className={styles.orderWrapper}>
@@ -44,7 +49,18 @@ export default function AdminOrdersListItem({ item }) {
         <p>
           <FormattedMessage id="orders.done" />
         </p>
-        <input type="checkbox" name="orderDone" />
+        {item.status === "done" && (
+          <input
+            type="checkbox"
+            name="orderDone"
+            onClick={handleClickDone}
+            checked
+            disabled
+          />
+        )}
+        {item.status === "new" && (
+          <input type="checkbox" name="orderDone" onClick={handleClickDone} />
+        )}
       </div>
     </li>
   );
