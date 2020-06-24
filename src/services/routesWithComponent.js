@@ -27,6 +27,7 @@ const AdminUpdateListItemEdit = lazy(() =>
   import("../components/AdminUpdateListItemEdit/AdminUpdateListItemEdit.js")
 );
 const AdminStocksPage = lazy(() => import("../pages/AdminStocksPage"));
+const CreateNewProductButton = lazy(() => import("../components/CreateNewProductButton"));
 
 export default [
   {
@@ -129,7 +130,7 @@ export default [
     path: routes.ADMIN_CREATE_PRODUCT,
     label: "ADMIN_CREATE_PRODUCT",
     exact: true,
-    component: forExmCreateProd,
+    component: CreateNewProductButton,
     private: true,
     restricted: false,
   },
