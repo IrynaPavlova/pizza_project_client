@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux';
-import { createReducer } from '@reduxjs/toolkit';
-import stocksActions from './stocksActions';
+import { combineReducers } from "redux";
+import { createReducer } from "@reduxjs/toolkit";
+import stocksActions from "./stocksActions";
 
 const stocksReducer = createReducer([], {
   [stocksActions.getStocksSuccess]: (state, { payload }) => payload,
@@ -31,7 +31,7 @@ const loadingReducer = createReducer(false, {
   [stocksActions.updateStockError]: (state, { payload }) => false,
   [stocksActions.deleteStockRequest]: (state, { payload }) => true,
   [stocksActions.deleteStockSuccess]: (state, { payload }) => false,
-  [stocksActions.updateStockError]: (state, { payload }) => false,
+  [stocksActions.deleteStockError]: (state, { payload }) => false,
 });
 
 export default combineReducers({

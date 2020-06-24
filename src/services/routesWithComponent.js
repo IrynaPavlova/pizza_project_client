@@ -23,7 +23,7 @@ const AdminOrderList = lazy(() =>
   import("../components/AdminOrderList/AdminOrderList")
 );
 const AdminUpdateList = lazy(() => import("../components/AdminUpdateList"));
-const AdminUpdateListIremEdit = lazy(() =>
+const AdminUpdateListItemEdit = lazy(() =>
   import("../components/AdminUpdateListItemEdit/AdminUpdateListItemEdit.js")
 );
 const AdminStocksPage = lazy(() => import("../pages/AdminStocksPage"));
@@ -35,7 +35,7 @@ export default [
     exact: true,
     component: MainPage,
     private: false,
-    restricted: false, //ограниченный доступ: например, исключительно для зарегестрированных пользователей
+    restricted: false,
   },
   {
     path: routes.PROMO,
@@ -91,7 +91,7 @@ export default [
     exact: true,
     component: UserPage,
     private: false,
-    restricted: false, //ограниченная
+    restricted: false,
   },
   {
     path: routes.AUTH,
@@ -99,7 +99,7 @@ export default [
     exact: true,
     component: AuthPage,
     private: false,
-    restricted: false, //ограниченная
+    restricted: false,
   },
   {
     path: routes.ABOUT_DEV_PAGE,
@@ -145,7 +145,7 @@ export default [
     path: routes.ADMIN_UPDATE_PRODUCT_ITEM,
     label: "ADMIN_UPDATE_PRODUCT_ITEM",
     exact: true,
-    component: AdminUpdateListIremEdit,
+    component: AdminUpdateListItemEdit,
     private: true,
     restricted: false,
   },
