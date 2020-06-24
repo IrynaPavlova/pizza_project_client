@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 
 import AboutDeveloperItem from './AboutDeveloperItem';
@@ -10,7 +11,11 @@ import animatedStyles from './Animate.module.css';
 export default function AboutDevelopers() {
   const [userCollection, setUserColection] = useState([]);
   useEffect(() => {
-    fetchDevs().then(({ data }) => setUserColection(data.developers));
+    fetchDevs().then(({ data }) =>
+      setUserColection(
+        data.developers.sort((a, b) => a.name.localeCompare(b.name))
+      )
+    );
   }, []);
 
   return (

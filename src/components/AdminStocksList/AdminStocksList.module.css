@@ -1,5 +1,6 @@
 .cardList {
-  width: 1200px;
+  max-width: 1200px;
+  margin: auto;
   display: flex;
   flex-direction: column;
   font-family: "Roboto", sans-serif;
@@ -7,4 +8,3 @@
   font-weight: 500;
   color: #27272780;
 }
-
