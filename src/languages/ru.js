@@ -11,7 +11,7 @@ export default {
   developers: "Разработчики",
   name: "Имя",
   city: "Город",
-  street: "Улиця",
+  street: "Улица",
   house: "Дом, квартира",
   photo: "Фото",
   grn: "грн",
@@ -76,5 +76,5 @@ export default {
   "update.addToComposition": "Добавить в состав",
   "update.saveChanges": "Сохранить изменения",
   "delete product": "Удалить продукт",
-  "return back": "Вернутся на предыдущую страницу",
+  "return back": "Вернутся на предыдущую страницу"
 };
