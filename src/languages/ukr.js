@@ -57,6 +57,8 @@ export default {
   "orders.wait": ", очiкуйте на курьера на протязi години",
   "order.success": "{name} додано до корзини",
   "order.error": "{name} вже у корзинi",
+  "order.pizzaSuccess": "Піццу {name} додано до корзини",
+  "order.pizzaError": "Пицца {name} вже у корзинi",
   "product.create": "Створити продукт",
   "product.edit": "Редагувати продукт",
   "product.name": "Назва",

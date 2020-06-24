@@ -49,24 +49,18 @@ export default function AdminOrderList() {
             </div>
           ) : (
             <div className={styles.orderContainer}>
-              <div className={styles.orderContainerSide}>
-                <ul className={styles.orderList}>
-                  {options.map((option, index) => (
-                    <li key={index}>
-                      <label className={styles.filterLabel}>
-                        <input
-                          type="radio"
-                          value={option}
-                          checked={option === filters}
-                          onChange={handleChange}
-                          className={styles.filterButton}
-                          key={option}
-                        />
-                        <span className={styles.sizeText}>{option}</span>
-                      </label>
-                    </li>
-                  ))}
-                </ul>
+              <div className={styles.buttons_container}>
+                {options.map((option) => (
+                  <button
+                    key={option}
+                    className={`${styles.button} ${
+                      filters === option ? styles.button_active : ""
+                    }`}
+                    onClick={() => setFilter(option)}
+                  >
+                    {option}
+                  </button>
+                ))}
               </div>
               <div className={styles.orderItems}>
                 <ul>

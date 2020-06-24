@@ -21,7 +21,7 @@ function PizzaListItem(product) {
 
   const successMessage = (
     <FormattedMessage
-      id="order.success"
+      id="order.pizzaSuccess"
       values={{
         name: name[local],
       }}
@@ -30,7 +30,7 @@ function PizzaListItem(product) {
 
   const errorMessage = (
     <FormattedMessage
-      id="order.error"
+      id="order.pizzaError"
       values={{
         name: name[local],
       }}
