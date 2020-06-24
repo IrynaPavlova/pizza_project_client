@@ -39,7 +39,7 @@ export default function OrderForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const deliveryAddress = `${city}/${street}/${house}`;
+    const deliveryAddress = `${city}, ${street}, ${house}`;
 
     const orderObject = {
       creator,
