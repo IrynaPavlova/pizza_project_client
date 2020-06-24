@@ -11,7 +11,7 @@ const AdminUpdateListItem = ({ product }) => {
     <div className={style.editCard}>
       <img src={images} alt={images} className={style.editCard__image} />
       <p className={style.editForm__name}>{name[local]}</p>
-      <Link to="#">
+      <Link to={{ pathname: "/admin/update-product-item", state: { product } }}>
         <button type="button" className={style.editForm__btn}>
           <FormattedMessage id="edit" />
         </button>

@@ -6,6 +6,7 @@
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25), 0px 2px 2px rgba(0, 0, 0, 0.08),
     0px 1px 1px rgba(0, 0, 0, 0.16);
   font-size: 20px;
+  text-align: center;
 }
 .editCard__image {
   display: block;
@@ -25,8 +26,14 @@
   display: grid;
   grid-template-columns: 20% 80%;
 }
+.editCard__titleLang {
+  margin: 0;
+}
 .editForm__input {
   width: inherit;
+}
+.editCard__photoLabel {
+  width: 100%;
 }
 .editForm__photo {
   display: none;
@@ -41,7 +48,9 @@
   cursor: pointer;
   margin: 0 auto;
 }
-
+.editForm__ingredientsSelect {
+  width: 100%;
+}
 .editForm__ingredient {
   display: flex;
   justify-content: space-between;
@@ -68,7 +77,6 @@
 }
 .editForm__ingredientBtnDel {
   border: none;
-  width: 23px;
   background: #ff6c00;
   border-radius: 4px;
 }
@@ -76,6 +84,12 @@
 .editForm__price {
   display: grid;
   grid-template-columns: 20% 80%;
+}
+.editForm__inputSinglePrice {
+  width: 100%;
+}
+.editForm__priceTitle {
+  margin: 0;
 }
 .editForm__btnSubmit {
   width: 100%;

@@ -6,13 +6,28 @@ import Notification from "../Notification";
 import { orderOperations } from "../../redux/order";
 import styles from "../DrinkListItem/drinkListItem.module.css";
 
-const successMessage = "Продукт добавлен в корзину";
-const errorMessage = "Этот продукт уже есть в корзине";
-
 const SidesListItem = (props) => {
-  const { _id, name, description, price, images, currency } = props;
+  const { name, description, price, images } = props;
 
   const local = useSelector((state) => state.local.lang);
+
+  const successMessage = (
+    <FormattedMessage
+      id="order.success"
+      values={{
+        name: name[local],
+      }}
+    />
+  );
+
+  const errorMessage = (
+    <FormattedMessage
+      id="order.error"
+      values={{
+        name: name[local],
+      }}
+    />
+  );
 
   const dispatch = useDispatch();
   const onAddProductToOrder = () =>
