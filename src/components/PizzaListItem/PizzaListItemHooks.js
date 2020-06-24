@@ -65,8 +65,14 @@ function PizzaListItem(product) {
   return (
     <li key={_id} className={styles.pizzaListCard}>
       {isAddedProdToOrder && <Notification message={message} confirm forCard />}
-      <div>
-        <img src={images} className={styles.imageItem} alt="" />
+      <div className={styles.imageItemWrapper}>
+        <img
+          src={images}
+          className={styles.imageItem}
+          alt=""
+          width="354px"
+          height="192px"
+        />
       </div>
       <div className={styles.descriptionContainer}>
         <p className={styles.heading}>{name[local]}</p>
