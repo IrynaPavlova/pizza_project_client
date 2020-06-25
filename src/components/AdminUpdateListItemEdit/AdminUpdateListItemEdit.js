@@ -37,6 +37,7 @@ const AdminUpdateListItemEdit = () => {
   const [newIngredient, setNewIngredient] = useState(0);
   const [ingredientsList, setIngredientsList] = useState(null);
   const [description, setDescription] = useState(productForEdit.description);
+
   useEffect(() => {
     Axios.get("https://evening-caverns-34846.herokuapp.com/ingredients")
       .then((res) => {
@@ -269,12 +270,15 @@ const AdminUpdateListItemEdit = () => {
                 </select>
                 <button
                   type="button"
-                  onClick={() =>
-                    setIngredients([
-                      ...ingredients,
-                      ingredientsList[newIngredient],
-                    ])
-                  }
+                  onClick={() => {
+                    ingredients.some(
+                      (el) => ingredientsList[newIngredient]._id === el._id
+                    ) ||
+                      setIngredients([
+                        ...ingredients,
+                        ingredientsList[newIngredient],
+                      ]);
+                  }}
                   className={style.editForm__addIngredientBtn}
                 >
                   <FormattedMessage id="update.addToComposition" />
@@ -282,11 +286,9 @@ const AdminUpdateListItemEdit = () => {
               </label>
             </>
           )}
-
           <h4 className={style.editCard__title}>
             <FormattedMessage id="product.price" />
           </h4>
-
           {categories === "pizza" ? (
             <div className={style.editForm__price}>
               <h4 className={style.editForm__priceTitle}>M</h4>
@@ -314,13 +316,13 @@ const AdminUpdateListItemEdit = () => {
           ) : (
             <>
               <input
-                type="text"
+                type="number"
                 value={priceNoPizza}
                 onChange={(ev) => setPriceNoPizza(ev.target.value)}
                 className={style.editForm__inputSinglePrice}
               />
               <p className={style.editCard__title}>
-                <FormattedMessage id="product.about" />
+                <FormattedMessage id="volume weight" />
               </p>
               <input
                 type="text"
@@ -348,13 +350,14 @@ const AdminUpdateListItemEdit = () => {
         >
           <FormattedMessage id="delete product" />
         </button>
-        <div onClick={() => setConfirmEdit(false)}>
+        <div
+          onClick={() => {
+            confirmEdit.action === "del" || setConfirmEdit(false);
+          }}
+        >
           {confirmEdit && <ConfirmationWindow confirmMassage={confirmEdit} />}
         </div>
       </div>
-      {/* ) : (
-        <Spinner />
-      )} */}
     </div>
   );
 };

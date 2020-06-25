@@ -75,7 +75,7 @@ export default {
   "register.passReq": "Password is required",
   "register.passLength": "Password needs to have 6+ symbols",
   "update.composition": "Composition",
-  "update.addIngredient": "Add ingredient",
+  "update.addIngredient": "Choose ingredient",
   "update.addToComposition": "Add",
   "update.saveChanges": "Save changes",
   "update.return": "Return to products list",
@@ -85,4 +85,5 @@ export default {
   "continue editing": "Continue editing",
   "error editing": "Error.Continue later",
   "product updated": "product updated successfully",
+  "volume weight": "Volume/weight",
 };

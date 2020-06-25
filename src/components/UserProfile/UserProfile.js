@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { authSelectors, authOperations } from "../../redux/auth";
 import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 import { FormattedMessage } from "react-intl";
@@ -23,7 +24,6 @@ export default function UserProfile() {
 
   useEffect(() => {
     if (id) {
-      dispatch(authOperations.getCurrentUser(id));
       dispatch(authOperations.getUserOrders(id));
     }
   }, []);
@@ -37,11 +37,11 @@ export default function UserProfile() {
       <div className={styles.clientInfoContainer}>
         {isAuthenticated && <ClientInfo username={username} email={email} />}
         {isAuthenticated && <ClientOrders />}
-        <div className={styles.orderBtn}>
-          <a href="/pizza" className={styles.orderBtnText}>
+        <Link to="/pizza" className={styles.orderBtnText}>
+          <div className={styles.orderBtn}>
             <FormattedMessage id="new order" />
-          </a>
-        </div>
+          </div>
+        </Link>
       </div>
     </>
   );

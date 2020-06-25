@@ -1,4 +1,7 @@
-import axios from 'axios';
+
+import axios from "axios";
+const CancelToken = axios.CancelToken;
+const source = CancelToken.source();
 
 const baseURL = 'https://evening-caverns-34846.herokuapp.com';
 
@@ -8,7 +11,9 @@ const getAllProducts = () => {
 };
 
 const getProductsByCategory = (category) => {
-  return axios.get(`/products/?category="${category}"`);
+  return axios.get(`/products/?category="${category}"`, {
+    cancelToken: source.token,
+  });
 };
 
 const getProductById = (id) => {
