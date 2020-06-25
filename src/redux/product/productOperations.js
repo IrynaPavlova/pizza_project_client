@@ -1,5 +1,7 @@
 import axios from "axios";
 import productActions from "./productActions";
+const CancelToken = axios.CancelToken;
+const source = CancelToken.source();
 
 axios.defaults.baseURL = "https://evening-caverns-34846.herokuapp.com/";
 
@@ -16,7 +18,9 @@ const fetchProductsByCategory = (category) => (dispatch) => {
   dispatch(productActions.byCategoryRequest());
 
   axios
-    .get(`/products/?category="${category}"`)
+    .get(`/products/?category="${category}"`, {
+      cancelToken: source.token,
+    })
     .then(({ data }) =>
       dispatch(productActions.byCategorySuccess(data.products))
     )

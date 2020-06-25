@@ -80,7 +80,7 @@
   color: #ffffff;
   width: 100px;
   height: 36px;
-  background: linear-gradient(#ff6c00, #cf5803) #ff6c00;
+  background: #ff6c00;
   border: none;
   outline: 0 !important;
   border-radius: 4px;
@@ -90,11 +90,7 @@
   transition: 0.2s ease-in-out;
 }
 
-.button:hover:not(:active) {
-  background: linear-gradient(#ff6c00, #ffae00) #ff6c00;
-}
 .button:active {
-  background: linear-gradient(#bd5307, #924208) #bd5307;
   box-shadow: 0 0px #ffffff33 inset, 0 0px 0px #00010680, 0 0 0px 0px #00010633;
 }
 

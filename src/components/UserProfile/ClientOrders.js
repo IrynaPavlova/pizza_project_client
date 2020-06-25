@@ -11,7 +11,7 @@ export const ClientOrders = () => {
 
   const ordersList = orders.map((item) => (
     <li key={item._id}>
-      <span className={styles.orderDate}>{item.createdAt.slice(0, 10)}</span>
+      <span className={styles.orderDate}>{new Date(item.createdAt).toLocaleDateString()}</span>
       <div className={styles.productTitle}>
         {item.productsList.map((i) => (
           <div key={i._id}>

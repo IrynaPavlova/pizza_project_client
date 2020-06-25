@@ -1,12 +1,10 @@
+import React, { useState, useEffect } from "react";
 
-import React, { useState, useEffect } from 'react';
-
-import AboutDeveloperItem from './AboutDeveloperItem';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { fetchDevs } from '../../services/api';
-import styles from './AboutDevelopers.module.css';
-import animatedStyles from './Animate.module.css';
-
+import AboutDeveloperItem from "./AboutDeveloperItem";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { fetchDevs } from "../../services/api";
+import styles from "./AboutDevelopers.module.css";
+import animatedStyles from "./Animate.module.css";
 
 export default function AboutDevelopers() {
   const [userCollection, setUserColection] = useState([]);

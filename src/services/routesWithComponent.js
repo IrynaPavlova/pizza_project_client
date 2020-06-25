@@ -1,6 +1,5 @@
 import { lazy } from "react";
 import { routes } from "./routes";
-import forExmCreateProd from "../pages/AdminPage/forExmCreateProd";
 
 const MainPage = lazy(() => import("../pages/MainPage"));
 const PromoList = lazy(() => import("../components/PromoList"));
@@ -14,11 +13,9 @@ const OrderPage = lazy(() => import("../pages/OrderPage/OrderPage"));
 
 const AuthPage = lazy(() => import("../pages/AuthPage"));
 const UserPage = lazy(() => import("../pages/UserPage/UserPage"));
-const AboutDevelopersPage = lazy(() =>
-  import("../pages/AboutDevelopersPage/AboutDevelopersPage")
-);
+const AboutDevelopersPage = lazy(() => import("../pages/AboutDevelopersPage"));
 
-const AdminPage = lazy(() => import("../pages/AdminPage/AdminPageContainer"));
+const AdminPage = lazy(() => import("../pages/AdminPage/AdminPage"));
 const AdminOrderList = lazy(() =>
   import("../components/AdminOrderList/AdminOrderList")
 );
@@ -27,7 +24,9 @@ const AdminUpdateListItemEdit = lazy(() =>
   import("../components/AdminUpdateListItemEdit/AdminUpdateListItemEdit.js")
 );
 const AdminStocksPage = lazy(() => import("../pages/AdminStocksPage"));
-const CreateNewProductButton = lazy(() => import("../components/CreateNewProductButton"));
+const CreateNewProductButton = lazy(() =>
+  import("../components/CreateNewProduct")
+);
 
 export default [
   {
@@ -103,8 +102,8 @@ export default [
     restricted: false,
   },
   {
-    path: routes.ABOUT_DEV_PAGE,
-    label: "ABOUT_DEV_PAGE",
+    path: routes.DEVELOPERS,
+    label: "DEVELOPERS",
     exact: true,
     component: AboutDevelopersPage,
     private: false,

@@ -7,6 +7,8 @@ import style from "./adminUpdateListItemEdit.module.css";
 import Spinner from "../../components/Spinner";
 import Axios from "axios";
 
+// import languages from "../../languages";
+
 const AdminUpdateListItemEdit = () => {
   let location = useLocation();
   let productForEdit = null;
@@ -35,7 +37,6 @@ const AdminUpdateListItemEdit = () => {
   const [newIngredient, setNewIngredient] = useState(0);
   const [ingredientsList, setIngredientsList] = useState(null);
   const [description, setDescription] = useState(productForEdit.description);
-
   useEffect(() => {
     Axios.get("https://evening-caverns-34846.herokuapp.com/ingredients")
       .then((res) => {

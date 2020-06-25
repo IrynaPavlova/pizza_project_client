@@ -131,6 +131,7 @@
     padding: 0;
     margin-bottom: 16px;
     flex-direction: row;
+    /* justify-content: space-between; */
   }
 
   .orderItemCard:not(:last-child) {
@@ -147,6 +148,7 @@
   }
 
   .itemImg {
+    display: flex;
     width: 270px;
     height: 203px;
     margin-bottom: 0px;
@@ -159,8 +161,10 @@
   }
 
   .contentWrapper {
+    width: 468px;
     padding-top: 44px;
     padding-left: 32px;
+    padding-right: 16px;
   }
 
   .productName,
@@ -168,9 +172,9 @@
     text-align: left;
   }
 
-  .orderDetailsWrapper {
+  /* .orderDetailsWrapper {
     width: 400px;
-  }
+  } */
 
   .pizzaSize {
     position: absolute;
@@ -183,5 +187,16 @@
   .orderItemCard {
     display: flex;
     width: 770px;
+  }
+
+  .itemImg {
+    display: flex;
+    width: 270px;
+    height: 203px;
+    margin-bottom: 0px;
+  }
+
+  .contentWrapper {
+    width: 500px;
   }
 }

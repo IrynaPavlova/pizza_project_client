@@ -1,11 +1,25 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import axios from "axios";
 import PizzaList from "./PizzaList";
 import { productOperations, productSelectors } from "../../redux/product";
+const CancelToken = axios.CancelToken;
+const source = CancelToken.source();
 
 class PizzaListContainer extends Component {
-  componentDidMount() {
-    this.props.onFetchProductPizza("pizza");
+  async componentDidMount() {
+    try {
+      this.props.onFetchProductPizza("pizza");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  async componentWillUnmount() {
+    try {
+      source.cancel("Operation canceled");
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   render() {
