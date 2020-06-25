@@ -2,6 +2,7 @@ export default {
   search: "Пошук",
   error: "Щосб пiшло не так",
   welcome: "Ласкаво просимо, ",
+  welcomeAdmin: "Ласкаво просимо на сторiнку адмiнiстратора!",
   edit: "Редагувати",
   promo: "Акцii",
   pizza: "Пiца",

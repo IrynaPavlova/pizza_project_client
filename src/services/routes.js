@@ -9,7 +9,7 @@ export const routes = {
   CLIENT_PAGE: "/client",
   AUTH: "/auth",
   DEVELOPERS: "/devs",
-  ABOUT_DEV_PAGE: "/about-developers",
+  // ABOUT_DEV_PAGE: "/about-developers",
 
   ADMIN_PAGE: "/admin",
   ADMIN_ORDER_LISTS: "/admin/order-lists",

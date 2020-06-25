@@ -2,6 +2,7 @@ export default {
   search: "Search",
   error: "Something went wrong",
   welcome: "Welcome, ",
+  welcomeAdmin: "Welcome to AdminPage",
   edit: "Edit",
   promo: "Promo",
   pizza: "Pizza",

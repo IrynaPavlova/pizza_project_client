@@ -28,7 +28,7 @@ const AdminUpdateListItemEdit = () => {
   const [newIngredient, setNewIngredient] = useState(0);
   const [ingredientsList, setIngredientsList] = useState(null);
   const [description, setDescription] = useState(product.description);
-  console.log(product);
+  // console.log(product);
   // console.log(price);
 
   useEffect(() => {
