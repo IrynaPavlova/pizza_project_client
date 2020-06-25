@@ -1,16 +1,21 @@
+
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+
 import AboutDeveloperItem from './AboutDeveloperItem';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { fetchDevs } from '../../services/api';
 import styles from './AboutDevelopers.module.css';
 import animatedStyles from './Animate.module.css';
-import data from './data.json';
+
 
 export default function AboutDevelopers() {
   const [userCollection, setUserColection] = useState([]);
   useEffect(() => {
-    fetchDevs().then(({ data }) => setUserColection(data.developers));
+    fetchDevs().then(({ data }) =>
+      setUserColection(
+        data.developers.sort((a, b) => a.name.localeCompare(b.name))
+      )
+    );
   }, []);
 
   return (

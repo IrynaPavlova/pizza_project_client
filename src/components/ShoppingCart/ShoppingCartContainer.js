@@ -8,6 +8,7 @@ class ShoppingCartContainer extends Component {
   render() {
     const amount = this.props.userOrderList.length;
     const totalPrice = getSum(this.props.userOrderList);
+
     return <ShoppingCart amount={amount} price={totalPrice} />;
   }
 }

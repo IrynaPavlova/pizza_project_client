@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { FormattedMessage } from "react-intl";
 
-import PizzaListItem from "../PizzaListItem/PizzaListItemContainer";
+import PizzaListItem from "../PizzaListItem/PizzaListItemHooks";
 // import productsJSON from "../../services/products.json";
 import styles from "./PizzaList.module.css";
 

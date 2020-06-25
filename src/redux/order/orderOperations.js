@@ -12,7 +12,7 @@ const addOrder = ({ orderObject }) => (dispatch) => {
     })
     .then(({ data }) => {
       dispatch(orderActions.addOrderSuccess(data));
-      console.log(data);
+      // console.log(data);
     })
     .then(() => {
       dispatch(orderActions.clearOrderList());
@@ -20,9 +20,19 @@ const addOrder = ({ orderObject }) => (dispatch) => {
     .catch((error) => dispatch(orderActions.addOrderError(error)));
 };
 
-const updateOrder = (id) => (dispatch) => {};
+const postOrderStutus = (id) => (dispatch) => {
+  dispatch(orderActions.postOrderStatusRequest());
+
+  axios
+    .post(`/status/${id}`)
+    .then(({ data }) =>
+      dispatch(orderActions.postOrderStatusSuccess(data.doneOrder))
+    )
+    .catch((error) => dispatch(orderActions.postOrderStatusError(error)));
+};
 
 const getOrders = () => (dispatch) => {
+  dispatch(orderActions.ordersError(null));
   dispatch(orderActions.ordersRequest());
 
   axios
@@ -43,32 +53,44 @@ const getOrdersById = (id) => (dispatch) => {
 //Создаем лист заказа пользователя
 
 const addProdToOrderList = (product, productType) => (dispatch, getState) => {
+  const newProductPrice = Number(
+    product.price[productType] || product.price.price
+  );
+
   const doesExistItem = getState().orders.userOrderList.productsList.some(
     (orderItem) =>
-      orderItem.productId === product._id && orderItem.type === productType
-    //c проверкой по типу(размер для пиццы) - это отдельный уникальный элемент
+      orderItem.productId === product._id &&
+      orderItem.productprice === newProductPrice
   );
+
   if (doesExistItem) {
-    return; //сюда можно дописать, чтобы выводило сообщение, что продукт уже добавлен как на розетке
+    return;
   }
-  const newItem = {
+  let newItem = {
     productId: product._id,
     productName: product.name,
-    type: productType,
     itemsCount: 1,
-    //нет в макете order,но нужен для отрисовки компонента orderList
-    productprice: Number(product.price[productType] || product.price.price), //должно сработать для всех продуктов
+    productprice: newProductPrice,
     productImg: product.images,
     productIngredients: product.ingredients,
   };
+
+  if (productType) {
+    newItem = {
+      ...newItem,
+      type: productType,
+    };
+  }
+
   dispatch(orderActions.addProdToOrderList(newItem));
 };
 
 const clearOrderList = () => (dispatch) =>
   dispatch(orderActions.clearOrderList());
 
-const deleteProdToOrderList = (id, type) => (dispatch) =>
+const deleteProdToOrderList = (id, type) => (dispatch) => {
   dispatch(orderActions.deleteProdToOrderList(id, type));
+};
 
 const incrementItemsCount = (id) => (dispatch) => {
   dispatch(orderActions.incrementItemsCount(id));
@@ -82,7 +104,7 @@ export default {
   addOrder,
   getOrders,
   getOrdersById,
-  updateOrder,
+  postOrderStutus,
   addProdToOrderList,
   deleteProdToOrderList,
   incrementItemsCount,

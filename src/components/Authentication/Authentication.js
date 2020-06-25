@@ -10,11 +10,15 @@ export default function Authentication({ isModalActive, setIsModalActive }) {
   const hasError = useSelector(authSelectors.getError);
   const local = useSelector((state) => state.local.lang);
   const [isLogining, setIsLogining] = useState(true);
+  const closeModal = (active) => {
+    setIsModalActive(active);
+    setIsLogining(true);
+  };
   return (
     <>
       {hasError && <Notification message={hasError[local]} />}
       {isModalActive && (
-        <Modal onClose={setIsModalActive}>
+        <Modal onClose={closeModal}>
           {isLogining ? (
             <Login
               setIsLogining={setIsLogining}

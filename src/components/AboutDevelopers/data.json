@@ -7,12 +7,19 @@
   {
     "name": "Dmitriy Fedorenko",
     "avatarLink": "https://i.ibb.co/sHbxspb/photo-2020-06-11-17-55-45.jpg",
-    "social": "https://www.facebook.com/DeemonF/"
+    "social": "https://www.facebook.com/DeemonF/",
+    "github": "https://github.com/Deemon13"
   },
   {
     "name": "Eugene Gavrysh",
     "avatarLink": "https://i.ibb.co/sRP8hMJ/1454580-807110809368466-1132764545906892231-n.jpg",
     "social": "https://www.facebook.com/profile.php?id=100002086644604"
+  },
+  {
+    "name": "Eugene Zhohlo",
+    "avatarLink": "https://i.ibb.co/dJMBX4v/photo-2020-06-23-13-38-24.jpg",
+    "social": "https://www.linkedin.com/in/%D0%B5%D0%B2%D0%B3%D0%B5%D0%BD%D0%B8%D0%B9-%D0%B6%D0%BE%D0%B3%D0%BB%D0%BE-028167187/",
+    "github": "https://github.com/marcusfenix1"
   },
   {
     "name": "Igor Kushnir",
@@ -56,7 +63,8 @@
   {
     "name": "Roman Venglevskyi",
     "avatarLink": "https://i.ibb.co/Ct35h9n/photo-2020-06-22-14-36-03.jpg",
-    "social": "https://www.linkedin.com/in/roman-venglevskyi-3373121a7/"
+    "social": "https://www.linkedin.com/in/roman-venglevskyi-3373121a7/",
+    "github": "https://github.com/Venglevskyi"
   },
   {
     "name": "Tatiana Solodkaya",

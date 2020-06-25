@@ -16,7 +16,7 @@ const fetchStocks = () => (dispatch) => {
 
 const sendFile = (file) => (dispatch) => {
   dispatch(stocksActions.sendFileRequest());
-  console.log(file);
+
   axios
     .post("/images", file)
     .then(({ data }) =>
@@ -39,14 +39,14 @@ const updateStock = (stockId, newStock) => (dispatch) => {
 
   axios
     .put(`/promo/${stockId}`, newStock)
-    .then((res) => dispatch(stocksActions.updateStockSuccess(res)))
+    .then(({ data }) =>
+      dispatch(stocksActions.updateStockSuccess(data.updatedPromo))
+    )
     .catch((error) => dispatch(stocksActions.updateStockError(error)));
 };
 
 const deleteStock = (stockId) => (dispatch) => {
   dispatch(stocksActions.deleteStockRequest());
-
-  console.log(stockId);
 
   axios
     .delete(`/promo/${stockId}`, stockId)
@@ -56,4 +56,20 @@ const deleteStock = (stockId) => (dispatch) => {
     .catch((error) => dispatch(stocksActions.deleteStockError(error)));
 };
 
-export default { fetchStocks, sendStock, updateStock, deleteStock, sendFile };
+const getStockById = (stockId) => (dispatch) => {
+  dispatch(stocksActions.getStockByIdRequest());
+
+  axios
+    .get(`/promo/${stockId}`)
+    .then(({ data }) => dispatch(stocksActions.getStockByIdSuccess(data.promo)))
+    .catch((error) => dispatch(stocksActions.getStockByIdError(error)));
+};
+
+export default {
+  fetchStocks,
+  sendStock,
+  updateStock,
+  deleteStock,
+  sendFile,
+  getStockById,
+};
