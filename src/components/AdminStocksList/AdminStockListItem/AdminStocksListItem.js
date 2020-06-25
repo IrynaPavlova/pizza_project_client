@@ -1,7 +1,8 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import stocksOperation from '../../../redux/stocks/stocksOperations';
-import styles from './AdminStocksListItem.module.css';
+import React from "react";
+import { connect } from "react-redux";
+import { FormattedMessage } from "react-intl";
+import stocksOperation from "../../../redux/stocks/stocksOperations";
+import styles from "./AdminStocksListItem.module.css";
 
 function AdminStocksListItem({
   images,
@@ -31,14 +32,14 @@ function AdminStocksListItem({
           className={styles.button}
           onClick={() => onRemove(id)}
         >
-          Удалить акцию
+          <FormattedMessage id="promo.delete" />
         </button>
         <button
           type="button"
           className={styles.button}
           onClick={() => handleClickOnChangeButton(id)}
         >
-          Изменить акцию
+          <FormattedMessage id="promo.change" />
         </button>
       </div>
     </div>
