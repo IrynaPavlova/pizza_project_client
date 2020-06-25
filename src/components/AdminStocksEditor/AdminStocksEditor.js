@@ -4,6 +4,7 @@ import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import Spinner from "../../components/Spinner";
 import Notification from "../Notification";
+import PropTypes from "prop-types";
 
 import {
   stocksOperations,
@@ -33,7 +34,7 @@ function AdminStocksEditor({
     }
   }, [showNotification]);
 
-  console.log(showNotification);
+
 
   const [stocksFile, setStockFile] = useState(null);
   const handleLoadFile = ({ target }) => {
@@ -91,8 +92,6 @@ function AdminStocksEditor({
   }, [editStock]);
 
   const handleSubmit = (e) => {
-    setMessage(messages.success);
-    setShow(true);
     e.preventDefault();
 
     const linkImage = linkFile || stock.images;
@@ -113,7 +112,8 @@ function AdminStocksEditor({
       setShow(true);
       return;
     }
-
+    setMessage(messages.success);
+    setShow(true);
     onSubmit(newStock);
     cancelInput();
   };
@@ -129,9 +129,8 @@ function AdminStocksEditor({
     document.getElementById("formStocks").reset();
     document.getElementById("fileName").innerHTML = "";
     onCancel();
-    setShow(false);
   };
-
+ 
   return (
     <>
       {showNotification && <Notification message={message} confirm />}
@@ -247,6 +246,16 @@ function AdminStocksEditor({
     </>
   );
 }
+
+AdminStocksEditor.propTypes = {
+  onSubmitFile: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  onUpdate: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  linkFile: PropTypes.string,
+  editStock: PropTypes.object,
+};
 
 const mapStateToProps = (state) => ({
   linkFile: stocksSelector.getFileLink(state),
