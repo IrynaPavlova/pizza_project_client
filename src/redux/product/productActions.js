@@ -22,6 +22,14 @@ const sendProductRequest = createAction("products/sendProductRequest");
 const sendProductSuccess = createAction("products/sendProductSuccess");
 const sendProductError = createAction("products/sendProductError");
 
+const getAllIngradientsRequest = createAction(
+  "products/getAllIngradientsRequest"
+);
+const getAllIngradientsSuccess = createAction(
+  "products/getAllIngradientsSuccess"
+);
+const getAllIngradientsError = createAction("products/getAllIngradientsError");
+
 const updateProductRequest = createAction("products/updateProductRequest");
 const updateProductSuccess = createAction("products/updateProductSuccess");
 const updateProductError = createAction("products/updateProductError");
@@ -34,7 +42,7 @@ const sendFileRequest = createAction("products/sendFileRequest");
 const sendFileSuccess = createAction("products/sendFileSuccess");
 const sendFileError = createAction("products/sendFileError");
 
-const cancelInput = createAction("products/cancelInput");
+// const cancelInput = createAction("products/cancelInput");
 
 export default {
   productsError,
@@ -49,11 +57,15 @@ export default {
   byIdSuccess,
   byIdErrror,
 
-  cancelInput,
+  // cancelInput,
 
   sendProductRequest,
   sendProductSuccess,
   sendProductError,
+
+  getAllIngradientsRequest,
+  getAllIngradientsSuccess,
+  getAllIngradientsError,
 
   updateProductRequest,
   updateProductSuccess,
