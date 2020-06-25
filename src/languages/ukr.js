@@ -76,18 +76,15 @@ export default {
   "register.passReq": "Потрiбно ввести пароль",
   "register.passLength": "Пароль має бути довжиною 6+ символiв",
   "update.composition": "Склад",
-  "update.addIngredient": "Додати iнгредiєнт",
+  "update.addIngredient": "Вибрати iнгредiєнт",
   "update.addToComposition": "Додати",
   "update.saveChanges": "Зберегти зміни",
   "update.return": "Повернутися до списку продуктiв",
   "delete product": "Видалити продукт",
-<<<<<<< HEAD
   "deleted product": "Продукт видалено",
   "return back": "Повернутися до переліку продуктів",
   "continue editing": "Продовжити редагування",
   "error editing": "Помилка. Спробуйте пізніше",
   "product updated": "Продукт успішно оновлено",
-=======
-  "return back": "Повернутися на попередню сторінку"
->>>>>>> b30b7b7573a5a4e96af6096e14e1b804f1dd7985
+  "volume weight": "Об'ем/вага",
 };
