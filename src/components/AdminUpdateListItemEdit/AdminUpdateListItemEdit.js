@@ -11,28 +11,32 @@ import languages from "../../languages";
 
 const AdminUpdateListItemEdit = () => {
   let location = useLocation();
-  const product = location.state.product;
+  let productForEdit = null;
+  if (location.state) {
+    productForEdit = location.state.product;
+  } else {
+    productForEdit = JSON.parse(sessionStorage.getItem("editedItem"));
+  }
   const local = useSelector((state) => state.local.lang);
   const [isLoading, setIsLoading] = useState(true);
   const [confirmEdit, setConfirmEdit] = useState(false);
-  const [images, setImage] = useState(product.images);
-  const [nameRu, setNameRu] = useState(product.name.ru);
-  const [nameEn, setNameEn] = useState(product.name.en);
-  const [nameUkr, setNameUkr] = useState(product.name.ukr);
-  const [categories, setCategory] = useState(product.categories);
-  const [subcategory, setSubcategory] = useState(product.subcategory);
-  const [priceNoPizza, setPriceNoPizza] = useState(product.price.price);
+  const [images, setImage] = useState(productForEdit.images);
+  const [nameRu, setNameRu] = useState(productForEdit.name.ru);
+  const [nameEn, setNameEn] = useState(productForEdit.name.en);
+  const [nameUkr, setNameUkr] = useState(productForEdit.name.ukr);
+  const [categories, setCategory] = useState(productForEdit.categories);
+  const [subcategory, setSubcategory] = useState(productForEdit.subcategory);
+  const [priceNoPizza, setPriceNoPizza] = useState(productForEdit.price.price);
   const [price, setPrice] = useState({});
-  const [pricePizzaM, setPricePizzaM] = useState(product.price.M);
-  const [pricePizzaL, setPricePizzaL] = useState(product.price.L);
-  const [pricePizzaXL, setPricePizzaXL] = useState(product.price.XL);
-  const [ingredients, setIngredients] = useState([...product.ingredients]);
+  const [pricePizzaM, setPricePizzaM] = useState(productForEdit.price.M);
+  const [pricePizzaL, setPricePizzaL] = useState(productForEdit.price.L);
+  const [pricePizzaXL, setPricePizzaXL] = useState(productForEdit.price.XL);
+  const [ingredients, setIngredients] = useState([
+    ...productForEdit.ingredients,
+  ]);
   const [newIngredient, setNewIngredient] = useState(0);
   const [ingredientsList, setIngredientsList] = useState(null);
-  const [description, setDescription] = useState(product.description);
-  // console.log(product);
-  // console.log(price);
-
+  const [description, setDescription] = useState(productForEdit.description);
   useEffect(() => {
     Axios.get("https://evening-caverns-34846.herokuapp.com/ingredients")
       .then((res) => {
@@ -77,7 +81,7 @@ const AdminUpdateListItemEdit = () => {
     setIsLoading(false);
     const name = { ru: nameRu, ukr: nameUkr, en: nameEn };
     const editedItem = {
-      ...product,
+      ...productForEdit,
       images,
       price,
       name,
@@ -88,7 +92,7 @@ const AdminUpdateListItemEdit = () => {
     };
 
     Axios.put(
-      `https://evening-caverns-34846.herokuapp.com/products/${product._id}`,
+      `https://evening-caverns-34846.herokuapp.com/products/${productForEdit._id}`,
       editedItem
     )
       .then((res) => {
@@ -105,7 +109,7 @@ const AdminUpdateListItemEdit = () => {
     ev.preventDefault();
     setIsLoading(false);
     Axios.delete(
-      `https://evening-caverns-34846.herokuapp.com/products/${product._id}`
+      `https://evening-caverns-34846.herokuapp.com/products/${productForEdit._id}`
     )
       .then((res) => {
         setIsLoading(true);
@@ -117,13 +121,27 @@ const AdminUpdateListItemEdit = () => {
         setConfirmEdit(languages[local]["edit.error"]);
       });
   };
+  window.addEventListener("unload", () => {
+    const name = { ru: nameRu, ukr: nameUkr, en: nameEn };
+    const editedItem = {
+      ...productForEdit,
+      images,
+      price,
+      name,
+      categories,
+      subcategory,
+      ingredients,
+      description,
+    };
+    sessionStorage.setItem("editedItem", JSON.stringify(editedItem));
+  });
   return (
     <div className={style.container}>
       {isLoading ? (
         <div className={style.editCard}>
           <img
             src={images}
-            alt={product.closeUpImages}
+            alt={productForEdit.closeUpImages}
             className={style.editCard__image}
           />
           <form id="editForm" onSubmit={handleForm} className={style.editForm}>
@@ -204,11 +222,18 @@ const AdminUpdateListItemEdit = () => {
                     data-id={el._id}
                     className={style.editForm__ingredientBtnDel}
                   >
-                    <img
-                      src="/static/media/remove_order_item_button.56fe91b0.svg"
-                      alt="del"
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
                       className={style.editForm__ingredientBtnDelImage}
-                    ></img>
+                    >
+                      <path
+                        d="M11.25 1.8075L10.1925 0.75L6 4.9425L1.8075 0.75L0.75 1.8075L4.9425 6L0.75 10.1925L1.8075 11.25L6 7.0575L10.1925 11.25L11.25 10.1925L7.0575 6L11.25 1.8075Z"
+                        fill="#272727"
+                      ></path>
+                    </svg>
                   </button>
                 </li>
               ))}
@@ -279,7 +304,7 @@ const AdminUpdateListItemEdit = () => {
                   className={style.editForm__inputSinglePrice}
                 />
                 <p className={style.editCard__title}>
-                  <FormattedMessage id="product.description" />
+                  <FormattedMessage id="product.about" />
                 </p>
                 <input
                   type="text"
