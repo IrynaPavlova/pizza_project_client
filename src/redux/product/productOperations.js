@@ -1,19 +1,15 @@
+import axios from "axios";
 import productActions from "./productActions";
-import {
-  getAllIngredients,
-  postNewProduct,
-  postImage,
-  getAllProducts,
-  getProductsByCategory,
-  getProductById,
-  updateProductById,
-  deleteProductById,
-} from "../../services/api";
+const CancelToken = axios.CancelToken;
+const source = CancelToken.source();
+
+axios.defaults.baseURL = "https://evening-caverns-34846.herokuapp.com/";
 
 const fetchProducts = () => (dispatch) => {
   dispatch(productActions.productsRequest());
 
-  getAllProducts()
+  axios
+    .get("/products")
     .then(({ data }) => dispatch(productActions.productsSuccess(data.products)))
     .catch((error) => dispatch(productActions.productsError(error)));
 };
@@ -21,7 +17,10 @@ const fetchProducts = () => (dispatch) => {
 const fetchProductsByCategory = (category) => (dispatch) => {
   dispatch(productActions.byCategoryRequest());
 
-  getProductsByCategory(category)
+  axios
+    .get(`/products/?category="${category}"`, {
+      cancelToken: source.token,
+    })
     .then(({ data }) =>
       dispatch(productActions.byCategorySuccess(data.products))
     )
@@ -31,7 +30,8 @@ const fetchProductsByCategory = (category) => (dispatch) => {
 const fetchProductById = (id) => (dispatch) => {
   dispatch(productActions.byIdRequest());
 
-  getProductById(id)
+  axios
+    .get(`/products/${id}`)
     .then(({ data }) => dispatch(productActions.byIdSuccess(data.product)))
     .catch((error) => dispatch(productActions.byIdErrror(error)));
 };
@@ -40,8 +40,8 @@ const fetchProductById = (id) => (dispatch) => {
 const sendFile = (file) => (dispatch) => {
   dispatch(productActions.sendFileRequest());
   // console.log(file);
-
-  postImage(file)
+  axios
+    .post("/images", file)
     .then(({ data }) =>
       dispatch(productActions.sendFileSuccess(data.image.file))
     )
@@ -51,36 +51,28 @@ const sendFile = (file) => (dispatch) => {
 const sendProduct = (product) => (dispatch) => {
   dispatch(productActions.sendProductRequest());
 
-  postNewProduct(product)
-    .then(({ data }) =>
-      dispatch(productActions.sendProductSuccess(data.product))
-    )
+  axios
+    .post("/products", product)
+    .then(({ data }) => dispatch(productActions.sendProductSuccess(data)))
     //проверить что приходит в data
     .catch((error) => dispatch(productActions.sendProductError(error)));
-};
-
-const getIngredients = () => (dispatch) => {
-  dispatch(productActions.getAllIngradientsRequest());
-
-  getAllIngredients()
-    .then(({ data }) =>
-      dispatch(productActions.getAllIngradientsSuccess(data.ingredients))
-    )
-    .catch((error) => dispatch(productActions.getAllIngradientsError(error)));
 };
 
 const updateProduct = (productId, newProduct) => (dispatch) => {
   dispatch(productActions.updateProductRequest());
 
-  updateProductById(productId, newProduct)
+  axios
+    .put(`/products/${productId}`, newProduct)
     .then((res) => dispatch(productActions.updateProductSuccess(res)))
     .catch((error) => dispatch(productActions.updateProductError(error)));
 };
 
 const deleteProduct = (productId) => (dispatch) => {
   dispatch(productActions.deleteProductRequest());
+  // console.log(productId);
 
-  deleteProductById(productId)
+  axios
+    .delete(`/products/${productId}`, productId)
     .then(
       ({ data }) => dispatch(productActions.deleteProductSuccess(data))
       //проверить что приходит в data
@@ -95,7 +87,6 @@ export default {
 
   sendFile,
   sendProduct,
-  getIngredients,
   updateProduct,
   deleteProduct,
 };

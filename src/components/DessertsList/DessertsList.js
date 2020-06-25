@@ -1,30 +1,43 @@
-import React, { Component } from 'react';
-import { connect} from 'react-redux';
-import { FormattedMessage } from 'react-intl';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { FormattedMessage } from "react-intl";
+import axios from "axios";
 
-import { productSelectors, productOperations } from '../../redux/product';
+import { productSelectors, productOperations } from "../../redux/product";
 
-import DessertsListItem from './DessertListItem';
-import styles from './DessertsList.module.css';
+import DessertsListItem from "./DessertListItem";
+import styles from "./DessertsList.module.css";
+const CancelToken = axios.CancelToken;
+const source = CancelToken.source();
 
 const { dessertConainer, dessertsHeading, dessertList } = styles;
 
 class DesertList extends Component {
-  componentDidMount() {
-    this.props.onFetchProductDesserts('desserts');
+  async componentDidMount() {
+    try {
+      this.props.onFetchProductDesserts("desserts");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  async componentWillUnmount() {
+    try {
+      source.cancel("Operation canceled");
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   render() {
     const { products } = this.props;
 
-    // console.log(products);
     return (
       <div className={dessertConainer}>
         <h2 className={dessertsHeading}>
           <FormattedMessage id="desserts" />
         </h2>
         <ul className={dessertList}>
-          {products.map(product => (
+          {products.map((product) => (
             <DessertsListItem key={product._id} {...product} />
           ))}
         </ul>
@@ -33,7 +46,7 @@ class DesertList extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return { products: productSelectors.getProducts(state) };
 };
 
