@@ -3,6 +3,14 @@
   padding-bottom: 50px;
   width: 100%;
 }
+.spinnerBack {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(39, 39, 39, 0.2);
+}
 .editCard {
   font-family: RobotoRegular;
   font-style: normal;
@@ -105,8 +113,9 @@
   display: block;
 }
 .editForm__price {
-  display: grid;
+  display: inline-grid;
   grid-template-columns: 20% 100px;
+  margin: 0 auto;
 }
 .editForm__priceInput {
   padding-left: 10px;
@@ -131,15 +140,11 @@
   border: none;
 }
 .confirmation {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(39, 39, 39, 0.2);
+  composes: spinnerBack;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 100;
 }
 
 .confirmation__form {
