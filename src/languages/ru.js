@@ -84,11 +84,7 @@ export default {
   "continue editing": "Продолжить редактирование",
   "error editing": "Ошибка. Попробуйте позже",
   "product updated": "Продукт успешно обновлён",
-<<<<<<< HEAD
   "update.return": "Вернуться к списку продуктов",
   "delete product": "Удалить продукт",
   "volume weight": "Объём/вес",
-=======
-  "update.return": "Вернуться к списку продуктов"
->>>>>>> 5838f85982be65bc40982cb0a8fd06cc5c5b6770
 };
