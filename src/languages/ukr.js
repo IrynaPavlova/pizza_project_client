@@ -81,5 +81,9 @@ export default {
   "update.saveChanges": "Зберегти зміни",
   "update.return": "Повернутися до списку продуктiв",
   "delete product": "Видалити продукт",
-  "return back": "Повернутися на попередню сторінку"
+  "deleted product": "Продукт видалено",
+  "return back": "Повернутися до переліку продуктів",
+  "continue editing": "Продовжити редагування",
+  "error editing": "Помилка. Спробуйте пізніше",
+  "product updated": "Продукт успішно оновлено"
 };

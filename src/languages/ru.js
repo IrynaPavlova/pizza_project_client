@@ -78,7 +78,12 @@ export default {
   "update.addIngredient": "Добавить ингредиент",
   "update.addToComposition": "Добавить",
   "update.saveChanges": "Сохранить изменения",
-  "update.return": "Вернуться к списку продуктов",
+  "update.complited": "Продукт успешно обновлён",
   "delete product": "Удалить продукт",
-  "return back": "Вернутся на предыдущую страницу",
+  "deleted product": "Продукт удалён",
+  "return back": "Вернутся к списку продуктов",
+  "continue editing": "Продолжить редактирование",
+  "error editing": "Ошибка. Попробуйте позже",
+  "product updated": "Продукт успешно обновлён",
+  "update.return": "Вернуться к списку продуктов"
 };
