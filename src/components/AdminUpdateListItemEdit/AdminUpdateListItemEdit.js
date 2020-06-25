@@ -7,6 +7,8 @@ import style from "./adminUpdateListItemEdit.module.css";
 import Spinner from "../../components/Spinner";
 import Axios from "axios";
 
+import languages from "../../languages";
+
 const AdminUpdateListItemEdit = () => {
   let location = useLocation();
   const product = location.state.product;
@@ -67,7 +69,7 @@ const AdminUpdateListItemEdit = () => {
       .catch((err) => {
         setIsLoading(true);
         console.log(err);
-        setConfirmEdit("Ошибка. Попробуйте позже");
+        setConfirmEdit(languages[local]["edit.error"]);
       });
   };
   const handleForm = (ev) => {
@@ -91,12 +93,12 @@ const AdminUpdateListItemEdit = () => {
     )
       .then((res) => {
         setIsLoading(true);
-        setConfirmEdit("Редактирование проведено");
+        setConfirmEdit(languages[local]["edit.ok"]);
       })
       .catch((err) => {
         setIsLoading(true);
         console.log(err);
-        setConfirmEdit("Ошибка. Попробуйте позже");
+        setConfirmEdit(languages[local]["edit.error"]);
       });
   };
   const deleteItem = (ev) => {
@@ -112,7 +114,7 @@ const AdminUpdateListItemEdit = () => {
       .catch((err) => {
         setIsLoading(true);
         console.log(err);
-        setConfirmEdit("Ошибка. Попробуйте позже");
+        setConfirmEdit(languages[local]["edit.error"]);
       });
   };
   return (
@@ -136,7 +138,7 @@ const AdminUpdateListItemEdit = () => {
                 className={style.editForm__photo}
               />
               <p className={style.editForm__photoBtn}>
-                <FormattedMessage id="photo" />
+                <FormattedMessage id="upload" />
               </p>
             </label>
             <h4 className={style.editCard__title}>
