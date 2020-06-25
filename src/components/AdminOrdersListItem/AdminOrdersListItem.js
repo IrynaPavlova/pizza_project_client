@@ -47,7 +47,7 @@ export default function AdminOrdersListItem({ item }) {
       </div>
       <div className={styles.orderCheckbox}>
         <p>
-          <FormattedMessage id="orders.done" />
+          <FormattedMessage id="orders.do" />
         </p>
         {item.status === "done" && (
           <input

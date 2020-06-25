@@ -147,6 +147,10 @@ a.devLink {
   cursor: pointer;
 }
 
+.devLink:hover {
+  color: #ff6c00;
+}
+
 @media screen and (min-width: 768px) {
   .footerContainer {
     background-image: url(../../assets/img/Footerbgtab.svg);

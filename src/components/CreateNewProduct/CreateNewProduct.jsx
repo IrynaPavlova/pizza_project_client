@@ -5,29 +5,33 @@ import Select from "react-select";
 import productSelectors from "../../redux/product/productSelectors";
 import productOperations from "../../redux/product/productOperations";
 import Notification from "../Notification";
+import { FormattedMessage } from "react-intl";
 
-const categories = {
-  pizza: "pizza",
-  drinks: "drinks",
-  sides: "sides",
-  desserts: "desserts",
-};
-
-const options = [
-  { value: categories.pizza, label: "Pizza" },
-  { value: categories.drinks, label: "Drinks" },
-  { value: categories.sides, label: "Sides" },
-  { value: categories.desserts, label: "Desserts" },
-];
-
-const pizzaCategories = [
-  // {value: "bestPrice", label: "Best price"},
-  { value: "classic", label: "Classic" },
-  { value: "branded", label: "Branded" },
-  { value: "premium", label: "Premium" },
-];
+import languages from "../../languages";
 
 const CreateNewProduct = () => {
+  const local = useSelector((state) => state.local.lang);
+  const categories = {
+    pizza: "pizza",
+    drinks: "drinks",
+    sides: "sides",
+    desserts: "desserts",
+  };
+
+  const options = [
+    { value: categories.pizza, label: languages[local].pizza },
+    { value: categories.drinks, label: languages[local].drinks },
+    { value: categories.sides, label: languages[local].sides },
+    { value: categories.desserts, label: languages[local].desserts },
+  ];
+
+  const pizzaCategories = [
+    // {value: "bestPrice", label: "Best price"},
+    { value: "classic", label: languages[local]["pizza.classic"] },
+    { value: "branded", label: languages[local]["pizza.special"] },
+    { value: "premium", label: languages[local]["pizza.premium"] },
+  ];
+
   const [category, changeCategory] = useState(options[0]);
   const [subCategory, changeSubCategory] = useState(pizzaCategories[0]);
   const [ukrName, setUkrName] = useState("");
@@ -100,7 +104,11 @@ const CreateNewProduct = () => {
   return (
     <div className={styles.createContainer}>
       {createdProduct.length === 1 && (
-        <Notification message={`Создан продукт`} confirm forCard />
+        <Notification
+          message={languages[local]["product.created"]}
+          confirm
+          forCard
+        />
       )}
       <form onSubmit={submitForm} className={styles.applyForm}>
         <Select
@@ -117,7 +125,9 @@ const CreateNewProduct = () => {
           isDisabled={category.value !== categories.pizza}
         />
         <label className={styles.inputLabel}>
-          <h4>Ukr Name</h4>
+          <h4>
+            <FormattedMessage id="ukr name" />
+          </h4>
           <input
             type="text"
             value={ukrName}
@@ -125,7 +135,9 @@ const CreateNewProduct = () => {
           />
         </label>
         <label className={styles.inputLabel}>
-          <h4>En Name</h4>
+          <h4>
+            <FormattedMessage id="eng name" />
+          </h4>
           <input
             type="text"
             value={enName}
@@ -133,7 +145,9 @@ const CreateNewProduct = () => {
           />
         </label>
         <label className={styles.inputLabel}>
-          <h4>Ru Name</h4>
+          <h4>
+            <FormattedMessage id="rus name" />
+          </h4>
           <input
             type="text"
             value={ruName}
@@ -171,7 +185,9 @@ const CreateNewProduct = () => {
           </>
         ) : (
           <label className={styles.inputLabel}>
-            <h4>Price</h4>
+            <h4>
+              <FormattedMessage id="product.price" />
+            </h4>
             <input
               type="text"
               value={price}
@@ -181,7 +197,9 @@ const CreateNewProduct = () => {
         )}
 
         <label className={styles.inputLabel}>
-          <h4>Description</h4>
+          <h4>
+            <FormattedMessage id="product.description" />
+          </h4>
           <input
             type="text"
             value={description}
@@ -190,14 +208,16 @@ const CreateNewProduct = () => {
         </label>
 
         <label className={styles.inputLabel}>
-          <h4>Image</h4>
+          <h4>
+            <FormattedMessage id="photo" />
+          </h4>
           <input type="file" id="image" onChange={handleImg} />
         </label>
         <div className={styles.ingredientsContainer}>
           {category.value === categories.pizza &&
             ingredients.map((i) => (
               <label key={i._id} className={styles.ingredient}>
-                {i.name["ru"]}
+                {i.name[local]}
                 <input
                   onClick={handleCheckboxChange}
                   type="checkbox"
@@ -207,7 +227,9 @@ const CreateNewProduct = () => {
               </label>
             ))}
         </div>
-        <button type="Submit">Send</button>
+        <button type="Submit">
+          <FormattedMessage id="send" />
+        </button>
       </form>
     </div>
   );
