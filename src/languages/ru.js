@@ -2,6 +2,7 @@ export default {
   search: "Поиск",
   error: "Что-то пошло не так",
   welcome: "Добро пожаловать, ",
+  welcomeAdmin: "Добро пожаловать на страницу администратора!",
   edit: "Редактировать",
   promo: "Акции",
   pizza: "Пицца",
@@ -76,5 +77,5 @@ export default {
   "update.addToComposition": "Добавить в состав",
   "update.saveChanges": "Сохранить изменения",
   "delete product": "Удалить продукт",
-  "return back": "Вернутся на предыдущую страницу"
+  "return back": "Вернутся на предыдущую страницу",
 };
