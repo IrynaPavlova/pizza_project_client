@@ -3,9 +3,14 @@ import React, { useState, useEffect } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import Spinner from '../../components/Spinner';
-import stocksOperations from '../../redux/stocks/stocksOperations';
-import stocksActions from '../../redux/stocks/stocksActions';
-import stocksSelector from '../../redux/stocks/stocksSelector';
+import Notification from '../Notification';
+
+import {
+  stocksOperations,
+  stocksActions,
+  stocksSelector,
+} from '../../redux/stocks/';
+
 import styles from './AdminStocksEditor.module.css';
 
 import getFileName from './utils';
@@ -24,6 +29,7 @@ function AdminStocksEditor({
     getFileName();
     const stocksItem = new FormData();
     stocksItem.append('file', target.files[0]);
+    setMessage(messages.successFile);
 
     onSubmitFile(stocksItem);
   };
@@ -50,6 +56,13 @@ function AdminStocksEditor({
   const [stocksDescriptionUkr, setStocksDescriptionUkr] = useState('');
   const handleChangeDescriptionUkr = ({ target: { value } }) =>
     setStocksDescriptionUkr(value);
+
+  const [message, setMessage] = useState(null);
+  const messages = {
+    success: 'Акция успешно добавлена',
+    updated: 'Акция успешно обновлена',
+    successFile: 'Файл успешно загружен',
+  };
 
   const [stock, setStock] = useState(null);
   useEffect(() => {
@@ -82,10 +95,12 @@ function AdminStocksEditor({
     if (e.target.name === 'update') {
       onUpdate(stock._id, newStock);
       cancelInput();
+      setMessage(messages.updated);
       return;
     }
 
     onSubmit(newStock);
+    setMessage(messages.success);
     cancelInput();
   };
 
@@ -104,6 +119,7 @@ function AdminStocksEditor({
 
   return (
     <>
+      {isLoading && <Notification message={message} confirm />}
       {isLoading && <Spinner />}
 
       <form className={styles.form} id="formStocks">
