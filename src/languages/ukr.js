@@ -22,7 +22,7 @@ export default {
   notAuthenticated:
     "Для того, щоб оформити замовлення, потрiбно авторизуватися",
   volume: "Об'єм: ",
-  upload: "Завантажити файл",
+  upload: "Завантажити",
   send: "Send file",
   "promo.name": "Назва акцii",
   "promo.about": "Опис акцii",
@@ -39,6 +39,8 @@ export default {
   order: "Ваше замовлення",
   order2: "Замовити",
   social: "Увiйти через соцiальну мережу",
+  "edit.error": "Помилка. Спробуйте пiзнiше",
+  "edit.ok": "Редагування проведено",
   "pizza.classic": "Пiца: Класична",
   "pizza.special": "Пiца: Фiрмова",
   "pizza.premium": "Пiца: Премiум",
@@ -75,8 +77,9 @@ export default {
   "register.passLength": "Пароль повинен бути довжиною 6+ символiв",
   "update.composition": "Склад",
   "update.addIngredient": "Додати iнгредiєнт",
-  "update.addToComposition": "Додати до складу",
+  "update.addToComposition": "Додати",
   "update.saveChanges": "Зберегти зміни",
+  "update.return": "Повернутися до списку продуктiв",
   "delete product": "Видалити продукт",
   "return back": "Повернутися на попередню сторінку",
 };
