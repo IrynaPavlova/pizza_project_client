@@ -85,6 +85,10 @@ export default {
   "return back": "Повернутися до переліку продуктів",
   "continue editing": "Продовжити редагування",
   "error editing": "Помилка. Спробуйте пізніше",
+<<<<<<< HEAD
   "product updated": "Продукт успішно оновлено",
   "volume weight": "Об'ем/вага",
+=======
+  "product updated": "Продукт успішно оновлено"
+>>>>>>> 5838f85982be65bc40982cb0a8fd06cc5c5b6770
 };

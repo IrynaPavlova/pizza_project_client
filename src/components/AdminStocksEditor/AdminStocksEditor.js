@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import { FormattedMessage } from "react-intl";
-import { connect } from "react-redux";
-import Spinner from "../../components/Spinner";
-import stocksOperations from "../../redux/stocks/stocksOperations";
-import stocksActions from "../../redux/stocks/stocksActions";
-import stocksSelector from "../../redux/stocks/stocksSelector";
-import styles from "./AdminStocksEditor.module.css";
+import { FormattedMessage } from 'react-intl';
+import { connect } from 'react-redux';
+import Spinner from '../../components/Spinner';
+import stocksOperations from '../../redux/stocks/stocksOperations';
+import stocksActions from '../../redux/stocks/stocksActions';
+import stocksSelector from '../../redux/stocks/stocksSelector';
+import styles from './AdminStocksEditor.module.css';
 
-import getFileName from "./utils";
+import getFileName from './utils';
 
 function AdminStocksEditor({
   onSubmitFile,
@@ -23,31 +23,31 @@ function AdminStocksEditor({
   const handleLoadFile = ({ target }) => {
     getFileName();
     const stocksItem = new FormData();
-    stocksItem.append("file", target.files[0]);
+    stocksItem.append('file', target.files[0]);
 
     onSubmitFile(stocksItem);
   };
 
-  const [stocksTitleEn, setStockTitleEn] = useState("");
+  const [stocksTitleEn, setStockTitleEn] = useState('');
 
   const handleChangeTitleEn = ({ target: { value } }) => setStockTitleEn(value);
 
-  const [stocksTitleRu, setStockTitleRu] = useState("");
+  const [stocksTitleRu, setStockTitleRu] = useState('');
   const handleChangeTitleRu = ({ target: { value } }) => setStockTitleRu(value);
 
-  const [stocksTitleUkr, setStockTitleUkr] = useState("");
+  const [stocksTitleUkr, setStockTitleUkr] = useState('');
   const handleChangeTitleUkr = ({ target: { value } }) =>
     setStockTitleUkr(value);
 
-  const [stocksDescriptionEn, setStocksDescriptionEn] = useState("");
+  const [stocksDescriptionEn, setStocksDescriptionEn] = useState('');
   const handleChangeDescriptionEn = ({ target: { value } }) =>
     setStocksDescriptionEn(value);
 
-  const [stocksDescriptionRu, setStocksDescriptionRu] = useState("");
+  const [stocksDescriptionRu, setStocksDescriptionRu] = useState('');
   const handleChangeDescriptionRu = ({ target: { value } }) =>
     setStocksDescriptionRu(value);
 
-  const [stocksDescriptionUkr, setStocksDescriptionUkr] = useState("");
+  const [stocksDescriptionUkr, setStocksDescriptionUkr] = useState('');
   const handleChangeDescriptionUkr = ({ target: { value } }) =>
     setStocksDescriptionUkr(value);
 
@@ -68,6 +68,7 @@ function AdminStocksEditor({
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const linkImage = linkFile || stock.images;
     const newStock = {
       title: { en: stocksTitleEn, ru: stocksTitleRu, ukr: stocksTitleUkr },
       description: {
@@ -75,10 +76,10 @@ function AdminStocksEditor({
         ru: stocksDescriptionRu,
         ukr: stocksDescriptionUkr,
       },
-      images: linkFile,
+      images: linkImage,
     };
 
-    if (e.target.name === "update") {
+    if (e.target.name === 'update') {
       onUpdate(stock._id, newStock);
       cancelInput();
       return;
@@ -90,15 +91,14 @@ function AdminStocksEditor({
 
   const cancelInput = () => {
     setStockFile(null);
-    setStockTitleEn("");
-    setStocksDescriptionEn("");
-    setStockTitleRu("");
-    setStocksDescriptionRu("");
-    setStockTitleUkr("");
-    setStocksDescriptionUkr("");
-    document.getElementById("formStocks").reset();
-
-    document.getElementById("fileName").innerHTML = "";
+    setStockTitleEn('');
+    setStocksDescriptionEn('');
+    setStockTitleRu('');
+    setStocksDescriptionRu('');
+    setStockTitleUkr('');
+    setStocksDescriptionUkr('');
+    document.getElementById('formStocks').reset();
+    document.getElementById('fileName').innerHTML = '';
     onCancel();
   };
 
@@ -117,7 +117,7 @@ function AdminStocksEditor({
               onChange={handleLoadFile}
             />
             <span className={styles.uploadSpan}>
-              {stocksFile ? "файл загружен" : "загрузить файл"}
+              {stocksFile ? 'файл загружен' : 'загрузить файл'}
             </span>
           </label>
         </div>
@@ -183,7 +183,7 @@ function AdminStocksEditor({
           />
         </div>
 
-        {linkFile && (
+        {linkFile && !editStock && (
           <button
             type="submit"
             name="onSubmit"

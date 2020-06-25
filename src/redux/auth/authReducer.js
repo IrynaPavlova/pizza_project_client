@@ -16,6 +16,7 @@ const basicUserInfo = (state, { payload }) => ({
   username: payload.user.username,
   email: payload.user.email,
   id: payload.user._id,
+  orders: payload.user.orders || [],
   role: payload.user.role,
 });
 
