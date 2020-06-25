@@ -69,7 +69,7 @@ export default {
   "product.subcategory": "Подкатегория",
   "product.price": "Цена",
   "phone number": "Номер телефона",
-  "register.nameReq": "Требуется ввести им",
+  "register.nameReq": "Требуется ввести имя",
   "register.emailReq": "Требуется ввести email",
   "register.emailSym": "Некорректный адрес электронной почты",
   "register.passReq": "Требуется ввести пароль",
