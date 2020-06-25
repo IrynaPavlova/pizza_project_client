@@ -77,5 +77,9 @@ export default {
   "update.addToComposition": "Додати до складу",
   "update.saveChanges": "Зберегти зміни",
   "delete product": "Видалити продукт",
-  "return back": "Повернутися на попередню сторінку",
+  "deleted product": "Продукт видалено",
+  "return back": "Повернутися до переліку продуктів",
+  "continue editing": "Продовжити редагування",
+  "error editing": "Помилка. Спробуйте пізніше",
+  "product updated": "Продукт успішно оновлено",
 };

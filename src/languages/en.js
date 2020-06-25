@@ -76,5 +76,9 @@ export default {
   "update.addToComposition": "Add to composition",
   "update.saveChanges": "Save changes",
   "delete product": "Delete product",
-  "return back": "Return to previous page",
+  "deleted product": "Product deleted",
+  "return back": "Return to product list",
+  "continue editing": "Continue editing",
+  "error editing": "Error.Continue later",
+  "product updated": "product updated successfully",
 };

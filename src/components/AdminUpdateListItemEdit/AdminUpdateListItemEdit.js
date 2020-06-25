@@ -50,6 +50,21 @@ const AdminUpdateListItemEdit = () => {
       setPrice({ price: priceNoPizza });
     }
   }, [pricePizzaM, pricePizzaL, pricePizzaXL, categories, priceNoPizza]);
+
+  const collector = () => {
+    const name = { ru: nameRu, ukr: nameUkr, en: nameEn };
+    const editedItem = {
+      ...productForEdit,
+      images,
+      price,
+      name,
+      categories,
+      subcategory,
+      ingredients,
+      description,
+    };
+    return editedItem;
+  };
   const deleteIngredient = (ev) => {
     ev.preventDefault();
     const delElemIndex = ingredients.findIndex(
@@ -72,23 +87,16 @@ const AdminUpdateListItemEdit = () => {
       .catch((err) => {
         setIsLoading(true);
         console.log(err);
-        setConfirmEdit("Ошибка. Попробуйте позже");
+        setConfirmEdit({
+          massage: <FormattedMessage id="error editing" />,
+          action: "editImage",
+        });
       });
   };
   const handleForm = (ev) => {
     ev.preventDefault();
     setIsLoading(false);
-    const name = { ru: nameRu, ukr: nameUkr, en: nameEn };
-    const editedItem = {
-      ...productForEdit,
-      images,
-      price,
-      name,
-      categories,
-      subcategory,
-      ingredients,
-      description,
-    };
+    const editedItem = collector();
 
     Axios.put(
       `https://evening-caverns-34846.herokuapp.com/products/${productForEdit._id}`,
@@ -96,12 +104,18 @@ const AdminUpdateListItemEdit = () => {
     )
       .then((res) => {
         setIsLoading(true);
-        setConfirmEdit("Редактирование проведено");
+        setConfirmEdit({
+          massage: <FormattedMessage id="product updated" />,
+          action: "edit",
+        });
       })
       .catch((err) => {
         setIsLoading(true);
         console.log(err);
-        setConfirmEdit("Ошибка. Попробуйте позже");
+        setConfirmEdit({
+          massage: <FormattedMessage id="error editing" />,
+          action: "errorEdit",
+        });
       });
   };
   const deleteItem = (ev) => {
@@ -113,231 +127,233 @@ const AdminUpdateListItemEdit = () => {
       .then((res) => {
         setIsLoading(true);
         console.log(res);
+        setConfirmEdit({
+          massage: <FormattedMessage id="deleted product" />,
+          action: "del",
+        });
       })
       .catch((err) => {
         setIsLoading(true);
         console.log(err);
-        setConfirmEdit("Ошибка. Попробуйте позже");
+        setConfirmEdit({
+          massage: <FormattedMessage id="error editing" />,
+          action: "errorDel",
+        });
       });
   };
   window.addEventListener("unload", () => {
-    const name = { ru: nameRu, ukr: nameUkr, en: nameEn };
-    const editedItem = {
-      ...productForEdit,
-      images,
-      price,
-      name,
-      categories,
-      subcategory,
-      ingredients,
-      description,
-    };
+    const editedItem = collector();
     sessionStorage.setItem("editedItem", JSON.stringify(editedItem));
   });
   return (
     <div className={style.container}>
-      {isLoading ? (
-        <div className={style.editCard}>
-          <img
-            src={images}
-            alt={productForEdit.closeUpImages}
-            className={style.editCard__image}
-          />
-          <form id="editForm" onSubmit={handleForm} className={style.editForm}>
-            <h4 className={style.editCard__title}>
-              <FormattedMessage id="photo" />
-            </h4>
-            <label className={style.editCard__photoLabel}>
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleImageFile}
-                className={style.editForm__photo}
-              />
-              <p className={style.editForm__photoBtn}>
-                <FormattedMessage id="upload" />
-              </p>
-            </label>
-            <h4 className={style.editCard__title}>
-              <FormattedMessage id="product.name" />
-            </h4>
-            <div className={style.editCard__titleName}>
-              <p className={style.editCard__titleLang}>ru</p>
-              <input
-                type="text"
-                value={nameRu}
-                onChange={(ev) => setNameRu(ev.target.value)}
-                className={style.editForm__inputLang}
-              />
-              <p className={style.editCard__titleLang}>en</p>
-              <input
-                type="text"
-                value={nameEn}
-                onChange={(ev) => setNameEn(ev.target.value)}
-                className={style.editForm__inputLang}
-              />
-              <p className={style.editCard__titleLang}>ukr</p>
-              <input
-                type="text"
-                value={nameUkr}
-                onChange={(ev) => setNameUkr(ev.target.value)}
-                className={style.editForm__inputLang}
-              />
-            </div>
-            <h4 className={style.editCard__title}>
-              <FormattedMessage id="product.category" />
-            </h4>
+      {isLoading || (
+        <div className={style.spinnerBack}>
+          <Spinner />
+        </div>
+      )}
+      <div className={style.editCard}>
+        <img
+          src={images}
+          alt={productForEdit.closeUpImages}
+          className={style.editCard__image}
+        />
+        <form id="editForm" onSubmit={handleForm} className={style.editForm}>
+          <h4 className={style.editCard__title}>
+            <FormattedMessage id="photo" />
+          </h4>
+          <label className={style.editCard__photoLabel}>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageFile}
+              className={style.editForm__photo}
+            />
+            <p className={style.editForm__photoBtn}>
+              <FormattedMessage id="upload" />
+            </p>
+          </label>
+          <h4 className={style.editCard__title}>
+            <FormattedMessage id="product.name" />
+          </h4>
+          <div className={style.editCard__titleName}>
+            <p className={style.editCard__titleLang}>ru</p>
             <input
               type="text"
-              value={categories}
-              onChange={(ev) => setCategory(ev.target.value)}
-              className={style.editForm__inputCategory}
+              value={nameRu}
+              onChange={(ev) => setNameRu(ev.target.value)}
+              className={style.editForm__inputLang}
             />
-            {categories === "pizza" && (
-              <>
-                <h4 className={style.editCard__title}>
-                  <FormattedMessage id="product.subcategory" />
-                </h4>
-                <input
-                  type="text"
-                  value={subcategory}
-                  onChange={(ev) => setSubcategory(ev.target.value)}
-                  className={style.editForm__inputCategory}
-                />
-              </>
-            )}
-            <h4 className={style.editCard__title}>
-              <FormattedMessage id="update.composition" />
-            </h4>
-            <ul className={style.editForm__ingredients}>
-              {ingredients.map((el, idx) => (
-                <li key={idx} className={style.editForm__ingredient}>
-                  <span className={style.editForm__ingredientName}>
-                    {el.name[local]}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={deleteIngredient}
-                    data-id={el._id}
-                    className={style.editForm__ingredientBtnDel}
-                  >
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
-                      fill="none"
-                      className={style.editForm__ingredientBtnDelImage}
-                    >
-                      <path
-                        d="M11.25 1.8075L10.1925 0.75L6 4.9425L1.8075 0.75L0.75 1.8075L4.9425 6L0.75 10.1925L1.8075 11.25L6 7.0575L10.1925 11.25L11.25 10.1925L7.0575 6L11.25 1.8075Z"
-                        fill="#272727"
-                      ></path>
-                    </svg>
-                  </button>
-                </li>
-              ))}
-            </ul>
-            <h4 className={style.editCard__title}>
-              <FormattedMessage id="update.addIngredient" />
-            </h4>
-            <label className={style.editForm__ingredientsSelect}>
-              <select
-                value={newIngredient}
-                className={style.editForm__ingredientsList}
-                onChange={(ev) => setNewIngredient(ev.target.value)}
-              >
-                {ingredientsList &&
-                  ingredientsList.map((el, idx) => (
-                    <option key={el._id} value={idx}>
-                      {el.name[local]}
-                    </option>
-                  ))}
-              </select>
-              <button
-                type="button"
-                onClick={() =>
-                  setIngredients([
-                    ...ingredients,
-                    ingredientsList[newIngredient],
-                  ])
-                }
-                className={style.editForm__addIngredientBtn}
-              >
-                <FormattedMessage id="update.addToComposition" />
-              </button>
-            </label>
-            <h4 className={style.editCard__title}>
-              <FormattedMessage id="product.price" />
-            </h4>
-
-            {categories === "pizza" ? (
-              <div className={style.editForm__price}>
-                <h4 className={style.editForm__priceTitle}>M</h4>
-                <input
-                  type="text"
-                  value={pricePizzaM}
-                  onChange={(ev) => setPricePizzaM(ev.target.value)}
-                  className={style.editForm__priceInput}
-                />
-                <h4 className={style.editForm__priceTitle}>L</h4>
-                <input
-                  type="text"
-                  value={pricePizzaL}
-                  onChange={(ev) => setPricePizzaL(ev.target.value)}
-                  className={style.editForm__priceInput}
-                />
-                <h4 className={style.editForm__priceTitle}>XL</h4>
-                <input
-                  type="text"
-                  value={pricePizzaXL}
-                  onChange={(ev) => setPricePizzaXL(ev.target.value)}
-                  className={style.editForm__priceInput}
-                />
-              </div>
-            ) : (
-              <>
-                <input
-                  type="text"
-                  value={priceNoPizza}
-                  onChange={(ev) => setPriceNoPizza(ev.target.value)}
-                  className={style.editForm__inputSinglePrice}
-                />
-                <p className={style.editCard__title}>
-                  <FormattedMessage id="product.about" />
-                </p>
-                <input
-                  type="text"
-                  value={description}
-                  onChange={(ev) => setDescription(ev.target.value)}
-                  className={style.editForm__inputDescription}
-                />
-              </>
-            )}
-          </form>
-          <button
-            form="editForm"
-            type="submit"
-            name="complete"
-            className={style.editForm__btnSubmit}
-          >
-            <FormattedMessage id="update.saveChanges" />
-          </button>
-          <button
-            form="editForm"
-            type="submit"
-            name="delete"
-            className={style.editForm__btnSubmit}
-            onClick={deleteItem}
-          >
-            <FormattedMessage id="delete product" />
-          </button>
-          <div onClick={() => setConfirmEdit(false)}>
-            {confirmEdit && <ConfirmationWindow confirmMassage={confirmEdit} />}
+            <p className={style.editCard__titleLang}>en</p>
+            <input
+              type="text"
+              value={nameEn}
+              onChange={(ev) => setNameEn(ev.target.value)}
+              className={style.editForm__inputLang}
+            />
+            <p className={style.editCard__titleLang}>ukr</p>
+            <input
+              type="text"
+              value={nameUkr}
+              onChange={(ev) => setNameUkr(ev.target.value)}
+              className={style.editForm__inputLang}
+            />
           </div>
+          <h4 className={style.editCard__title}>
+            <FormattedMessage id="product.category" />
+          </h4>
+          <input
+            type="text"
+            value={categories}
+            onChange={(ev) => setCategory(ev.target.value)}
+            className={style.editForm__inputCategory}
+          />
+          {categories === "pizza" && (
+            <>
+              <h4 className={style.editCard__title}>
+                <FormattedMessage id="product.subcategory" />
+              </h4>
+              <input
+                type="text"
+                value={subcategory}
+                onChange={(ev) => setSubcategory(ev.target.value)}
+                className={style.editForm__inputCategory}
+              />
+              <h4 className={style.editCard__title}>
+                <FormattedMessage id="update.composition" />
+              </h4>
+              <ul className={style.editForm__ingredients}>
+                {ingredients.map((el, idx) => (
+                  <li key={idx} className={style.editForm__ingredient}>
+                    <span className={style.editForm__ingredientName}>
+                      {el.name[local]}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={deleteIngredient}
+                      data-id={el._id}
+                      className={style.editForm__ingredientBtnDel}
+                    >
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        className={style.editForm__ingredientBtnDelImage}
+                      >
+                        <path
+                          d="M11.25 1.8075L10.1925 0.75L6 4.9425L1.8075 0.75L0.75 1.8075L4.9425 6L0.75 10.1925L1.8075 11.25L6 7.0575L10.1925 11.25L11.25 10.1925L7.0575 6L11.25 1.8075Z"
+                          fill="#272727"
+                        ></path>
+                      </svg>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <h4 className={style.editCard__title}>
+                <FormattedMessage id="update.addIngredient" />
+              </h4>
+              <label className={style.editForm__ingredientsSelect}>
+                <select
+                  value={newIngredient}
+                  className={style.editForm__ingredientsList}
+                  onChange={(ev) => setNewIngredient(ev.target.value)}
+                >
+                  {ingredientsList &&
+                    ingredientsList.map((el, idx) => (
+                      <option key={el._id} value={idx}>
+                        {el.name[local]}
+                      </option>
+                    ))}
+                </select>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setIngredients([
+                      ...ingredients,
+                      ingredientsList[newIngredient],
+                    ])
+                  }
+                  className={style.editForm__addIngredientBtn}
+                >
+                  <FormattedMessage id="update.addToComposition" />
+                </button>
+              </label>
+            </>
+          )}
+
+          <h4 className={style.editCard__title}>
+            <FormattedMessage id="product.price" />
+          </h4>
+
+          {categories === "pizza" ? (
+            <div className={style.editForm__price}>
+              <h4 className={style.editForm__priceTitle}>M</h4>
+              <input
+                type="text"
+                value={pricePizzaM}
+                onChange={(ev) => setPricePizzaM(ev.target.value)}
+                className={style.editForm__priceInput}
+              />
+              <h4 className={style.editForm__priceTitle}>L</h4>
+              <input
+                type="text"
+                value={pricePizzaL}
+                onChange={(ev) => setPricePizzaL(ev.target.value)}
+                className={style.editForm__priceInput}
+              />
+              <h4 className={style.editForm__priceTitle}>XL</h4>
+              <input
+                type="text"
+                value={pricePizzaXL}
+                onChange={(ev) => setPricePizzaXL(ev.target.value)}
+                className={style.editForm__priceInput}
+              />
+            </div>
+          ) : (
+            <>
+              <input
+                type="text"
+                value={priceNoPizza}
+                onChange={(ev) => setPriceNoPizza(ev.target.value)}
+                className={style.editForm__inputSinglePrice}
+              />
+              <p className={style.editCard__title}>
+                <FormattedMessage id="product.about" />
+              </p>
+              <input
+                type="text"
+                value={description}
+                onChange={(ev) => setDescription(ev.target.value)}
+                className={style.editForm__inputDescription}
+              />
+            </>
+          )}
+        </form>
+        <button
+          form="editForm"
+          type="submit"
+          name="complete"
+          className={style.editForm__btnSubmit}
+        >
+          <FormattedMessage id="update.saveChanges" />
+        </button>
+        <button
+          form="editForm"
+          type="submit"
+          name="delete"
+          className={style.editForm__btnSubmit}
+          onClick={deleteItem}
+        >
+          <FormattedMessage id="delete product" />
+        </button>
+        <div onClick={() => setConfirmEdit(false)}>
+          {confirmEdit && <ConfirmationWindow confirmMassage={confirmEdit} />}
         </div>
-      ) : (
+      </div>
+      {/* ) : (
         <Spinner />
-      )}
+      )} */}
     </div>
   );
 };
