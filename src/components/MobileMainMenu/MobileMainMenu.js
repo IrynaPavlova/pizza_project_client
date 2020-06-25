@@ -111,9 +111,10 @@ export default function MobileMainMenu({
               </ul>
             </nav>
             <div>
-              <LanguageSelector darkStyle={styles.languageSelector} />
+              <LanguageSelector darkStyle={true} />
             </div>
             <Authentication
+              darkStyle={styles.logoutButton}
               isModalActive={isModalActive}
               setIsModalActive={modalToggle}
             />

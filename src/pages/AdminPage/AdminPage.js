@@ -1,15 +1,18 @@
-import React, { Suspense } from "react";
-import { NavLink } from "react-router-dom";
+import React from "react";
+import { NavLink, Route } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
-import Spinner from "../../components/Spinner";
 import { routes } from "../../services/routes";
+import AdminOrderList from "../../components/AdminOrderList/AdminOrderList";
 
 import styles from "./AdminPage.module.css";
 
 export default function AdminPage() {
   return (
-    <Suspense fallback={<Spinner />}>
+    <>
       <div className={styles.AdminPageContainer}>
+        <h3 className={styles.clienInfoTitle}>
+          <FormattedMessage id="welcomeAdmin" />
+        </h3>
         {/* <hr className={styles.line} /> */}
         <ul className={styles.adminMenuItems}>
           <li>
@@ -51,6 +54,10 @@ export default function AdminPage() {
         </ul>
         <hr className={styles.line} />
       </div>
-    </Suspense>
+
+      <Route path={routes.ADMIN_PAGE}>
+        <AdminOrderList />
+      </Route>
+    </>
   );
 }

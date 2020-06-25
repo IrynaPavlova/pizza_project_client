@@ -7,10 +7,11 @@ const productReducer = createReducer([], {
   [productActions.byCategorySuccess]: (state, { payload }) => payload,
   [productActions.byIdSuccess]: (state, { payload }) => payload,
 
-  [productActions.sendProductSuccess]: (state, { payload }) => [
-    ...state,
-    payload,
-  ],
+  [productActions.sendProductSuccess]: (state, { payload }) => [payload],
+  // [
+  //   ...state,
+  //   payload,
+  // ],
   [productActions.updateProductSuccess]: (state, { payload }) => payload,
   [productActions.deleteProductSuccess]: (state, { payload }) =>
     state.filter((element) => element._id !== payload),
@@ -23,6 +24,7 @@ const errorReducer = createReducer(null, {
 
   [productActions.sendFileError]: (state, { payload }) => payload,
   [productActions.sendProductError]: (state, { payload }) => payload,
+  [productActions.getAllIngradientsError]: (state, { payload }) => payload,
   [productActions.updateProductError]: (state, { payload }) => payload,
   [productActions.deleteProductError]: (state, { payload }) => payload,
 });
@@ -44,6 +46,9 @@ const loadingReducer = createReducer(false, {
   [productActions.sendProductRequest]: (state, { payload }) => true,
   [productActions.sendProductSuccess]: (state, { payload }) => false,
   [productActions.sendProductError]: (state, { payload }) => false,
+  [productActions.getAllIngradientsRequest]: (state, { payload }) => true,
+  [productActions.getAllIngradientsSuccess]: (state, { payload }) => false,
+  [productActions.getAllIngradientsError]: (state, { payload }) => false,
   [productActions.updateProductRequest]: (state, { payload }) => true,
   [productActions.updateProductSuccess]: (state, { payload }) => false,
   [productActions.updateProductError]: (state, { payload }) => false,
@@ -55,7 +60,11 @@ const loadingReducer = createReducer(false, {
 const linkReducer = createReducer(null, {
   [productActions.sendFileSuccess]: (state, { payload }) => payload,
   [productActions.sendProductSuccess]: (state, { payload }) => null,
-  [productActions.cancelInput]: (state, { payload }) => null,
+  // [productActions.cancelInput]: (state, { payload }) => null,
+});
+
+const IngradientsReducer = createReducer([], {
+  [productActions.getAllIngradientsSuccess]: (state, { payload }) => payload,
 });
 
 export default combineReducers({
@@ -63,4 +72,5 @@ export default combineReducers({
   errorReducer,
   loading: loadingReducer,
   fileLink: linkReducer,
+  ingradients: IngradientsReducer,
 });

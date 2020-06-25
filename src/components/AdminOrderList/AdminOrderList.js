@@ -10,8 +10,6 @@ import styles from "./AdminOrderList.module.css";
 import localMessages from "../../languages";
 import { orderOperations, orderSelectors } from "../../redux/order";
 
-//"GET" https://evening-caverns-34846.herokuapp.com/orders
-
 export default function AdminOrderList() {
   const dispatch = useDispatch();
   const local = useSelector((state) => state.local.lang);
@@ -31,9 +29,9 @@ export default function AdminOrderList() {
     dispatch(orderOperations.getOrders());
   }, [dispatch]);
 
-  function handleChange(event) {
-    setFilter(event.target.value);
-  }
+  // function handleChange(event) {
+  //   setFilter(event.target.value);
+  // }
 
   return (
     <>
@@ -97,71 +95,4 @@ export default function AdminOrderList() {
       )}
     </>
   );
-
-  //  {
-  //    if (error) {
-  //      return <div>Error: {error.message}</div>;
-  //    } else if (!isLoaded) {
-  //      return <Spinner />;
-  //    } else {
-  //      return !items.length ? (
-  //        <div className={styles.noOrderContainer}>
-  //          <p className={styles.noOrderText}>
-  //            <FormattedMessage id="orders.no" />
-  //          </p>
-  //       </div>
-  //      ) : (
-  //        <div className={styles.orderContainer}>
-  //          <div className={styles.orderContainerSide}>
-  //            <ul className={styles.orderList}>
-  //              {options.map((option, index) => (
-  //                <li key={index}>
-  //                  <label className={styles.filterLabel}>
-  //                   <input
-  //                      type="radio"
-  //                     value={option}
-  //                      checked={option === filters}
-  //                      onChange={handleChange}
-  //                      className={styles.filterButton}
-  //                      key={option}
-  //                    />
-  //                    <span className={styles.sizeText}>{option}</span>
-  //                  </label>
-  //                </li>
-  //              ))}
-  //            </ul>
-  //          </div>
-  //          <div className={styles.orderItems}>
-  //            <ul>
-  //              {items.map((item) => {
-  //                if (filters === localMessages[local]["orders.all"]) {
-  //                  return <AdminOrdersListItem key={item._id} item={item} />;
-  //                }
-  //              })}
-  //            </ul>
-  //            <ul>
-  //              {items.map((item) => {
-  //                if (
-  //                  filters === localMessages[local]["orders.done"] &&
-  //                  item.status === "done"
-  //                ) {
-  //                  return <AdminOrdersListItem key={item._id} item={item} />;
-  //                }
-  //              })}
-  //            </ul>
-  //            <ul>
-  //              {items.map((item) => {
-  //                if (
-  //                  filters === localMessages[local]["orders.new"] &&
-  //                  item.status === "new"
-  //                ) {
-  //                  return <AdminOrdersListItem key={item._id} item={item} />;
-  //                }
-  //              })}
-  //            </ul>
-  //          </div>
-  //        </div>
-  //      );
-  //    }
-  //  }
 }

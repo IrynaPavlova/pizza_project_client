@@ -7,6 +7,8 @@ import style from "./adminUpdateListItemEdit.module.css";
 import Spinner from "../../components/Spinner";
 import Axios from "axios";
 
+import languages from "../../languages";
+
 const AdminUpdateListItemEdit = () => {
   let location = useLocation();
   let productForEdit = null;
@@ -35,7 +37,6 @@ const AdminUpdateListItemEdit = () => {
   const [newIngredient, setNewIngredient] = useState(0);
   const [ingredientsList, setIngredientsList] = useState(null);
   const [description, setDescription] = useState(productForEdit.description);
-
   useEffect(() => {
     Axios.get("https://evening-caverns-34846.herokuapp.com/ingredients")
       .then((res) => {
@@ -72,7 +73,7 @@ const AdminUpdateListItemEdit = () => {
       .catch((err) => {
         setIsLoading(true);
         console.log(err);
-        setConfirmEdit("Ошибка. Попробуйте позже");
+        setConfirmEdit(languages[local]["edit.error"]);
       });
   };
   const handleForm = (ev) => {
@@ -96,12 +97,12 @@ const AdminUpdateListItemEdit = () => {
     )
       .then((res) => {
         setIsLoading(true);
-        setConfirmEdit("Редактирование проведено");
+        setConfirmEdit(languages[local]["edit.ok"]);
       })
       .catch((err) => {
         setIsLoading(true);
         console.log(err);
-        setConfirmEdit("Ошибка. Попробуйте позже");
+        setConfirmEdit(languages[local]["edit.error"]);
       });
   };
   const deleteItem = (ev) => {
@@ -117,7 +118,7 @@ const AdminUpdateListItemEdit = () => {
       .catch((err) => {
         setIsLoading(true);
         console.log(err);
-        setConfirmEdit("Ошибка. Попробуйте позже");
+        setConfirmEdit(languages[local]["edit.error"]);
       });
   };
   window.addEventListener("unload", () => {

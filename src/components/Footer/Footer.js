@@ -1,8 +1,7 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { routes } from "../../services/routes";
-import AboutDevelopers from "../../components/AboutDevelopers";
 
 import Facebook from "../../assets/icons/facebook.svg";
 import Instagram from "../../assets/icons/insta.svg";
@@ -14,9 +13,6 @@ import styles from "./Footer.module.css";
 
 const Footer = () => (
   <>
-    <Route path="/devs">
-      <AboutDevelopers />
-    </Route>
     <div className={styles.footerContainer}>
       <div className={styles.footerOverlay}></div>
       <div className={styles.footerItemsContainer}>

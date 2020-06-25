@@ -1,15 +1,31 @@
 @value variables: '../../stylesheet/vars.css';
-@value lightColor, primaryTextFontSize from variables;
+@value lightColor, accentColor, primaryColor, primaryTextFontSize from variables;
 
-.languageSelect {
+.languageSelect__container {
   margin-right: 96px;
   width: 120px;
-  height: 22px;
-  background-color: transparent;
+
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 4px;
   outline: none;
-  color: lightColor;
+  color: primaryColor;
   font-family: RobotoRegular;
   font-size: primaryTextFontSize;
+}
+
+.languageSelect__control {
+  background-color: transparent;
+}
+
+.languageSelect__value-control {
+  background-color: transparent;
+  color: accentColor;
+}
+
+.languageSelect__option {
+  color: primaryColor;
+}
+
+.languageSelect__option--is-selected {
+  background-color: primaryColor;
 }
