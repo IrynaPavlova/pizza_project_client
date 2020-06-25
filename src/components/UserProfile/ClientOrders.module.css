@@ -64,6 +64,14 @@
     padding-top: 30px;
   }
 
+  .clientOrdersList li:not(:first-of-type) {
+    margin-top: 18px;
+  }
+
+  .clientOrdersList li:last-of-type {
+    margin-bottom: 50px;
+  }
+
   .productAmount {
     font-size: 14px;
     line-height: 20px;
