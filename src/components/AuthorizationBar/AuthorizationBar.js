@@ -26,7 +26,7 @@ export default function AuthorizationBar({
           </Link>
           <button
             type="button"
-            className={styles.logoutButton}
+            className={darkStyle || styles.logoutButton}
             onClick={onLogout}
           >
             <FormattedMessage id="logout" />

@@ -39,6 +39,10 @@
 }
 
 @media screen and (min-width: 1200px) {
+  .clientInfo {
+    min-width: 222px;
+  }
+
   .clientInfoList {
     padding-top: 30px;
     margin-bottom: 10px;
