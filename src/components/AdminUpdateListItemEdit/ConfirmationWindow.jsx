@@ -15,17 +15,7 @@ const ConfirmationWindow = ({ confirmMassage }) => {
             <FormattedMessage id="return back" />
           </button>
         </Link>
-
-        {confirmMassage.action === "del" ? (
-          <Link
-            to="/admin/update-product"
-            className={style.confirmation__formBtnLink}
-          >
-            <button type="button" className={style.confirmation__formBtn}>
-              <FormattedMessage id="return back" />
-            </button>
-          </Link>
-        ) : (
+        {confirmMassage.action === "del" || (
           <button type="button" className={style.confirmation__formBtn}>
             <FormattedMessage id="continue editing" />
           </button>
