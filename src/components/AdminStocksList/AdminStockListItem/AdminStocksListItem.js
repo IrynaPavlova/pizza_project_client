@@ -1,8 +1,12 @@
-import React from "react";
-import { connect } from "react-redux";
-import { FormattedMessage } from "react-intl";
-import stocksOperation from "../../../redux/stocks/stocksOperations";
-import styles from "./AdminStocksListItem.module.css";
+import React from 'react';
+import { connect } from 'react-redux';
+
+import PropTypes from 'prop-types';
+
+import { FormattedMessage } from 'react-intl';
+
+import stocksOperation from '../../../redux/stocks/stocksOperations';
+import styles from './AdminStocksListItem.module.css';
 
 function AdminStocksListItem({
   images,
@@ -45,6 +49,15 @@ function AdminStocksListItem({
     </div>
   );
 }
+
+AdminStocksListItem.propTypes = {
+  images: PropTypes.string.isRequired,
+  title: PropTypes.object.isRequired,
+  description: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired,
+  onRemove: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 const mapDispatchToProps = {
   onRemove: stocksOperation.deleteStock,

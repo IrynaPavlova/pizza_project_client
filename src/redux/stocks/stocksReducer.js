@@ -1,13 +1,10 @@
-import { combineReducers } from "redux";
-import { createReducer } from "@reduxjs/toolkit";
-import stocksActions from "./stocksActions";
+import { combineReducers } from 'redux';
+import { createReducer } from '@reduxjs/toolkit';
+import stocksActions from './stocksActions';
 
 const stocksReducer = createReducer([], {
   [stocksActions.getStocksSuccess]: (state, { payload }) => payload,
-  [stocksActions.sendStockSuccess]: (state, { payload }) => [
-    ...state,
-    payload,
-  ],
+  [stocksActions.sendStockSuccess]: (state, { payload }) => [...state, payload],
   [stocksActions.updateStockSuccess]: (state, { payload }) =>
     state.map((stock) => (stock._id === payload._id ? payload : stock)),
   [stocksActions.deleteStockSuccess]: (state, { payload }) =>
@@ -16,6 +13,7 @@ const stocksReducer = createReducer([], {
 
 const stockReducer = createReducer(null, {
   [stocksActions.getStockByIdSuccess]: (state, { payload }) => payload,
+  [stocksActions.updateStockSuccess]: (state, { payload }) => null,
 });
 
 const linkReducer = createReducer(null, {
