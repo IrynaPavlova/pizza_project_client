@@ -88,6 +88,10 @@ const deleteProduct = (productId) => (dispatch) => {
     .catch((error) => dispatch(productActions.deleteProductError(error)));
 };
 
+const saveExistProdImg = (link) => (dispatch) => {
+  dispatch(productActions.saveExistedImg(link));
+};
+
 export default {
   fetchProducts,
   fetchProductsByCategory,
@@ -98,4 +102,6 @@ export default {
   getIngredients,
   updateProduct,
   deleteProduct,
+
+  saveExistProdImg,
 };

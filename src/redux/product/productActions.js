@@ -42,6 +42,7 @@ const sendFileRequest = createAction("products/sendFileRequest");
 const sendFileSuccess = createAction("products/sendFileSuccess");
 const sendFileError = createAction("products/sendFileError");
 
+const saveExistedImg = createAction("products/saveExistedImg");
 // const cancelInput = createAction("products/cancelInput");
 
 export default {
@@ -78,4 +79,6 @@ export default {
   sendFileRequest,
   sendFileSuccess,
   sendFileError,
+
+  saveExistedImg,
 };

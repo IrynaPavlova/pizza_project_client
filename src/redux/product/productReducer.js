@@ -55,6 +55,7 @@ const loadingReducer = createReducer(false, {
 
 const linkReducer = createReducer(null, {
   [productActions.sendFileSuccess]: (state, { payload }) => payload,
+  [productActions.saveExistedImg]: (state, { payload }) => payload,
   [productActions.sendProductSuccess]: (state, { payload }) => null,
   // [productActions.cancelInput]: (state, { payload }) => null,
 });
