@@ -163,7 +163,6 @@
   letter-spacing: 0.25px;
 
   color: #272727;
-  margin-right: 56px;
 }
 .addCart {
   font-family: RobotoRegular;
@@ -206,9 +205,6 @@
     width: 354px;
   }
 
-  .currency {
-    margin-right: 120px;
-  }
   .heading {
     font-family: OswaldMedium;
     font-style: normal;
@@ -240,9 +236,6 @@
     width: 270px;
   }
 
-  .currency {
-    margin-right: 50px;
-  }
   .descriptionContainer {
     min-height: 280px;
   }
