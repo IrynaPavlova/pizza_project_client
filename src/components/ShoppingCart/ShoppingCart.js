@@ -1,11 +1,11 @@
-import React from "react";
-import {FormattedMessage} from "react-intl";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
-import ShoppingCartIcon from "../utils/ShoppingCartIcon";
-import styles from "./shoppingCart.module.css";
+import ShoppingCartIcon from '../utils/ShoppingCartIcon';
+import styles from './shoppingCart.module.css';
 
 const ShoppingCart = ({ amount = 0, price }) => {
-
   if (amount === 0) {
     return (
       <div>
@@ -18,7 +18,7 @@ const ShoppingCart = ({ amount = 0, price }) => {
     );
   }
   return (
-    <a className={styles.cartLink} href="/order">
+    <NavLink className={styles.cartLink} to="/order">
       <div className={styles.shoppingCartWrapper}>
         <div className={styles.shoppingIconsWrapper}>
           <div className={styles.productsAmount}>
@@ -29,14 +29,14 @@ const ShoppingCart = ({ amount = 0, price }) => {
         </div>
         <div className={styles.productsPriceWrapper}>
           <span className={styles.productsPrice}>
-            {price.toFixed(2)}{" "}
+            {price.toFixed(2)}{' '}
             <b>
               <FormattedMessage id="grn" />
             </b>
           </span>
         </div>
       </div>
-    </a>
+    </NavLink>
   );
 };
 
