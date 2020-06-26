@@ -161,15 +161,20 @@
   }
 
   .contentWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 468px;
     padding-top: 44px;
     padding-left: 32px;
     padding-right: 16px;
+    padding-bottom: 43px;
   }
 
   .productName,
   .ingredientsText {
     text-align: left;
+    margin-bottom: 0px;
   }
 
   /* .orderDetailsWrapper {
