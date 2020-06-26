@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { FormattedMessage } from "react-intl";
 import { useLocation } from "react-router-dom";
 import ConfirmationWindow from "./ConfirmationWindow";
 import style from "./adminUpdateListItemEdit.module.css";
 import Spinner from "../../components/Spinner";
-import Axios from "axios";
+// import Axios from "axios";
+import productSelectors from "../../redux/product/productSelectors";
+import productOperations from "../../redux/product/productOperations";
 
 // import languages from "../../languages";
 
 const AdminUpdateListItemEdit = () => {
+  const dispatch = useDispatch();
   let location = useLocation();
   let productForEdit = null;
   if (location.state) {
@@ -18,9 +21,13 @@ const AdminUpdateListItemEdit = () => {
     productForEdit = JSON.parse(sessionStorage.getItem("editedItem"));
   }
   const local = useSelector((state) => state.local.lang);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
+  const isLoading = useSelector(productSelectors.getLoading);
+  const errorProd = useSelector(productSelectors.getError); // ошибка операций подключить к setConfirmEdit
+
   const [confirmEdit, setConfirmEdit] = useState(false);
-  const [images, setImage] = useState(productForEdit.images);
+  // const [images, setImage] = useState(productForEdit.images);
+  const images = useSelector(productSelectors.fileLink);
   const [nameRu, setNameRu] = useState(productForEdit.name.ru);
   const [nameEn, setNameEn] = useState(productForEdit.name.en);
   const [nameUkr, setNameUkr] = useState(productForEdit.name.ukr);
@@ -35,16 +42,24 @@ const AdminUpdateListItemEdit = () => {
     ...productForEdit.ingredients,
   ]);
   const [newIngredient, setNewIngredient] = useState(0);
-  const [ingredientsList, setIngredientsList] = useState(null);
+  // const [ingredientsList, setIngredientsList] = useState(null);
+  const ingredientsList = useSelector(productSelectors.getIngradients);
   const [description, setDescription] = useState(productForEdit.description);
 
+  const postImage = (file) => dispatch(productOperations.sendFile(file));
+  const updateProduct = () =>
+    dispatch(productOperations.updateProduct(productForEdit._id, collector()));
+  const deleteProduct = () =>
+    dispatch(productOperations.deleteProduct(productForEdit._id));
+
   useEffect(() => {
-    Axios.get("https://evening-caverns-34846.herokuapp.com/ingredients")
-      .then((res) => {
-        setIngredientsList(res.data.ingredients);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+    dispatch(productOperations.getIngredients());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(productOperations.saveExistProdImg(productForEdit.images));
+  }, [dispatch]);
+
   useEffect(() => {
     if (categories === "pizza") {
       setPrice({ M: pricePizzaM, L: pricePizzaL, XL: pricePizzaXL });
@@ -75,81 +90,56 @@ const AdminUpdateListItemEdit = () => {
     ingredients.splice(delElemIndex, 1);
     setIngredients([...ingredients]);
   };
+
   const handleImageFile = (ev) => {
     ev.preventDefault();
-    setIsLoading(false);
-    const data = new FormData();
-    let file = ev.target.files[0];
-    data.append("file", file);
-    Axios.post("https://evening-caverns-34846.herokuapp.com/images", data)
-      .then((res) => {
-        setImage(res.data.image.file);
-        setIsLoading(true);
-      })
-      .catch((err) => {
-        setIsLoading(true);
-        console.log(err);
-        setConfirmEdit({
-          massage: <FormattedMessage id="error editing" />,
-          action: "editImage",
-        });
-      });
+    postImage(ev.target.files[0]);
+    collector();
+    // if (errorProd) {
+    //   setConfirmEdit({
+    //     massage: <FormattedMessage id="error editing" />,
+    //     action: "editImage",
+    //   });
+    // }
   };
   const handleForm = (ev) => {
     ev.preventDefault();
-    setIsLoading(false);
-    const editedItem = collector();
+    // const editedItem = collector();
+    updateProduct();
+    setConfirmEdit({
+      massage: <FormattedMessage id="product updated" />,
+      action: "edit",
+    });
 
-    Axios.put(
-      `https://evening-caverns-34846.herokuapp.com/products/${productForEdit._id}`,
-      editedItem
-    )
-      .then((res) => {
-        setIsLoading(true);
-        setConfirmEdit({
-          massage: <FormattedMessage id="product updated" />,
-          action: "edit",
-        });
-      })
-      .catch((err) => {
-        setIsLoading(true);
-        console.log(err);
-        setConfirmEdit({
-          massage: <FormattedMessage id="error editing" />,
-          action: "errorEdit",
-        });
-      });
+    // if(errorProd)
+    // setConfirmEdit({
+    //   massage: <FormattedMessage id="error editing" />,
+    //   action: "errorEdit",
+    // });
   };
+
   const deleteItem = (ev) => {
     ev.preventDefault();
-    setIsLoading(false);
-    Axios.delete(
-      `https://evening-caverns-34846.herokuapp.com/products/${productForEdit._id}`
-    )
-      .then((res) => {
-        setIsLoading(true);
-        console.log(res);
-        setConfirmEdit({
-          massage: <FormattedMessage id="deleted product" />,
-          action: "del",
-        });
-      })
-      .catch((err) => {
-        setIsLoading(true);
-        console.log(err);
-        setConfirmEdit({
-          massage: <FormattedMessage id="error editing" />,
-          action: "errorDel",
-        });
-      });
+    deleteProduct();
+    setConfirmEdit({
+      massage: <FormattedMessage id="deleted product" />,
+      action: "del",
+    });
+    // if(errorProd)
+    // setConfirmEdit({
+    //   massage: <FormattedMessage id="error editing" />,
+    //   action: "errorDel",
+    // });
   };
+
   window.addEventListener("unload", () => {
     const editedItem = collector();
     sessionStorage.setItem("editedItem", JSON.stringify(editedItem));
   });
+
   return (
     <div className={style.container}>
-      {isLoading || (
+      {!isLoading || (
         <div className={style.spinnerBack}>
           <Spinner />
         </div>
