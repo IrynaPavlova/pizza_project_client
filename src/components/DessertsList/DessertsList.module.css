@@ -125,7 +125,9 @@ p {
   .dessertConainer {
     padding: 30px 0 30px;
   }
-
+  .dessertTittle {
+    font-family: OswaldMedium;
+  }
   .dessertList {
     display: flex;
     flex-wrap: wrap;

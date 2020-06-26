@@ -1,5 +1,5 @@
 @value variables: '../../stylesheet/vars.css';
-@value secondaryTextFontSize, primaryColor, primaryTextColor, primaryTextFontSize from variables;
+@value secondaryTextFontSize, thirdHeaderFontStyle, primaryColor, primaryTextColor, accentColor, primaryTextFontSize from variables;
 
 p {
   margin-bottom: 0;
@@ -50,10 +50,10 @@ ul.itemsList {
 }
 
 .itemName {
+  color: accentColor;
   flex-basis: 120px;
   font-family: OswaldRegular;
   font-size: secondaryTextFontSize;
-  color: primaryColor;
   text-transform: capitalize;
 }
 
@@ -81,6 +81,10 @@ ul.itemsList {
   text-align: center;
 }
 
+.orderContacts p:not(:last-of-type) {
+  margin-bottom: 10px;
+}
+
 .orderCheckbox {
   flex-basis: 60px;
   text-align: center;
@@ -89,7 +93,7 @@ ul.itemsList {
 .totalSum {
   flex-basis: 100px;
   font-family: RobotoRegular;
-  font-size: secondaryTextFontSize;
+  font-size: 24px;
   color: primaryColor;
   margin-bottom: 20px;
 }

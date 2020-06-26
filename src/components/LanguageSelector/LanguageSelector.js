@@ -6,9 +6,9 @@ import localActions from "../../redux/local/localActions";
 import styles from "./LanguageSelector.module.css";
 
 const options = [
-  { value: "ru", label: "ru" },
-  { value: "ukr", label: "ukr" },
-  { value: "en", label: "en" },
+  { value: "ru", label: "Рус" },
+  { value: "ukr", label: "Укр" },
+  { value: "en", label: "Анг" },
 ];
 
 export default function LanguageSelector({ darkStyle }) {
@@ -16,6 +16,7 @@ export default function LanguageSelector({ darkStyle }) {
     container: (styles, isFocused) => {
       return {
         ...styles,
+        fontFamily: "RobotoRegular",
         marginRight: 96,
         width: 120,
         borderColor: darkStyle ? "#272727" : "white",
@@ -80,7 +81,7 @@ export default function LanguageSelector({ darkStyle }) {
   return (
     <Select
       styles={colourStyles}
-      defaultValue={{ value: currentLocal, label: currentLocal }}
+      defaultValue={options.filter((e) => e.value === currentLocal)[0]}
       onChange={handleChange}
       name="language"
       options={options}
