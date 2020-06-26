@@ -1,7 +1,12 @@
-import React from "react";
-import { connect } from "react-redux";
-import stocksOperation from "../../../redux/stocks/stocksOperations";
-import styles from "./AdminStocksListItem.module.css";
+import React from 'react';
+import { connect } from 'react-redux';
+
+import PropTypes from 'prop-types';
+
+import { FormattedMessage } from 'react-intl';
+
+import stocksOperation from '../../../redux/stocks/stocksOperations';
+import styles from './AdminStocksListItem.module.css';
 
 function AdminStocksListItem({
   images,
@@ -24,7 +29,6 @@ function AdminStocksListItem({
       <p className={styles.description}>{description.ru}</p>
       <h1 className={styles.title}>{title.ukr}</h1>
       <p className={styles.description}>{description.ukr}</p>
-      <p className={styles.id}>ID: {id}</p>
       <img src={images} alt={title} className={styles.cardImg} />
       <div className={styles.buttonContainer}>
         <button
@@ -32,19 +36,28 @@ function AdminStocksListItem({
           className={styles.button}
           onClick={() => onRemove(id)}
         >
-          Удалить акцию
+          <FormattedMessage id="promo.delete" />
         </button>
         <button
           type="button"
           className={styles.button}
           onClick={() => handleClickOnChangeButton(id)}
         >
-          Изменить акцию
+          <FormattedMessage id="promo.change" />
         </button>
       </div>
     </div>
   );
 }
+
+AdminStocksListItem.propTypes = {
+  images: PropTypes.string.isRequired,
+  title: PropTypes.object.isRequired,
+  description: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired,
+  onRemove: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 const mapDispatchToProps = {
   onRemove: stocksOperation.deleteStock,

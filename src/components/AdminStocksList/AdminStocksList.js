@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
-import { connect } from 'react-redux';
-import AdminStockListItem from './AdminStockListItem';
-import stocksOperations from '../../redux/stocks/stocksOperations';
-import stocksSelector from '../../redux/stocks/stocksSelector';
-import styles from './AdminStocksList.module.css';
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import AdminStockListItem from "./AdminStockListItem";
+import stocksOperations from "../../redux/stocks/stocksOperations";
+import stocksSelector from "../../redux/stocks/stocksSelector";
+import styles from "./AdminStocksList.module.css";
 
-function AdminStocksList({ elements, onFetchStocks, onChange }) {
+function AdminStocksList({ elements, onFetchStocks }) {
   useEffect(() => {
     onFetchStocks();
   }, [onFetchStocks]);
@@ -16,7 +17,6 @@ function AdminStocksList({ elements, onFetchStocks, onChange }) {
       <div className={styles.cardList}>
         {elements.map(({ title, description, images, _id }) => (
           <AdminStockListItem
-            onChange={onChange}
             key={_id}
             title={title}
             description={description}
@@ -28,6 +28,11 @@ function AdminStocksList({ elements, onFetchStocks, onChange }) {
     )
   );
 }
+
+AdminStocksList.propTypes = {
+  elements: PropTypes.arrayOf(PropTypes.object),
+  onFetchStocks: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = (state) => ({
   elements: stocksSelector.getStocks(state),

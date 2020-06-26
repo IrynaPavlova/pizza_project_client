@@ -6,7 +6,7 @@ const ConfirmationWindow = ({ confirmMassage }) => {
   return (
     <div className={style.confirmation}>
       <div className={style.confirmation__form}>
-        <p className={style.confirmation__formText}>{confirmMassage}</p>
+        <p className={style.confirmation__formText}>{confirmMassage.massage}</p>
         <Link
           to="/admin/update-product"
           className={style.confirmation__formBtnLink}
@@ -15,9 +15,11 @@ const ConfirmationWindow = ({ confirmMassage }) => {
             <FormattedMessage id="return back" />
           </button>
         </Link>
-        {/* <button type="button" className={style.confirmation__formBtn}>
-          <FormattedMessage id="continue editing" />
-        </button> */}
+        {confirmMassage.action === "del" || (
+          <button type="button" className={style.confirmation__formBtn}>
+            <FormattedMessage id="continue editing" />
+          </button>
+        )}
       </div>
     </div>
   );

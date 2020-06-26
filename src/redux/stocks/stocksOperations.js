@@ -1,15 +1,17 @@
-import axios from "axios";
-import stocksActions from "./stocksActions";
-
-const BASE_URL = "https://evening-caverns-34846.herokuapp.com";
-
-axios.defaults.baseURL = BASE_URL;
+import stocksActions from './stocksActions';
+import {
+  fetchAllStocks,
+  sendUserFile,
+  sendNewStock,
+  updateExistingStock,
+  deleteExistingStock,
+  getExistingStockById,
+} from '../../services/api';
 
 const fetchStocks = () => (dispatch) => {
   dispatch(stocksActions.getStocksRequest());
 
-  axios
-    .get("/promo")
+  fetchAllStocks()
     .then(({ data }) => dispatch(stocksActions.getStocksSuccess(data.promo)))
     .catch((error) => dispatch(stocksActions.getStocksError(error)));
 };
@@ -17,8 +19,7 @@ const fetchStocks = () => (dispatch) => {
 const sendFile = (file) => (dispatch) => {
   dispatch(stocksActions.sendFileRequest());
 
-  axios
-    .post("/images", file)
+  sendUserFile(file)
     .then(({ data }) =>
       dispatch(stocksActions.sendFileSuccess(data.image.file))
     )
@@ -28,8 +29,7 @@ const sendFile = (file) => (dispatch) => {
 const sendStock = (stock) => (dispatch) => {
   dispatch(stocksActions.sendStockRequest());
 
-  axios
-    .post("/promo", stock)
+  sendNewStock(stock)
     .then(({ data }) => dispatch(stocksActions.sendStockSuccess(data.newPromo)))
     .catch((error) => dispatch(stocksActions.sendStockError(error)));
 };
@@ -37,8 +37,7 @@ const sendStock = (stock) => (dispatch) => {
 const updateStock = (stockId, newStock) => (dispatch) => {
   dispatch(stocksActions.updateStockRequest());
 
-  axios
-    .put(`/promo/${stockId}`, newStock)
+  updateExistingStock(stockId, newStock)
     .then(({ data }) =>
       dispatch(stocksActions.updateStockSuccess(data.updatedPromo))
     )
@@ -48,8 +47,7 @@ const updateStock = (stockId, newStock) => (dispatch) => {
 const deleteStock = (stockId) => (dispatch) => {
   dispatch(stocksActions.deleteStockRequest());
 
-  axios
-    .delete(`/promo/${stockId}`, stockId)
+  deleteExistingStock(stockId)
     .then(({ data }) =>
       dispatch(stocksActions.deleteStockSuccess(data.deletedPromo._id))
     )
@@ -59,8 +57,7 @@ const deleteStock = (stockId) => (dispatch) => {
 const getStockById = (stockId) => (dispatch) => {
   dispatch(stocksActions.getStockByIdRequest());
 
-  axios
-    .get(`/promo/${stockId}`)
+  getExistingStockById(stockId)
     .then(({ data }) => dispatch(stocksActions.getStockByIdSuccess(data.promo)))
     .catch((error) => dispatch(stocksActions.getStockByIdError(error)));
 };
