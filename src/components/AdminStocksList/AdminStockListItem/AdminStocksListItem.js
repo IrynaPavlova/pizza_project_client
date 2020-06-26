@@ -1,12 +1,12 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage } from "react-intl";
 
-import stocksOperation from '../../../redux/stocks/stocksOperations';
-import styles from './AdminStocksListItem.module.css';
+import stocksOperation from "../../../redux/stocks/stocksOperations";
+import styles from "./AdminStocksListItem.module.css";
 
 function AdminStocksListItem({
   images,
@@ -23,13 +23,18 @@ function AdminStocksListItem({
 
   return (
     <div className={styles.card}>
-      <h1 className={styles.title}>{title.en}</h1>
-      <p className={styles.description}>{description.en}</p>
-      <h1 className={styles.title}>{title.ru}</h1>
-      <p className={styles.description}>{description.ru}</p>
-      <h1 className={styles.title}>{title.ukr}</h1>
-      <p className={styles.description}>{description.ukr}</p>
-      <img src={images} alt={title} className={styles.cardImg} />
+      <div className={styles.descriptionContainer}>
+        <img src={images} alt={title} className={styles.cardImg} />
+
+        <div>
+          <h1 className={styles.title}>{title.en}</h1>
+          <p className={styles.description}>{description.en}</p>
+          <h1 className={styles.title}>{title.ru}</h1>
+          <p className={styles.description}>{description.ru}</p>
+          <h1 className={styles.title}>{title.ukr}</h1>
+          <p className={styles.description}>{description.ukr}</p>
+        </div>
+      </div>
       <div className={styles.buttonContainer}>
         <button
           type="button"
