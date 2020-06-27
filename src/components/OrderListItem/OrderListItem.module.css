@@ -106,8 +106,8 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  left: 11%;
-  top: 40%;
+  left: 12%;
+  top: 35%;
   font-family: "RobotoRegular";
   font-style: normal;
   font-weight: bold;
@@ -118,7 +118,7 @@
   height: 40px;
   border-radius: 50%;
   border: none;
-  background-color: rgba(255, 108, 0, 0.5);
+  background-color: rgba(255, 108, 0);
   color: white;
 }
 
@@ -152,6 +152,8 @@
     width: 270px;
     height: 203px;
     margin-bottom: 0px;
+    object-fit: fill;
+    object-position: center;
   }
 
   .deleteButton {
@@ -182,9 +184,8 @@
   } */
 
   .pizzaSize {
-    position: absolute;
-    left: 33%;
-    top: 20%;
+    left: 30%;
+    top: 6%;
   }
 }
 
@@ -203,5 +204,10 @@
 
   .contentWrapper {
     width: 500px;
+  }
+
+  .pizzaSize {
+    left: 29%;
+    top: 4%;
   }
 }
