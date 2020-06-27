@@ -8,7 +8,10 @@ const productReducer = createReducer([], {
   [productActions.byIdSuccess]: (state, { payload }) => payload,
 
   [productActions.sendProductSuccess]: (state, { payload }) => [payload],
-  [productActions.updateProductSuccess]: (state, { payload }) => payload,
+  [productActions.updateProductSuccess]: (state, { payload }) => [
+    ...state,
+    payload,
+  ],
   [productActions.deleteProductSuccess]: (state, { payload }) =>
     state.filter((element) => element._id !== payload),
 });
