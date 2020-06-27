@@ -77,7 +77,6 @@ const AdminUpdateListItemEdit = () => {
   const collector = () => {
     const name = { ru: nameRu, ukr: nameUkr, en: nameEn };
     const categories = productForEdit.categories;
-
     const editedItem = {
       images,
       price,
@@ -85,8 +84,10 @@ const AdminUpdateListItemEdit = () => {
       categories,
       subcategory,
       ingredients,
-      // description,
     };
+    if (categories !== "pizza") {
+      editedItem.description = description;
+    }
     return editedItem;
   };
   const deleteIngredient = (ev) => {
@@ -112,7 +113,7 @@ const AdminUpdateListItemEdit = () => {
   const handleForm = (ev) => {
     ev.preventDefault();
     const editedItem = collector();
-    console.log(editedItem, productForEdit._id);
+    // console.log(editedItem, productForEdit._id);
 
     updateProduct(productForEdit._id, editedItem);
     setConfirmEdit({
