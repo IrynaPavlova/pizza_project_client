@@ -21,6 +21,7 @@ export default function AdminOrderList() {
 
   useEffect(() => dispatch(productOperations.fetchProducts()), [dispatch]);
   if (products) {
+    console.log(products);
     filteredProducts = products
       .filter(({ categories }) => categories === listType)
       .filter(({ name }) =>
