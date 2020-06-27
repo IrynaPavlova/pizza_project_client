@@ -17,8 +17,10 @@ const AdminUpdateListItemEdit = () => {
   let productForEdit = null;
   if (location.state) {
     productForEdit = location.state.product;
+    console.log(productForEdit);
   } else {
     productForEdit = JSON.parse(sessionStorage.getItem("editedItem"));
+    console.log(productForEdit);
   }
   const local = useSelector((state) => state.local.lang);
   // const [isLoading, setIsLoading] = useState(true);
@@ -31,7 +33,7 @@ const AdminUpdateListItemEdit = () => {
   const [nameRu, setNameRu] = useState(productForEdit.name.ru);
   const [nameEn, setNameEn] = useState(productForEdit.name.en);
   const [nameUkr, setNameUkr] = useState(productForEdit.name.ukr);
-  const [categories, setCategory] = useState(productForEdit.categories);
+  // const [categories, setCategory] = useState(productForEdit.categories);
   const [subcategory, setSubcategory] = useState(productForEdit.subcategory);
   const [priceNoPizza, setPriceNoPizza] = useState(productForEdit.price.price);
   const [price, setPrice] = useState({});
@@ -46,9 +48,13 @@ const AdminUpdateListItemEdit = () => {
   const ingredientsList = useSelector(productSelectors.getIngradients);
   const [description, setDescription] = useState(productForEdit.description);
 
+  const subcategoryList = ["classic", "branded", "premium"];
+
   const postImage = (file) => dispatch(productOperations.sendFile(file));
-  const updateProduct = () =>
-    dispatch(productOperations.updateProduct(productForEdit._id, collector()));
+  const updateProduct = (id, editedItem) => {
+    // console.log(collector());
+    dispatch(productOperations.updateProduct(id, editedItem));
+  };
   const deleteProduct = () =>
     dispatch(productOperations.deleteProduct(productForEdit._id));
 
@@ -61,24 +67,25 @@ const AdminUpdateListItemEdit = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (categories === "pizza") {
+    if (productForEdit.categories === "pizza") {
       setPrice({ M: pricePizzaM, L: pricePizzaL, XL: pricePizzaXL });
     } else {
       setPrice({ price: priceNoPizza });
     }
-  }, [pricePizzaM, pricePizzaL, pricePizzaXL, categories, priceNoPizza]);
+  }, [pricePizzaM, pricePizzaL, pricePizzaXL, priceNoPizza]);
 
   const collector = () => {
     const name = { ru: nameRu, ukr: nameUkr, en: nameEn };
+    const categories = productForEdit.categories;
+
     const editedItem = {
-      ...productForEdit,
       images,
       price,
       name,
       categories,
       subcategory,
       ingredients,
-      description,
+      // description,
     };
     return editedItem;
   };
@@ -94,7 +101,7 @@ const AdminUpdateListItemEdit = () => {
   const handleImageFile = (ev) => {
     ev.preventDefault();
     postImage(ev.target.files[0]);
-    collector();
+    // collector();
     // if (errorProd) {
     //   setConfirmEdit({
     //     massage: <FormattedMessage id="error editing" />,
@@ -104,8 +111,10 @@ const AdminUpdateListItemEdit = () => {
   };
   const handleForm = (ev) => {
     ev.preventDefault();
-    // const editedItem = collector();
-    updateProduct();
+    const editedItem = collector();
+    console.log(editedItem, productForEdit._id);
+
+    updateProduct(productForEdit._id, editedItem);
     setConfirmEdit({
       massage: <FormattedMessage id="product updated" />,
       action: "edit",
@@ -133,7 +142,7 @@ const AdminUpdateListItemEdit = () => {
   };
 
   window.addEventListener("unload", () => {
-    const editedItem = collector();
+    const editedItem = { _id: productForEdit._id, ...collector() };
     sessionStorage.setItem("editedItem", JSON.stringify(editedItem));
   });
 
@@ -194,23 +203,24 @@ const AdminUpdateListItemEdit = () => {
           <h4 className={style.editCard__title}>
             <FormattedMessage id="product.category" />
           </h4>
-          <input
-            type="text"
-            value={categories}
-            onChange={(ev) => setCategory(ev.target.value)}
-            className={style.editForm__inputCategory}
-          />
-          {categories === "pizza" && (
+          <p>{productForEdit.categories}</p>
+          {productForEdit.categories === "pizza" && (
             <>
               <h4 className={style.editCard__title}>
                 <FormattedMessage id="product.subcategory" />
               </h4>
-              <input
-                type="text"
+              <select
                 value={subcategory}
                 onChange={(ev) => setSubcategory(ev.target.value)}
                 className={style.editForm__inputCategory}
-              />
+              >
+                {ingredientsList &&
+                  subcategoryList.map((el, idx) => (
+                    <option key={idx} value={el}>
+                      {el}
+                    </option>
+                  ))}
+              </select>
               <h4 className={style.editCard__title}>
                 <FormattedMessage id="update.composition" />
               </h4>
@@ -279,7 +289,7 @@ const AdminUpdateListItemEdit = () => {
           <h4 className={style.editCard__title}>
             <FormattedMessage id="product.price" />
           </h4>
-          {categories === "pizza" ? (
+          {productForEdit.categories === "pizza" ? (
             <div className={style.editForm__price}>
               <h4 className={style.editForm__priceTitle}>M</h4>
               <input
