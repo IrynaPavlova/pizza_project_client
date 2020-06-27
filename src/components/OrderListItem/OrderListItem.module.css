@@ -154,7 +154,7 @@
     width: 270px;
     height: 203px;
     margin-bottom: 0px;
-    object-fit: fill;
+    object-fit: contain;
     object-position: center;
   }
 
