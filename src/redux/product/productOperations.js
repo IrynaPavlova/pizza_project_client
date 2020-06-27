@@ -73,7 +73,7 @@ const updateProduct = (productId, newProduct) => (dispatch) => {
   dispatch(productActions.updateProductRequest());
 
   updateProductById(productId, newProduct)
-    .then((res) => dispatch(productActions.updateProductSuccess(res)))
+    .then(({ data }) => dispatch(productActions.updateProductSuccess(data)))
     .catch((error) => dispatch(productActions.updateProductError(error)));
 };
 
