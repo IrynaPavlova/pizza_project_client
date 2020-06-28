@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { Carousel } from "react-bootstrap";
 
 import { routes } from "../../services/routes";
-
 import styles from "./Slider.module.css";
 
 export default function Slideview(props) {
