@@ -17,10 +17,8 @@ const AdminUpdateListItemEdit = () => {
   let productForEdit = null;
   if (location.state) {
     productForEdit = location.state.product;
-    console.log(productForEdit);
   } else {
     productForEdit = JSON.parse(sessionStorage.getItem("editedItem"));
-    console.log(productForEdit);
   }
   const local = useSelector((state) => state.local.lang);
   // const [isLoading, setIsLoading] = useState(true);

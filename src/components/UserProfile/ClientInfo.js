@@ -15,10 +15,12 @@ export const ClientInfo = ({ username, email }) => (
         <img src={userIcon} alt="user icon" />
         <span>{username}</span>
       </li>
-      <li>
-        <img src={mailIcon} alt="mail icon" />
-        <span>{email}</span>
-      </li>
+      {email && (
+        <li>
+          <img src={mailIcon} alt="mail icon" />
+          <span>{email}</span>
+        </li>
+      )}
     </ul>
   </div>
 );
