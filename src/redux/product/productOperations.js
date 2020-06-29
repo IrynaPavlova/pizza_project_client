@@ -8,6 +8,7 @@ import {
   getProductById,
   updateProductById,
   deleteProductById,
+  createNewIngredients,
 } from "../../services/api";
 
 const fetchProducts = () => (dispatch) => {
@@ -33,7 +34,7 @@ const fetchProductById = (id) => (dispatch) => {
 
   getProductById(id)
     .then(({ data }) => dispatch(productActions.byIdSuccess(data.product)))
-    .catch((error) => dispatch(productActions.byIdErrror(error)));
+    .catch((error) => dispatch(productActions.byIdError(error)));
 };
 
 //for AdminPage
@@ -60,13 +61,22 @@ const sendProduct = (product) => (dispatch) => {
 };
 
 const getIngredients = () => (dispatch) => {
-  dispatch(productActions.getAllIngradientsRequest());
+  dispatch(productActions.getAllIngredientsRequest());
 
   getAllIngredients()
     .then(({ data }) =>
-      dispatch(productActions.getAllIngradientsSuccess(data.ingredients))
+      dispatch(productActions.getAllIngredientsSuccess(data.ingredients))
     )
-    .catch((error) => dispatch(productActions.getAllIngradientsError(error)));
+    .catch((error) => dispatch(productActions.getAllIngredientsError(error)));
+};
+const createIngredients = (ingredient) => (dispatch) => {
+  dispatch(productActions.createNewIngredientsRequest());
+
+  createNewIngredients(ingredient)
+    .then(({ data }) => dispatch(productActions.createNewIngredientsSuccess()))
+    .catch((error) =>
+      dispatch(productActions.createNewIngredientsError(error))
+    );
 };
 
 const updateProduct = (productId, newProduct) => (dispatch) => {
@@ -102,6 +112,7 @@ export default {
   getIngredients,
   updateProduct,
   deleteProduct,
+  createIngredients,
 
   saveExistProdImg,
 };

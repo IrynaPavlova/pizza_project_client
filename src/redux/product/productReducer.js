@@ -19,11 +19,11 @@ const productReducer = createReducer([], {
 const errorReducer = createReducer(null, {
   [productActions.productsError]: (state, { payload }) => payload,
   [productActions.byCategoryError]: (state, { payload }) => payload,
-  [productActions.byIdErrror]: (state, { payload }) => payload,
+  [productActions.byIdError]: (state, { payload }) => payload,
 
   [productActions.sendFileError]: (state, { payload }) => payload,
   [productActions.sendProductError]: (state, { payload }) => payload,
-  [productActions.getAllIngradientsError]: (state, { payload }) => payload,
+  [productActions.getAllIngredientsError]: (state, { payload }) => payload,
   [productActions.updateProductError]: (state, { payload }) => payload,
   [productActions.deleteProductError]: (state, { payload }) => payload,
 });
@@ -37,7 +37,7 @@ const loadingReducer = createReducer(false, {
   [productActions.byCategoryError]: () => false,
   [productActions.byIdRequest]: () => true,
   [productActions.byIdSuccess]: () => false,
-  [productActions.byIdErrror]: () => false,
+  [productActions.byIdError]: () => false,
 
   [productActions.sendFileRequest]: (state, { payload }) => true,
   [productActions.sendFileSuccess]: (state, { payload }) => false,
@@ -45,11 +45,16 @@ const loadingReducer = createReducer(false, {
   [productActions.sendProductRequest]: (state, { payload }) => true,
   [productActions.sendProductSuccess]: (state, { payload }) => false,
   [productActions.sendProductError]: (state, { payload }) => false,
-  [productActions.getAllIngradientsRequest]: (state, { payload }) => true,
-  [productActions.getAllIngradientsSuccess]: (state, { payload }) => false,
-  [productActions.getAllIngradientsError]: (state, { payload }) => false,
-  [productActions.updateProductRequest]: (state, { payload }) => true,
-  [productActions.updateProductSuccess]: (state, { payload }) => false,
+  [productActions.getAllIngredientsRequest]: (state, { payload }) => false,
+  [productActions.getAllIngredientsSuccess]: (state, { payload }) => true,
+  [productActions.getAllIngredientsError]: (state, { payload }) => false,
+
+  [productActions.createNewIngredientsRequest]: (state, { payload }) => false,
+  [productActions.createNewIngredientsSuccess]: (state, { payload }) => true,
+  [productActions.createNewIngredientsError]: (state, { payload }) => false,
+
+  [productActions.updateProductRequest]: (state, { payload }) => false,
+  [productActions.updateProductSuccess]: (state, { payload }) => true,
   [productActions.updateProductError]: (state, { payload }) => false,
   [productActions.deleteProductRequest]: (state, { payload }) => true,
   [productActions.deleteProductSuccess]: (state, { payload }) => false,
@@ -63,8 +68,12 @@ const linkReducer = createReducer(null, {
   // [productActions.cancelInput]: (state, { payload }) => null,
 });
 
-const IngradientsReducer = createReducer([], {
-  [productActions.getAllIngradientsSuccess]: (state, { payload }) => payload,
+const IngredientsReducer = createReducer([], {
+  [productActions.getAllIngredientsSuccess]: (state, { payload }) => payload,
+  // [productActions.addIngredient]: (state, { payload }) => payload,
+});
+const IngredientReducer = createReducer([], {
+  [productActions.addIngredient]: (state, { payload }) => payload,
 });
 
 export default combineReducers({
@@ -72,5 +81,6 @@ export default combineReducers({
   errorReducer,
   loading: loadingReducer,
   fileLink: linkReducer,
-  ingradients: IngradientsReducer,
+  ingredients: IngredientsReducer,
+  ingredient: IngredientReducer,
 });

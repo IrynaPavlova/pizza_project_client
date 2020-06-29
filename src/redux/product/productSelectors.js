@@ -6,15 +6,20 @@ const getProducts = (state) => state.products.items;
 
 const getFileLink = (state) => state.products.fileLink;
 
-const getIngradients = (state) => state.products.ingradients;
+const getIngredients = (state) => state.products.ingredients;
+
+const createNewIngredient = (state) => state.products.ingredients;
 
 const fileLink = (state) => state.products.fileLink;
+const addIngredient = (state) => state.products.ingredient;
 
 export default {
   getLoading,
   getError,
   getProducts,
   getFileLink,
-  getIngradients,
+  getIngredients,
+  createNewIngredient,
   fileLink,
+  addIngredient,
 };

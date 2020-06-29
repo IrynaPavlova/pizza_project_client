@@ -14,7 +14,7 @@ const byCategoryError = createAction("products/fetchProductsByCategoryError");
 
 const byIdRequest = createAction("products/fetchProductsByIdRequest");
 const byIdSuccess = createAction("products/fetchProductsByIdSuccess");
-const byIdErrror = createAction("products/fetchProductsByIdError");
+const byIdError = createAction("products/fetchProductsByIdError");
 
 //for AdminPage
 
@@ -22,13 +22,24 @@ const sendProductRequest = createAction("products/sendProductRequest");
 const sendProductSuccess = createAction("products/sendProductSuccess");
 const sendProductError = createAction("products/sendProductError");
 
-const getAllIngradientsRequest = createAction(
-  "products/getAllIngradientsRequest"
+const getAllIngredientsRequest = createAction(
+  "products/getAllIngredientsRequest"
 );
-const getAllIngradientsSuccess = createAction(
-  "products/getAllIngradientsSuccess"
+const getAllIngredientsSuccess = createAction(
+  "products/getAllIngredientsSuccess"
 );
-const getAllIngradientsError = createAction("products/getAllIngradientsError");
+const getAllIngredientsError = createAction("products/getAllIngredientsError");
+
+const createNewIngredientsRequest = createAction(
+  "products/createNewIngredientsRequest"
+);
+const createNewIngredientsSuccess = createAction(
+  "products/createNewIngredientsSuccess"
+);
+const createNewIngredientsError = createAction(
+  "products/createNewIngredientsError"
+);
+const addIngredient = createAction("products/addIngredient");
 
 const updateProductRequest = createAction("products/updateProductRequest");
 const updateProductSuccess = createAction("products/updateProductSuccess");
@@ -56,7 +67,7 @@ export default {
 
   byIdRequest,
   byIdSuccess,
-  byIdErrror,
+  byIdError,
 
   // cancelInput,
 
@@ -64,9 +75,13 @@ export default {
   sendProductSuccess,
   sendProductError,
 
-  getAllIngradientsRequest,
-  getAllIngradientsSuccess,
-  getAllIngradientsError,
+  getAllIngredientsRequest,
+  getAllIngredientsSuccess,
+  getAllIngredientsError,
+
+  createNewIngredientsRequest,
+  createNewIngredientsSuccess,
+  createNewIngredientsError,
 
   updateProductRequest,
   updateProductSuccess,
@@ -81,4 +96,5 @@ export default {
   sendFileError,
 
   saveExistedImg,
+  addIngredient,
 };
