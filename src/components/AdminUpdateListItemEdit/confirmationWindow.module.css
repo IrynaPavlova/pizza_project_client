@@ -1,0 +1,65 @@
+.confirmation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(39, 39, 39, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.confirmation__form {
+  width: 80%;
+  height: 60%;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 8px 12px 12px rgba(0, 0, 0, 0.12), 1px 2px 4px rgba(0, 0, 0, 0.12);
+}
+.confirmation__formText {
+  font-size: 20px;
+  width: 80%;
+  word-wrap: break-word;
+  margin: 0;
+}
+.confirmation__formBtnLink {
+  width: 100%;
+  height: 50px;
+}
+.confirmation__formBtn {
+  width: 100%;
+  height: 50px;
+  background: #ff6c00;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
+}
+
+@media (min-width: 748px) {
+  .confirmation__form {
+    width: 500px;
+    height: 341px;
+    padding: 0;
+  }
+  .confirmation__formText {
+    width: 320px;
+    word-wrap: break-word;
+    margin: 0;
+    font-size: 30px;
+  }
+  .confirmation__formBtnLink {
+    width: 320px;
+  }
+  .confirmation__formBtn {
+    width: 320px;
+  }
+}

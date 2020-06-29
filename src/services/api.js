@@ -1,13 +1,12 @@
-
 import axios from "axios";
 const CancelToken = axios.CancelToken;
 const source = CancelToken.source();
 
-const baseURL = 'https://evening-caverns-34846.herokuapp.com';
+const baseURL = "https://evening-caverns-34846.herokuapp.com";
 
 //for Products
 const getAllProducts = () => {
-  return axios.get('/products');
+  return axios.get("/products");
 };
 
 const getProductsByCategory = (category) => {
@@ -22,6 +21,9 @@ const getProductById = (id) => {
 
 const getAllIngredients = async () => {
   return axios.get(`${baseURL}/ingredients`);
+};
+const createNewIngredients = async (ingredients) => {
+  return axios.post(`${baseURL}/ingredients`, ingredients);
 };
 
 const postNewProduct = (product) => {
@@ -41,22 +43,22 @@ const deleteProductById = (productId) => {
 // other
 const postImage = async (file) => {
   const data = new FormData();
-  data.append('file', file);
+  data.append("file", file);
 
   return axios.post(`${baseURL}/images`, data);
 };
 
 // developers
 
-const fetchDevs = () => axios.get('/developers');
+const fetchDevs = () => axios.get("/developers");
 
 // Stocks
 
-const fetchAllStocks = () => axios.get('/promo');
+const fetchAllStocks = () => axios.get("/promo");
 
-const sendUserFile = (file) => axios.post('/images', file);
+const sendUserFile = (file) => axios.post("/images", file);
 
-const sendNewStock = (stock) => axios.post('/promo', stock);
+const sendNewStock = (stock) => axios.post("/promo", stock);
 
 const updateExistingStock = (stockId, newStock) =>
   axios.put(`/promo/${stockId}`, newStock);
@@ -68,6 +70,7 @@ const getExistingStockById = (stockId) => axios.get(`/promo/${stockId}`);
 export {
   fetchDevs,
   getAllIngredients,
+  createNewIngredients,
   postNewProduct,
   postImage,
   getAllProducts,

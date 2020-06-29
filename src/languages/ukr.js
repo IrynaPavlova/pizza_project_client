@@ -99,4 +99,6 @@ export default {
   "ukr name": "Назва украiнською",
   "rus name": "Назва росiйською",
   "eng name": "Назва англiйською",
+  "update.createNewIngredient": "Створити новий енгредіент",
+  "update.addNewIngredient": "Додати новий інгредіент",
 };
