@@ -12,6 +12,7 @@
   height: 36px;
   margin: 0 auto;
   border: none;
+  color: #fff;
   background: accentColor;
   border-radius: 4px;
   font-family: "RobotoRegular";
@@ -28,10 +29,24 @@
   margin-bottom: 50px;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 .orderBtn a {
   font-family: "RobotoRegular";
   text-decoration: none;
   color: #ffffff;
+}
+
+.orderBtn a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.orderBtn:hover {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 /*media*/

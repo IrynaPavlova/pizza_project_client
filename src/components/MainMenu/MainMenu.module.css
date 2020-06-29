@@ -42,7 +42,17 @@
   text-decoration: none;
 }
 
+.mainMenuItem:focus {
+  color: accentColor;
+  text-decoration: none;
+}
+
 .mainMenuItem:hover::before {
+  transform: translateX(-50%) scaleX(1);
+  transform-origin: left;
+}
+
+.mainMenuItem:focus::before {
   transform: translateX(-50%) scaleX(1);
   transform-origin: left;
 }

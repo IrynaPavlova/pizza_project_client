@@ -8,7 +8,7 @@ import styles from "./LanguageSelector.module.css";
 const options = [
   { value: "ru", label: "Рус" },
   { value: "ukr", label: "Укр" },
-  { value: "en", label: "Анг" },
+  { value: "en", label: "Eng" },
 ];
 
 export default function LanguageSelector({ darkStyle }) {
