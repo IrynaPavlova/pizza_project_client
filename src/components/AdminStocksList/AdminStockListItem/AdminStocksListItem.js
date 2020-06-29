@@ -1,12 +1,10 @@
-import React from "react";
-import { connect } from "react-redux";
-
-import PropTypes from "prop-types";
-
-import { FormattedMessage } from "react-intl";
-
-import stocksOperation from "../../../redux/stocks/stocksOperations";
-import styles from "./AdminStocksListItem.module.css";
+import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
+import stocksOperation from '../../../redux/stocks/stocksOperations';
+import styles from './AdminStocksListItem.module.css';
 
 function AdminStocksListItem({
   images,
@@ -24,8 +22,11 @@ function AdminStocksListItem({
   return (
     <div className={styles.card}>
       <div className={styles.descriptionContainer}>
-        <img src={images} alt={title} className={styles.cardImg} />
-
+        {/* <img src={images} alt={title} className={styles.cardImg} /> */}
+        <LazyLoadImage
+          className={styles.cardImg}
+          src={images} // use normal <img> attributes as props
+        />
         <div>
           <h1 className={styles.title}>{title.en}</h1>
           <p className={styles.description}>{description.en}</p>

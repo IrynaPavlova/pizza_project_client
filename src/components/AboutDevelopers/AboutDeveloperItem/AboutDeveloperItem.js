@@ -1,28 +1,30 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styles from "./AboutDeveloperItem.module.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import styles from './AboutDeveloperItem.module.css';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import {
   facebook,
   linkedIn,
   instagram,
   gitHub,
-} from "./../../utils/SocialIcons";
-import checkedSocialNetworkLink from "../../utils/checkedSocialNetworkLink";
+} from './../../utils/SocialIcons';
+import checkedSocialNetworkLink from '../../utils/checkedSocialNetworkLink';
 
 const DEFAULT_AVATAR =
-  "https://i.ibb.co/d5yKB57/85622928-default-avatar-profile-icon-grey-photo-placeholder-illustrations-vectors.jpg";
+  'https://i.ibb.co/d5yKB57/85622928-default-avatar-profile-icon-grey-photo-placeholder-illustrations-vectors.jpg';
 
 function AboutDeveloperItem({ name, avatarLink, social, github }) {
-  const socialNetworkFacebook = checkedSocialNetworkLink(social, "facebook");
-  const socialNetworkInstagramm = checkedSocialNetworkLink(social, "instagram");
-  const socialNetworkLinkedIn = checkedSocialNetworkLink(social, "linkedin");
+  const socialNetworkFacebook = checkedSocialNetworkLink(social, 'facebook');
+  const socialNetworkInstagramm = checkedSocialNetworkLink(social, 'instagram');
+  const socialNetworkLinkedIn = checkedSocialNetworkLink(social, 'linkedin');
 
   return (
     <div className={styles.card}>
       <div className={styles.cardImgContainer}>
-        <img
+        <LazyLoadImage
           className={styles.cardImg}
-          src={avatarLink || DEFAULT_AVATAR}
+          src={avatarLink || DEFAULT_AVATAR} // use normal <img> attributes as props
           alt={name}
         />
       </div>
@@ -74,7 +76,7 @@ function AboutDeveloperItem({ name, avatarLink, social, github }) {
 }
 
 AboutDeveloperItem.defaultProps = {
-  gitHub: "",
+  gitHub: '',
 };
 
 AboutDeveloperItem.propTypes = {
