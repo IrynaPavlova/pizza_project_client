@@ -18,17 +18,16 @@ const AdminUpdateListItemEdit = () => {
   const dispatch = useDispatch();
   let location = useLocation();
   let productForEdit = null;
-  // let ingredients = null;
   if (location.state) {
     productForEdit = location.state.product;
   } else {
     productForEdit = JSON.parse(sessionStorage.getItem("editedItem"));
   }
+
   const ingredients = useSelector(productSelectors.addIngredient);
-
   const isLoading = useSelector(productSelectors.getLoading);
-
   const images = useSelector(productSelectors.fileLink);
+
   const [nameRu, setNameRu] = useState(productForEdit.name.ru);
   const [nameEn, setNameEn] = useState(productForEdit.name.en);
   const [nameUkr, setNameUkr] = useState(productForEdit.name.ukr);
@@ -58,24 +57,9 @@ const AdminUpdateListItemEdit = () => {
   const deleteProduct = () =>
     dispatch(productOperations.deleteProduct(productForEdit._id));
 
-  // console.log();
-
   useEffect(() => {
     dispatch(productOperations.getIngredients());
-    dispatch(productOperations.saveExistProdImg(productForEdit.images));
-  }, [dispatch]);
-  // const getIngredients = () => (dispatch) => {
-  //   dispatch(productActions.getAllIngredientsRequest());
-
-  //   getAllIngredients()
-  //     .then(({ data }) =>
-  //       dispatch(productActions.getAllIngredientsSuccess(data.ingredients))
-  //     )
-  //     .catch((error) => dispatch(productActions.getAllIngredientsError(error)));
-  // };
-  // useEffect(() => {
-  //   dispatch(productOperations.getIngredients());
-  // }, []);
+  }, []);
 
   useEffect(() => {
     if (productForEdit.categories === "pizza") {
@@ -87,13 +71,12 @@ const AdminUpdateListItemEdit = () => {
 
   const collector = () => {
     const name = { ru: nameRu, ukr: nameUkr, en: nameEn };
-
     const editedItem = {
-      images,
       price,
       name,
       ingredients,
     };
+    editedItem.images = images || productForEdit.images;
     editedItem.name = { ru: nameRu, ukr: nameUkr, en: nameEn };
     editedItem.categories = productForEdit.categories;
     editedItem.subcategory = subcategory.value;
@@ -102,15 +85,6 @@ const AdminUpdateListItemEdit = () => {
     }
     return editedItem;
   };
-  // const deleteIngredient = (ev) => {
-  //   ev.preventDefault();
-  //   const delElemIndex = ingredients.findIndex(
-  //     (el) => el._id === ev.currentTarget.dataset.id
-  //   );
-
-  //   ingredients.splice(delElemIndex, 1);
-  //   setIngredients([...ingredients]);
-  // };
 
   const handleImageFile = (ev) => {
     ev.preventDefault();
@@ -129,9 +103,6 @@ const AdminUpdateListItemEdit = () => {
     setIsDeleted(true);
     setConfirmEdit(true);
   };
-  const updateIngredients = (newIngredient) => {
-    // productForEdit.ingredients = [...ingredients, newIngredient];
-  };
   window.addEventListener("unload", () => {
     const editedItem = { _id: productForEdit._id, ...collector() };
     sessionStorage.setItem("editedItem", JSON.stringify(editedItem));
@@ -142,7 +113,7 @@ const AdminUpdateListItemEdit = () => {
       {isLoading ? (
         <div className={style.editCard}>
           <img
-            src={images}
+            src={images || productForEdit.images}
             alt={productForEdit.closeUpImages}
             className={style.editCard__image}
           />
@@ -202,69 +173,6 @@ const AdminUpdateListItemEdit = () => {
                   onChange={(ev) => setSubcategory(ev)}
                 />
                 <IngredientSelect productForEdit={productForEdit} />
-                {/* <h4 className={style.editCard__title}>
-                  <FormattedMessage id="update.composition" />
-                </h4>
-                <ul className={style.editForm__ingredients}>
-                  {ingredients.map((el, idx) => (
-                    <li key={el._id} className={style.editForm__ingredient}>
-                      <span className={style.editForm__ingredientName}>
-                        {el.name[local]}
-                      </span>
-                      <button
-                        type="button"
-                        onClick={deleteIngredient}
-                        data-id={el._id}
-                        className={style.editForm__ingredientBtnDel}
-                      >
-                        <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 12 12"
-                          fill="none"
-                          className={style.editForm__ingredientBtnDelImage}
-                        >
-                          <path
-                            d="M11.25 1.8075L10.1925 0.75L6 4.9425L1.8075 0.75L0.75 1.8075L4.9425 6L0.75 10.1925L1.8075 11.25L6 7.0575L10.1925 11.25L11.25 10.1925L7.0575 6L11.25 1.8075Z"
-                            fill="#272727"
-                          ></path>
-                        </svg>
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-                <h4 className={style.editCard__title}>
-                  <FormattedMessage id="update.addIngredient" />
-                </h4>
-                <label className={style.editForm__ingredientsSelect}>
-                  <select
-                    value={newIngredient}
-                    className={style.editForm__ingredientsList}
-                    onChange={(ev) => setNewIngredient(ev.target.value)}
-                  >
-                    {ingredientsList &&
-                      ingredientsList.map((el, idx) => (
-                        <option key={el._id} value={idx}>
-                          {el.name[local]}
-                        </option>
-                      ))}
-                  </select>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      ingredients.some(
-                        (el) => ingredientsList[newIngredient]._id === el._id
-                      ) ||
-                        setIngredients([
-                          ...ingredients,
-                          ingredientsList[newIngredient],
-                        ]);
-                    }}
-                    className={style.editForm__addIngredientBtn}
-                  >
-                    <FormattedMessage id="update.addToComposition" />
-                  </button>
-                </label> */}
               </>
             )}
             <AddNewIngredient />
@@ -344,7 +252,15 @@ const AdminUpdateListItemEdit = () => {
         }}
       >
         {isLoading && confirmEdit && (
-          <ConfirmationWindow isDeleted={isDeleted} />
+          <ConfirmationWindow
+            massage={
+              isDeleted ? (
+                <FormattedMessage id="deleted product" />
+              ) : (
+                <FormattedMessage id="product updated" />
+              )
+            }
+          />
         )}
       </div>
     </div>

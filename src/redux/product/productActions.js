@@ -5,7 +5,7 @@ const productsSuccess = createAction("products/fetchProductsSuccess");
 const productsError = createAction("products/fetchProductsError");
 
 const byCategoryRequest = createAction(
-  "products/fetchProductsByCategotyRequest"
+  "products/fetchProductsByCategoryRequest"
 );
 const byCategorySuccess = createAction(
   "products/fetchProductsByCategorySucceess"
@@ -31,15 +31,17 @@ const getAllIngredientsSuccess = createAction(
 const getAllIngredientsError = createAction("products/getAllIngredientsError");
 
 const createNewIngredientsRequest = createAction(
-  "products/createNewIngredientsRequest"
+  "products/createNewIngredientRequest"
 );
 const createNewIngredientsSuccess = createAction(
-  "products/createNewIngredientsSuccess"
+  "products/createNewIngredientSuccess"
 );
 const createNewIngredientsError = createAction(
-  "products/createNewIngredientsError"
+  "products/createNewIngredientError"
 );
+
 const addIngredient = createAction("products/addIngredient");
+const addIngredientError = createAction("products/addIngredientError");
 
 const updateProductRequest = createAction("products/updateProductRequest");
 const updateProductSuccess = createAction("products/updateProductSuccess");
@@ -54,6 +56,8 @@ const sendFileSuccess = createAction("products/sendFileSuccess");
 const sendFileError = createAction("products/sendFileError");
 
 const saveExistedImg = createAction("products/saveExistedImg");
+const saveExistedImgSuccess = createAction("products/saveExistedImgSuccess");
+
 // const cancelInput = createAction("products/cancelInput");
 
 export default {
@@ -95,6 +99,6 @@ export default {
   sendFileSuccess,
   sendFileError,
 
-  saveExistedImg,
   addIngredient,
+  addIngredientError,
 };

@@ -100,4 +100,5 @@ export default {
   "eng name": "English name",
   "update.createNewIngredient": "Create new ingredient",
   "update.addNewIngredient": "Add new ingredient",
+  "update.ingredientAdded": "New ingredient created",
 };

@@ -1,23 +1,15 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import productSelectors from "../../redux/product/productSelectors";
 import { FormattedMessage } from "react-intl";
 import style from "./confirmationWindow.module.css";
-const ConfirmationWindow = ({ isDeleted }) => {
+
+const ConfirmationWindow = ({ massage }) => {
   const errorMassage = useSelector(productSelectors.getError);
-  // console.log(errorMassage);
-  let massage = null;
-  if (!errorMassage) {
-    massage = isDeleted ? (
-      <FormattedMessage id="deleted product" />
-    ) : (
-      <FormattedMessage id="product updated" />
-    );
-  } else {
+  if (errorMassage) {
     massage = errorMassage;
   }
-
   return (
     <div className={style.confirmation}>
       <div className={style.confirmation__form}>
@@ -30,8 +22,12 @@ const ConfirmationWindow = ({ isDeleted }) => {
             <FormattedMessage id="return back" />
           </button>
         </Link>
-        {isDeleted || (
-          <button type="button" className={style.confirmation__formBtn}>
+        {massage.props.id === "deleted product" || (
+          <button
+            type="button"
+            className={style.confirmation__formBtn}
+            name="continue"
+          >
             <FormattedMessage id="continue editing" />
           </button>
         )}
