@@ -11,6 +11,7 @@
   color: primaryColor;
   font-family: RobotoRegular;
   font-size: primaryTextFontSize;
+  cursor: pointer;
 }
 
 .languageSelect__control {

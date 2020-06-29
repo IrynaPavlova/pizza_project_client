@@ -113,6 +113,14 @@ a {
   background: #ff6c00;
 }
 
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+}
+
 .linkImg {
   width: 21px;
   height: 20px;
@@ -121,7 +129,7 @@ a {
 .phoneImg {
   width: 17px;
   height: 17px;
-  margin-bottom: 3px;
+  /* margin-bottom: 3px; */
 }
 
 .facebook {
