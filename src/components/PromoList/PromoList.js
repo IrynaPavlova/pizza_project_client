@@ -1,26 +1,15 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+
+import { fetchAllStocks } from "../../services/api";
 
 import styles from "./PromoList.module.css";
 import PromoListItem from "../PromoListItem";
-const CancelToken = axios.CancelToken;
-const source = CancelToken.source();
 
 export default function PromoList() {
   const [promoCollection, setpromoColection] = useState([]);
+
   useEffect(() => {
-    axios
-      .get("/promo", {
-        cancelToken: source.token,
-      })
-      .then(({ data }) => setpromoColection(data.promo));
-    return async () => {
-      try {
-        source.cancel("Operation canceled");
-      } catch (err) {
-        console.log(err);
-      }
-    };
+    fetchAllStocks().then(({ data }) => setpromoColection(data.promo));
   }, []);
 
   return (

@@ -2,6 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Carousel } from "react-bootstrap";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 import { routes } from "../../services/routes";
 import styles from "./Slider.module.css";
@@ -20,7 +23,7 @@ export default function Slideview(props) {
           >
             <NavLink to={routes.PROMO}>
               <div className={styles.sliderWrapper}>
-                <img
+                <LazyLoadImage
                   className={styles.sliderImg + " d-block w-100 h-100"}
                   src={images}
                   alt=""
