@@ -25,3 +25,7 @@
   display: grid;
   grid-template-columns: 20% 80%;
 }
+.editForm__inputLang {
+  padding-left: 10px;
+  width: inherit;
+}
