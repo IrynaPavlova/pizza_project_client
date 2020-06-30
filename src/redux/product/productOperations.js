@@ -40,7 +40,6 @@ const fetchProductById = (id) => (dispatch) => {
 //for AdminPage
 const sendFile = (file) => (dispatch) => {
   dispatch(productActions.sendFileRequest());
-  // console.log(file);
 
   postImage(file)
     .then(({ data }) =>
@@ -69,11 +68,11 @@ const getIngredients = () => (dispatch) => {
     )
     .catch((error) => dispatch(productActions.getAllIngredientsError(error)));
 };
-const createIngredients = (ingredient) => (dispatch) => {
+const createNewIngredient = (ingredient) => (dispatch) => {
   dispatch(productActions.createNewIngredientsRequest());
 
   createNewIngredients(ingredient)
-    .then(({ data }) => dispatch(productActions.createNewIngredientsSuccess()))
+    .then(() => dispatch(productActions.createNewIngredientsSuccess()))
     .catch((error) =>
       dispatch(productActions.createNewIngredientsError(error))
     );
@@ -98,10 +97,6 @@ const deleteProduct = (productId) => (dispatch) => {
     .catch((error) => dispatch(productActions.deleteProductError(error)));
 };
 
-const saveExistProdImg = (link) => (dispatch) => {
-  dispatch(productActions.saveExistedImg(link));
-};
-
 export default {
   fetchProducts,
   fetchProductsByCategory,
@@ -112,7 +107,5 @@ export default {
   getIngredients,
   updateProduct,
   deleteProduct,
-  createIngredients,
-
-  saveExistProdImg,
+  createNewIngredient,
 };

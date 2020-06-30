@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FormattedMessage } from "react-intl";
+import Select from "react-select";
 import productSelectors from "../../redux/product/productSelectors";
 import productActions from "../../redux/product/productActions.js";
 import style from "./adminUpdateListItemEdit.module.css";
@@ -8,10 +9,13 @@ import style from "./adminUpdateListItemEdit.module.css";
 const IngredientSelect = ({ productForEdit }) => {
   const dispatch = useDispatch();
   const local = useSelector((state) => state.local.lang);
-  const [newIngredient, setNewIngredient] = useState(0);
-
   const ingredientsList = useSelector(productSelectors.getIngredients);
 
+  const ingredientsSelectList = ingredientsList.map((el, idx) => ({
+    label: el.name[local],
+    value: idx,
+  }));
+  const [newIngredient, setNewIngredient] = useState(ingredientsSelectList[0]);
   const [ingredients, setIngredients] = useState(productForEdit.ingredients);
 
   useEffect(() => {
@@ -19,10 +23,12 @@ const IngredientSelect = ({ productForEdit }) => {
   }, [ingredients]);
 
   const addIngredient = () => {
-    ingredients.some((el) => ingredientsList[newIngredient]._id === el._id) ||
+    ingredients.some(
+      (el) => ingredientsList[newIngredient.value]._id === el._id
+    ) ||
       setIngredients((ingredients) => [
         ...ingredients,
-        ingredientsList[newIngredient],
+        ingredientsList[newIngredient.value],
       ]);
   };
   const deleteIngredient = (ev) => {
@@ -34,6 +40,7 @@ const IngredientSelect = ({ productForEdit }) => {
     newIngredientsList.splice(delElemIndex, 1);
     setIngredients(newIngredientsList);
   };
+
   return (
     <>
       <h4 className={style.editCard__title}>
@@ -68,18 +75,12 @@ const IngredientSelect = ({ productForEdit }) => {
         ))}
       </ul>
       <label className={style.editForm__ingredientsSelect}>
-        <select
+        <Select
+          options={ingredientsSelectList}
           value={newIngredient}
+          onChange={(ev) => setNewIngredient(ev)}
           className={style.editForm__ingredientsList}
-          onChange={(ev) => setNewIngredient(ev.target.value)}
-        >
-          {ingredientsList &&
-            ingredientsList.map((el, idx) => (
-              <option key={el._id} value={idx}>
-                {el.name[local]}
-              </option>
-            ))}
-        </select>
+        />
         <button
           type="button"
           onClick={addIngredient}

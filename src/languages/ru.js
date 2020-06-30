@@ -101,4 +101,5 @@ export default {
   "eng name": "Название по-английски",
   "update.createNewIngredient": "Создать новый ингредиент",
   "update.addNewIngredient": "Добавить новый ингредиент",
+  "update.ingredientAdded": "Новый ингредиент создан",
 };
