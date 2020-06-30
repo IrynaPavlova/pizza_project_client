@@ -6,18 +6,19 @@ import productSelectors from "../../redux/product/productSelectors";
 import productActions from "../../redux/product/productActions.js";
 import productOperations from "../../redux/product/productOperations";
 import Spinner from "../../components/Spinner";
-import style from "./adminUpdateListItemEdit.module.css";
+import style from "./ingredientSelect.module.css";
 
 const IngredientSelect = ({ productForEdit }) => {
   const dispatch = useDispatch();
   const local = useSelector((state) => state.local.lang);
   const ingredientsList = useSelector(productSelectors.getIngredients);
+
   const isLoading = useSelector(productSelectors.getLoading);
   const ingredientsSelectList = ingredientsList.map((el, idx) => ({
     label: el.name[local],
     value: idx,
   }));
-  const [newIngredient, setNewIngredient] = useState(ingredientsSelectList[0]);
+  const [newIngredient, setNewIngredient] = useState("");
   const [ingredients, setIngredients] = useState(productForEdit.ingredients);
   useEffect(() => {
     dispatch(productOperations.getIngredients());
@@ -44,7 +45,6 @@ const IngredientSelect = ({ productForEdit }) => {
     newIngredientsList.splice(delElemIndex, 1);
     setIngredients(newIngredientsList);
   };
-
   return (
     <>
       {isLoading ? (
@@ -83,7 +83,7 @@ const IngredientSelect = ({ productForEdit }) => {
           <label className={style.editForm__ingredientsSelect}>
             <Select
               options={ingredientsSelectList}
-              value={newIngredient}
+              value={newIngredient || ingredientsSelectList[0]}
               onChange={(ev) => setNewIngredient(ev)}
               className={style.editForm__ingredientsList}
             />

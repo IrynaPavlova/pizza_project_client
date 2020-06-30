@@ -1,0 +1,50 @@
+.editCard__title {
+  font-size: 20px;
+  padding-top: 25px;
+  padding-bottom: 15px;
+  font-family: OswaldMedium;
+  font-style: normal;
+  font-weight: 500;
+}
+.editForm__ingredientsSelect {
+  width: 100%;
+}
+.editForm__ingredients {
+  text-transform: lowercase;
+}
+.editForm__ingredient {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+.editForm__ingredientName {
+  font-size: 20px;
+}
+.editForm__ingredientsList {
+  display: block;
+  width: 100%;
+  padding-top: 15px;
+  text-transform: lowercase;
+}
+.editForm__addIngredientBtn {
+  display: block;
+  width: 80%;
+  height: 36px;
+  border: none;
+  background: #ff6c00;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.editForm__ingredientBtnDel {
+  border: none;
+  width: 20px;
+  height: 20px;
+  background: #ff6c00;
+  border-radius: 4px;
+  padding: 4px;
+}
+.editForm__ingredientBtnDelImage {
+  display: block;
+}
