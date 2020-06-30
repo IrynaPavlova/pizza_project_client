@@ -254,7 +254,7 @@ export default function PizzaIcon() {
         </g>{" "}
       </svg>
 
-      <h2
+      <h1
         style={{
           position: "absolute",
           top: 30,
@@ -264,7 +264,7 @@ export default function PizzaIcon() {
         }}
       >
         Pizza
-      </h2>
+      </h1>
     </>
   );
 }
