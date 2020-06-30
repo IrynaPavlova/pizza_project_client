@@ -8,7 +8,7 @@ import styles from "./LanguageSelector.module.css";
 const options = [
   { value: "ru", label: "Рус" },
   { value: "ukr", label: "Укр" },
-  { value: "en", label: "Анг" },
+  { value: "en", label: "Eng" },
 ];
 
 export default function LanguageSelector({ darkStyle }) {
@@ -19,6 +19,7 @@ export default function LanguageSelector({ darkStyle }) {
         fontFamily: "RobotoRegular",
         marginRight: 96,
         width: 120,
+
         borderColor: darkStyle ? "#272727" : "white",
         outline: isFocused ? "none" : "none",
       };
@@ -27,6 +28,7 @@ export default function LanguageSelector({ darkStyle }) {
       return {
         ...styles,
         backgroundColor: "transparent",
+        cursor: "pointer",
         borderColor: darkStyle ? "#272727" : "white",
         outline: isFocused ? "none" : "none",
       };

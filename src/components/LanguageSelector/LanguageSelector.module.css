@@ -4,17 +4,19 @@
 .languageSelect__container {
   margin-right: 96px;
   width: 120px;
-
+  cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 4px;
   outline: none;
   color: primaryColor;
   font-family: RobotoRegular;
   font-size: primaryTextFontSize;
+  cursor: pointer;
 }
 
 .languageSelect__control {
   background-color: transparent;
+  cursor: pointer;
 }
 
 .languageSelect__value-control {
@@ -24,6 +26,7 @@
 
 .languageSelect__option {
   color: primaryColor;
+  cursor: pointer;
 }
 
 .languageSelect__option--is-selected {

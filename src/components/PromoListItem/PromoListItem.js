@@ -1,5 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 import styles from "./PromoListItem.module.css";
 
@@ -8,7 +11,7 @@ function PromoListItem({ _id, images, title, description }) {
   return (
     <li className={styles.promoListItem} key={_id}>
       <div className={styles.promoListItemWrapper}>
-        <img
+        <LazyLoadImage
           className={styles.promoListItemImg}
           width="280"
           height="190"

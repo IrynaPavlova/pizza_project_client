@@ -36,7 +36,8 @@
   padding: 16px 16px 10px;
 }
 .menuItem_headline {
-  font-family: OswaldRegular;
+  font-family: OswaldMedium;
+  font-weight: 500;
   font-size: 24px;
   line-height: 24px;
   letter-spacing: 0.4px;
@@ -44,6 +45,7 @@
   color: accentColor;
   height: 70px;
   margin: 0;
+  text-transform: capitalize;
 }
 .menuItem_size {
   margin-bottom: 20px;

@@ -18,6 +18,9 @@ const AuthPage = () => {
     const token = params.get("token");
     const email = params.get("email");
     const id = params.get("id");
+    if (!username || !token || !id) {
+      return history.replace("/");
+    }
     const user = {
       username,
       email,

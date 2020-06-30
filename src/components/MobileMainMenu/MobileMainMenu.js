@@ -44,7 +44,7 @@ export default function MobileMainMenu({
               />
               <CloseIcon onClose={setIsMobileMenuOpen} />
             </div>
-            <nav>
+            <nav className={styles.menuNavigation}>
               <ul className={styles.mainMenuItems}>
                 <li>
                   <NavLink
@@ -110,7 +110,7 @@ export default function MobileMainMenu({
                 )}
               </ul>
             </nav>
-            <div>
+            <div className={styles.languageSelector}>
               <LanguageSelector darkStyle={true} />
             </div>
             <Authentication

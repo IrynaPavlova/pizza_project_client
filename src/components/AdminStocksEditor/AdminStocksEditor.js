@@ -13,10 +13,7 @@ import {
 } from '../../redux/stocks/';
 
 import styles from './AdminStocksEditor.module.css';
-
 import { useSelector } from 'react-redux';
-import languages from '../../languages';
-
 import getFileName from './utils';
 
 function AdminStocksEditor({
