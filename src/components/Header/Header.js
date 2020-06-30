@@ -74,9 +74,7 @@ const Header = (props) => {
       <div className={styles.lightHeader}>
         <div className={styles.container}>
           <Link to={routes.MAIN_PAGE}>
-            <h1>
-              <PizzaIcon />
-            </h1>
+            <PizzaIcon />
           </Link>
           <Media query="(min-width: 768px)" render={() => <MainMenu />} />
           <ShoppingCartContainer />
