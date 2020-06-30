@@ -23,7 +23,7 @@ const AuthPage = () => {
     }
     const user = {
       username,
-      email: email || "",
+      email,
       token,
       id,
     };
