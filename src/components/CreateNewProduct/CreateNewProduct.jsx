@@ -44,7 +44,7 @@ const CreateNewProduct = () => {
   const [description, setDescription] = useState("");
   const [activeIngredients, setActiveIngredients] = useState([]);
 
-  const ingredients = useSelector(productSelectors.getIngradients);
+  const ingredients = useSelector(productSelectors.getIngredients);
   const dispatch = useDispatch();
   const postImage = (file) => dispatch(productOperations.sendFile(file));
   const hrefProductImd = useSelector(productSelectors.fileLink);
