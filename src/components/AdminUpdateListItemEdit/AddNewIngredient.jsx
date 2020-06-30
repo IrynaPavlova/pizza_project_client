@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import style from "./adminUpdateListItemEdit.module.css";
+// import style from "./adminUpdateListItemEdit.module.css";
+import style from "./addNewIngredient.module.css";
 import { useDispatch } from "react-redux";
 import { FormattedMessage } from "react-intl";
 import productOperations from "../../redux/product/productOperations";

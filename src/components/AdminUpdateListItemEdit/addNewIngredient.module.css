@@ -1,1 +1,31 @@
-r
+.editCard__title {
+  font-size: 20px;
+  padding-top: 25px;
+  padding-bottom: 15px;
+  font-family: OswaldMedium;
+  font-style: normal;
+  font-weight: 500;
+}
+.editForm__inputNewIngredient {
+  width: 100%;
+  padding-left: 10px;
+}
+.editForm__addNewIngredientBtn {
+  display: block;
+  height: 36px;
+  border: none;
+  background: #ff6c00;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.editCard__titleName {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+.editForm__inputLang {
+  padding-left: 10px;
+  width: inherit;
+}
