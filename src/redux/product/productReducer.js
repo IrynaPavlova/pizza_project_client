@@ -40,27 +40,27 @@ const loadingReducer = createReducer(false, {
   [productActions.byIdSuccess]: () => false,
   [productActions.byIdError]: () => false,
 
-  [productActions.sendFileRequest]: (state, { payload }) => false,
-  [productActions.sendFileSuccess]: (state, { payload }) => true,
+  [productActions.sendFileRequest]: (state, { payload }) => true,
+  [productActions.sendFileSuccess]: (state, { payload }) => false,
   [productActions.sendFileError]: (state, { payload }) => false,
   [productActions.sendProductRequest]: (state, { payload }) => true,
   [productActions.sendProductSuccess]: (state, { payload }) => false,
   [productActions.sendProductError]: (state, { payload }) => false,
-  [productActions.getAllIngredientsRequest]: (state, { payload }) => false,
-  [productActions.getAllIngredientsSuccess]: (state, { payload }) => true,
+  [productActions.getAllIngredientsRequest]: (state, { payload }) => true,
+  [productActions.getAllIngredientsSuccess]: (state, { payload }) => false,
   [productActions.getAllIngredientsError]: (state, { payload }) => false,
 
-  [productActions.createNewIngredientRequest]: (state, { payload }) => false,
-  [productActions.createNewIngredientSuccess]: (state, { payload }) => true,
+  [productActions.createNewIngredientRequest]: (state, { payload }) => true,
+  [productActions.createNewIngredientSuccess]: (state, { payload }) => false,
   [productActions.createNewIngredientError]: (state, { payload }) => false,
 
-  [productActions.updateProductRequest]: (state, { payload }) => false,
-  [productActions.updateProductSuccess]: (state, { payload }) => true,
+  [productActions.updateProductRequest]: (state, { payload }) => true,
+  [productActions.updateProductSuccess]: (state, { payload }) => false,
   [productActions.updateProductError]: (state, { payload }) => false,
   [productActions.deleteProductRequest]: (state, { payload }) => true,
   [productActions.deleteProductSuccess]: (state, { payload }) => false,
   [productActions.deleteProductError]: (state, { payload }) => false,
-  // [productActions.saveExistedImgSuccess]: (state, { payload }) => true,
+  // [productActions.saveExistedImgSuccess]: (state, { payload }) => false,
 });
 
 const linkReducer = createReducer(null, {

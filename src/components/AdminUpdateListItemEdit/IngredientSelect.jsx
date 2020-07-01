@@ -47,7 +47,7 @@ const IngredientSelect = ({ productForEdit }) => {
   };
   return (
     <>
-      {isLoading ? (
+      {!isLoading ? (
         <>
           <h4 className={style.editCard__title}>
             <FormattedMessage id="update.composition" />
