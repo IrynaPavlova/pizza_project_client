@@ -57,8 +57,8 @@ const loadingReducer = createReducer(false, {
   [productActions.updateProductRequest]: (state, { payload }) => false,
   [productActions.updateProductSuccess]: (state, { payload }) => true,
   [productActions.updateProductError]: (state, { payload }) => false,
-  [productActions.deleteProductRequest]: (state, { payload }) => true,
-  [productActions.deleteProductSuccess]: (state, { payload }) => false,
+  [productActions.deleteProductRequest]: (state, { payload }) => false,
+  [productActions.deleteProductSuccess]: (state, { payload }) => true,
   [productActions.deleteProductError]: (state, { payload }) => false,
   // [productActions.saveExistedImgSuccess]: (state, { payload }) => true,
 });
