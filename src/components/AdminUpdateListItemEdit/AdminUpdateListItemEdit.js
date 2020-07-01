@@ -243,7 +243,7 @@ const AdminUpdateListItemEdit = () => {
           isDeleted || setConfirmEdit(false);
         }}
       >
-        {isLoading && confirmEdit && (
+        {!isLoading && confirmEdit && (
           <ConfirmationWindow
             massage={
               isDeleted ? (
