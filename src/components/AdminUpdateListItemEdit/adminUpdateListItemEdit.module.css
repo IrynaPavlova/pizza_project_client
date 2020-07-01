@@ -55,6 +55,9 @@
   display: none;
 }
 .editForm__photoBtn {
+  font-family: RobotoRegular;
+  font-style: normal;
+  font-weight: normal;
   width: 80%;
   height: 36px;
   background: #ff6c00;

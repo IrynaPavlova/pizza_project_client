@@ -21,7 +21,7 @@ const AdminOrderList = lazy(() =>
 );
 const AdminUpdateList = lazy(() => import("../components/AdminUpdateList"));
 const AdminUpdateListItemEdit = lazy(() =>
-  import("../components/AdminUpdateListItemEdit/AdminUpdateListItemEdit.js")
+  import("../components/AdminUpdateListItemEdit")
 );
 const AdminStocksPage = lazy(() => import("../pages/AdminStocksPage"));
 const CreateNewProductButton = lazy(() =>
