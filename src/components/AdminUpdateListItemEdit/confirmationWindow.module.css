@@ -42,6 +42,7 @@
   font-size: 14px;
   border-radius: 4px;
   border: none;
+  color: white;
 }
 
 @media (min-width: 748px) {
@@ -61,5 +62,6 @@
   }
   .confirmation__formBtn {
     width: 320px;
+    font-size: 18px;
   }
 }
