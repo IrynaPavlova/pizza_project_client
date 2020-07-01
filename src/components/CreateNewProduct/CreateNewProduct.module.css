@@ -8,15 +8,15 @@
 } */
 
 .createContainer {
-  display: flex;
-  justify-content: center;
-  padding-top: 50px;
-  margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    margin-bottom: 50px;
 }
 
 .createContainer {
-  width: 500px;
-  margin: 0 auto;
+    width: 500px;
+    margin: 0 auto;
 }
 
 /* .blackLayer {
@@ -28,36 +28,93 @@
 } */
 
 .applyForm {
-  background-color: #fff;
-  /* position: absolute; */
-  width: 800px;
-  padding: 20px;
-  border-radius: 5px;
-  /* top: 10px;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: height 300ms ease-in-out; */
+    background-color: #fff;
+    /* position: absolute; */
+    width: 800px;
+    padding: 20px;
+    border-radius: 5px;
+    /* top: 10px;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: height 300ms ease-in-out; */
 }
 
 .ingredientsContainer {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .ingredient {
-  padding: 3px;
-  border: 1px solid lightblue;
-  border-radius: 5px;
-  margin-top: 8px;
+    display: inline-flex;
+    align-items: center;
+    padding: 3px;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    margin-top: 8px;
 }
 
 .select {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .inputLabel {
-  display: block;
-  margin-bottom: 10px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.editCard__title {
+    font-size: 20px;
+    margin: 20px 0 10px 0;
+    font-family: OswaldMedium sans-serif;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.editCard__titleName {
+    display: grid;
+    grid-template-columns: 10% 90%;
+    margin-bottom: 10px;
+}
+
+.editCard__titleLang {
+    margin: 0;
+}
+
+.title {
+    font-family: RobotoRegular, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.editForm__inputLang {
+    padding-left: 10px;
+    width: inherit;
+}
+
+.btn {
+    display: block;
+    width: 200px;
+    line-height: 36px;
+    background: #ff6c00;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    border: 0;
+    margin: 6px auto 0;
+}
+
+.inputImg {
+    display: none;
+}
+
+.chooseVar {
+    margin-right: 2px;
+}
+
+.descriptionInput {
+    width: 100%;
 }
