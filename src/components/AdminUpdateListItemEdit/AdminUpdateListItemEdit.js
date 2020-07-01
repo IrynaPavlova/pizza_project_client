@@ -219,6 +219,7 @@ const AdminUpdateListItemEdit = () => {
           )}
         </form>
         <button
+          disabled={isLoading}
           form="editForm"
           type="submit"
           name="complete"
@@ -227,6 +228,7 @@ const AdminUpdateListItemEdit = () => {
           <FormattedMessage id="update.saveChanges" />
         </button>
         <button
+          disabled={isLoading}
           form="editForm"
           type="submit"
           name="delete"
