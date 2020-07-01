@@ -15,7 +15,7 @@ export const ClientInfo = ({ username, email }) => (
         <img src={userIcon} alt="user icon" />
         <span>{username}</span>
       </li>
-      {email && (
+      {email && email !== "null" && (
         <li>
           <img src={mailIcon} alt="mail icon" />
           <span>{email}</span>

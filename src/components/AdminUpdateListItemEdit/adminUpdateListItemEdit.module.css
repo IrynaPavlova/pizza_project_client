@@ -30,7 +30,8 @@
 }
 .editCard__title {
   font-size: 20px;
-  margin: 20px 0 10px 0;
+  padding-top: 25px;
+  padding-bottom: 15px;
   font-family: OswaldMedium;
   font-style: normal;
   font-weight: 500;
@@ -67,53 +68,6 @@
   padding-left: 10px;
   width: 180px;
 }
-.editForm__ingredientsSelect {
-  width: 100%;
-}
-.editForm__ingredient {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 5px;
-}
-.editForm__ingredientName {
-  font-size: 20px;
-}
-.editForm__ingredientsList {
-  display: block;
-  width: 100%;
-  margin-top: 10px;
-}
-.editForm__addIngredientBtn {
-  display: block;
-  width: 80%;
-  height: 36px;
-  border: none;
-  margin-top: 5px;
-  background: #ff6c00;
-  border-radius: 4px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.editForm__ingredientBtnDel {
-  border: none;
-  width: 20px;
-  height: 20px;
-  background: #ff6c00;
-  border-radius: 4px;
-  padding: 4px;
-}
-.editForm__ingredientBtnDelImage {
-  display: block;
-}
-
-.editForm__inputNewIngredient {
-  width: 100%;
-  padding-left: 10px;
-}
-.editForm__addNewIngredientBtn {
-  composes: editForm__addIngredientBtn;
-  width: 100%;
-}
 .editForm__price {
   display: inline-grid;
   grid-template-columns: 30% 100px;
@@ -134,10 +88,13 @@
   width: 180px;
 }
 .editForm__btnSubmit {
-  width: 100%;
-  margin-top: 10px;
+  display: block;
   height: 36px;
+  border: none;
   background: #ff6c00;
   border-radius: 4px;
-  border: none;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }

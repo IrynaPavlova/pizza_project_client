@@ -72,6 +72,7 @@ const CreateNewProduct = () => {
         setActiveIngredients((prev) => prev.filter((el) => el !== e.target.value));
     };
 
+
     const submitForm = async (e) => {
         e.persist();
         e.preventDefault();
@@ -84,8 +85,6 @@ const CreateNewProduct = () => {
                 en: enName,
                 ru: ruName,
             },
-            likes: 0,
-            sku: 0,
         };
         if (category.value === categories.pizza) {
             product.ingredients = activeIngredients;

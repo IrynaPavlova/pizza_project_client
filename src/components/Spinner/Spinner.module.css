@@ -1,8 +1,8 @@
 .Container {
   background-color: rgba(0, 0, 0, 0.68);
-  top: 28%;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   position: fixed;
   display: flex;
   justify-content: center;

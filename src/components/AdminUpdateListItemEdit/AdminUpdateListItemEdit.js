@@ -7,7 +7,6 @@ import ConfirmationWindow from "./ConfirmationWindow";
 import AddNewIngredient from "./AddNewIngredient";
 import IngredientSelect from "./IngredientSelect";
 import style from "./adminUpdateListItemEdit.module.css";
-import Spinner from "../../components/Spinner";
 import productSelectors from "../../redux/product/productSelectors";
 import productOperations from "../../redux/product/productOperations";
 import productActions from "../../redux/product/productActions";
@@ -58,10 +57,6 @@ const AdminUpdateListItemEdit = () => {
     dispatch(productOperations.deleteProduct(productForEdit._id));
 
   useEffect(() => {
-    dispatch(productOperations.getIngredients());
-  }, []);
-
-  useEffect(() => {
     if (productForEdit.categories === "pizza") {
       setPrice({ M: pricePizzaM, L: pricePizzaL, XL: pricePizzaXL });
     } else {
@@ -110,142 +105,139 @@ const AdminUpdateListItemEdit = () => {
 
   return (
     <div className={style.container}>
-      {isLoading ? (
-        <div className={style.editCard}>
-          <img
-            src={images || productForEdit.images}
-            alt={productForEdit.closeUpImages}
-            className={style.editCard__image}
-          />
-          <form id="editForm" onSubmit={handleForm} className={style.editForm}>
-            <h4 className={style.editCard__title}>
-              <FormattedMessage id="photo" />
-            </h4>
-            <label className={style.editCard__photoLabel}>
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleImageFile}
-                className={style.editForm__photo}
+      <div className={style.editCard}>
+        <img
+          src={images || productForEdit.images}
+          alt={productForEdit.closeUpImages}
+          className={style.editCard__image}
+        />
+        <form id="editForm" onSubmit={handleForm} className={style.editForm}>
+          <h4 className={style.editCard__title}>
+            <FormattedMessage id="photo" />
+          </h4>
+          <label className={style.editCard__photoLabel}>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageFile}
+              className={style.editForm__photo}
+            />
+            <p className={style.editForm__photoBtn}>
+              <FormattedMessage id="upload" />
+            </p>
+          </label>
+          <h4 className={style.editCard__title}>
+            <FormattedMessage id="product.name" />
+          </h4>
+          <div className={style.editCard__titleName}>
+            <p className={style.editCard__titleLang}>ru</p>
+            <input
+              type="text"
+              value={nameRu}
+              onChange={(ev) => setNameRu(ev.target.value)}
+              className={style.editForm__inputLang}
+            />
+            <p className={style.editCard__titleLang}>en</p>
+            <input
+              type="text"
+              value={nameEn}
+              onChange={(ev) => setNameEn(ev.target.value)}
+              className={style.editForm__inputLang}
+            />
+            <p className={style.editCard__titleLang}>ukr</p>
+            <input
+              type="text"
+              value={nameUkr}
+              onChange={(ev) => setNameUkr(ev.target.value)}
+              className={style.editForm__inputLang}
+            />
+          </div>
+          <h4 className={style.editCard__title}>
+            <FormattedMessage id="product.category" />
+          </h4>
+          <p>{productForEdit.categories}</p>
+          {productForEdit.categories === "pizza" && (
+            <>
+              <h4 className={style.editCard__title}>
+                <FormattedMessage id="product.subcategory" />
+              </h4>
+              <Select
+                options={subcategoryList}
+                value={subcategory}
+                onChange={(ev) => setSubcategory(ev)}
               />
-              <p className={style.editForm__photoBtn}>
-                <FormattedMessage id="upload" />
-              </p>
-            </label>
-            <h4 className={style.editCard__title}>
-              <FormattedMessage id="product.name" />
-            </h4>
-            <div className={style.editCard__titleName}>
-              <p className={style.editCard__titleLang}>ru</p>
+              <IngredientSelect productForEdit={productForEdit} />
+              <AddNewIngredient />
+            </>
+          )}
+
+          <h4 className={style.editCard__title}>
+            <FormattedMessage id="product.price" />
+          </h4>
+          {productForEdit.categories === "pizza" ? (
+            <div className={style.editForm__price}>
+              <h4 className={style.editForm__priceTitle}>M</h4>
               <input
                 type="text"
-                value={nameRu}
-                onChange={(ev) => setNameRu(ev.target.value)}
-                className={style.editForm__inputLang}
+                value={pricePizzaM}
+                onChange={(ev) => setPricePizzaM(ev.target.value)}
+                className={style.editForm__priceInput}
               />
-              <p className={style.editCard__titleLang}>en</p>
+              <h4 className={style.editForm__priceTitle}>L</h4>
               <input
                 type="text"
-                value={nameEn}
-                onChange={(ev) => setNameEn(ev.target.value)}
-                className={style.editForm__inputLang}
+                value={pricePizzaL}
+                onChange={(ev) => setPricePizzaL(ev.target.value)}
+                className={style.editForm__priceInput}
               />
-              <p className={style.editCard__titleLang}>ukr</p>
+              <h4 className={style.editForm__priceTitle}>XL</h4>
               <input
                 type="text"
-                value={nameUkr}
-                onChange={(ev) => setNameUkr(ev.target.value)}
-                className={style.editForm__inputLang}
+                value={pricePizzaXL}
+                onChange={(ev) => setPricePizzaXL(ev.target.value)}
+                className={style.editForm__priceInput}
               />
             </div>
-            <h4 className={style.editCard__title}>
-              <FormattedMessage id="product.category" />
-            </h4>
-            <p>{productForEdit.categories}</p>
-            {productForEdit.categories === "pizza" && (
-              <>
-                <h4 className={style.editCard__title}>
-                  <FormattedMessage id="product.subcategory" />
-                </h4>
-                <Select
-                  options={subcategoryList}
-                  value={subcategory}
-                  onChange={(ev) => setSubcategory(ev)}
-                />
-                <IngredientSelect productForEdit={productForEdit} />
-              </>
-            )}
-            <AddNewIngredient />
-            <h4 className={style.editCard__title}>
-              <FormattedMessage id="product.price" />
-            </h4>
-            {productForEdit.categories === "pizza" ? (
-              <div className={style.editForm__price}>
-                <h4 className={style.editForm__priceTitle}>M</h4>
-                <input
-                  type="text"
-                  value={pricePizzaM}
-                  onChange={(ev) => setPricePizzaM(ev.target.value)}
-                  className={style.editForm__priceInput}
-                />
-                <h4 className={style.editForm__priceTitle}>L</h4>
-                <input
-                  type="text"
-                  value={pricePizzaL}
-                  onChange={(ev) => setPricePizzaL(ev.target.value)}
-                  className={style.editForm__priceInput}
-                />
-                <h4 className={style.editForm__priceTitle}>XL</h4>
-                <input
-                  type="text"
-                  value={pricePizzaXL}
-                  onChange={(ev) => setPricePizzaXL(ev.target.value)}
-                  className={style.editForm__priceInput}
-                />
-              </div>
-            ) : (
-              <>
-                <input
-                  type="number"
-                  value={priceNoPizza}
-                  onChange={(ev) => setPriceNoPizza(ev.target.value)}
-                  className={style.editForm__inputSinglePrice}
-                />
-                <p className={style.editCard__title}>
-                  <FormattedMessage id="volume weight" />
-                </p>
-                <input
-                  type="text"
-                  value={description}
-                  onChange={(ev) => setDescription(ev.target.value)}
-                  className={style.editForm__inputDescription}
-                />
-              </>
-            )}
-          </form>
-          <button
-            form="editForm"
-            type="submit"
-            name="complete"
-            className={style.editForm__btnSubmit}
-          >
-            <FormattedMessage id="update.saveChanges" />
-          </button>
-          <button
-            form="editForm"
-            type="submit"
-            name="delete"
-            className={style.editForm__btnSubmit}
-            onClick={deleteItem}
-          >
-            <FormattedMessage id="delete product" />
-          </button>
-        </div>
-      ) : (
-        <div className={style.spinnerBack}>
-          <Spinner />
-        </div>
-      )}
+          ) : (
+            <>
+              <input
+                type="number"
+                value={priceNoPizza}
+                onChange={(ev) => setPriceNoPizza(ev.target.value)}
+                className={style.editForm__inputSinglePrice}
+              />
+              <p className={style.editCard__title}>
+                <FormattedMessage id="volume weight" />
+              </p>
+              <input
+                type="text"
+                value={description}
+                onChange={(ev) => setDescription(ev.target.value)}
+                className={style.editForm__inputDescription}
+              />
+            </>
+          )}
+        </form>
+        <button
+          disabled={!isLoading}
+          form="editForm"
+          type="submit"
+          name="complete"
+          className={style.editForm__btnSubmit}
+        >
+          <FormattedMessage id="update.saveChanges" />
+        </button>
+        <button
+          disabled={!isLoading}
+          form="editForm"
+          type="submit"
+          name="delete"
+          className={style.editForm__btnSubmit}
+          onClick={deleteItem}
+        >
+          <FormattedMessage id="delete product" />
+        </button>
+      </div>
       <div
         onClick={() => {
           isDeleted || setConfirmEdit(false);
