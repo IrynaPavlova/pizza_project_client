@@ -16,6 +16,7 @@ const IngredientSelect = ({ productForEdit }) => {
   }));
   const [newIngredient, setNewIngredient] = useState("");
   const [ingredients, setIngredients] = useState(productForEdit.ingredients);
+
   useEffect(() => {
     dispatch((dispatch) => dispatch(productActions.addIngredient(ingredients)));
   }, [ingredients]);

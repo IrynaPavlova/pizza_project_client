@@ -1,4 +1,4 @@
-@value variables: '../../stylesheet/vars.css';
+@value variables: '../../../stylesheet/vars.css';
 @value lightColor, accentColor, primaryColor, primaryTextFontSize from variables;
 
 .editCard__title {
