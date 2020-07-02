@@ -60,7 +60,7 @@ const AdminUpdateListItemEdit = () => {
     } else {
       setPrice({ price: priceNoPizza });
     }
-  }, [pricePizzaM, pricePizzaL, pricePizzaXL, priceNoPizza]);
+  }, [pricePizzaM, pricePizzaL, pricePizzaXL, priceNoPizza]); // eslint-disable-line
 
   useEffect(() => {
     dispatch(productOperations.getIngredients());

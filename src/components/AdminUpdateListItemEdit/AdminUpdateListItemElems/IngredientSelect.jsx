@@ -19,10 +19,10 @@ const IngredientSelect = ({ productForEdit }) => {
 
   useEffect(() => {
     dispatch((dispatch) => dispatch(productActions.addIngredient(ingredients)));
-  }, [ingredients]);
+  }, [ingredients]); // eslint-disable-line
   useEffect(() => {
     setNewIngredient(ingredientsSelectList[0]);
-  }, [ingredientsList]);
+  }, [ingredientsList]); // eslint-disable-line
 
   const addIngredient = () => {
     ingredients.some(
