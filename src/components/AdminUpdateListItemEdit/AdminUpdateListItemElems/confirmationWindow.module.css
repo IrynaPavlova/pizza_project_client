@@ -32,10 +32,16 @@
   margin: 0;
 }
 .confirmation__formBtnLink {
+  font-family: RobotoRegular;
+  font-style: normal;
+  font-weight: normal;
   width: 100%;
   height: 50px;
 }
 .confirmation__formBtn {
+  font-family: RobotoRegular;
+  font-style: normal;
+  font-weight: normal;
   width: 100%;
   height: 50px;
   background: #ff6c00;
@@ -62,6 +68,5 @@
   }
   .confirmation__formBtn {
     width: 320px;
-    font-size: 18px;
   }
 }

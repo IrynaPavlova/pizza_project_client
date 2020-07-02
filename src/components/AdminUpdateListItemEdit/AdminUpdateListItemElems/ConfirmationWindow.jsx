@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import productSelectors from "../../redux/product/productSelectors";
+import productSelectors from "../../../redux/product/productSelectors";
 import { FormattedMessage } from "react-intl";
 import style from "./confirmationWindow.module.css";
 
@@ -11,7 +11,7 @@ const ConfirmationWindow = ({ massage }) => {
     massage = errorMassage;
   }
   return (
-    <div className={style.confirmation}>
+    <div className={style.confirmation} data-confirm="continue">
       <div className={style.confirmation__form}>
         <p className={style.confirmation__formText}>{massage}</p>
         <Link

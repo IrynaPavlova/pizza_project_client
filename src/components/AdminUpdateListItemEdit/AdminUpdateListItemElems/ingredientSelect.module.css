@@ -1,4 +1,4 @@
-@value variables: '../../stylesheet/vars.css';
+@value variables: '../../../stylesheet/vars.css';
 @value lightColor, accentColor, primaryColor, primaryTextFontSize from variables;
 
 .editCard__title {
@@ -30,6 +30,9 @@
   text-transform: lowercase;
 }
 .editForm__addIngredientBtn {
+  font-family: RobotoRegular;
+  font-style: normal;
+  font-weight: normal;
   display: block;
   width: 80%;
   height: 36px;
@@ -42,6 +45,9 @@
   color: white;
 }
 .editForm__ingredientBtnDel {
+  font-family: RobotoRegular;
+  font-style: normal;
+  font-weight: normal;
   border: none;
   width: 20px;
   height: 20px;
