@@ -18,8 +18,10 @@ const AdminUpdateListItemEdit = () => {
   let productForEdit = null;
   if (location.state) {
     productForEdit = location.state.product;
+    console.log(productForEdit);
   } else {
     productForEdit = JSON.parse(sessionStorage.getItem("editedItem"));
+    console.log(productForEdit);
   }
 
   const ingredients = useSelector(productSelectors.addIngredient);
@@ -103,8 +105,11 @@ const AdminUpdateListItemEdit = () => {
 
   const deleteItem = (ev) => {
     ev.preventDefault();
+    y;
     deleteProduct();
     setConfirmEdit("del");
+    sessionStorage.removeItem("editedItem");
+    // setItem("editedItem", JSON.stringify(editedItem));
   };
   window.addEventListener("unload", () => {
     const editedItem = { _id: productForEdit._id, ...collector() };
