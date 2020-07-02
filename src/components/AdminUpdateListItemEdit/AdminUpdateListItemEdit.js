@@ -105,7 +105,7 @@ const AdminUpdateListItemEdit = () => {
 
   const deleteItem = (ev) => {
     ev.preventDefault();
-    y;
+    // y;
     deleteProduct();
     setConfirmEdit("del");
     sessionStorage.removeItem("editedItem");
