@@ -13,6 +13,8 @@
 .pizzaList {
   margin-bottom: 30px;
 }
+
+
 .pizzaList:last-of-type {
   margin-bottom: 0px;
 }
