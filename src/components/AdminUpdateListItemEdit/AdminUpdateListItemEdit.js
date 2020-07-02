@@ -35,7 +35,7 @@ const AdminUpdateListItemEdit = () => {
   });
   const [confirmEdit, setConfirmEdit] = useState("");
   const [priceNoPizza, setPriceNoPizza] = useState(productForEdit.price.price);
-  const [price, setPrice] = useState({});
+  const [price, setPrice] = useState("");
   const [pricePizzaM, setPricePizzaM] = useState(productForEdit.price.M);
   const [pricePizzaL, setPricePizzaL] = useState(productForEdit.price.L);
   const [pricePizzaXL, setPricePizzaXL] = useState(productForEdit.price.XL);
@@ -61,11 +61,19 @@ const AdminUpdateListItemEdit = () => {
       setPrice({ price: priceNoPizza });
     }
   }, [pricePizzaM, pricePizzaL, pricePizzaXL, priceNoPizza]);
+
   useEffect(() => {
     dispatch(productOperations.getIngredients());
   }, []);
   const collector = () => {
     const name = { ru: nameRu, ukr: nameUkr, en: nameEn };
+    if (!price) {
+      if (productForEdit.categories === "pizza") {
+        setPrice({ M: "", L: "", XL: "" });
+      } else {
+        setPrice({ price: "" });
+      }
+    }
     const editedItem = {
       price,
       name,
@@ -83,7 +91,7 @@ const AdminUpdateListItemEdit = () => {
 
   const handleImageFile = (ev) => {
     ev.preventDefault();
-    postImage(ev.target.files[0]);
+    ev.target.files[0] && postImage(ev.target.files[0]);
   };
   const handleForm = (ev) => {
     ev.preventDefault();
@@ -94,7 +102,7 @@ const AdminUpdateListItemEdit = () => {
 
   const deleteItem = (ev) => {
     ev.preventDefault();
-    // deleteProduct();
+    deleteProduct();
     setConfirmEdit("del");
   };
   window.addEventListener("unload", () => {
@@ -110,7 +118,6 @@ const AdminUpdateListItemEdit = () => {
   return (
     <div className={style.container}>
       {isLoading && <Spinner />}
-
       <>
         <div className={style.editCard}>
           <img
@@ -177,7 +184,6 @@ const AdminUpdateListItemEdit = () => {
                 <AddNewIngredient />
               </>
             )}
-
             <h4 className={style.editCard__title}>
               <FormattedMessage id="product.price" />
             </h4>

@@ -19,8 +19,6 @@ const IngredientSelect = ({ productForEdit }) => {
 
   useEffect(() => {
     dispatch((dispatch) => dispatch(productActions.addIngredient(ingredients)));
-    // console.log(productForEdit);
-    // setIngredients(productForEdit.ingredients);
   }, [ingredients]);
 
   useEffect(() => {
