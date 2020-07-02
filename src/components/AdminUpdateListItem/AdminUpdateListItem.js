@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
@@ -18,5 +19,21 @@ const AdminUpdateListItem = ({ product }) => {
       </Link>
     </div>
   );
+};
+AdminUpdateListItem.propTypes = {
+  categories: PropTypes.string.isRequired,
+  subcategories: PropTypes.string.isRequired,
+  images: PropTypes.string.isRequired,
+  ingredients: PropTypes.array.isRequired,
+  name: PropTypes.object.isRequired,
+  price: PropTypes.object.isRequired,
+};
+AdminUpdateListItem.defaultProps = {
+  categories: "",
+  subcategories: "",
+  images: "",
+  ingredients: [],
+  name: {},
+  price: {},
 };
 export default AdminUpdateListItem;

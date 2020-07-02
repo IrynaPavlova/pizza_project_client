@@ -19,8 +19,10 @@ const AdminUpdateListItemEdit = () => {
   let productForEdit = null;
   if (location.state) {
     productForEdit = location.state.product;
+    // console.log(productForEdit);
   } else {
     productForEdit = JSON.parse(sessionStorage.getItem("editedItem"));
+    // console.log(productForEdit);
   }
 
   const ingredients = useSelector(productSelectors.addIngredient);
@@ -94,12 +96,14 @@ const AdminUpdateListItemEdit = () => {
     if (productForEdit.categories !== "pizza") {
       editedItem.description = description;
     }
+    // console.log(editedItem);
     return editedItem;
   };
 
   const handleImageFile = (ev) => {
     ev.preventDefault();
     ev.target.files[0] && postImage(ev.target.files[0]);
+    window.history.pushState({}, "", "/");
   };
   const handleForm = (ev) => {
     ev.preventDefault();
@@ -113,6 +117,7 @@ const AdminUpdateListItemEdit = () => {
     deleteProduct();
     setConfirmEdit("del");
     sessionStorage.removeItem("editedItem");
+    window.history.pushState({}, "", "/");
   };
   window.addEventListener("unload", () => {
     const editedItem = { _id: productForEdit._id, ...collector() };
