@@ -47,8 +47,7 @@
   padding-left: 10px;
   width: inherit;
 }
-.editCard__photoLabel,
-.editForm__newIngredient {
+.editCard__photoLabel {
   width: 100%;
 }
 .editForm__photo {
