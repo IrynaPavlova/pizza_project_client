@@ -79,6 +79,7 @@ const AdminUpdateListItemEdit = () => {
       name,
       ingredients,
     };
+    // editedItem.ingredients=ingredientsInProduct
     editedItem.images = images || productForEdit.images;
     editedItem.name = { ru: nameRu, ukr: nameUkr, en: nameEn };
     editedItem.categories = productForEdit.categories;
