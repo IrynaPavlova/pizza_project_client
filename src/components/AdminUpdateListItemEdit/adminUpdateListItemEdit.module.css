@@ -39,11 +39,13 @@
 .editCard__titleName {
   display: grid;
   grid-template-columns: 20% 80%;
+  line-height: 30px;
 }
 .editCard__titleLang {
   margin: 0;
 }
 .editForm__inputLang {
+  height: 30px;
   padding-left: 10px;
   width: inherit;
 }
@@ -75,8 +77,10 @@
   display: inline-grid;
   grid-template-columns: 30% 100px;
   margin: 0 auto;
+  line-height: 30px;
 }
 .editForm__priceInput {
+  height: 30px;
   padding-left: 10px;
 }
 .editForm__inputSinglePrice {

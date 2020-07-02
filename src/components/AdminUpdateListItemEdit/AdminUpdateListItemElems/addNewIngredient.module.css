@@ -28,8 +28,10 @@
 .editCard__titleName {
   display: grid;
   grid-template-columns: 20% 80%;
+  line-height: 30px;
 }
 .editForm__inputLang {
+  height: 30px;
   padding-left: 10px;
   width: inherit;
 }
