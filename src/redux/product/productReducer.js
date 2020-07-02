@@ -66,6 +66,7 @@ const loadingReducer = createReducer(false, {
 const linkReducer = createReducer(null, {
   [productActions.sendFileSuccess]: (state, { payload }) => payload,
   [productActions.deleteProductSuccess]: (state, { payload }) => null,
+  [productActions.imagesInit]: (state, { payload }) => payload,
 });
 
 const ingredientsReducer = createReducer([], {
