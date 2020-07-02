@@ -192,10 +192,12 @@
   .pizzaListCard {
     width: 354px;
     margin-left: 0px;
+    margin-right: 30px;
   }
-  .pizzaListCard:nth-of-type(even) {
+  .pizzaListCard:nth-of-type(2n) {
     margin-right: 0px;
   }
+ 
 
   .sizePriceWrapper {
     width: 222px;
@@ -220,10 +222,12 @@
     margin-right: 30px;
   }
 
-  .pizzaListCard:nth-of-type(even) {
+  .pizzaListCard:nth-of-type(2n) {
     margin-right: 30px;
   }
-
+  .pizzaListCard:nth-of-type(4n) {
+    margin-right: 0px;
+  }
   .sizePriceWrapper {
     width: 138px;
   }
