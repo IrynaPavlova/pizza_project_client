@@ -23,6 +23,7 @@
   text-transform: uppercase;
   background-color: #ff6c00;
   border: none;
+  color: #ffffff;
   transition: all 0.3s ease;
   margin: 8px 0;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.75);
@@ -46,14 +47,14 @@
 }
 
 .button_active {
-  background-color: #00e31a;
+  background-color: #00d93a;
   transform: scale(1.06);
   box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);
 }
 
 .button_active:hover,
 .button_active:focus {
-  background-color: #00ff26;
+  background-color: #00e31a;
 }
 
 .input {
