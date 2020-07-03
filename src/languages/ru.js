@@ -69,7 +69,7 @@ export default {
   "order.pizzaSuccess": "Пицца {name} добавлена в корзину",
   "order.pizzaError": "Пицца {name} уже есть в корзине",
   "product.create": "Создать продукт",
-  "product.created": "Продукт создан",
+  "product.created": "Продукт успешно создан! :)",
   "product.edit": "Изменить продукт",
   "product.name": "Название",
   "product.about": "Описание продукта",

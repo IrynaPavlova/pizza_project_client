@@ -52,9 +52,10 @@ const sendProduct = (product) => (dispatch) => {
   dispatch(productActions.sendProductRequest());
 
   postNewProduct(product)
-    .then(({ data }) =>
-      dispatch(productActions.sendProductSuccess(data.product))
-    )
+    .then(({ data }) => {
+      dispatch(productActions.sendProductSuccess(data.product));
+      dispatch(productActions.clearFile());
+    })
     //проверить что приходит в data
     .catch((error) => dispatch(productActions.sendProductError(error)));
 };
