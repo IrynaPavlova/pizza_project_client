@@ -6,6 +6,7 @@ import productSelectors from "../../redux/product/productSelectors";
 import productOperations from "../../redux/product/productOperations";
 import Notification from "../Notification";
 import {FormattedMessage} from "react-intl";
+import AddNewIngredient from "../AdminUpdateListItemEdit/AdminUpdateListItemElems/AddNewIngredient";
 
 import languages from "../../languages";
 import style from "../AdminUpdateListItemEdit/adminUpdateListItemEdit.module.css";
@@ -128,7 +129,7 @@ const CreateNewProduct = () => {
     };
     return (
         <div className={styles.createContainer}>
-            {isLoading && <Spinner />}
+            {isLoading && <Spinner/>}
             {createdProduct.length === 1 && (
                 <Notification
                     message={languages[local]["product.created"]}
@@ -274,6 +275,7 @@ const CreateNewProduct = () => {
                 <button type="Submit" className={styles.btn}>
                     <FormattedMessage id="send"/>
                 </button>
+                <AddNewIngredient/>
             </form>
         </div>
     );
