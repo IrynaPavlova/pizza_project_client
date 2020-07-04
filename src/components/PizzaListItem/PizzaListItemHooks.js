@@ -9,7 +9,7 @@ import styles from "./PizzaListItem.module.css";
 const sizes = ["M", "L", "XL"];
 
 function PizzaListItem(product) {
-  const local = useSelector((state) => state.local.lang);
+  const local = useSelector(state => state.local.lang);
 
   const { _id, name, price, ingredients, images } = product;
 
@@ -23,7 +23,7 @@ function PizzaListItem(product) {
     <FormattedMessage
       id="order.pizzaSuccess"
       values={{
-        name: name[local],
+        name: name[local]
       }}
     />
   );
@@ -32,7 +32,7 @@ function PizzaListItem(product) {
     <FormattedMessage
       id="order.pizzaError"
       values={{
-        name: name[local],
+        name: name[local]
       }}
     />
   );
@@ -46,7 +46,7 @@ function PizzaListItem(product) {
         setIsAddedProdToOrder(false);
         setMessage(successMessage);
         onAddProductToOrder(product);
-        setOrderSizes(orderSizes.filter((size) => size !== selectedSize));
+        setOrderSizes(orderSizes.filter(size => size !== selectedSize));
         return await setTimeout(() => setIsAddedProdToOrder(true), 10);
       }
       setIsAddedProdToOrder(false);
@@ -54,7 +54,7 @@ function PizzaListItem(product) {
       return await setTimeout(() => setIsAddedProdToOrder(true), 10);
     }
     onAddProductToOrder(product);
-    setOrderSizes(orderSizes.filter((size) => size !== selectedSize));
+    setOrderSizes(orderSizes.filter(size => size !== selectedSize));
     setIsAddedProdToOrder(true);
   };
 
@@ -76,7 +76,18 @@ function PizzaListItem(product) {
       </div>
       <div className={styles.descriptionContainer}>
         <p className={styles.heading}>{name[local]}</p>
-        <ul className={styles.ingredients}>
+        {ingredients.length > 0 && (
+          <ul className={styles.ingredients}>
+            {ingredients.map(ingredient => (
+              <li key={ingredient._id}>
+                <span className={styles.ingredientItem}>
+                  {ingredient.name ? ingredient.name[local] : null}
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
+        {/* <ul className={styles.ingredients}>
           {ingredients.map((ingredient) => (
             <li key={ingredient._id}>
               <span className={styles.ingredientItem}>
@@ -84,7 +95,7 @@ function PizzaListItem(product) {
               </span>
             </li>
           ))}
-        </ul>
+        </ul> */}
         <form>
           <div className={styles.sizePriceContainer}>
             <ul className={styles.radioButtonsList}>
