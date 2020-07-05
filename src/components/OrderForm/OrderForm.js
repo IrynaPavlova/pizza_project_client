@@ -88,12 +88,13 @@ export default function OrderForm() {
         </p> */}
         <input
           type="tel"
-          pattern="^\+38-\d{3}-\d{3}-\d{2}-\d{2}$"
+          pattern="^\+38\d{3}\d{3}\d{2}\d{2}$"
           id="dynamic-label-input"
           value={phone}
           name="phone"
-          placeholder="+38-0YY-XXX-XX-XX"
-          // placeholder={languages[local]["phone number"]}
+          placeholder={`${languages[local]["phone number"]} +380YYXXXXXXX`}
+          //placeholder="+38-0YY-XXX-XX-XX"
+          //placeholder={languages[local]["phone number"]}
           className={styles.input}
           onChange={handleChangeNumber}
           required

@@ -77,7 +77,7 @@ export default {
   "product.subcategory": "Subcategory",
   "product.price": "Price",
   "product.description": "Volume(L)/ Weight(g.)",
-  "phone number": "Phone number",
+  "phone number": "Phone number in format:",
   "register.nameReq": "Name is required",
   "register.emailReq": "Email is required",
   "register.emailSym": "Invalid email adress",
@@ -101,5 +101,5 @@ export default {
   "update.createNewIngredient": "Create new ingredient",
   "update.addNewIngredient": "Add new ingredient",
   "update.ingredientAdded": "New ingredient created",
-  "update.errorValidation": "Тot enough characters, min 3",
+  "update.errorValidation": "Тot enough characters, min 3"
 };

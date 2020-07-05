@@ -78,7 +78,7 @@ export default {
   "product.subcategory": "Пiдкатегорiя",
   "product.price": "Цiна",
   "product.description": "Об`єм(L)/ вага(гр.)",
-  "phone number": "Номер телефону",
+  "phone number": "Номер телефону в форматі:",
   "register.nameReq": "Потрiбно ввести iм'я",
   "register.emailReq": "Потрiбно ввести електронну пошту",
   "register.emailSym": "Некоректна адреса електронної пошти",
@@ -102,5 +102,5 @@ export default {
   "update.createNewIngredient": "Створити новий енгредіент",
   "update.addNewIngredient": "Додати новий інгредіент",
   "update.ingredientAdded": "Новий інгредієнт створений",
-  "update.errorValidation": "Недостатньо символів, мін 3",
+  "update.errorValidation": "Недостатньо символів, мін 3"
 };
