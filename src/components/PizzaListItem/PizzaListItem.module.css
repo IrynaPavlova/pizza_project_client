@@ -67,9 +67,8 @@
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-
   margin-bottom: 24px;
-  height: 70px;
+  height: 75px;
   overflow: auto;
 }
 
