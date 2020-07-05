@@ -6,7 +6,7 @@ import productSelectors from "../../../redux/product/productSelectors";
 import productActions from "../../../redux/product/productActions.js";
 import style from "./ingredientSelect.module.css";
 
-const IngredientSelect = ({ productForEdit }) => {
+const IngredientSelect = ({ productForEdit = {} }) => {
   const dispatch = useDispatch();
   const local = useSelector((state) => state.local.lang);
   const ingredientsList = useSelector(productSelectors.getIngredients);
@@ -15,7 +15,9 @@ const IngredientSelect = ({ productForEdit }) => {
     value: idx,
   }));
   const [newIngredient, setNewIngredient] = useState("");
-  const [ingredients, setIngredients] = useState(productForEdit.ingredients);
+  const [ingredients, setIngredients] = useState(
+    productForEdit.ingredients || []
+  );
 
   useEffect(() => {
     dispatch((dispatch) => dispatch(productActions.addIngredient(ingredients)));
