@@ -83,32 +83,21 @@ export default function OrderForm() {
     return (
       <form className={styles.contactForm} onSubmit={handleSubmit}>
         {/* <div className={styles.formContainer}> */}
-        <p className={styles.telText}>
-          Введите номер телефона в формате: +38-xxx-xx-xx-xx
-        </p>
+        {/* <p className={styles.telText}>
+          Введите номер телефона в формате: +38-0YY-XXX-XX-XX
+        </p> */}
         <input
           type="tel"
           pattern="^\+38-\d{3}-\d{3}-\d{2}-\d{2}$"
-          //pattern="[\+]\d{2}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}"
           id="dynamic-label-input"
           value={phone}
           name="phone"
-          placeholder={languages[local]["phone number"]}
+          placeholder="+38-0YY-XXX-XX-XX"
+          // placeholder={languages[local]["phone number"]}
           className={styles.input}
           onChange={handleChangeNumber}
           required
         />
-        {/* <input
-          type="number"
-          id="dynamic-label-input"
-          value={phone}
-          name="phone"
-          placeholder={languages[local]["phone number"]}
-          className={styles.input}
-          onChange={handleChangeNumber}
-          required
-        /> */}
-
         <label htmlFor="dynamic-label-input" className={styles.label}>
           <FormattedMessage id="phone number" />
         </label>
