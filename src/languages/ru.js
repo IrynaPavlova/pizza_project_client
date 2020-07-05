@@ -89,7 +89,7 @@ export default {
   "update.saveChanges": "Сохранить изменения",
   "update.complited": "Продукт успешно обновлён",
   "deleted product": "Продукт удалён",
-  "return back": "Вернутся к списку продуктов",
+  "return back": "Вернуться к списку продуктов",
   "continue editing": "Продолжить редактирование",
   "error editing": "Ошибка. Попробуйте позже",
   "product updated": "Продукт успешно обновлён",
@@ -102,5 +102,12 @@ export default {
   "update.createNewIngredient": "Создать новый ингредиент",
   "update.addNewIngredient": "Добавить новый ингредиент",
   "update.ingredientAdded": "Новый ингредиент создан",
+<<<<<<< HEAD
+  "update.errorValidationName":
+    "Недостаточное количество символов для названия. Минимум: 3",
+  "update.errorValidationPrice":
+    "Недостаточное количество символов для цены. Минимум: 2",
+=======
   "update.errorValidation": "Недостаточно символов,мин 3"
+>>>>>>> cbf0b4b3a875f14f897b81115abc2e48db3bf0a8
 };

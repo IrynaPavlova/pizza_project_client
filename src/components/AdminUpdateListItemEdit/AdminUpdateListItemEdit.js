@@ -107,12 +107,31 @@ const AdminUpdateListItemEdit = () => {
   };
   const handleForm = (ev) => {
     ev.preventDefault();
-    if (nameEn.length >= 3 && nameRu.length >= 3 && nameUkr.length >= 3) {
+    const isValidName =
+      nameEn.length >= 3 && nameRu.length >= 3 && nameUkr.length >= 3;
+    const isValidPrice = (() => {
+      let isValid = false;
+
+      if (productForEdit.categories === "pizza") {
+        isValid =
+          pricePizzaL.toString().length >= 2 &&
+          pricePizzaM.toString().length >= 2 &&
+          pricePizzaXL.toString().length >= 2;
+      } else {
+        isValid = priceNoPizza.toString().length >= 2;
+      }
+      return isValid;
+    })();
+
+    if (isValidName && isValidPrice) {
       const editedItem = collector();
       updateProduct(productForEdit._id, editedItem);
       setMassage(<FormattedMessage id="product updated" />);
     } else {
-      setMassage(<FormattedMessage id="update.errorValidation" />);
+      isValidPrice ||
+        setMassage(<FormattedMessage id="update.errorValidationPrice" />);
+      isValidName ||
+        setMassage(<FormattedMessage id="update.errorValidationName" />);
     }
   };
   const deleteItem = (ev) => {
@@ -127,8 +146,6 @@ const AdminUpdateListItemEdit = () => {
     sessionStorage.setItem("editedItem", JSON.stringify(editedItem));
   });
   const handleConfirmWindow = (ev) => {
-    console.log(massage.props.id);
-
     massage.props.id !== "deleted product" &&
       ev.target.dataset.confirm === "continue" &&
       setMassage("");
@@ -272,7 +289,6 @@ const AdminUpdateListItemEdit = () => {
           {!isLoading && massage && <ConfirmationWindow massage={massage} />}
         </div>
       </>
-      {/* )} */}
     </div>
   );
 };
