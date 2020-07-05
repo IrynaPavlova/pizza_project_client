@@ -101,4 +101,5 @@ export default {
   "update.createNewIngredient": "Create new ingredient",
   "update.addNewIngredient": "Add new ingredient",
   "update.ingredientAdded": "New ingredient created",
+  "update.errorValidation": "Тot enough characters, min 3",
 };

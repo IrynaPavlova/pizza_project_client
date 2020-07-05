@@ -102,4 +102,5 @@ export default {
   "update.createNewIngredient": "Создать новый ингредиент",
   "update.addNewIngredient": "Добавить новый ингредиент",
   "update.ingredientAdded": "Новый ингредиент создан",
+  "update.errorValidation": "Недостаточно символов,мин 3",
 };
