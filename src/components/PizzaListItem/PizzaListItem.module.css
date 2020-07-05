@@ -69,13 +69,12 @@
   align-content: flex-start;
 
   margin-bottom: 24px;
-  height: 80px;
+  height: 70px;
   overflow: auto;
 }
 
 .ingredients {
   scrollbar-width: thin;
-  
 }
 
 .ingredients::-webkit-scrollbar {
