@@ -49,6 +49,8 @@ const CreateNewProduct = () => {
   const [XL, setXL] = useState("");
   const [description, setDescription] = useState("");
   const [activeIngredients, setActiveIngredients] = useState([]);
+  const [BtnCreateIngrad, setBtnCreateIngrad] = useState(false);
+  const [messagNoChoosIngrad, setMessagNoChoosIngrad] = useState(false);
 
   const isLoading = useSelector(productSelectors.getLoading);
   const hasError = useSelector(productSelectors.getError);
@@ -73,6 +75,10 @@ const CreateNewProduct = () => {
     setXL("");
     setDescription("");
     setActiveIngredients([]);
+    // const clist = document.getElements("input[type=checkbox]");
+    // for (var i = 0; i < clist.length; ++i) {
+    //   clist[i].checked = false;
+    // }
   };
 
   useEffect(() => {
@@ -102,9 +108,6 @@ const CreateNewProduct = () => {
   const submitForm = async (e) => {
     e.persist();
     e.preventDefault();
-    if (!(hrefProductImg && ukrName && ruName && enName)) {
-      return alert("Не все поля заполнены");
-    }
     const product = {
       categories: category.value,
       currency: "грн",
@@ -116,8 +119,8 @@ const CreateNewProduct = () => {
       },
     };
     if (category.value === categories.pizza) {
-      if (!(activeIngredients && M && L && XL)) {
-        return alert("Не все поля заполнены");
+      if (activeIngredients.length === 0) {
+        return setMessagNoChoosIngrad(true);
       }
       product.ingredients = activeIngredients;
       product.subcategory = subCategory.value;
@@ -127,9 +130,6 @@ const CreateNewProduct = () => {
         XL: XL,
       };
     } else {
-      if (!(price && description)) {
-        return alert("Не все поля заполнены");
-      }
       product.price = { price };
       product.description = description;
     }
@@ -140,6 +140,9 @@ const CreateNewProduct = () => {
     <div className={styles.createContainer}>
       {isLoading && <Spinner />}
       {hasError && <Notification message={languages[local].error} />}
+      {messagNoChoosIngrad && (
+        <Notification message={languages[local]["update.addIngredient"]} />
+      )}
       {createdProduct.length === 1 && (
         <Notification
           message={languages[local]["product.created"]}
@@ -180,6 +183,10 @@ const CreateNewProduct = () => {
             value={ruName}
             onChange={(e) => setRuName(e.target.value)}
             className={styles.editForm__inputLang}
+            minLength="3"
+            maxLength="25"
+            // pattern="^[A-Za-zА-Яа-яЁё]{3,}"
+            required
           />
           <p className={style.editCard__titleLang}>
             <FormattedMessage id="eng name" />
@@ -189,6 +196,10 @@ const CreateNewProduct = () => {
             value={enName}
             onChange={(e) => setEnName(e.target.value)}
             className={styles.editForm__inputLang}
+            minLength="3"
+            maxLength="25"
+            // pattern="[A-Za-z]{3,}"
+            required
           />
           <p className={style.editCard__titleLang}>
             <FormattedMessage id="ukr name" />
@@ -198,6 +209,9 @@ const CreateNewProduct = () => {
             value={ukrName}
             onChange={(e) => setUkrName(e.target.value)}
             className={styles.editForm__inputLang}
+            minLength="3"
+            maxLength="25"
+            required
           />
         </div>
         <p className={styles.title}>
@@ -208,28 +222,35 @@ const CreateNewProduct = () => {
           <div className={styles.editCard__titleName_price}>
             <p className={style.editCard__titleLang}>M</p>
             <input
-              type="text"
+              type="number"
               value={M}
               onChange={(e) => setM(e.target.value)}
               className={styles.editForm__inputLang}
+              min="10"
+              max="10000"
+              required
             />
 
             <p className={style.editCard__titleLang}>L</p>
 
             <input
-              type="text"
+              type="number"
               value={L}
               onChange={(e) => setL(e.target.value)}
               className={styles.editForm__inputLang}
+              min="10"
+              max="10000"
+              required
             />
 
             <p className={style.editCard__titleLang}>XL</p>
 
             <input
-              type="text"
+              type="number"
               value={XL}
               onChange={(e) => setXL(e.target.value)}
               className={styles.editForm__inputLang}
+              required
             />
           </div>
         ) : (
@@ -238,10 +259,13 @@ const CreateNewProduct = () => {
               <FormattedMessage id="product.price" />
             </p> */}
             <input
-              type="text"
+              type="number"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               className={styles.editForm__inputLang_price}
+              min="10"
+              max="10000"
+              required
             />
           </div>
         )}
@@ -256,6 +280,7 @@ const CreateNewProduct = () => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               className={styles.descriptionInput}
+              required
             />
           </label>
         )}
@@ -263,7 +288,7 @@ const CreateNewProduct = () => {
         {fileLink && <img src={fileLink} alt="" className={styles.photoImg} />}
 
         <label className={`${styles.inputLabel} ${styles.btn}`}>
-          <h4 className={styles.btn}>
+          <h4 className={`${styles.btn} ${styles.btnInner}`}>
             <FormattedMessage id="photo" />
           </h4>
           <input
@@ -271,6 +296,8 @@ const CreateNewProduct = () => {
             id="image"
             onChange={handleImg}
             className={styles.inputImg}
+            accept=".jpg, .jpeg, .png"
+            required
           />
         </label>
         {/* <hr /> */}
@@ -296,10 +323,22 @@ const CreateNewProduct = () => {
             </div>
           </>
         )}
+        {category.value === categories.pizza && (
+          <label className={`${styles.inputLabel} ${styles.btn}`}>
+            <h4 className={`${styles.btn} ${styles.btnInner}`}>
+              <FormattedMessage id="update.createNewIngredient" />
+            </h4>
+            <input
+              type="button"
+              onClick={() => setBtnCreateIngrad(!BtnCreateIngrad)}
+              className={styles.inputImg}
+            />
+          </label>
+        )}
         <button type="Submit" className={styles.btn}>
           <FormattedMessage id="send" />
         </button>
-        {category.value === categories.pizza && <AddNewIngredient />}
+        {BtnCreateIngrad && <AddNewIngredient />}
       </form>
     </div>
   );
