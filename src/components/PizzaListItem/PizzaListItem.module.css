@@ -66,7 +66,26 @@
 .ingredients {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   margin-bottom: 24px;
+  height: 75px;
+  overflow: auto;
+}
+
+.ingredients {
+  scrollbar-width: thin;
+}
+
+.ingredients::-webkit-scrollbar {
+  width: 12px;
+}
+.ingredients::-webkit-scrollbar-track {
+  background: rgba(39, 39, 39, 0.2);
+  border-radius: 5px;
+}
+.ingredients::-webkit-scrollbar-thumb {
+  background-color: #ff6c00;
+  border-radius: 5px;
 }
 .ingredientItem {
   margin-right: 10px;
@@ -197,7 +216,6 @@
   .pizzaListCard:nth-of-type(2n) {
     margin-right: 0px;
   }
- 
 
   .sizePriceWrapper {
     width: 222px;
