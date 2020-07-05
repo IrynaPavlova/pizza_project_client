@@ -10,6 +10,7 @@ import {
 import Notification from "../Notification";
 import { FormattedMessage } from "react-intl";
 import AddNewIngredient from "../AdminUpdateListItemEdit/AdminUpdateListItemElems/AddNewIngredient";
+import IngredientSelect from "../AdminUpdateListItemEdit/AdminUpdateListItemElems/IngredientSelect";
 
 import languages from "../../languages";
 import style from "../AdminUpdateListItemEdit/adminUpdateListItemEdit.module.css";
@@ -48,14 +49,13 @@ const CreateNewProduct = () => {
   const [L, setL] = useState("");
   const [XL, setXL] = useState("");
   const [description, setDescription] = useState("");
-  const [activeIngredients, setActiveIngredients] = useState([]);
   const [BtnCreateIngrad, setBtnCreateIngrad] = useState(false);
   const [messagNoChoosIngrad, setMessagNoChoosIngrad] = useState(false);
 
   const isLoading = useSelector(productSelectors.getLoading);
   const hasError = useSelector(productSelectors.getError);
   const fileLink = useSelector(productSelectors.getFileLink);
-  const ingredients = useSelector(productSelectors.getIngredients);
+  const ingredients = useSelector(productSelectors.addIngredient);
   const dispatch = useDispatch();
   const postImage = (file) => dispatch(productOperations.sendFile(file));
   const hrefProductImg = useSelector(productSelectors.fileLink);
@@ -74,11 +74,6 @@ const CreateNewProduct = () => {
     setL("");
     setXL("");
     setDescription("");
-    setActiveIngredients([]);
-    // const clist = document.getElements("input[type=checkbox]");
-    // for (var i = 0; i < clist.length; ++i) {
-    //   clist[i].checked = false;
-    // }
   };
 
   useEffect(() => {
@@ -91,18 +86,14 @@ const CreateNewProduct = () => {
     };
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(dispatch(productActions.imagesInit("")));
+  }, []);
+
   const handleImg = (e) => {
     e.persist();
     e.preventDefault();
     postImage(e.target.files[0]);
-  };
-
-  const handleCheckboxChange = (e) => {
-    e.persist();
-    if (e.target.checked) {
-      return setActiveIngredients((prev) => [...prev, e.target.value]);
-    }
-    setActiveIngredients((prev) => prev.filter((el) => el !== e.target.value));
   };
 
   const submitForm = async (e) => {
@@ -119,10 +110,10 @@ const CreateNewProduct = () => {
       },
     };
     if (category.value === categories.pizza) {
-      if (activeIngredients.length === 0) {
+      if (ingredients.length === 0) {
         return setMessagNoChoosIngrad(true);
       }
-      product.ingredients = activeIngredients;
+      product.ingredients = ingredients;
       product.subcategory = subCategory.value;
       product.price = {
         M: M,
@@ -303,37 +294,18 @@ const CreateNewProduct = () => {
         {/* <hr /> */}
         {category.value === categories.pizza && (
           <>
-            <p className={styles.title}>
-              <FormattedMessage id="update.addIngredient" />
-            </p>
-            <div className={styles.ingredientsContainer}>
-              {ingredients.map((i) => (
-                <label key={i._id} className={styles.ingredient}>
-                  {i.name[local]}
-                  {/* <p className={styles.chooseVar}>{i.name[local]}</p> */}
-                  <input
-                    className={styles.checkbox}
-                    onClick={handleCheckboxChange}
-                    type="checkbox"
-                    id={i._id}
-                    value={i._id}
-                  />
-                </label>
-              ))}
-            </div>
+            <IngredientSelect />
+            <label className={`${styles.inputLabel} ${styles.btn}`}>
+              <h4 className={`${styles.btn} ${styles.btnInner}`}>
+                <FormattedMessage id="update.createNewIngredient" />
+              </h4>
+              <input
+                type="button"
+                onClick={() => setBtnCreateIngrad(!BtnCreateIngrad)}
+                className={styles.inputCreatIng}
+              />
+            </label>
           </>
-        )}
-        {category.value === categories.pizza && (
-          <label className={`${styles.inputLabel} ${styles.btn}`}>
-            <h4 className={`${styles.btn} ${styles.btnInner}`}>
-              <FormattedMessage id="update.createNewIngredient" />
-            </h4>
-            <input
-              type="button"
-              onClick={() => setBtnCreateIngrad(!BtnCreateIngrad)}
-              className={styles.inputImg}
-            />
-          </label>
         )}
         <button type="Submit" className={styles.btn}>
           <FormattedMessage id="send" />
