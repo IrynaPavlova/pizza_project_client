@@ -76,7 +76,7 @@ export default {
   "product.category": "Категория",
   "product.subcategory": "Подкатегория",
   "product.price": "Цена",
-  "product.description": "Объем/вес",
+  "product.description": "Объем(L)/ вес(гр.)",
   "phone number": "Номер телефона",
   "register.nameReq": "Требуется ввести имя",
   "register.emailReq": "Требуется ввести email",

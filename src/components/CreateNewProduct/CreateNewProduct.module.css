@@ -95,13 +95,20 @@ p {
   cursor: pointer;
   border: none;
   margin: 0 auto;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   font-weight: 500;
   font-size: 20px;
 }
 
 .inputImg {
-  display: none;
+  /* display: none; */
+  width: 1px;
+  height: 1px;
+}
+
+.btnInner {
+  background: grey;
+  font-size: 16px;
 }
 
 .photoImg {

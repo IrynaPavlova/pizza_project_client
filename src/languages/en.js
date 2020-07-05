@@ -76,7 +76,7 @@ export default {
   "product.category": "Category",
   "product.subcategory": "Subcategory",
   "product.price": "Price",
-  "product.description": "Volume/Weight",
+  "product.description": "Volume(L)/ Weight(g.)",
   "phone number": "Phone number",
   "register.nameReq": "Name is required",
   "register.emailReq": "Email is required",
