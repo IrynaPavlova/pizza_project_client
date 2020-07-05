@@ -55,6 +55,7 @@ p {
 
 .inputLabel {
   display: block;
+  position: relative;
 }
 
 .editCard__titleName {
@@ -102,8 +103,15 @@ p {
 
 .inputImg {
   /* display: none; */
+  position: absolute;
+  top: 25px;
   width: 1px;
   height: 1px;
+  /* background-color: gray; */
+}
+
+.inputCreatIng {
+  display: none;
 }
 
 .btnInner {

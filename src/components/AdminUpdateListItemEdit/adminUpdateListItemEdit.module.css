@@ -59,9 +59,10 @@
   font-family: RobotoRegular;
   font-style: normal;
   font-weight: normal;
+  font-size: 16px;
   width: 80%;
   height: 36px;
-  background: #ff6c00;
+  background: grey;
   border-radius: 4px;
   text-align: center;
   line-height: 36px;
