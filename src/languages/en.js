@@ -77,7 +77,7 @@ export default {
   "product.subcategory": "Subcategory",
   "product.price": "Price",
   "product.description": "Volume(L)/ Weight(g.)",
-  "phone number": "Phone number",
+  "phone number": "Phone number in format:",
   "register.nameReq": "Name is required",
   "register.emailReq": "Email is required",
   "register.emailSym": "Invalid email adress",
@@ -100,6 +100,10 @@ export default {
   "update.createNewIngredient": "Create new ingredient",
   "update.addNewIngredient": "Add new ingredient",
   "update.ingredientAdded": "New ingredient created",
+<<<<<<< HEAD
   "update.errorValidationName": "Not enough characters for name. Minimum 3",
   "update.errorValidationPrice": "Not enough characters for price. Minimum 2",
+=======
+  "update.errorValidation": "Тot enough characters, min 3"
+>>>>>>> cbf0b4b3a875f14f897b81115abc2e48db3bf0a8
 };

@@ -44,7 +44,7 @@ input[type="number"]::-webkit-inner-spin-button {
   color: rgba(39, 39, 39, 0.5);
 }
 
-.input:placeholder-shown + label {
+.input:placeholder-shown+label {
   opacity: 0;
   transform: translateY(1rem);
 }
@@ -62,8 +62,21 @@ input[type="number"]::-webkit-inner-spin-button {
   text-transform: uppercase;
 }
 
+.telText {
+  font-family: OswaldRegular;
+  font-weight: 500;
+  font-size: 13px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
 @media (min-width: 768px) {
   .contactForm {
     width: 420px;
+  }
+
+  .telText {
+    font-size: 16px;
+    padding-left: 10px;
   }
 }
