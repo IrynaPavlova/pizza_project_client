@@ -92,8 +92,8 @@ export default function OrderForm() {
           id="dynamic-label-input"
           value={phone}
           name="phone"
-          placeholder={`${languages[local]["phone number"]} +380YYXXXXXXX`}
-          //placeholder="+38-0YY-XXX-XX-XX"
+          //placeholder={`${languages[local]["phone number"]} +380YYXXXXXXX`}
+          placeholder="+38-0YY-XXX-XX-XX"
           //placeholder={languages[local]["phone number"]}
           className={styles.input}
           onChange={handleChangeNumber}
