@@ -44,7 +44,7 @@ input[type="number"]::-webkit-inner-spin-button {
   color: rgba(39, 39, 39, 0.5);
 }
 
-.input:placeholder-shown + label {
+.input:placeholder-shown+label {
   opacity: 0;
   transform: translateY(1rem);
 }
@@ -60,6 +60,15 @@ input[type="number"]::-webkit-inner-spin-button {
   cursor: pointer;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+}
+
+.telText {
+  font-family: OswaldRegular;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: left;
+  margin-bottom: 10px;
+  padding-left: 10px;
 }
 
 @media (min-width: 768px) {
