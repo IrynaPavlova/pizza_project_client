@@ -105,5 +105,6 @@ export default {
     "Недостатня кількість символів для назви. Мінімум 3",
   "update.errorValidationPrice":
     "Недостатня кількість символів для ціни. Мінімум 2",
-  "update.errorValidation": "Недостатньо символів, мін 3"
+  "update.errorValidationDescription":
+    "Недостатня кількість символів для об'єму/ціни. Мінімум 1",
 };

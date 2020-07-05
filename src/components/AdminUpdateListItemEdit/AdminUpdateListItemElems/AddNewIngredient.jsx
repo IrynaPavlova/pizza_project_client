@@ -45,6 +45,7 @@ const AddNewIngredient = () => {
             value={newIngredientRu}
             onChange={(ev) => setCreateNewIngredientRu(ev.target.value)}
             className={style.editForm__inputLang}
+            maxlength="30"
           />
           <p className={style.editCard__titleLang}>en</p>
           <input
@@ -52,6 +53,7 @@ const AddNewIngredient = () => {
             value={newIngredientEn}
             onChange={(ev) => setCreateNewIngredientEn(ev.target.value)}
             className={style.editForm__inputLang}
+            maxlength="30"
           />
           <p className={style.editCard__titleLang}>ukr</p>
           <input
@@ -59,6 +61,7 @@ const AddNewIngredient = () => {
             value={newIngredientUkr}
             onChange={(ev) => setCreateNewIngredientUkr(ev.target.value)}
             className={style.editForm__inputLang}
+            maxlength="30"
           />
         </div>
         <button

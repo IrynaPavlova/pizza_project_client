@@ -102,5 +102,6 @@ export default {
   "update.ingredientAdded": "New ingredient created",
   "update.errorValidationName": "Not enough characters for name. Minimum 3",
   "update.errorValidationPrice": "Not enough characters for price. Minimum 2",
-  "update.errorValidation": "Тot enough characters, min 3"
+  "update.errorValidationDescription":
+    "Not enough characters for volume/weight. Minimum 1",
 };
