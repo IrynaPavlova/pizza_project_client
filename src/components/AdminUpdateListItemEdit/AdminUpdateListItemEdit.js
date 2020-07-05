@@ -28,6 +28,7 @@ const AdminUpdateListItemEdit = () => {
   const ingredients = useSelector(productSelectors.addIngredient);
   const isLoading = useSelector(productSelectors.getLoading);
   const images = useSelector(productSelectors.fileLink);
+  const [massage, setMassage] = useState("");
 
   const [nameRu, setNameRu] = useState(productForEdit.name.ru);
   const [nameEn, setNameEn] = useState(productForEdit.name.en);
@@ -36,7 +37,6 @@ const AdminUpdateListItemEdit = () => {
     value: productForEdit.subcategory,
     label: productForEdit.subcategory,
   });
-  const [confirmEdit, setConfirmEdit] = useState("");
   const [priceNoPizza, setPriceNoPizza] = useState(productForEdit.price.price);
   const [price, setPrice] = useState("");
 
@@ -107,27 +107,32 @@ const AdminUpdateListItemEdit = () => {
   };
   const handleForm = (ev) => {
     ev.preventDefault();
-    const editedItem = collector();
-    updateProduct(productForEdit._id, editedItem);
-    setConfirmEdit("edit");
+    if (nameEn.length >= 3 && nameRu.length >= 3 && nameUkr.length >= 3) {
+      const editedItem = collector();
+      updateProduct(productForEdit._id, editedItem);
+      setMassage(<FormattedMessage id="product updated" />);
+    } else {
+      setMassage(<FormattedMessage id="update.errorValidation" />);
+    }
   };
-
   const deleteItem = (ev) => {
     ev.preventDefault();
     deleteProduct();
-    setConfirmEdit("del");
     sessionStorage.removeItem("editedItem");
     window.history.pushState({}, "", "/");
+    setMassage(<FormattedMessage id="deleted product" />);
   };
   window.addEventListener("unload", () => {
     const editedItem = { _id: productForEdit._id, ...collector() };
     sessionStorage.setItem("editedItem", JSON.stringify(editedItem));
   });
   const handleConfirmWindow = (ev) => {
-    confirmEdit !== "del" &&
+    console.log(massage.props.id);
+
+    massage.props.id !== "deleted product" &&
       ev.target.dataset.confirm === "continue" &&
-      setConfirmEdit("");
-    ev.target.name === "continue" && setConfirmEdit("");
+      setMassage("");
+    ev.target.name === "continue" && setMassage("");
   };
   return (
     <div className={style.container}>
@@ -264,17 +269,7 @@ const AdminUpdateListItemEdit = () => {
           </button>
         </div>
         <div onClick={handleConfirmWindow}>
-          {!isLoading && confirmEdit && (
-            <ConfirmationWindow
-              massage={
-                confirmEdit === "del" ? (
-                  <FormattedMessage id="deleted product" />
-                ) : (
-                  <FormattedMessage id="product updated" />
-                )
-              }
-            />
-          )}
+          {!isLoading && massage && <ConfirmationWindow massage={massage} />}
         </div>
       </>
       {/* )} */}

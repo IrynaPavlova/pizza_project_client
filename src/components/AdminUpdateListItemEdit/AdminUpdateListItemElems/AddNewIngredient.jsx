@@ -8,18 +8,28 @@ import ConfirmationWindow from "./ConfirmationWindow";
 const AddNewIngredient = () => {
   const dispatch = useDispatch();
   const [isShow, setIsShow] = useState(false);
+  const [massage, setMassage] = useState("");
   const [newIngredientRu, setCreateNewIngredientRu] = useState("");
   const [newIngredientUkr, setCreateNewIngredientUkr] = useState("");
   const [newIngredientEn, setCreateNewIngredientEn] = useState("");
   const createIngredient = () => {
-    const newIngredient = {
-      name: {
-        ru: newIngredientRu,
-        en: newIngredientEn,
-        ukr: newIngredientUkr,
-      },
-    };
-    dispatch(productOperations.createNewIngredient(newIngredient));
+    if (
+      newIngredientEn.length >= 3 &&
+      newIngredientRu.length >= 3 &&
+      newIngredientUkr.length >= 3
+    ) {
+      const newIngredient = {
+        name: {
+          ru: newIngredientRu,
+          en: newIngredientEn,
+          ukr: newIngredientUkr,
+        },
+      };
+      dispatch(productOperations.createNewIngredient(newIngredient));
+      setMassage(<FormattedMessage id="update.ingredientAdded" />);
+    } else {
+      setMassage(<FormattedMessage id="update.errorValidation" />);
+    }
     setIsShow(true);
   };
   return (
@@ -35,8 +45,6 @@ const AddNewIngredient = () => {
             value={newIngredientRu}
             onChange={(ev) => setCreateNewIngredientRu(ev.target.value)}
             className={style.editForm__inputLang}
-            minLength="3"
-            maxLength="25"
           />
           <p className={style.editCard__titleLang}>en</p>
           <input
@@ -44,8 +52,6 @@ const AddNewIngredient = () => {
             value={newIngredientEn}
             onChange={(ev) => setCreateNewIngredientEn(ev.target.value)}
             className={style.editForm__inputLang}
-            minLength="3"
-            maxLength="25"
           />
           <p className={style.editCard__titleLang}>ukr</p>
           <input
@@ -53,8 +59,6 @@ const AddNewIngredient = () => {
             value={newIngredientUkr}
             onChange={(ev) => setCreateNewIngredientUkr(ev.target.value)}
             className={style.editForm__inputLang}
-            minLength="3"
-            maxLength="25"
           />
         </div>
         <button
@@ -72,11 +76,7 @@ const AddNewIngredient = () => {
             "continue" && dispatch(productOperations.getIngredients());
         }}
       >
-        {isShow && (
-          <ConfirmationWindow
-            massage={<FormattedMessage id="update.ingredientAdded" />}
-          />
-        )}
+        {isShow && massage && <ConfirmationWindow massage={massage} />}
       </div>
     </>
   );
