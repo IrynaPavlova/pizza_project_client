@@ -60,7 +60,6 @@ const CreateNewProduct = () => {
   const postNewProduct = (product) =>
     dispatch(productOperations.sendProduct(product));
   const createdProduct = useSelector(productSelectors.getProducts);
-  //   console.log("hrefProductImg:", hrefProductImg);
 
   const clearFields = () => {
     changeCategory(options[0]);
@@ -154,13 +153,20 @@ const CreateNewProduct = () => {
           onChange={changeCategory}
           options={options}
         />
-        <Select
-          className={styles.select}
-          value={category.value === categories.pizza ? subCategory : null}
-          onChange={changeSubCategory}
-          options={pizzaCategories}
-          isDisabled={category.value !== categories.pizza}
-        />
+        {category.value === categories.pizza && (
+          <>
+            <p className={styles.title}>
+              <FormattedMessage id="product.subcategory" />
+            </p>
+            <Select
+              className={styles.select}
+              value={category.value === categories.pizza ? subCategory : null}
+              onChange={changeSubCategory}
+              options={pizzaCategories}
+              isDisabled={category.value !== categories.pizza}
+            />
+          </>
+        )}
         {/* <hr /> */}
         <p className={styles.title}>
           <FormattedMessage id="product.name" />
@@ -268,26 +274,32 @@ const CreateNewProduct = () => {
           />
         </label>
         {/* <hr /> */}
-        <div className={styles.ingredientsContainer}>
-          {category.value === categories.pizza &&
-            ingredients.map((i) => (
-              <label key={i._id} className={styles.ingredient}>
-                {i.name[local]}
-                {/* <p className={styles.chooseVar}>{i.name[local]}</p> */}
-                <input
-                  className={styles.checkbox}
-                  onClick={handleCheckboxChange}
-                  type="checkbox"
-                  id={i._id}
-                  value={i._id}
-                />
-              </label>
-            ))}
-        </div>
+        {category.value === categories.pizza && (
+          <>
+            <p className={styles.title}>
+              <FormattedMessage id="update.addIngredient" />
+            </p>
+            <div className={styles.ingredientsContainer}>
+              {ingredients.map((i) => (
+                <label key={i._id} className={styles.ingredient}>
+                  {i.name[local]}
+                  {/* <p className={styles.chooseVar}>{i.name[local]}</p> */}
+                  <input
+                    className={styles.checkbox}
+                    onClick={handleCheckboxChange}
+                    type="checkbox"
+                    id={i._id}
+                    value={i._id}
+                  />
+                </label>
+              ))}
+            </div>
+          </>
+        )}
         <button type="Submit" className={styles.btn}>
           <FormattedMessage id="send" />
         </button>
-        <AddNewIngredient />
+        {category.value === categories.pizza && <AddNewIngredient />}
       </form>
     </div>
   );
