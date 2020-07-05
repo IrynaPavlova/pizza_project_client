@@ -102,12 +102,9 @@ export default {
   "update.createNewIngredient": "Создать новый ингредиент",
   "update.addNewIngredient": "Добавить новый ингредиент",
   "update.ingredientAdded": "Новый ингредиент создан",
-<<<<<<< HEAD
   "update.errorValidationName":
     "Недостаточное количество символов для названия. Минимум: 3",
   "update.errorValidationPrice":
     "Недостаточное количество символов для цены. Минимум: 2",
-=======
   "update.errorValidation": "Недостаточно символов,мин 3"
->>>>>>> cbf0b4b3a875f14f897b81115abc2e48db3bf0a8
 };
