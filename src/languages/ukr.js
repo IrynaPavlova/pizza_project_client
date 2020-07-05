@@ -91,7 +91,6 @@ export default {
   "update.return": "Повернутися до списку продуктiв",
   "delete product": "Видалити продукт",
   "deleted product": "Продукт видалено",
-  "return back": "Повернутися до переліку продуктів",
   "continue editing": "Продовжити редагування",
   "error editing": "Помилка. Спробуйте пізніше",
   "product updated": "Продукт успішно оновлено",
@@ -102,5 +101,8 @@ export default {
   "update.createNewIngredient": "Створити новий енгредіент",
   "update.addNewIngredient": "Додати новий інгредіент",
   "update.ingredientAdded": "Новий інгредієнт створений",
-  "update.errorValidation": "Недостатньо символів, мін 3",
+  "update.errorValidationName":
+    "Недостатня кількість символів для назви. Мінімум 3",
+  "update.errorValidationPrice":
+    "Недостатня кількість символів для ціни. Мінімум 2",
 };

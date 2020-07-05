@@ -28,7 +28,7 @@ const AddNewIngredient = () => {
       dispatch(productOperations.createNewIngredient(newIngredient));
       setMassage(<FormattedMessage id="update.ingredientAdded" />);
     } else {
-      setMassage(<FormattedMessage id="update.errorValidation" />);
+      setMassage(<FormattedMessage id="update.errorValidationName" />);
     }
     setIsShow(true);
   };

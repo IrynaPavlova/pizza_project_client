@@ -19,7 +19,7 @@ const ConfirmationWindow = ({ massage }) => {
           className={style.confirmation__formBtnLink}
         >
           <button type="button" className={style.confirmation__formBtn}>
-            <FormattedMessage id="return back" />
+            <FormattedMessage id="update.return" />
           </button>
         </Link>
         {massage.props.id === "deleted product" || (
