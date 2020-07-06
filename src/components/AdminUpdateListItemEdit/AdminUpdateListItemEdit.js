@@ -205,6 +205,15 @@ const AdminUpdateListItemEdit = () => {
                   options={subcategoryList}
                   value={subcategory}
                   onChange={(ev) => setSubcategory(ev)}
+                  theme={(theme) => ({
+                    ...theme,
+                    borderRadius: 0,
+                    colors: {
+                      ...theme.colors,
+                      primary25: "white",
+                      primary: "#ff6c00",
+                    },
+                  })}
                 />
               </>
             )}

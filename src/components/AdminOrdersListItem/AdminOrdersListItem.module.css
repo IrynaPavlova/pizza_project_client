@@ -53,7 +53,7 @@ ul.itemsList {
 
 .itemName {
   color: accentColor;
-  flex-basis: 120px;
+  flex-basis: 150px;
   font-family: OswaldRegular;
   font-size: secondaryTextFontSize;
   text-transform: capitalize;
