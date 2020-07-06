@@ -35,7 +35,7 @@ const AdminUpdateListItemEdit = () => {
   const [nameUkr, setNameUkr] = useState(productForEdit.name.ukr);
   const [subcategory, setSubcategory] = useState({
     value: productForEdit.subcategory,
-    label: productForEdit.subcategory,
+    label: languages[local][`pizza.${productForEdit.subcategory}`],
   });
   const [priceNoPizza, setPriceNoPizza] = useState(productForEdit.price.price);
   const [price, setPrice] = useState("");
@@ -193,7 +193,9 @@ const AdminUpdateListItemEdit = () => {
             <h4 className={style.editCard__title}>
               <FormattedMessage id="product.category" />
             </h4>
-            <p>{productForEdit.categories}</p>
+            <p>
+              <FormattedMessage id={productForEdit.categories} />
+            </p>
             {productForEdit.categories === "pizza" && (
               <>
                 <h4 className={style.editCard__title}>
