@@ -48,6 +48,7 @@
   height: 30px;
   padding-left: 10px;
   width: inherit;
+  margin-bottom: 5px;
 }
 .editCard__photoLabel {
   width: 100%;
@@ -83,6 +84,7 @@
 .editForm__priceInput {
   height: 30px;
   padding-left: 10px;
+  margin-bottom: 5px;
 }
 .editForm__inputSinglePrice {
   padding-left: 10px;

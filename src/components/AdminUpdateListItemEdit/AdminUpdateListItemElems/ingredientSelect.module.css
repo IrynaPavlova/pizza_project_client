@@ -4,30 +4,45 @@
 .editCard__title {
   font-size: 20px;
   padding-top: 25px;
-  padding-bottom: 15px;
+  padding-bottom: 5px;
   font-family: OswaldMedium;
   font-style: normal;
   font-weight: 500;
 }
+
+.discriptionTitle {
+  font-size: 16px;
+  font-style: italic;
+  color: primaryColor;
+}
+
 .editForm__ingredientsSelect {
   width: 100%;
 }
 .editForm__ingredients {
   text-transform: lowercase;
+  padding-top: 15px;
+  margin-bottom: 15px;
 }
 .editForm__ingredient {
   display: flex;
   justify-content: space-between;
-  margin-top: 5px;
+  /* margin-top: 5px; */
+  margin-bottom: 5px;
 }
+.editForm__ingredient:last-child {
+  margin-bottom: 0px;
+}
+
 .editForm__ingredientName {
   font-size: 16px;
 }
 .editForm__ingredientsList {
   display: block;
   width: 100%;
-  padding-top: 15px;
+  /* padding-top: 15px; */
   text-transform: lowercase;
+  margin-bottom: 15px;
 }
 .editForm__addIngredientBtn {
   font-family: RobotoRegular;
@@ -40,7 +55,7 @@
   border: none;
   background: grey;
   border-radius: 4px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;

@@ -1,5 +1,5 @@
 export default {
-  search: "Поиск",
+  search: "Поиск по названию",
   error: "Что-то пошло не так",
   welcome: "Добро пожаловать, ",
   welcomeAdmin: "Добро пожаловать на страницу администратора!",
@@ -84,6 +84,7 @@ export default {
   "register.passReq": "Требуется ввести пароль",
   "register.passLength": "Пароль должен быть длиной 6+ символов",
   "update.composition": "Состав",
+  "update.compositionDiscription": `Выберите инградиент из выпадающего списка и нажмите "Добавить"`,
   "update.addIngredient": "Выбрать ингредиент",
   "update.addToComposition": "Добавить",
   "update.saveChanges": "Сохранить изменения",

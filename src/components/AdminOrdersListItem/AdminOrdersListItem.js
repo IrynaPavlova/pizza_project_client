@@ -15,6 +15,29 @@ export default function AdminOrdersListItem({ item }) {
 
   return (
     <li className={styles.orderWrapper}>
+      <div className={styles.orderCheckbox}>
+        <p className={styles.titleDo}>
+          <FormattedMessage id="orders.do" />
+        </p>
+        {item.status === "done" && (
+          <input
+            type="checkbox"
+            name="orderDone"
+            onClick={handleClickDone}
+            checked
+            disabled
+            className={styles.inputReady}
+          />
+        )}
+        {item.status === "new" && (
+          <input
+            type="checkbox"
+            name="orderDone"
+            onClick={handleClickDone}
+            className={styles.inputReady}
+          />
+        )}
+      </div>
       <div className={styles.dateWrapper}>
         <p className={styles.orderDate}>
           {moment(item.createdAt).format("h:MM a DD MMMM YY")}
@@ -44,23 +67,6 @@ export default function AdminOrdersListItem({ item }) {
         <p>{item.deliveryAddress}</p>
         <p>{item.phone}</p>
         <p>{item.name}</p>
-      </div>
-      <div className={styles.orderCheckbox}>
-        <p>
-          <FormattedMessage id="orders.do" />
-        </p>
-        {item.status === "done" && (
-          <input
-            type="checkbox"
-            name="orderDone"
-            onClick={handleClickDone}
-            checked
-            disabled
-          />
-        )}
-        {item.status === "new" && (
-          <input type="checkbox" name="orderDone" onClick={handleClickDone} />
-        )}
       </div>
     </li>
   );
