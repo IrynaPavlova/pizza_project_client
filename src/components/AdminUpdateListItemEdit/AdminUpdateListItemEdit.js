@@ -125,7 +125,6 @@ const AdminUpdateListItemEdit = () => {
       productForEdit.categories === "pizza"
         ? true
         : description.toString().length >= 1 && description !== "0";
-    console.log(typeof description);
 
     if (isValidName && isValidPrice && isValidDescription) {
       const editedItem = collector();

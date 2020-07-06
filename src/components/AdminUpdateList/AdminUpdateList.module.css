@@ -17,29 +17,29 @@
 .button {
   padding: 14px 0;
   width: 200px;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 14px;
   font-family: "RobotoBold", sans-serif;
   text-transform: uppercase;
-  background-color: #ff6c00;
+  background-color: grey;
   border: none;
   color: #ffffff;
   transition: all 0.3s ease;
   margin: 8px 0;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.75);
+  /* box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.75); */
 }
 
 .button:hover,
 .button:focus {
   transform: scale(1.08);
-  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);
-  background-color: #ff9900;
+  /* box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5); */
+  background-color: #ff6c00;
   outline: none;
 }
 
 .button:active {
   transform: scale(1);
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.75);
+  /* box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.75); */
 }
 
 .button:not(:last-of-type) {
@@ -47,23 +47,27 @@
 }
 
 .button_active {
-  background-color: #00d93a;
+  background-color: #ff6c00;
   transform: scale(1.06);
-  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);
+  /* box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75); */
 }
 
 .button_active:hover,
 .button_active:focus {
-  background-color: #00e31a;
+  background-color: #ff6c00;
 }
 
 .input {
   width: 260px;
   padding: 10px 6px;
-  font-family: OswaldRegular;
-  border-radius: 6px;
-  border: solid 2px #9c9c9c;
+  font-family: RobotoRegular;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+  border-radius: 5px;
+  border: solid 1px #9c9c9c;
   margin-bottom: 30px;
+  font-style: italic;
 }
 
 .input:hover,
@@ -72,7 +76,8 @@
 }
 
 .input::placeholder {
-  font-family: OswaldRegular;
+  /* font-family: OswaldRegular; */
+  font-style: italic;
 }
 
 .items_container {

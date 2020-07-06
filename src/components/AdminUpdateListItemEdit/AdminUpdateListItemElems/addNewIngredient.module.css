@@ -12,7 +12,12 @@
 .editForm__inputNewIngredient {
   width: 100%;
   padding-left: 10px;
+  font-size: 16px;
 }
+.editForm__inputLang::placeholder {
+  font-style: italic;
+}
+
 .editForm__addNewIngredientBtn {
   display: block;
   height: 36px;

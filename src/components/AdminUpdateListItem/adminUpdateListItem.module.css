@@ -16,6 +16,7 @@
   background-color: white;
   object-fit: contain;
   margin-bottom: 16px;
+  box-shadow: 0px 0px 2px #00000029;
 }
 .editForm__name {
   font-family: "RobotoRegular", sans-serif;
@@ -36,4 +37,5 @@
   background: #ff6c00;
   border-radius: 4px;
   margin-bottom: 16px;
+  color: #fafafa;
 }

@@ -17,8 +17,9 @@ ul.itemsList {
   margin: 0 auto;
   /* width: 300px; */
   max-width: 1200px;
-  border: 1px solid primaryColor;
-  margin-bottom: 12px;
+  /* border: 1px solid primaryColor; */
+  box-shadow: 1px 2px 1px 2px #0000001f, 2px 4px 4px 4px rgba(0, 0, 0, 0.12);
+  margin-bottom: 20px;
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
@@ -33,6 +34,7 @@ ul.itemsList {
   width: 100px;
   padding: 10px;
   text-align: center;
+  border-left: 2px solid accentColor;
 }
 .orderDate {
   flex-basis: 50px;
@@ -70,6 +72,8 @@ ul.itemsList {
 .sumWrapper {
   flex-basis: 100px;
   text-align: center;
+  padding-left: 5px;
+  border-left: 1px solid gray;
 }
 
 .sumToPay {
@@ -88,6 +92,12 @@ ul.itemsList {
 .orderCheckbox {
   flex-basis: 60px;
   text-align: center;
+}
+
+.titleDo {
+  color: accentColor;
+  margin-bottom: 5px;
+  font-family: "RobotoBold", sans-serif;
 }
 
 .totalSum {

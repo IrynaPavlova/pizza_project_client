@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-import { FormattedMessage } from 'react-intl';
-import { connect } from 'react-redux';
-import Spinner from '../../components/Spinner';
-import Notification from '../Notification';
-import PropTypes from 'prop-types';
+import { FormattedMessage } from "react-intl";
+import { connect } from "react-redux";
+import Spinner from "../../components/Spinner";
+import Notification from "../Notification";
+import PropTypes from "prop-types";
 
 import {
   stocksOperations,
   stocksActions,
   stocksSelector,
-} from '../../redux/stocks/';
+} from "../../redux/stocks/";
 
-import styles from './AdminStocksEditor.module.css';
-import { useSelector } from 'react-redux';
-import getFileName from './utils';
+import styles from "./AdminStocksEditor.module.css";
+import { useSelector } from "react-redux";
+import getFileName from "./utils";
 
 function AdminStocksEditor({
   onSubmitFile,
@@ -41,41 +41,41 @@ function AdminStocksEditor({
     setShow(true);
     getFileName();
     const stocksItem = new FormData();
-    stocksItem.append('file', target.files[0]);
+    stocksItem.append("file", target.files[0]);
 
     setMessage(messages.successFile);
 
     onSubmitFile(stocksItem);
   };
 
-  const [stocksTitleEn, setStockTitleEn] = useState('');
+  const [stocksTitleEn, setStockTitleEn] = useState("");
 
   const handleChangeTitleEn = ({ target: { value } }) => setStockTitleEn(value);
 
-  const [stocksTitleRu, setStockTitleRu] = useState('');
+  const [stocksTitleRu, setStockTitleRu] = useState("");
   const handleChangeTitleRu = ({ target: { value } }) => setStockTitleRu(value);
 
-  const [stocksTitleUkr, setStockTitleUkr] = useState('');
+  const [stocksTitleUkr, setStockTitleUkr] = useState("");
   const handleChangeTitleUkr = ({ target: { value } }) =>
     setStockTitleUkr(value);
 
-  const [stocksDescriptionEn, setStocksDescriptionEn] = useState('');
+  const [stocksDescriptionEn, setStocksDescriptionEn] = useState("");
   const handleChangeDescriptionEn = ({ target: { value } }) =>
     setStocksDescriptionEn(value);
 
-  const [stocksDescriptionRu, setStocksDescriptionRu] = useState('');
+  const [stocksDescriptionRu, setStocksDescriptionRu] = useState("");
   const handleChangeDescriptionRu = ({ target: { value } }) =>
     setStocksDescriptionRu(value);
 
-  const [stocksDescriptionUkr, setStocksDescriptionUkr] = useState('');
+  const [stocksDescriptionUkr, setStocksDescriptionUkr] = useState("");
   const handleChangeDescriptionUkr = ({ target: { value } }) =>
     setStocksDescriptionUkr(value);
 
   const [message, setMessage] = useState(null);
   const messages = {
-    success: 'Акция успешно добавлена',
-    updated: 'Акция успешно обновлена',
-    successFile: 'Файл успешно загружен',
+    success: "Акция успешно добавлена",
+    updated: "Акция успешно обновлена",
+    successFile: "Файл успешно загружен",
   };
 
   const [stock, setStock] = useState(null);
@@ -106,7 +106,7 @@ function AdminStocksEditor({
       images: linkImage,
     };
 
-    if (e.target.name === 'update') {
+    if (e.target.name === "update") {
       onUpdate(stock._id, newStock);
       cancelInput();
       setMessage(messages.updated);
@@ -121,14 +121,14 @@ function AdminStocksEditor({
 
   const cancelInput = () => {
     setStockFile(null);
-    setStockTitleEn('');
-    setStocksDescriptionEn('');
-    setStockTitleRu('');
-    setStocksDescriptionRu('');
-    setStockTitleUkr('');
-    setStocksDescriptionUkr('');
-    document.getElementById('formStocks').reset();
-    document.getElementById('fileName').innerHTML = '';
+    setStockTitleEn("");
+    setStocksDescriptionEn("");
+    setStockTitleRu("");
+    setStocksDescriptionRu("");
+    setStockTitleUkr("");
+    setStocksDescriptionUkr("");
+    document.getElementById("formStocks").reset();
+    document.getElementById("fileName").innerHTML = "";
     onCancel();
   };
 
@@ -247,7 +247,7 @@ function AdminStocksEditor({
         <button
           type="button"
           onClick={cancelInput}
-          className={styles.formButton}
+          className={`${styles.formButton} ${styles.formButtonReset}`}
         >
           <FormattedMessage id="reset form" />
         </button>

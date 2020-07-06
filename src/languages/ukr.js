@@ -1,5 +1,5 @@
 export default {
-  search: "Пошук",
+  search: "Пошук за назвою",
   error: "Щось пiшло не так",
   welcome: "Ласкаво просимо, ",
   welcomeAdmin: "Ласкаво просимо на сторiнку адмiнiстратора!",
@@ -85,6 +85,7 @@ export default {
   "register.passReq": "Потрiбно ввести пароль",
   "register.passLength": "Пароль має бути довжиною 6+ символiв",
   "update.composition": "Склад",
+  "update.compositionDiscription": `Виберіть інгредієнти зі списку і натисніть "Додати"`,
   "update.addIngredient": "Вибрати iнгредiєнт",
   "update.addToComposition": "Додати",
   "update.saveChanges": "Зберегти зміни",
