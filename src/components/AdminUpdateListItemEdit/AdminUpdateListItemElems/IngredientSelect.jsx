@@ -50,7 +50,7 @@ const IngredientSelect = ({ productForEdit = {} }) => {
         <FormattedMessage id="update.composition" />
       </h4>
       <span className={style.discriptionTitle}>
-        Выберите инградиент из выпадающего списка и нажмите "Добавить"
+        <FormattedMessage id="update.compositionDiscription" />
       </span>
       <ul className={style.editForm__ingredients}>
         {ingredients.map((el, idx) => (

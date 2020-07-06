@@ -1,5 +1,5 @@
 export default {
-  search: "Search",
+  search: "Search by name",
   error: "Something went wrong",
   welcome: "Welcome, ",
   welcomeAdmin: "Welcome to AdminPage",
@@ -84,6 +84,7 @@ export default {
   "register.passReq": "Password is required",
   "register.passLength": "Password needs to have 6+ symbols",
   "update.composition": "Composition",
+  "update.compositionDiscription": `Select an ingredient from the drop-down list and click "Add"`,
   "update.addIngredient": "Choose ingredient",
   "update.addToComposition": "Add",
   "update.saveChanges": "Save changes",

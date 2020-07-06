@@ -87,6 +87,9 @@ input::placeholder {
 .editForm__inputLang {
   padding-left: 10px;
   margin-bottom: 4px;
+  /* border-radius: 4px; */
+  border: solid 1px #9c9c9c;
+  height: 28px;
 }
 
 .btn {
@@ -104,6 +107,16 @@ input::placeholder {
   margin-bottom: 20px;
   font-weight: 500;
   font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover,
+.btn:focus {
+  transform: scale(1.08);
+}
+
+.btn:active {
+  transform: scale(1);
 }
 
 .inputImg {
@@ -137,9 +150,15 @@ input::placeholder {
 .descriptionInput {
   margin-bottom: 10px;
   width: 120px;
+  /* border-radius: 4px; */
+  border: solid 1px #9c9c9c;
+  height: 28px;
 }
 
 .editForm__inputLang_price {
   width: 120px;
   margin-bottom: 10px;
+  /* border-radius: 4px; */
+  border: solid 1px #9c9c9c;
+  height: 28px;
 }

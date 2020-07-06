@@ -9,7 +9,8 @@
   width: 800px;
   padding: 5px;
   background: #ffffff;
-  box-shadow: 8px 12px 8px 12px #0000001f, 1px 2px 4px 1px rgba(0, 0, 0, 0.12);
+  box-shadow: 1px 2px 1px 2px #0000001f, 2px 4px 4px 4px rgba(0, 0, 0, 0.12);
+  /* box-shadow: 8px 12px 8px 12px #0000001f, 1px 2px 4px 1px rgba(0, 0, 0, 0.12); */
   border-radius: 4px;
   margin: 0 auto;
   margin-bottom: 60px;
@@ -38,7 +39,7 @@
   max-height: 50px;
   background-color: #ff6c00;
   border: solid 2px #ff6c00;
-  border-radius: 4px;
+  border-radius: 5px;
   font-size: 14px;
   line-height: 16px;
   text-align: center;
@@ -56,6 +57,11 @@
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
+.formButtonReset {
+  background-color: grey;
+  border: solid 2px grey;
+}
+
 .uploadInput {
   display: none;
 }
@@ -65,7 +71,7 @@
   overflow: hidden;
   width: 250px;
   height: 40px;
-  background: #505052;
+  background: grey;
   border-radius: 5px;
   color: #fff;
   text-align: center;
@@ -74,7 +80,7 @@
 
 .fileUploadGreen {
   composes: fileUpload;
-  background-color: green;
+  background-color: #ff6c00;
 }
 
 .fileUpload:hover {
