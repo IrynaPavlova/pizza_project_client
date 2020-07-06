@@ -23,6 +23,11 @@ p {
   margin-bottom: 0;
 }
 
+input::placeholder {
+  font-size: 20px;
+  font-style: italic;
+}
+
 .ingredientsContainer {
   display: flex;
   justify-content: center;

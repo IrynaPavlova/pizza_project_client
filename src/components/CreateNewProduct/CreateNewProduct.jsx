@@ -15,6 +15,7 @@ import IngredientSelect from "../AdminUpdateListItemEdit/AdminUpdateListItemElem
 import languages from "../../languages";
 import style from "../AdminUpdateListItemEdit/adminUpdateListItemEdit.module.css";
 import Spinner from "../Spinner";
+import toUpperCaseFirstLetter from "../../services/toUpperCaseFirstLetter";
 
 const CreateNewProduct = () => {
   const local = useSelector((state) => state.local.lang);
@@ -104,9 +105,9 @@ const CreateNewProduct = () => {
       currency: "грн",
       images: hrefProductImg,
       name: {
-        ukr: ukrName,
-        en: enName,
-        ru: ruName,
+        ukr: toUpperCaseFirstLetter(ukrName),
+        en: toUpperCaseFirstLetter(enName),
+        ru: toUpperCaseFirstLetter(ruName),
       },
     };
     if (category.value === categories.pizza) {
@@ -174,8 +175,9 @@ const CreateNewProduct = () => {
             value={ruName}
             onChange={(e) => setRuName(e.target.value)}
             className={styles.editForm__inputLang}
+            placeholder="Маргарита"
             minLength="3"
-            maxLength="25"
+            maxLength="30"
             // pattern="^[A-Za-zА-Яа-яЁё]{3,}"
             required
           />
@@ -187,8 +189,9 @@ const CreateNewProduct = () => {
             value={enName}
             onChange={(e) => setEnName(e.target.value)}
             className={styles.editForm__inputLang}
+            placeholder="Margarita"
             minLength="3"
-            maxLength="25"
+            maxLength="30"
             // pattern="[A-Za-z]{3,}"
             required
           />
@@ -200,13 +203,15 @@ const CreateNewProduct = () => {
             value={ukrName}
             onChange={(e) => setUkrName(e.target.value)}
             className={styles.editForm__inputLang}
+            placeholder="Маргарита"
             minLength="3"
-            maxLength="25"
+            maxLength="30"
             required
           />
         </div>
         <p className={styles.title}>
           <FormattedMessage id="product.price" />
+          <span>, грн.</span>
         </p>
 
         {category.value === categories.pizza ? (
@@ -217,8 +222,9 @@ const CreateNewProduct = () => {
               value={M}
               onChange={(e) => setM(e.target.value)}
               className={styles.editForm__inputLang}
+              placeholder="100"
               min="10"
-              max="10000"
+              max="999"
               required
             />
 
@@ -229,8 +235,9 @@ const CreateNewProduct = () => {
               value={L}
               onChange={(e) => setL(e.target.value)}
               className={styles.editForm__inputLang}
+              placeholder="120"
               min="10"
-              max="10000"
+              max="999"
               required
             />
 
@@ -241,6 +248,9 @@ const CreateNewProduct = () => {
               value={XL}
               onChange={(e) => setXL(e.target.value)}
               className={styles.editForm__inputLang}
+              placeholder="140"
+              min="10"
+              max="999"
               required
             />
           </div>
@@ -255,7 +265,7 @@ const CreateNewProduct = () => {
               onChange={(e) => setPrice(e.target.value)}
               className={styles.editForm__inputLang_price}
               min="10"
-              max="10000"
+              max="999"
               required
             />
           </div>
@@ -267,10 +277,12 @@ const CreateNewProduct = () => {
               <FormattedMessage id="product.description" />
             </h4>
             <input
-              type="text"
+              type="number"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               className={styles.descriptionInput}
+              min="10"
+              max="999"
               required
             />
           </label>

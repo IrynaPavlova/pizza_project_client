@@ -188,7 +188,7 @@ const AdminUpdateListItemEdit = () => {
                 value={nameRu}
                 onChange={(ev) => setNameRu(ev.target.value)}
                 className={style.editForm__inputLang}
-                maxlength="30"
+                maxLength="30"
               />
               <p className={style.editCard__titleLang}>en</p>
               <input
@@ -196,7 +196,7 @@ const AdminUpdateListItemEdit = () => {
                 value={nameEn}
                 onChange={(ev) => setNameEn(ev.target.value)}
                 className={style.editForm__inputLang}
-                maxlength="30"
+                maxLength="30"
               />
               <p className={style.editCard__titleLang}>ukr</p>
               <input
@@ -204,7 +204,7 @@ const AdminUpdateListItemEdit = () => {
                 value={nameUkr}
                 onChange={(ev) => setNameUkr(ev.target.value)}
                 className={style.editForm__inputLang}
-                maxlength="30"
+                maxLength="30"
               />
             </div>
             <h4 className={style.editCard__title}>
@@ -236,7 +236,7 @@ const AdminUpdateListItemEdit = () => {
                   value={pricePizzaM}
                   onChange={(ev) => setPricePizzaM(ev.target.value)}
                   className={style.editForm__priceInput}
-                  maxlength="3"
+                  maxLength="3"
                 />
                 <h4 className={style.editForm__priceTitle}>L</h4>
                 <input
@@ -244,7 +244,7 @@ const AdminUpdateListItemEdit = () => {
                   value={pricePizzaL}
                   onChange={(ev) => setPricePizzaL(ev.target.value)}
                   className={style.editForm__priceInput}
-                  maxlength="3"
+                  maxLength="3"
                 />
                 <h4 className={style.editForm__priceTitle}>XL</h4>
                 <input
@@ -252,7 +252,7 @@ const AdminUpdateListItemEdit = () => {
                   value={pricePizzaXL}
                   onChange={(ev) => setPricePizzaXL(ev.target.value)}
                   className={style.editForm__priceInput}
-                  maxlength="3"
+                  maxLength="3"
                 />
               </div>
             ) : (
@@ -264,7 +264,7 @@ const AdminUpdateListItemEdit = () => {
                   className={style.editForm__inputSinglePrice}
                   // min="0"
                   // max="999"
-                  maxlength="3"
+                  maxLength="3"
                 />
                 <p className={style.editCard__title}>
                   <FormattedMessage id="volume weight" />
@@ -274,7 +274,7 @@ const AdminUpdateListItemEdit = () => {
                   value={description}
                   onChange={(ev) => setDescription(ev.target.value)}
                   className={style.editForm__inputDescription}
-                  maxlength="3"
+                  maxLength="3"
                 />
               </>
             )}
