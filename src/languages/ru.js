@@ -46,9 +46,9 @@ export default {
   social: "Войти через социальную сеть",
   "edit.error": "Ошибка. Попробуйте позже",
   "edit.ok": "Редактирование проведено",
-  "pizza.classic": "Пицца: Классическая",
-  "pizza.special": "Пицца: Фирменная",
-  "pizza.premium": "Пицца: Премиум",
+  "pizza.classic": "классическая",
+  "pizza.special": "фирменная",
+  "pizza.premium": "премиум",
   "site developed": "Сайт разработан ",
   "goit students": "студентами GoIT",
   "orders.sum": "Стоимость заказа: ",
@@ -108,5 +108,5 @@ export default {
   "update.errorValidationPrice":
     "Недостаточное количество символов для цены. Минимум: 2",
   "update.errorValidationDescription":
-    "Недостаточное количество символов для объёма/веса. Минимум: 1",
+    "Недостаточное количество символов для объёма/веса. Минимум: 1"
 };
