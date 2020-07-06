@@ -47,9 +47,9 @@ export default {
   "file.upload": "Завантажити файл",
   "edit.error": "Помилка. Спробуйте пiзнiше",
   "edit.ok": "Редагування проведено",
-  "pizza.classic": "Пiца: Класична",
-  "pizza.special": "Пiца: Фiрмова",
-  "pizza.premium": "Пiца: Премiум",
+  "pizza.classic": "Піца: Класична",
+  "pizza.special": "Піца: Фiрмова",
+  "pizza.premium": "Піца: Премiум",
   "site developed": "Сайт разроблено ",
   "goit students": "студентами GoIT",
   "orders.sum": "Вартiсть замовлення",
@@ -107,5 +107,5 @@ export default {
   "update.errorValidationPrice":
     "Недостатня кількість символів для ціни. Мінімум 2",
   "update.errorValidationDescription":
-    "Недостатня кількість символів для об'єму/ціни. Мінімум 1",
+    "Недостатня кількість символів для об'єму/ціни. Мінімум 1"
 };

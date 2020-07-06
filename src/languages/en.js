@@ -47,7 +47,7 @@ export default {
   "edit.error": "Error. Try later",
   "edit.ok": "Editing completed",
   "pizza.classic": "Pizza: Classic",
-  "pizza.special": "Pizza: Special",
+  "pizza.special": "Pizza: Branded",
   "pizza.premium": "Pizza: Premium",
   "site developed": "Web site developed by ",
   "orders.sum": "Sum of order",
@@ -97,12 +97,12 @@ export default {
   "volume weight": "Volume/weight",
   "ukr name": "ukr",
   "rus name": "rus",
-  "eng name": "end",
+  "eng name": "eng",
   "update.createNewIngredient": "Create new ingredient",
   "update.addNewIngredient": "Add new ingredient",
   "update.ingredientAdded": "New ingredient created",
   "update.errorValidationName": "Not enough characters for name. Minimum 3",
   "update.errorValidationPrice": "Not enough characters for price. Minimum 2",
   "update.errorValidationDescription":
-    "Not enough characters for volume/weight. Minimum 1",
+    "Not enough characters for volume/weight. Minimum 1"
 };
