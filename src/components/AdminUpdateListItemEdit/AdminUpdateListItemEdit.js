@@ -11,7 +11,7 @@ import productOperations from "../../redux/product/productOperations";
 import Spinner from "../Spinner";
 import style from "./adminUpdateListItemEdit.module.css";
 import productActions from "../../redux/product/productActions.js";
-// import languages from "../../languages";
+import languages from "../../languages";
 
 const AdminUpdateListItemEdit = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const AdminUpdateListItemEdit = () => {
     productForEdit = JSON.parse(sessionStorage.getItem("editedItem"));
     // console.log(productForEdit);
   }
-
+  const local = useSelector(state => state.local.lang);
   const ingredients = useSelector(productSelectors.addIngredient);
   const isLoading = useSelector(productSelectors.getLoading);
   const images = useSelector(productSelectors.fileLink);
@@ -46,9 +46,9 @@ const AdminUpdateListItemEdit = () => {
   const [description, setDescription] = useState(productForEdit.description);
 
   const subcategoryList = [
-    { label: "classic", value: "classic" },
-    { label: "branded", value: "branded" },
-    { label: "premium", value: "premium" }
+    { label: languages[local]["pizza.classic"], value: "classic" },
+    { label: languages[local]["pizza.special"], value: "branded" },
+    { label: languages[local]["pizza.premium"], value: "premium" }
   ];
 
   const postImage = file => {

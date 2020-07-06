@@ -142,6 +142,9 @@ const CreateNewProduct = () => {
         />
       )}
       <form onSubmit={submitForm} className={styles.applyForm}>
+        <p className={styles.title}>
+          <FormattedMessage id="product.category" />
+        </p>
         <Select
           className={styles.select}
           value={category}
