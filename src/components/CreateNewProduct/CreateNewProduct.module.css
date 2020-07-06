@@ -73,7 +73,7 @@ input::placeholder {
   display: inline-grid;
   grid-template-columns: 20% 120px;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 .title {
