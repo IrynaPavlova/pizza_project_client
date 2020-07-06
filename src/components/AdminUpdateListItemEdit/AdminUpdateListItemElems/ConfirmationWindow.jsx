@@ -10,6 +10,8 @@ const ConfirmationWindow = ({ massage }) => {
   if (errorMassage) {
     massage = errorMassage;
   }
+  // console.log(massage);
+
   return (
     <div className={style.confirmation} data-confirm="continue">
       <div className={style.confirmation__form}>
