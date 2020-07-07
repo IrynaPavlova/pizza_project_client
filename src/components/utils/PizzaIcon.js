@@ -6,14 +6,7 @@ import { routes } from "../../services/routes";
 export default function PizzaIcon(props) {
   return (
     <>
-      <svg
-        x="0px"
-        y="0px"
-        viewBox="0 0 394.877 394.877"
-        width="49px"
-        height="49px"
-        style={{ cursor: "pointer" }}
-      >
+      <svg x="0px" y="0px" viewBox="0 0 394.877 394.877" className={props.svg}>
         <g transform="matrix(-1.83697e-16 1 -1 -1.83697e-16 394.877 0)">
           <g>
             <g>

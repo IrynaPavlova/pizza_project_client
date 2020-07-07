@@ -51,6 +51,12 @@
   cursor: pointer;
 }
 
+.svg {
+  width: 49px;
+  height: 49px;
+  cursor: pointer;
+}
+
 .logo:hover {
   color: #272727;
 }
@@ -94,14 +100,19 @@
   }
 
   .logoWrapper {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .logo {
     font-size: 36px;
-    top: 6px;
-    left: 0px;
+    top: 15px;
+    left: 12px;
+  }
+
+  .svg {
+    width: 68px;
+    height: 68px;
   }
 
   .phoneNumber {

@@ -149,3 +149,9 @@
     margin-bottom: 0;
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .mainMenuItems li:not(:last-of-type) {
+    margin-right: 89px;
+  }
+}
