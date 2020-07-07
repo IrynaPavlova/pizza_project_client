@@ -73,7 +73,7 @@ const Header = (props) => {
       <div className={styles.lightHeader}>
         <div className={styles.container}>
           <div className={styles.logoWrapper}>
-            <PizzaIcon className={styles.logo} />
+            <PizzaIcon svg={styles.svg} className={styles.logo} />
           </div>
           <Media query="(min-width: 768px)" render={() => <MainMenu />} />
           <ShoppingCartContainer />
