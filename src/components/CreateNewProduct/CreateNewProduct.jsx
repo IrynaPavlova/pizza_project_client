@@ -172,6 +172,7 @@ const CreateNewProduct = () => {
             <p className={styles.title}>
               <FormattedMessage id="product.subcategory" />
             </p>
+            {/* {console.log("category", category)} */}
             <Select
               className={styles.select}
               value={category.value === categories.pizza ? subCategory : null}
