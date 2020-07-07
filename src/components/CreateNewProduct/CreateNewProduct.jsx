@@ -27,17 +27,17 @@ const CreateNewProduct = () => {
   };
 
   const options = [
-    { value: categories.pizza, label: languages[local].pizza },
-    { value: categories.drinks, label: languages[local].drinks },
-    { value: categories.sides, label: languages[local].sides },
-    { value: categories.desserts, label: languages[local].desserts },
+    { id: 0, value: categories.pizza, label: languages[local].pizza },
+    { id: 1, value: categories.drinks, label: languages[local].drinks },
+    { id: 2, value: categories.sides, label: languages[local].sides },
+    { id: 3, value: categories.desserts, label: languages[local].desserts },
   ];
 
   const pizzaCategories = [
     // {value: "bestPrice", label: "Best price"},
-    { value: "classic", label: languages[local]["pizza.classic"] },
-    { value: "branded", label: languages[local]["pizza.special"] },
-    { value: "premium", label: languages[local]["pizza.premium"] },
+    { id: 0, value: "classic", label: languages[local]["pizza.classic"] },
+    { id: 1, value: "branded", label: languages[local]["pizza.special"] },
+    { id: 2, value: "premium", label: languages[local]["pizza.premium"] },
   ];
 
   const [category, changeCategory] = useState(options[0]);
@@ -92,8 +92,8 @@ const CreateNewProduct = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    changeCategory(options[0]);
-    changeSubCategory(pizzaCategories[0]);
+    changeCategory(options[category.id]);
+    changeSubCategory(pizzaCategories[subCategory.id]);
   }, [local]);
 
   const handleImg = (e) => {
