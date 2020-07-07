@@ -77,6 +77,10 @@ const AdminUpdateListItemEdit = () => {
     dispatch(dispatch(productActions.imagesInit(productForEdit.images)));
   }, []); // eslint-disable-line
 
+  useEffect(() => {
+    setSubcategory(subcategoryList[0]);
+  }, [local]);
+
   const collector = () => {
     const name = { ru: nameRu, ukr: nameUkr, en: nameEn };
     if (!price) {
