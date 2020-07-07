@@ -5,7 +5,7 @@ import Select from "react-select";
 import {
   productSelectors,
   productOperations,
-  productActions
+  productActions,
 } from "../../redux/product";
 import Notification from "../Notification";
 import { FormattedMessage } from "react-intl";
@@ -18,26 +18,26 @@ import Spinner from "../Spinner";
 import toUpperCaseFirstLetter from "../../services/toUpperCaseFirstLetter";
 
 const CreateNewProduct = () => {
-  const local = useSelector(state => state.local.lang);
+  const local = useSelector((state) => state.local.lang);
   const categories = {
     pizza: "pizza",
     drinks: "drinks",
     sides: "sides",
-    desserts: "desserts"
+    desserts: "desserts",
   };
 
   const options = [
-    { value: categories.pizza, label: languages[local].pizza },
-    { value: categories.drinks, label: languages[local].drinks },
-    { value: categories.sides, label: languages[local].sides },
-    { value: categories.desserts, label: languages[local].desserts }
+    { id: 0, value: categories.pizza, label: languages[local].pizza },
+    { id: 1, value: categories.drinks, label: languages[local].drinks },
+    { id: 2, value: categories.sides, label: languages[local].sides },
+    { id: 3, value: categories.desserts, label: languages[local].desserts },
   ];
 
   const pizzaCategories = [
     // {value: "bestPrice", label: "Best price"},
-    { value: "classic", label: languages[local]["pizza.classic"] },
-    { value: "branded", label: languages[local]["pizza.special"] },
-    { value: "premium", label: languages[local]["pizza.premium"] }
+    { id: 0, value: "classic", label: languages[local]["pizza.classic"] },
+    { id: 1, value: "branded", label: languages[local]["pizza.special"] },
+    { id: 2, value: "premium", label: languages[local]["pizza.premium"] },
   ];
 
   const [category, changeCategory] = useState(options[0]);
@@ -58,9 +58,9 @@ const CreateNewProduct = () => {
   const fileLink = useSelector(productSelectors.getFileLink);
   const ingredients = useSelector(productSelectors.addIngredient);
   const dispatch = useDispatch();
-  const postImage = file => dispatch(productOperations.sendFile(file));
+  const postImage = (file) => dispatch(productOperations.sendFile(file));
   const hrefProductImg = useSelector(productSelectors.fileLink);
-  const postNewProduct = product =>
+  const postNewProduct = (product) =>
     dispatch(productOperations.sendProduct(product));
   const createdProduct = useSelector(productSelectors.getProducts);
 
@@ -92,17 +92,17 @@ const CreateNewProduct = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    changeCategory(options[0]);
-    changeSubCategory(pizzaCategories[0]);
-  }, [local]); // eslint-disable-line
+    changeCategory(options[category.id]);
+    changeSubCategory(pizzaCategories[subCategory.id]);
+  }, [local]);
 
-  const handleImg = e => {
+  const handleImg = (e) => {
     e.persist();
     e.preventDefault();
     postImage(e.target.files[0]);
   };
 
-  const submitForm = async e => {
+  const submitForm = async (e) => {
     e.persist();
     e.preventDefault();
     const product = {
@@ -112,8 +112,8 @@ const CreateNewProduct = () => {
       name: {
         ukr: toUpperCaseFirstLetter(ukrName),
         en: toUpperCaseFirstLetter(enName),
-        ru: toUpperCaseFirstLetter(ruName)
-      }
+        ru: toUpperCaseFirstLetter(ruName),
+      },
     };
     if (category.value === categories.pizza) {
       if (ingredients.length === 0) {
@@ -124,7 +124,7 @@ const CreateNewProduct = () => {
       product.price = {
         M: M,
         L: L,
-        XL: XL
+        XL: XL,
       };
     } else {
       product.price = { price };
@@ -157,14 +157,14 @@ const CreateNewProduct = () => {
           value={category}
           onChange={changeCategory}
           options={options}
-          theme={theme => ({
+          theme={(theme) => ({
             ...theme,
             borderRadius: 0,
             colors: {
               ...theme.colors,
               primary25: "white",
-              primary: "#ff6c00"
-            }
+              primary: "#ff6c00",
+            },
           })}
         />
         {category.value === categories.pizza && (
@@ -178,14 +178,14 @@ const CreateNewProduct = () => {
               onChange={changeSubCategory}
               options={pizzaCategories}
               isDisabled={category.value !== categories.pizza}
-              theme={theme => ({
+              theme={(theme) => ({
                 ...theme,
                 borderRadius: 0,
                 colors: {
                   ...theme.colors,
                   primary25: "white",
-                  primary: "#ff6c00"
-                }
+                  primary: "#ff6c00",
+                },
               })}
             />
           </>
@@ -201,7 +201,7 @@ const CreateNewProduct = () => {
           <input
             type="text"
             value={ruName}
-            onChange={e => setRuName(e.target.value)}
+            onChange={(e) => setRuName(e.target.value)}
             className={styles.editForm__inputLang}
             placeholder="Маргарита"
             minLength="3"
@@ -215,7 +215,7 @@ const CreateNewProduct = () => {
           <input
             type="text"
             value={enName}
-            onChange={e => setEnName(e.target.value)}
+            onChange={(e) => setEnName(e.target.value)}
             className={styles.editForm__inputLang}
             placeholder="Margarita"
             minLength="3"
@@ -229,7 +229,7 @@ const CreateNewProduct = () => {
           <input
             type="text"
             value={ukrName}
-            onChange={e => setUkrName(e.target.value)}
+            onChange={(e) => setUkrName(e.target.value)}
             className={styles.editForm__inputLang}
             placeholder="Маргарита"
             minLength="3"
@@ -248,7 +248,7 @@ const CreateNewProduct = () => {
             <input
               type="number"
               value={M}
-              onChange={e => setM(e.target.value)}
+              onChange={(e) => setM(e.target.value)}
               className={styles.editForm__inputLang}
               placeholder="100"
               min="10"
@@ -261,7 +261,7 @@ const CreateNewProduct = () => {
             <input
               type="number"
               value={L}
-              onChange={e => setL(e.target.value)}
+              onChange={(e) => setL(e.target.value)}
               className={styles.editForm__inputLang}
               placeholder="120"
               min="10"
@@ -274,7 +274,7 @@ const CreateNewProduct = () => {
             <input
               type="number"
               value={XL}
-              onChange={e => setXL(e.target.value)}
+              onChange={(e) => setXL(e.target.value)}
               className={styles.editForm__inputLang}
               placeholder="140"
               min="10"
@@ -290,7 +290,7 @@ const CreateNewProduct = () => {
             <input
               type="number"
               value={price}
-              onChange={e => setPrice(e.target.value)}
+              onChange={(e) => setPrice(e.target.value)}
               className={styles.editForm__inputLang_price}
               min="10"
               max="999"
@@ -307,7 +307,7 @@ const CreateNewProduct = () => {
             <input
               type="number"
               value={description}
-              onChange={e => setDescription(e.target.value)}
+              onChange={(e) => setDescription(e.target.value)}
               className={styles.descriptionInput}
               min="10"
               max="999"

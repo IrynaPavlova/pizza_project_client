@@ -34,6 +34,7 @@ const AdminUpdateListItemEdit = () => {
   const [nameEn, setNameEn] = useState(productForEdit.name.en);
   const [nameUkr, setNameUkr] = useState(productForEdit.name.ukr);
   const [subcategory, setSubcategory] = useState({
+    id: 0,
     value: productForEdit.subcategory,
     label: languages[local][`pizza.${productForEdit.subcategory}`],
   });
@@ -47,9 +48,9 @@ const AdminUpdateListItemEdit = () => {
   const [BtnCreateIngrad, setBtnCreateIngrad] = useState(false);
 
   const subcategoryList = [
-    { label: languages[local]["pizza.classic"], value: "classic" },
-    { label: languages[local]["pizza.special"], value: "branded" },
-    { label: languages[local]["pizza.premium"], value: "premium" },
+    { id: 0, label: languages[local]["pizza.classic"], value: "classic" },
+    { id: 1, label: languages[local]["pizza.special"], value: "branded" },
+    { id: 2, label: languages[local]["pizza.premium"], value: "premium" },
   ];
 
   const postImage = (file) => {
@@ -78,7 +79,7 @@ const AdminUpdateListItemEdit = () => {
   }, []); // eslint-disable-line
 
   useEffect(() => {
-    setSubcategory(subcategoryList[0]);
+    setSubcategory(subcategoryList[subcategory.id]);
   }, [local]);
 
   const collector = () => {
