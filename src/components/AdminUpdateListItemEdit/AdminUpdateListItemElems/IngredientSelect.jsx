@@ -86,6 +86,15 @@ const IngredientSelect = ({ productForEdit = {} }) => {
           value={newIngredient}
           onChange={(ev) => setNewIngredient(ev)}
           className={style.editForm__ingredientsList}
+          theme={(theme) => ({
+            ...theme,
+            borderRadius: 0,
+            colors: {
+              ...theme.colors,
+              primary25: "white",
+              primary: "#ff6c00",
+            },
+          })}
         />
         <button
           type="button"
