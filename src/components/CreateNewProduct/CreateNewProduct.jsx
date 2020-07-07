@@ -203,7 +203,7 @@ const CreateNewProduct = () => {
             value={ruName}
             onChange={(e) => setRuName(e.target.value)}
             className={styles.editForm__inputLang}
-            placeholder="Маргарита"
+            // placeholder="Маргарита"
             minLength="3"
             maxLength="30"
             // pattern="^[A-Za-zА-Яа-яЁё]{3,}"
@@ -217,7 +217,7 @@ const CreateNewProduct = () => {
             value={enName}
             onChange={(e) => setEnName(e.target.value)}
             className={styles.editForm__inputLang}
-            placeholder="Margarita"
+            // placeholder="Margarita"
             minLength="3"
             maxLength="30"
             // pattern="[A-Za-z]{3,}"
@@ -231,7 +231,7 @@ const CreateNewProduct = () => {
             value={ukrName}
             onChange={(e) => setUkrName(e.target.value)}
             className={styles.editForm__inputLang}
-            placeholder="Маргарита"
+            // placeholder="Маргарита"
             minLength="3"
             maxLength="30"
             required
@@ -250,7 +250,7 @@ const CreateNewProduct = () => {
               value={M}
               onChange={(e) => setM(e.target.value)}
               className={styles.editForm__inputLang}
-              placeholder="100"
+              // placeholder="100"
               min="10"
               max="999"
               required
@@ -263,7 +263,7 @@ const CreateNewProduct = () => {
               value={L}
               onChange={(e) => setL(e.target.value)}
               className={styles.editForm__inputLang}
-              placeholder="120"
+              // placeholder="120"
               min="10"
               max="999"
               required
@@ -276,7 +276,7 @@ const CreateNewProduct = () => {
               value={XL}
               onChange={(e) => setXL(e.target.value)}
               className={styles.editForm__inputLang}
-              placeholder="140"
+              // placeholder="140"
               min="10"
               max="999"
               required
