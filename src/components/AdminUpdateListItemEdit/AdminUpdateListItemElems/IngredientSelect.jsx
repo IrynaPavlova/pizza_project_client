@@ -26,6 +26,10 @@ const IngredientSelect = ({ productForEdit = {} }) => {
     setNewIngredient(ingredientsSelectList[0]);
   }, [ingredientsList]); // eslint-disable-line
 
+  useEffect(() => {
+    setNewIngredient(ingredientsSelectList[0]);
+  }, [local]);
+
   const addIngredient = () => {
     ingredients.some(
       (el) => ingredientsList[newIngredient.value]._id === el._id
