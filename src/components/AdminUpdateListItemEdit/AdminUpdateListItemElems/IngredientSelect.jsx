@@ -26,6 +26,10 @@ const IngredientSelect = ({ productForEdit = {} }) => {
     setNewIngredient(ingredientsSelectList[0]);
   }, [ingredientsList]); // eslint-disable-line
 
+  useEffect(() => {
+    setNewIngredient(ingredientsSelectList[newIngredient.value]);
+  }, [local]);
+
   const addIngredient = () => {
     ingredients.some(
       (el) => ingredientsList[newIngredient.value]._id === el._id
@@ -86,6 +90,15 @@ const IngredientSelect = ({ productForEdit = {} }) => {
           value={newIngredient}
           onChange={(ev) => setNewIngredient(ev)}
           className={style.editForm__ingredientsList}
+          theme={(theme) => ({
+            ...theme,
+            borderRadius: 0,
+            colors: {
+              ...theme.colors,
+              primary25: "white",
+              primary: "#ff6c00",
+            },
+          })}
         />
         <button
           type="button"

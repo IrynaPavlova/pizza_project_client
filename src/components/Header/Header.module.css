@@ -9,15 +9,12 @@
 .darkHeader {
   height: 60px;
   background-color: primaryColor;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
 .lightHeader {
   position: relative;
   height: 80px;
-  padding-left: 20px;
-  padding-right: 20px;
+
   /* display: flex;
   align-items: center;
   justify-content: space-between; */
@@ -28,13 +25,41 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  padding-left: 20px;
+  padding-right: 20px;
   max-width: 1200px;
   height: 100%;
 }
 
 .container a {
   text-decoration: none !important;
+}
+
+.logoWrapper {
+  position: relative;
+  display: block;
+  width: 110px;
+  cursor: pointer;
+}
+
+.logo {
+  position: absolute;
+  top: 14px;
+  left: 0px;
+  font-family: Rokkitt;
+  font-size: 20px;
+  color: #272727;
+  cursor: pointer;
+}
+
+.svg {
+  width: 49px;
+  height: 49px;
+  cursor: pointer;
+}
+
+.logo:hover {
+  color: #272727;
 }
 
 .phoneImg {
@@ -75,7 +100,40 @@
     height: 18px;
   }
 
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .logoWrapper {
+    /* padding-left: 20px; */
+    /* padding-right: 20px; */
+    padding-left: 4px;
+    width: 82px;
+  }
+
+  nav {
+    width: 64%;
+  }
+
+  .logo {
+    font-size: 36px;
+    top: 15px;
+    /* left: 12px; */
+  }
+
+  .svg {
+    width: 68px;
+    height: 68px;
+  }
+
   .phoneNumber {
     font-size: secondaryTextFontSize;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 60px 0 60px;
   }
 }

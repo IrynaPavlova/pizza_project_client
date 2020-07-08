@@ -1,10 +1,11 @@
 @value variables: '../../stylesheet/vars.css';
-@value primaryColor, accentColor, primaryTextFontSize,thirdHeaderFontStyle,borderColor from variables;
+@value primaryColor, accentColor, primaryTextFontSize, thirdHeaderFontStyle, borderColor from variables;
 
 .mainMenuItems {
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
+  justify-content: space-between;
   margin-bottom: 0;
   flex-wrap: wrap;
 }
@@ -19,9 +20,9 @@
   transition: color 0.25s;
 }
 
-.mainMenuItems li:not(:last-of-type) {
+/* .mainMenuItems li:not(:last-of-type) {
   margin-right: 30px;
-}
+} */
 
 .mainMenuItem::before {
   content: "";
@@ -70,9 +71,12 @@
 .line {
   width: 100%;
   margin-bottom: 10px;
-  border: none; /* Убираем границу для браузера Firefox */
-  color: borderColor; /* Цвет линии для остальных браузеров */
-  background-color: borderColor; /* Цвет линии для браузера Firefox и Opera */
+  border: none;
+  /* Убираем границу для браузера Firefox */
+  color: borderColor;
+  /* Цвет линии для остальных браузеров */
+  background-color: borderColor;
+  /* Цвет линии для браузера Firefox и Opera */
   height: 1px;
 }
 
@@ -131,9 +135,15 @@
 }
 
 @media (min-width: 768px) {
+  .mainMenuItems {
+    width: 392px;
+    margin: 0 auto;
+  }
+
   .adminMenuItems {
     flex-direction: row;
   }
+
   .lightHeader {
     position: relative;
     height: 80px;
@@ -145,7 +155,24 @@
   }
 
   .adminMenuItems li:not(:last-of-type) {
-    margin-right: 30px;
+    /* margin-right: 30px; */
     margin-bottom: 0;
   }
 }
+
+@media (min-width: 1200px) {
+  .mainMenuItems {
+    width: 558px;
+  }
+
+  .adminMenuItems {
+    width: 640px;
+    margin: 0 auto;
+  }
+}
+
+/* @media screen and (min-width: 1024px) {
+  .mainMenuItems li:not(:last-of-type) {
+    margin-right: 89px;
+  }
+} */

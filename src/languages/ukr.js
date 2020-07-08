@@ -99,9 +99,9 @@ export default {
   "ukr name": "укр",
   "rus name": "рос",
   "eng name": "анг",
-  "update.createNewIngredient": "Створити новий енгредіент",
-  "update.addNewIngredient": "Додати новий інгредіент",
-  "update.ingredientAdded": "Новий інгредієнт створений",
+  "update.createNewIngredient": "Створити новий інгредієнт",
+  "update.addNewIngredient": "Додати новий інгредієнт",
+  "update.ingredientAdded": "Новий інгредієнт створено",
   "update.errorValidationName":
     "Недостатня кількість символів для назви. Мінімум 3",
   "update.errorValidationPrice":

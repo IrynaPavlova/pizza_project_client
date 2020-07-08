@@ -24,7 +24,7 @@ const AdminUpdateListItemEdit = () => {
     productForEdit = JSON.parse(sessionStorage.getItem("editedItem"));
     // console.log(productForEdit);
   }
-  const local = useSelector(state => state.local.lang);
+  const local = useSelector((state) => state.local.lang);
   const ingredients = useSelector(productSelectors.addIngredient);
   const isLoading = useSelector(productSelectors.getLoading);
   const images = useSelector(productSelectors.fileLink);
@@ -34,8 +34,9 @@ const AdminUpdateListItemEdit = () => {
   const [nameEn, setNameEn] = useState(productForEdit.name.en);
   const [nameUkr, setNameUkr] = useState(productForEdit.name.ukr);
   const [subcategory, setSubcategory] = useState({
+    id: 0,
     value: productForEdit.subcategory,
-    label: productForEdit.subcategory
+    label: languages[local][`pizza.${productForEdit.subcategory}`],
   });
   const [priceNoPizza, setPriceNoPizza] = useState(productForEdit.price.price);
   const [price, setPrice] = useState("");
@@ -44,14 +45,15 @@ const AdminUpdateListItemEdit = () => {
   const [pricePizzaL, setPricePizzaL] = useState(productForEdit.price.L);
   const [pricePizzaXL, setPricePizzaXL] = useState(productForEdit.price.XL);
   const [description, setDescription] = useState(productForEdit.description);
+  const [BtnCreateIngrad, setBtnCreateIngrad] = useState(false);
 
   const subcategoryList = [
-    { label: languages[local]["pizza.classic"], value: "classic" },
-    { label: languages[local]["pizza.special"], value: "branded" },
-    { label: languages[local]["pizza.premium"], value: "premium" }
+    { id: 0, label: languages[local]["pizza.classic"], value: "classic" },
+    { id: 1, label: languages[local]["pizza.special"], value: "branded" },
+    { id: 2, label: languages[local]["pizza.premium"], value: "premium" },
   ];
 
-  const postImage = file => {
+  const postImage = (file) => {
     dispatch(productOperations.sendFile(file));
   };
   const updateProduct = (id, editedItem) =>
@@ -62,6 +64,7 @@ const AdminUpdateListItemEdit = () => {
 
   useEffect(() => {
     if (productForEdit.categories === "pizza") {
+      setBtnCreateIngrad(false);
       setPrice({ M: pricePizzaM, L: pricePizzaL, XL: pricePizzaXL });
     } else {
       setPrice({ price: priceNoPizza });
@@ -74,6 +77,10 @@ const AdminUpdateListItemEdit = () => {
   useEffect(() => {
     dispatch(dispatch(productActions.imagesInit(productForEdit.images)));
   }, []); // eslint-disable-line
+
+  useEffect(() => {
+    setSubcategory(subcategoryList[subcategory.id]);
+  }, [local]); // eslint-disable-line
 
   const collector = () => {
     const name = { ru: nameRu, ukr: nameUkr, en: nameEn };
@@ -88,7 +95,7 @@ const AdminUpdateListItemEdit = () => {
       price,
       name,
       ingredients,
-      images
+      images,
     };
     editedItem.name = { ru: nameRu, ukr: nameUkr, en: nameEn };
     editedItem.categories = productForEdit.categories;
@@ -100,13 +107,14 @@ const AdminUpdateListItemEdit = () => {
     return editedItem;
   };
 
-  const handleImageFile = ev => {
+  const handleImageFile = (ev) => {
     ev.preventDefault();
     ev.target.files[0] && postImage(ev.target.files[0]);
     window.history.pushState({}, "", "/");
   };
-  const handleForm = ev => {
+  const handleForm = (ev) => {
     ev.preventDefault();
+    setBtnCreateIngrad(false);
     const isValidName =
       nameEn.length >= 3 && nameRu.length >= 3 && nameUkr.length >= 3;
     const isValidPrice = (() => {
@@ -143,8 +151,9 @@ const AdminUpdateListItemEdit = () => {
         setMassage(<FormattedMessage id="update.errorValidationName" />);
     }
   };
-  const deleteItem = ev => {
+  const deleteItem = (ev) => {
     ev.preventDefault();
+    setBtnCreateIngrad(false);
     deleteProduct();
     sessionStorage.removeItem("editedItem");
     window.history.pushState({}, "", "/");
@@ -154,7 +163,8 @@ const AdminUpdateListItemEdit = () => {
     const editedItem = { _id: productForEdit._id, ...collector() };
     sessionStorage.setItem("editedItem", JSON.stringify(editedItem));
   });
-  const handleConfirmWindow = ev => {
+  const handleConfirmWindow = (ev) => {
+    setBtnCreateIngrad(false);
     massage.props.id !== "deleted product" &&
       ev.target.dataset.confirm === "continue" &&
       setMassage("");
@@ -186,6 +196,33 @@ const AdminUpdateListItemEdit = () => {
               </p>
             </label>
             <h4 className={style.editCard__title}>
+              <FormattedMessage id="product.category" />
+            </h4>
+            <p>
+              <FormattedMessage id={productForEdit.categories} />
+            </p>
+            {productForEdit.categories === "pizza" && (
+              <>
+                <h4 className={style.editCard__title}>
+                  <FormattedMessage id="product.subcategory" />
+                </h4>
+                <Select
+                  options={subcategoryList}
+                  value={subcategory}
+                  onChange={(ev) => setSubcategory(ev)}
+                  theme={(theme) => ({
+                    ...theme,
+                    borderRadius: 0,
+                    colors: {
+                      ...theme.colors,
+                      primary25: "white",
+                      primary: "#ff6c00",
+                    },
+                  })}
+                />
+              </>
+            )}
+            <h4 className={style.editCard__title}>
               <FormattedMessage id="product.name" />
             </h4>
             <div className={style.editCard__titleName}>
@@ -195,7 +232,7 @@ const AdminUpdateListItemEdit = () => {
               <input
                 type="text"
                 value={nameRu}
-                onChange={ev => setNameRu(ev.target.value)}
+                onChange={(ev) => setNameRu(ev.target.value)}
                 className={style.editForm__inputLang}
                 maxLength="30"
               />
@@ -205,7 +242,7 @@ const AdminUpdateListItemEdit = () => {
               <input
                 type="text"
                 value={nameEn}
-                onChange={ev => setNameEn(ev.target.value)}
+                onChange={(ev) => setNameEn(ev.target.value)}
                 className={style.editForm__inputLang}
                 maxLength="30"
               />
@@ -215,29 +252,11 @@ const AdminUpdateListItemEdit = () => {
               <input
                 type="text"
                 value={nameUkr}
-                onChange={ev => setNameUkr(ev.target.value)}
+                onChange={(ev) => setNameUkr(ev.target.value)}
                 className={style.editForm__inputLang}
                 maxLength="30"
               />
             </div>
-            <h4 className={style.editCard__title}>
-              <FormattedMessage id="product.category" />
-            </h4>
-            <p>{productForEdit.categories}</p>
-            {productForEdit.categories === "pizza" && (
-              <>
-                <h4 className={style.editCard__title}>
-                  <FormattedMessage id="product.subcategory" />
-                </h4>
-                <Select
-                  options={subcategoryList}
-                  value={subcategory}
-                  onChange={ev => setSubcategory(ev)}
-                />
-                <IngredientSelect productForEdit={productForEdit} />
-                <AddNewIngredient />
-              </>
-            )}
             <h4 className={style.editCard__title}>
               <FormattedMessage id="product.price" />
             </h4>
@@ -247,7 +266,7 @@ const AdminUpdateListItemEdit = () => {
                 <input
                   type="text"
                   value={pricePizzaM}
-                  onChange={ev => setPricePizzaM(ev.target.value)}
+                  onChange={(ev) => setPricePizzaM(ev.target.value)}
                   className={style.editForm__priceInput}
                   maxLength="3"
                 />
@@ -255,7 +274,7 @@ const AdminUpdateListItemEdit = () => {
                 <input
                   type="text"
                   value={pricePizzaL}
-                  onChange={ev => setPricePizzaL(ev.target.value)}
+                  onChange={(ev) => setPricePizzaL(ev.target.value)}
                   className={style.editForm__priceInput}
                   maxLength="3"
                 />
@@ -263,7 +282,7 @@ const AdminUpdateListItemEdit = () => {
                 <input
                   type="text"
                   value={pricePizzaXL}
-                  onChange={ev => setPricePizzaXL(ev.target.value)}
+                  onChange={(ev) => setPricePizzaXL(ev.target.value)}
                   className={style.editForm__priceInput}
                   maxLength="3"
                 />
@@ -273,7 +292,7 @@ const AdminUpdateListItemEdit = () => {
                 <input
                   type="text"
                   value={priceNoPizza}
-                  onChange={ev => setPriceNoPizza(ev.target.value)}
+                  onChange={(ev) => setPriceNoPizza(ev.target.value)}
                   className={style.editForm__inputSinglePrice}
                   maxLength="3"
                 />
@@ -283,10 +302,26 @@ const AdminUpdateListItemEdit = () => {
                 <input
                   type="text"
                   value={description}
-                  onChange={ev => setDescription(ev.target.value)}
+                  onChange={(ev) => setDescription(ev.target.value)}
                   className={style.editForm__inputDescription}
                   maxLength="3"
                 />
+              </>
+            )}
+            {productForEdit.categories === "pizza" && (
+              <>
+                <IngredientSelect productForEdit={productForEdit} />
+                <label className={`${style.editForm}`}>
+                  <h4 className={`${style.editForm__photoBtn}`}>
+                    <FormattedMessage id="update.createNewIngredient" />
+                  </h4>
+                  <input
+                    type="button"
+                    onClick={() => setBtnCreateIngrad(!BtnCreateIngrad)}
+                    className={style.editForm__photo}
+                  />
+                </label>
+                {BtnCreateIngrad && <AddNewIngredient />}
               </>
             )}
           </form>

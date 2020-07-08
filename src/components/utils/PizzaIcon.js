@@ -1,15 +1,12 @@
 import React from "react";
 
-export default function PizzaIcon() {
+import { Link } from "react-router-dom";
+import { routes } from "../../services/routes";
+
+export default function PizzaIcon(props) {
   return (
     <>
-      <svg
-        x="0px"
-        y="0px"
-        viewBox="0 0 394.877 394.877"
-        width="49px"
-        height="49px"
-      >
+      <svg x="0px" y="0px" viewBox="0 0 394.877 394.877" className={props.svg}>
         <g transform="matrix(-1.83697e-16 1 -1 -1.83697e-16 394.877 0)">
           <g>
             <g>
@@ -251,19 +248,12 @@ export default function PizzaIcon() {
               />
             </g>
           </g>
-        </g>{" "}
+        </g>
       </svg>
-
-      <h1
-        style={{
-          position: "absolute",
-          top: 30,
-          fontFamily: "Rokkitt",
-          fontSize: 20,
-          color: "#272727",
-        }}
-      >
-        Pizza
+      <h1 className={props.className}>
+        <Link to={routes.MAIN_PAGE} style={{ color: "#272727" }}>
+          Pizza
+        </Link>
       </h1>
     </>
   );

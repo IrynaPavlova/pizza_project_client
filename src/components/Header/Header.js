@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Media from "react-media";
-import { Link } from "react-router-dom";
+
 import { useSelector } from "react-redux";
 import { authSelectors } from "../../redux/auth";
 
-import { routes } from "../../services/routes";
 import styles from "./Header.module.css";
 
 import LanguageSelector from "../LanguageSelector";
@@ -73,9 +72,9 @@ const Header = (props) => {
       </div>
       <div className={styles.lightHeader}>
         <div className={styles.container}>
-          <Link to={routes.MAIN_PAGE}>
-            <PizzaIcon />
-          </Link>
+          <div className={styles.logoWrapper}>
+            <PizzaIcon svg={styles.svg} className={styles.logo} />
+          </div>
           <Media query="(min-width: 768px)" render={() => <MainMenu />} />
           <ShoppingCartContainer />
           <Authentication
