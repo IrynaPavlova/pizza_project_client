@@ -1,9 +1,5 @@
 @value variables: '../../stylesheet/vars.css';
-@value primaryColor,
-accentColor,
-primaryTextFontSize,
-thirdHeaderFontStyle,
-borderColor from variables;
+@value primaryColor, accentColor, primaryTextFontSize, thirdHeaderFontStyle, borderColor from variables;
 
 .mainMenuItems {
   display: flex;
@@ -146,7 +142,6 @@ borderColor from variables;
 
   .adminMenuItems {
     flex-direction: row;
-
   }
 
   .lightHeader {
@@ -173,7 +168,6 @@ borderColor from variables;
   .adminMenuItems {
     width: 640px;
     margin: 0 auto;
-
   }
 }
 
