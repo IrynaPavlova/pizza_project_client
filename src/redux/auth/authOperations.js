@@ -1,5 +1,6 @@
 import axios from "axios";
 import authActions from "./authActions";
+import orderActions from "../order/orderActions";
 
 axios.defaults.baseURL = "https://evening-caverns-34846.herokuapp.com/";
 
@@ -85,6 +86,9 @@ const logOut = () => (dispatch) => {
     .then(() => {
       token.unset();
       dispatch(authActions.logoutSuccess());
+    })
+    .then(() => {
+      dispatch(orderActions.clearOrderList());
     })
     .catch(({ response: { data: { text } } }) =>
       dispatch(authActions.logoutError(text))

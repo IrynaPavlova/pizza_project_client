@@ -51,6 +51,25 @@
   text-transform: capitalize;
   text-align: center;
   margin-bottom: 35px;
+  overflow-y: auto;
+}
+
+.ingredientsText {
+  scrollbar-width: thin;
+}
+
+.ingredientsText::-webkit-scrollbar {
+  width: 12px;
+}
+
+.ingredientsText::-webkit-scrollbar-track {
+  background: rgba(39, 39, 39, 0.2);
+  border-radius: 5px;
+}
+
+.ingredientsText::-webkit-scrollbar-thumb {
+  background-color: #ff6c00;
+  border-radius: 5px;
 }
 
 .orderDetailsWrapper {
