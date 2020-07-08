@@ -1,9 +1,5 @@
 @value variables: '../../stylesheet/vars.css';
-@value primaryColor,
-accentColor,
-lightColor,
-primaryTextFontSize,
-secondaryTextFontSize from variables;
+@value primaryColor, accentColor, lightColor, primaryTextFontSize, secondaryTextFontSize from variables;
 
 .header {
   width: 100%;
@@ -109,7 +105,6 @@ secondaryTextFontSize from variables;
     padding-right: 15px;
   }
 
-
   .logoWrapper {
     /* padding-left: 20px; */
     /* padding-right: 20px; */
@@ -141,5 +136,4 @@ secondaryTextFontSize from variables;
   .container {
     padding: 0 60px 0 60px;
   }
-
 }

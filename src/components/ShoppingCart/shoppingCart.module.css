@@ -1,7 +1,5 @@
 @value variables: '../../stylesheet/vars.css';
-@value accentColor,
-lightColor,
-secondaryTextFontSize from variables;
+@value accentColor, lightColor, secondaryTextFontSize from variables;
 
 .shoppingCartWrapper {
   display: flex;
