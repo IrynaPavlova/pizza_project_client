@@ -1,5 +1,9 @@
 @value variables: '../../stylesheet/vars.css';
-@value primaryColor, accentColor, lightColor, primaryTextFontSize, secondaryTextFontSize from variables;
+@value primaryColor,
+accentColor,
+lightColor,
+primaryTextFontSize,
+secondaryTextFontSize from variables;
 
 .header {
   width: 100%;
@@ -34,6 +38,7 @@
 .container a {
   text-decoration: none !important;
 }
+
 .logoWrapper {
   position: relative;
   display: block;
@@ -99,15 +104,27 @@
     height: 18px;
   }
 
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+
   .logoWrapper {
-    padding-left: 20px;
-    padding-right: 20px;
+    /* padding-left: 20px; */
+    /* padding-right: 20px; */
+    padding-left: 4px;
+    width: 82px;
+  }
+
+  nav {
+    width: 64%;
   }
 
   .logo {
     font-size: 36px;
     top: 15px;
-    left: 12px;
+    /* left: 12px; */
   }
 
   .svg {
@@ -118,4 +135,11 @@
   .phoneNumber {
     font-size: secondaryTextFontSize;
   }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 60px 0 60px;
+  }
+
 }

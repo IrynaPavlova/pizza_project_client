@@ -1,5 +1,7 @@
 @value variables: '../../stylesheet/vars.css';
-@value accentColor, lightColor, secondaryTextFontSize from variables;
+@value accentColor,
+lightColor,
+secondaryTextFontSize from variables;
 
 .shoppingCartWrapper {
   display: flex;
@@ -30,7 +32,7 @@ a:link {
 }
 
 .productsPriceWrapper {
-  padding-left: 20px;
+  padding-left: 10px;
 }
 
 .productsPrice {

@@ -93,7 +93,7 @@ export default {
   "deleted product": "Product deleted",
   "continue editing": "Continue editing",
   "error editing": "Error.Continue later",
-  "product updated": "product updated successfully",
+  "product updated": "Product updated successfully",
   "volume weight": "Volume/weight",
   "ukr name": "ukr",
   "rus name": "rus",

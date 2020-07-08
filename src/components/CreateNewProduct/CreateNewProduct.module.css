@@ -90,6 +90,7 @@ input::placeholder {
   /* border-radius: 4px; */
   border: solid 1px #9c9c9c;
   height: 28px;
+  font-family: RobotoRegular;
 }
 
 .btn {
@@ -161,4 +162,8 @@ input::placeholder {
   /* border-radius: 4px; */
   border: solid 1px #9c9c9c;
   height: 28px;
+}
+
+input {
+  font-family: RobotoRegular;
 }

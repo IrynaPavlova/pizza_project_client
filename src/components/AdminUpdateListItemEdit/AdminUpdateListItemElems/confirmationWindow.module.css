@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   z-index: 100;
+  font-family: RobotoRegular;
 }
 
 .confirmation__form {
@@ -25,12 +26,14 @@
   border-radius: 4px;
   box-shadow: 8px 12px 12px rgba(0, 0, 0, 0.12), 1px 2px 4px rgba(0, 0, 0, 0.12);
 }
+
 .confirmation__formText {
   font-size: 20px;
   width: 80%;
   word-wrap: break-word;
   margin: 0;
 }
+
 .confirmation__formBtnLink {
   font-family: RobotoRegular;
   font-style: normal;
@@ -38,6 +41,7 @@
   width: 100%;
   height: 50px;
 }
+
 .confirmation__formBtn {
   font-family: RobotoRegular;
   font-style: normal;
@@ -57,15 +61,18 @@
     height: 341px;
     padding: 0;
   }
+
   .confirmation__formText {
     width: 320px;
     word-wrap: break-word;
     margin: 0;
     font-size: 24px;
   }
+
   .confirmation__formBtnLink {
     width: 320px;
   }
+
   .confirmation__formBtn {
     width: 320px;
   }

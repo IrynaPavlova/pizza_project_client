@@ -80,7 +80,7 @@ const AdminUpdateListItemEdit = () => {
 
   useEffect(() => {
     setSubcategory(subcategoryList[subcategory.id]);
-  }, [local]);
+  }, [local]); // eslint-disable-line
 
   const collector = () => {
     const name = { ru: nameRu, ukr: nameUkr, en: nameEn };
