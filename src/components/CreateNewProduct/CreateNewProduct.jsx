@@ -52,6 +52,7 @@ const CreateNewProduct = () => {
   const [description, setDescription] = useState("");
   const [BtnCreateIngrad, setBtnCreateIngrad] = useState(false);
   const [messagNoChoosIngrad, setMessagNoChoosIngrad] = useState(false);
+  const [createSucces, setCreateSucces] = useState(false);
 
   const isLoading = useSelector(productSelectors.getLoading);
   const hasError = useSelector(productSelectors.getError);
@@ -62,7 +63,6 @@ const CreateNewProduct = () => {
   const hrefProductImg = useSelector(productSelectors.fileLink);
   const postNewProduct = (product) =>
     dispatch(productOperations.sendProduct(product));
-  const createdProduct = useSelector(productSelectors.getProducts);
 
   const clearFields = () => {
     changeCategory(options[0]);
@@ -105,6 +105,8 @@ const CreateNewProduct = () => {
   const submitForm = async (e) => {
     e.persist();
     e.preventDefault();
+    productActions.sendProductRequest();
+    setCreateSucces(false);
     const product = {
       categories: category.value,
       currency: "грн",
@@ -130,7 +132,12 @@ const CreateNewProduct = () => {
       product.price = { price: Math.trunc(price) };
       product.description = description;
     }
+
+    if (!fileLink) {
+      return productActions.sendProductError(languages[local].error);
+    }
     postNewProduct(product);
+    setCreateSucces(true);
     clearFields();
   };
 
@@ -141,11 +148,8 @@ const CreateNewProduct = () => {
       {messagNoChoosIngrad && (
         <Notification message={languages[local]["update.addIngredient"]} />
       )}
-      {createdProduct.length === 1 && (
-        <Notification
-          message={languages[local]["product.created"]}
-          confirm={createdProduct.length === 1}
-        />
+      {createSucces && (
+        <Notification message={languages[local]["product.created"]} confirm />
       )}
       <form onSubmit={submitForm} className={styles.applyForm}>
         <p className={styles.title}>
