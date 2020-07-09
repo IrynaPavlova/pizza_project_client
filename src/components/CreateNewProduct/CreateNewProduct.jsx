@@ -105,7 +105,6 @@ const CreateNewProduct = () => {
   const submitForm = async (e) => {
     e.persist();
     e.preventDefault();
-    productActions.sendProductRequest();
     setCreateSucces(false);
     const product = {
       categories: category.value,
