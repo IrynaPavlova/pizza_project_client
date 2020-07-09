@@ -53,6 +53,7 @@ const CreateNewProduct = () => {
   const [BtnCreateIngrad, setBtnCreateIngrad] = useState(false);
   const [messagNoChoosIngrad, setMessagNoChoosIngrad] = useState(false);
   const [createSucces, setCreateSucces] = useState(false);
+  const [error, setError] = useState(false);
 
   const isLoading = useSelector(productSelectors.getLoading);
   const hasError = useSelector(productSelectors.getError);
@@ -105,6 +106,7 @@ const CreateNewProduct = () => {
   const submitForm = async (e) => {
     e.persist();
     e.preventDefault();
+    setError(false);
     setCreateSucces(false);
     const product = {
       categories: category.value,
@@ -132,6 +134,9 @@ const CreateNewProduct = () => {
       product.description = description;
     }
 
+    if (!fileLink) {
+      return setError(true);
+    }
     postNewProduct(product);
     setCreateSucces(true);
     clearFields();
@@ -140,7 +145,7 @@ const CreateNewProduct = () => {
   return (
     <div className={styles.createContainer}>
       {isLoading && <Spinner />}
-      {hasError && <Notification message={languages[local].error} />}
+      {hasError || (error && <Notification message={languages[local].error} />)}
       {messagNoChoosIngrad && (
         <Notification message={languages[local]["update.addIngredient"]} />
       )}
