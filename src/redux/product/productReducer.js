@@ -7,7 +7,10 @@ const productReducer = createReducer([], {
   [productActions.byCategorySuccess]: (state, { payload }) => payload,
   [productActions.byIdSuccess]: (state, { payload }) => payload,
 
-  [productActions.sendProductSuccess]: (state, { payload }) => [payload],
+  [productActions.sendProductSuccess]: (state, { payload }) => [
+    ...state,
+    payload,
+  ],
   [productActions.updateProductSuccess]: (state, { payload }) => [
     ...state,
     payload,
