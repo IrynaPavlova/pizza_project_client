@@ -103,7 +103,6 @@ const AdminUpdateListItemEdit = () => {
     if (productForEdit.categories !== "pizza") {
       editedItem.description = description;
     }
-    // console.log(editedItem);
     return editedItem;
   };
 
@@ -115,41 +114,41 @@ const AdminUpdateListItemEdit = () => {
   const handleForm = (ev) => {
     ev.preventDefault();
     setBtnCreateIngrad(false);
-    const isValidName =
-      nameEn.length >= 3 && nameRu.length >= 3 && nameUkr.length >= 3;
-    const isValidPrice = (() => {
-      let isValid = false;
-      if (productForEdit.categories === "pizza") {
-        isValid =
-          pricePizzaL.toString().length >= 2 &&
-          pricePizzaM.toString().length >= 2 &&
-          pricePizzaXL.toString().length >= 2;
-      } else {
-        isValid = priceNoPizza.toString().length >= 2;
-      }
-      return isValid;
-    })();
-    const isValidDescription =
-      productForEdit.categories === "pizza"
-        ? true
-        : description.toString().length >= 1 && description !== "0";
+    // const isValidName =
+    //   nameEn.length >= 3 && nameRu.length >= 3 && nameUkr.length >= 3;
+    // const isValidPrice = (() => {
+    //   let isValid = false;
+    //   if (productForEdit.categories === "pizza") {
+    //     isValid =
+    //       pricePizzaL.toString().length >= 2 &&
+    //       pricePizzaM.toString().length >= 2 &&
+    //       pricePizzaXL.toString().length >= 2;
+    //   } else {
+    //     isValid = priceNoPizza.toString().length >= 2;
+    //   }
+    //   return isValid;
+    // })();
+    // const isValidDescription =
+    //   productForEdit.categories === "pizza"
+    //     ? true
+    //     : description.toString().length >= 1 && description !== "0";
 
-    if (isValidName && isValidPrice && isValidDescription) {
-      const editedItem = collector();
-      updateProduct(productForEdit._id, editedItem);
-      setMassage(<FormattedMessage id="product updated" />);
-    } else {
-      if (productForEdit.categories !== "pizza") {
-        isValidDescription ||
-          setMassage(
-            <FormattedMessage id="update.errorValidationDescription" />
-          );
-      }
-      isValidPrice ||
-        setMassage(<FormattedMessage id="update.errorValidationPrice" />);
-      isValidName ||
-        setMassage(<FormattedMessage id="update.errorValidationName" />);
-    }
+    // if (isValidName && isValidPrice && isValidDescription) {
+    const editedItem = collector();
+    updateProduct(productForEdit._id, editedItem);
+    setMassage(<FormattedMessage id="product updated" />);
+    // } else {
+    //   if (productForEdit.categories !== "pizza") {
+    //     isValidDescription ||
+    //       setMassage(
+    //         <FormattedMessage id="update.errorValidationDescription" />
+    //       );
+    //   }
+    //   isValidPrice ||
+    //     setMassage(<FormattedMessage id="update.errorValidationPrice" />);
+    //   isValidName ||
+    //     setMassage(<FormattedMessage id="update.errorValidationName" />);
+    // }
   };
   const deleteItem = (ev) => {
     ev.preventDefault();
@@ -234,7 +233,9 @@ const AdminUpdateListItemEdit = () => {
                 value={nameRu}
                 onChange={(ev) => setNameRu(ev.target.value)}
                 className={style.editForm__inputLang}
+                minLength="3"
                 maxLength="30"
+                required
               />
               <p className={style.editCard__titleLang}>
                 <FormattedMessage id="eng name" />
@@ -244,7 +245,9 @@ const AdminUpdateListItemEdit = () => {
                 value={nameEn}
                 onChange={(ev) => setNameEn(ev.target.value)}
                 className={style.editForm__inputLang}
+                minLength="3"
                 maxLength="30"
+                required
               />
               <p className={style.editCard__titleLang}>
                 <FormattedMessage id="ukr name" />
@@ -254,7 +257,9 @@ const AdminUpdateListItemEdit = () => {
                 value={nameUkr}
                 onChange={(ev) => setNameUkr(ev.target.value)}
                 className={style.editForm__inputLang}
+                minLength="3"
                 maxLength="30"
+                required
               />
             </div>
             <h4 className={style.editCard__title}>
@@ -264,47 +269,62 @@ const AdminUpdateListItemEdit = () => {
               <div className={style.editForm__price}>
                 <h4 className={style.editForm__priceTitle}>M</h4>
                 <input
-                  type="text"
+                  type="number"
                   value={pricePizzaM}
                   onChange={(ev) => setPricePizzaM(ev.target.value)}
                   className={style.editForm__priceInput}
-                  maxLength="3"
+                  min="10"
+                  max="999"
+                  step="1"
+                  required
                 />
                 <h4 className={style.editForm__priceTitle}>L</h4>
                 <input
-                  type="text"
+                  type="number"
                   value={pricePizzaL}
                   onChange={(ev) => setPricePizzaL(ev.target.value)}
                   className={style.editForm__priceInput}
-                  maxLength="3"
+                  min="10"
+                  max="999"
+                  step="1"
+                  required
                 />
                 <h4 className={style.editForm__priceTitle}>XL</h4>
                 <input
-                  type="text"
+                  type="number"
                   value={pricePizzaXL}
                   onChange={(ev) => setPricePizzaXL(ev.target.value)}
                   className={style.editForm__priceInput}
-                  maxLength="3"
+                  min="10"
+                  max="999"
+                  step="1"
+                  required
                 />
               </div>
             ) : (
               <>
                 <input
-                  type="text"
+                  type="number"
                   value={priceNoPizza}
                   onChange={(ev) => setPriceNoPizza(ev.target.value)}
                   className={style.editForm__inputSinglePrice}
-                  maxLength="3"
+                  min="10"
+                  max="999"
+                  step="1"
+                  required
                 />
                 <p className={style.editCard__title}>
                   <FormattedMessage id="volume weight" />
                 </p>
                 <input
-                  type="text"
+                  type="number"
                   value={description}
                   onChange={(ev) => setDescription(ev.target.value)}
                   className={style.editForm__inputDescription}
-                  maxLength="3"
+                  min="0.3"
+                  max="999"
+                  step="0.01"
+                  required
                 />
               </>
             )}
