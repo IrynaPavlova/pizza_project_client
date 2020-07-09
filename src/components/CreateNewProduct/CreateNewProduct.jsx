@@ -132,9 +132,6 @@ const CreateNewProduct = () => {
       product.description = description;
     }
 
-    if (!fileLink) {
-      return productActions.sendProductError(languages[local].error);
-    }
     postNewProduct(product);
     setCreateSucces(true);
     clearFields();
