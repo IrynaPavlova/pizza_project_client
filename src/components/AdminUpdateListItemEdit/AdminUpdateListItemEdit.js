@@ -27,7 +27,7 @@ const AdminUpdateListItemEdit = () => {
   const local = useSelector((state) => state.local.lang);
   const ingredients = useSelector(productSelectors.addIngredient);
   const isLoading = useSelector(productSelectors.getLoading);
-  const images = useSelector(productSelectors.fileLink);
+  const images = useSelector(productSelectors.getFileLink);
   const [massage, setMassage] = useState("");
 
   const [nameRu, setNameRu] = useState(productForEdit.name.ru);

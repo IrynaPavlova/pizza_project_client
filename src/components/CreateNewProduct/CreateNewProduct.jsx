@@ -60,8 +60,6 @@ const CreateNewProduct = () => {
   const fileLink = useSelector(productSelectors.getFileLink);
   const ingredients = useSelector(productSelectors.addIngredient);
   const dispatch = useDispatch();
-  const postImage = (file) => dispatch(productOperations.sendFile(file));
-  const hrefProductImg = useSelector(productSelectors.fileLink);
   const postNewProduct = (product) =>
     dispatch(productOperations.sendProduct(product));
 
@@ -89,19 +87,13 @@ const CreateNewProduct = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(dispatch(productActions.imagesInit("")));
+    dispatch(dispatch(productActions.imagesInit(null)));
   }, [dispatch]);
 
   useEffect(() => {
     changeCategory(options[category.id]);
     changeSubCategory(pizzaCategories[subCategory.id]);
   }, [local]); // eslint-disable-line
-
-  const handleImg = (e) => {
-    e.persist();
-    e.preventDefault();
-    postImage(e.target.files[0]);
-  };
 
   const submitForm = async (e) => {
     e.persist();
@@ -111,7 +103,7 @@ const CreateNewProduct = () => {
     const product = {
       categories: category.value,
       currency: "грн",
-      images: hrefProductImg,
+      images: fileLink,
       name: {
         ukr: toUpperCaseFirstLetter(ukrName),
         en: toUpperCaseFirstLetter(enName),
@@ -152,7 +144,7 @@ const CreateNewProduct = () => {
       {createSucces && (
         <Notification message={languages[local]["product.created"]} confirm />
       )}
-      <form onSubmit={submitForm} className={styles.applyForm}>
+      <form className={styles.applyForm}>
         <p className={styles.title}>
           <FormattedMessage id="product.category" />
         </p>
@@ -335,7 +327,9 @@ const CreateNewProduct = () => {
           <input
             type="file"
             id="image"
-            onChange={handleImg}
+            onChange={({ target: { files } }) => {
+              dispatch(productOperations.sendFile(files[0]));
+            }}
             className={styles.inputImg}
             accept=".jpg, .jpeg, .png"
             required
@@ -357,7 +351,11 @@ const CreateNewProduct = () => {
             </label>
           </>
         )}
-        <button type="Submit" className={styles.btn}>
+        <button
+          type="button"
+          onClick={(e) => submitForm(e)}
+          className={styles.btn}
+        >
           <FormattedMessage id="send" />
         </button>
         {BtnCreateIngrad && <AddNewIngredient />}
