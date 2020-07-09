@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { FormattedMessage } from "react-intl";
+import Spinner from "../Spinner";
 import axios from "axios";
 
 import { productSelectors, productOperations } from "../../redux/product";
@@ -26,16 +27,19 @@ class SidesList extends Component {
     }
   }
   render() {
-    const { products } = this.props;
+    const { products, isLoading } = this.props;
     return (
       <div className={styles.containerList}>
+        {isLoading && <Spinner />}
         <h1 className={styles.title}>
           <FormattedMessage id="sides" />
         </h1>
         <ul className={styles.menu}>
-          {products.map((product) => (
-            <SidesListItem key={product._id} {...product} />
-          ))}
+          {products
+            .filter(({ categories }) => categories === "sides")
+            .map((product) => (
+              <SidesListItem key={product._id} {...product} />
+            ))}
         </ul>
       </div>
     );
@@ -43,7 +47,10 @@ class SidesList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { products: productSelectors.getProducts(state) };
+  return {
+    products: productSelectors.getProducts(state),
+    isLoading: productSelectors.getLoading(state),
+  };
 };
 
 const mapDispatchToProps = {
