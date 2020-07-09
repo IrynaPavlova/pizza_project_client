@@ -10,8 +10,6 @@ const getIngredients = (state) => state.products.ingredients;
 
 const createNewIngredient = (state) => state.products.newIngredient;
 
-const fileLink = (state) => state.products.fileLink;
-
 const addIngredient = (state) => state.products.ingredient;
 
 export default {
@@ -21,6 +19,5 @@ export default {
   getFileLink,
   getIngredients,
   createNewIngredient,
-  fileLink,
   addIngredient,
 };

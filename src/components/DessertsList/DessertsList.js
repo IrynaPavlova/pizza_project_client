@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { FormattedMessage } from "react-intl";
+import Spinner from "../Spinner";
 import axios from "axios";
 
 import { productSelectors, productOperations } from "../../redux/product";
@@ -29,17 +30,20 @@ class DesertList extends Component {
   }
 
   render() {
-    const { products } = this.props;
+    const { products, isLoading } = this.props;
 
     return (
       <div className={dessertConainer}>
+        {isLoading && <Spinner />}
         <h2 className={dessertsHeading}>
           <FormattedMessage id="desserts" />
         </h2>
         <ul className={dessertList}>
-          {products.map((product) => (
-            <DessertsListItem key={product._id} {...product} />
-          ))}
+          {products
+            .filter(({ categories }) => categories === "desserts")
+            .map((product) => (
+              <DessertsListItem key={product._id} {...product} />
+            ))}
         </ul>
       </div>
     );
@@ -47,7 +51,10 @@ class DesertList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { products: productSelectors.getProducts(state) };
+  return {
+    products: productSelectors.getProducts(state),
+    isLoading: productSelectors.getLoading(state),
+  };
 };
 
 const mapDispatchToProps = {
