@@ -69,7 +69,7 @@ export default {
   "order.pizzaSuccess": "Pizza {name} is added to cart",
   "order.pizzaError": "Pizza {name} is already in cart",
   "product.create": "Create new product",
-  "product.created": "Product is successfully created! :)",
+  "product.created": "Product is successfully created!",
   "product.edit": "Edit product",
   "product.name": "Name",
   "product.about": "Product about",
