@@ -24,7 +24,7 @@ const AdminUpdateListItemEdit = () => {
     productForEdit = JSON.parse(sessionStorage.getItem("editedItem"));
     // console.log(productForEdit);
   }
-  const local = useSelector((state) => state.local.lang);
+  const local = useSelector(state => state.local.lang);
   const ingredients = useSelector(productSelectors.addIngredient);
   const isLoading = useSelector(productSelectors.getLoading);
   const images = useSelector(productSelectors.getFileLink);
@@ -36,7 +36,7 @@ const AdminUpdateListItemEdit = () => {
   const [subcategory, setSubcategory] = useState({
     id: 0,
     value: productForEdit.subcategory,
-    label: languages[local][`pizza.${productForEdit.subcategory}`],
+    label: languages[local][`pizza.${productForEdit.subcategory}`]
   });
   const [priceNoPizza, setPriceNoPizza] = useState(productForEdit.price.price);
   const [price, setPrice] = useState("");
@@ -50,10 +50,10 @@ const AdminUpdateListItemEdit = () => {
   const subcategoryList = [
     { id: 0, label: languages[local]["pizza.classic"], value: "classic" },
     { id: 1, label: languages[local]["pizza.special"], value: "branded" },
-    { id: 2, label: languages[local]["pizza.premium"], value: "premium" },
+    { id: 2, label: languages[local]["pizza.premium"], value: "premium" }
   ];
 
-  const postImage = (file) => {
+  const postImage = file => {
     dispatch(productOperations.sendFile(file));
   };
   const updateProduct = (id, editedItem) =>
@@ -95,7 +95,7 @@ const AdminUpdateListItemEdit = () => {
       price,
       name,
       ingredients,
-      images,
+      images
     };
     editedItem.name = { ru: nameRu, ukr: nameUkr, en: nameEn };
     editedItem.categories = productForEdit.categories;
@@ -106,12 +106,12 @@ const AdminUpdateListItemEdit = () => {
     return editedItem;
   };
 
-  const handleImageFile = (ev) => {
+  const handleImageFile = ev => {
     ev.preventDefault();
     ev.target.files[0] && postImage(ev.target.files[0]);
     window.history.pushState({}, "", "/");
   };
-  const handleForm = (ev) => {
+  const handleForm = ev => {
     ev.preventDefault();
     setBtnCreateIngrad(false);
     // const isValidName =
@@ -150,7 +150,7 @@ const AdminUpdateListItemEdit = () => {
     //     setMassage(<FormattedMessage id="update.errorValidationName" />);
     // }
   };
-  const deleteItem = (ev) => {
+  const deleteItem = ev => {
     ev.preventDefault();
     setBtnCreateIngrad(false);
     deleteProduct();
@@ -162,7 +162,7 @@ const AdminUpdateListItemEdit = () => {
     const editedItem = { _id: productForEdit._id, ...collector() };
     sessionStorage.setItem("editedItem", JSON.stringify(editedItem));
   });
-  const handleConfirmWindow = (ev) => {
+  const handleConfirmWindow = ev => {
     setBtnCreateIngrad(false);
     massage.props.id !== "deleted product" &&
       ev.target.dataset.confirm === "continue" &&
@@ -208,15 +208,15 @@ const AdminUpdateListItemEdit = () => {
                 <Select
                   options={subcategoryList}
                   value={subcategory}
-                  onChange={(ev) => setSubcategory(ev)}
-                  theme={(theme) => ({
+                  onChange={ev => setSubcategory(ev)}
+                  theme={theme => ({
                     ...theme,
                     borderRadius: 0,
                     colors: {
                       ...theme.colors,
                       primary25: "white",
-                      primary: "#ff6c00",
-                    },
+                      primary: "#ff6c00"
+                    }
                   })}
                 />
               </>
@@ -231,7 +231,7 @@ const AdminUpdateListItemEdit = () => {
               <input
                 type="text"
                 value={nameRu}
-                onChange={(ev) => setNameRu(ev.target.value)}
+                onChange={ev => setNameRu(ev.target.value)}
                 className={style.editForm__inputLang}
                 minLength="3"
                 maxLength="30"
@@ -243,7 +243,7 @@ const AdminUpdateListItemEdit = () => {
               <input
                 type="text"
                 value={nameEn}
-                onChange={(ev) => setNameEn(ev.target.value)}
+                onChange={ev => setNameEn(ev.target.value)}
                 className={style.editForm__inputLang}
                 minLength="3"
                 maxLength="30"
@@ -255,7 +255,7 @@ const AdminUpdateListItemEdit = () => {
               <input
                 type="text"
                 value={nameUkr}
-                onChange={(ev) => setNameUkr(ev.target.value)}
+                onChange={ev => setNameUkr(ev.target.value)}
                 className={style.editForm__inputLang}
                 minLength="3"
                 maxLength="30"
@@ -271,7 +271,7 @@ const AdminUpdateListItemEdit = () => {
                 <input
                   type="number"
                   value={pricePizzaM}
-                  onChange={(ev) => setPricePizzaM(ev.target.value)}
+                  onChange={ev => setPricePizzaM(ev.target.value)}
                   className={style.editForm__priceInput}
                   min="10"
                   max="999"
@@ -282,7 +282,7 @@ const AdminUpdateListItemEdit = () => {
                 <input
                   type="number"
                   value={pricePizzaL}
-                  onChange={(ev) => setPricePizzaL(ev.target.value)}
+                  onChange={ev => setPricePizzaL(ev.target.value)}
                   className={style.editForm__priceInput}
                   min="10"
                   max="999"
@@ -293,7 +293,7 @@ const AdminUpdateListItemEdit = () => {
                 <input
                   type="number"
                   value={pricePizzaXL}
-                  onChange={(ev) => setPricePizzaXL(ev.target.value)}
+                  onChange={ev => setPricePizzaXL(ev.target.value)}
                   className={style.editForm__priceInput}
                   min="10"
                   max="999"
@@ -306,7 +306,7 @@ const AdminUpdateListItemEdit = () => {
                 <input
                   type="number"
                   value={priceNoPizza}
-                  onChange={(ev) => setPriceNoPizza(ev.target.value)}
+                  onChange={ev => setPriceNoPizza(ev.target.value)}
                   className={style.editForm__inputSinglePrice}
                   min="10"
                   max="999"
@@ -319,7 +319,7 @@ const AdminUpdateListItemEdit = () => {
                 <input
                   type="number"
                   value={description}
-                  onChange={(ev) => setDescription(ev.target.value)}
+                  onChange={ev => setDescription(ev.target.value)}
                   className={style.editForm__inputDescription}
                   min="0.3"
                   max="999"
@@ -332,7 +332,7 @@ const AdminUpdateListItemEdit = () => {
               <>
                 <IngredientSelect productForEdit={productForEdit} />
                 <label className={`${style.editForm}`}>
-                  <h4 className={`${style.editForm__photoBtn}`}>
+                  <h4 className={style.editForm__photoBtn}>
                     <FormattedMessage id="update.createNewIngredient" />
                   </h4>
                   <input

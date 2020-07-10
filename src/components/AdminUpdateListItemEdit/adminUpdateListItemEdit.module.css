@@ -9,7 +9,7 @@
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
-  padding: 10px;
+  padding: 10px 10px 70px 10px;
   max-width: 320px;
   margin: 0 auto;
   background: #fafafa;
@@ -18,6 +18,7 @@
   font-size: 20px;
   text-align: center;
 }
+
 .editCard__image {
   display: block;
   width: 100%;
@@ -25,9 +26,11 @@
   object-fit: contain;
   background-color: white;
 }
+
 .editForm {
   width: 100%;
 }
+
 .editCard__title {
   font-size: 20px;
   padding-top: 25px;
@@ -36,26 +39,32 @@
   font-style: normal;
   font-weight: 500;
 }
+
 .editCard__titleName {
   display: grid;
   grid-template-columns: 20% 80%;
   line-height: 30px;
 }
+
 .editCard__titleLang {
   margin: 0;
 }
+
 .editForm__inputLang {
   height: 30px;
   padding-left: 10px;
   width: inherit;
   margin-bottom: 5px;
 }
+
 .editCard__photoLabel {
   width: 100%;
 }
+
 .editForm__photo {
   display: none;
 }
+
 .editForm__photoBtn {
   font-family: RobotoRegular;
   font-style: normal;
@@ -71,39 +80,46 @@
   margin: 0 auto;
   color: white;
 }
+
 .editForm__inputCategory {
   padding-left: 10px;
   width: 180px;
 }
+
 .editForm__price {
   display: inline-grid;
   grid-template-columns: 30% 100px;
   margin: 0 auto;
   line-height: 30px;
 }
+
 .editForm__priceInput {
   height: 30px;
   padding-left: 10px;
   margin-bottom: 5px;
 }
+
 .editForm__inputSinglePrice {
   padding-left: 10px;
   width: 180px;
 }
+
 .editForm__priceTitle {
   margin: 0;
 }
+
 .editForm__inputDescription {
   padding-left: 10px;
   width: 180px;
 }
+
 .editForm__btnSubmit {
   display: block;
   height: 36px;
   border: none;
   background: #ff6c00;
   border-radius: 4px;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;

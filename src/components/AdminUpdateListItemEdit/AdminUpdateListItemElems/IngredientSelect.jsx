@@ -8,11 +8,11 @@ import style from "./ingredientSelect.module.css";
 
 const IngredientSelect = ({ productForEdit = {} }) => {
   const dispatch = useDispatch();
-  const local = useSelector((state) => state.local.lang);
+  const local = useSelector(state => state.local.lang);
   const ingredientsList = useSelector(productSelectors.getIngredients);
   const ingredientsSelectList = ingredientsList.map((el, idx) => ({
     label: el.name[local],
-    value: idx,
+    value: idx
   }));
   const [newIngredient, setNewIngredient] = useState("");
   const [ingredients, setIngredients] = useState(
@@ -20,7 +20,7 @@ const IngredientSelect = ({ productForEdit = {} }) => {
   );
 
   useEffect(() => {
-    dispatch((dispatch) => dispatch(productActions.addIngredient(ingredients)));
+    dispatch(dispatch => dispatch(productActions.addIngredient(ingredients)));
   }, [ingredients]); // eslint-disable-line
   useEffect(() => {
     setNewIngredient(ingredientsSelectList[0]);
@@ -28,20 +28,20 @@ const IngredientSelect = ({ productForEdit = {} }) => {
 
   useEffect(() => {
     setNewIngredient(ingredientsSelectList[newIngredient.value]);
-  }, [local]);
+  }, [local]); // eslint-disable-line
 
   const addIngredient = () => {
     ingredients.some(
-      (el) => ingredientsList[newIngredient.value]._id === el._id
+      el => ingredientsList[newIngredient.value]._id === el._id
     ) ||
-      setIngredients((ingredients) => [
+      setIngredients(ingredients => [
         ...ingredients,
-        ingredientsList[newIngredient.value],
+        ingredientsList[newIngredient.value]
       ]);
   };
-  const deleteIngredient = (ev) => {
+  const deleteIngredient = ev => {
     const delElemIndex = ingredients.findIndex(
-      (el) => el._id === ev.currentTarget.dataset.id
+      el => el._id === ev.currentTarget.dataset.id
     );
     const newIngredientsList = [...ingredients];
     newIngredientsList.splice(delElemIndex, 1);
@@ -88,16 +88,16 @@ const IngredientSelect = ({ productForEdit = {} }) => {
         <Select
           options={ingredientsSelectList}
           value={newIngredient}
-          onChange={(ev) => setNewIngredient(ev)}
+          onChange={ev => setNewIngredient(ev)}
           className={style.editForm__ingredientsList}
-          theme={(theme) => ({
+          theme={theme => ({
             ...theme,
             borderRadius: 0,
             colors: {
               ...theme.colors,
               primary25: "white",
-              primary: "#ff6c00",
-            },
+              primary: "#ff6c00"
+            }
           })}
         />
         <button
