@@ -77,6 +77,8 @@
   display: block;
   top: 20px;
   right: 20px;
+  overflow: visible;
+  z-index: 1200;
   background-color: white;
   border: none;
 }
