@@ -3,11 +3,12 @@
 
 .container {
   width: 220px;
-  background-color: #fff;
+  background-color: #fafafa;
   /* padding: 40px; */
   position: absolute;
   right: 0;
   top: 0;
+  min-height: 100%;
 }
 
 .header {
@@ -17,13 +18,19 @@
   height: 80px;
   padding: 40px;
   /* margin-bottom: 30px; */
-  /* background-color: #fafafa; */
+  background-color: #ffffff;
 }
 
 .authBar {
   border: none;
   background-color: transparent;
   color: primaryColor;
+  font-family: RobotoRegular;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.01em;
+
+  color: #272727;
 }
 
 .menuNavigation {

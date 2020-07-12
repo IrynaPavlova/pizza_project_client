@@ -72,9 +72,11 @@
 
 .buttonToClose {
   position: absolute;
-  width: 11px;
-  height: 11px;
-  display: block;
+  min-width: 18px;
+  min-height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: 20px;
   right: 20px;
   overflow: visible;
