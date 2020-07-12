@@ -58,7 +58,6 @@ const sendFileError = createAction("products/sendFileError");
 const clearFile = createAction("products/clearFile");
 
 const imagesInit = createAction("products/imagesInit");
-const saveExistedImgSuccess = createAction("products/saveExistedImgSuccess");
 
 // const cancelInput = createAction("products/cancelInput");
 

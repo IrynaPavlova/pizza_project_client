@@ -19,32 +19,32 @@ export default function PizzaListForTest({ products }) {
         <FormattedMessage id="pizza.classic" />
       </h2>
       <ul className={styles.pizzaList}>
-        {products.map((product, index) => {
-          if (product.subcategory === "classic") {
-            return <PizzaListItem {...product} key={index} local={local} />;
-          }
-        })}
+        {products
+          .filter(({ subcategory }) => subcategory === "classic")
+          .map((product) => (
+            <PizzaListItem {...product} key={product._id} local={local} />
+          ))}
       </ul>
       <h2 className={styles.pizzaHeading}>
         <FormattedMessage id="pizza.special" />
       </h2>
       <ul className={styles.pizzaList}>
-        {products.map((product, index) => {
-          if (product.subcategory === "branded") {
-            return <PizzaListItem {...product} key={index} local={local} />;
-          }
-        })}
+        {products
+          .filter(({ subcategory }) => subcategory === "branded")
+          .map((product) => (
+            <PizzaListItem {...product} key={product._id} local={local} />
+          ))}
       </ul>
 
       <h2 className={styles.pizzaHeading}>
         <FormattedMessage id="pizza.premium" />
       </h2>
       <ul className={styles.pizzaList}>
-        {products.map((product, index) => {
-          if (product.subcategory === "premium") {
-            return <PizzaListItem {...product} key={index} local={local} />;
-          }
-        })}
+        {products
+          .filter(({ subcategory }) => subcategory === "premium")
+          .map((product) => (
+            <PizzaListItem {...product} key={product._id} local={local} />
+          ))}
       </ul>
     </div>
   );

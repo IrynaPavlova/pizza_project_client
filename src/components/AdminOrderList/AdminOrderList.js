@@ -17,13 +17,13 @@ export default function AdminOrderList() {
   const isLoaded = useSelector(orderSelectors.getLoading);
   const error = useSelector(orderSelectors.getError);
 
-  const [filters, setFilter] = useState(localMessages[local]["orders.new"]);
-
   const options = [
-    localMessages[local]["orders.new"],
-    localMessages[local]["orders.done"],
-    localMessages[local]["orders.all"],
+    { message: localMessages[local]["orders.new"], status: "new" },
+    { message: localMessages[local]["orders.done"], status: "done" },
+    { message: localMessages[local]["orders.all"], status: "new done" },
   ];
+
+  const [filters, setFilter] = useState(options[0]);
 
   useEffect(() => {
     dispatch(orderOperations.getOrders());
@@ -50,43 +50,25 @@ export default function AdminOrderList() {
               <div className={styles.buttons_container}>
                 {options.map((option) => (
                   <button
-                    key={option}
+                    key={option.message}
                     className={`${styles.button} ${
-                      filters === option ? styles.button_active : ""
+                      filters.message === option.message
+                        ? styles.button_active
+                        : ""
                     }`}
                     onClick={() => setFilter(option)}
                   >
-                    {option}
+                    {option.message}
                   </button>
                 ))}
               </div>
               <div className={styles.orderItems}>
                 <ul>
-                  {items.map((item) => {
-                    if (filters === localMessages[local]["orders.all"]) {
-                      return <AdminOrdersListItem key={item._id} item={item} />;
-                    }
-                  })}
-                </ul>
-                <ul>
-                  {items.map((item) => {
-                    if (
-                      filters === localMessages[local]["orders.done"] &&
-                      item.status === "done"
-                    ) {
-                      return <AdminOrdersListItem key={item._id} item={item} />;
-                    }
-                  })}
-                </ul>
-                <ul>
-                  {items.map((item) => {
-                    if (
-                      filters === localMessages[local]["orders.new"] &&
-                      item.status === "new"
-                    ) {
-                      return <AdminOrdersListItem key={item._id} item={item} />;
-                    }
-                  })}
+                  {items
+                    .filter(({ status }) => filters.status.includes(status))
+                    .map((item) => (
+                      <AdminOrdersListItem key={item._id} item={item} />
+                    ))}
                 </ul>
               </div>
             </div>

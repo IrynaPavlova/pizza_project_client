@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
 
 import localActions from "../../redux/local/localActions";
-import styles from "./LanguageSelector.module.css";
 
 const options = [
   { value: "ru", label: "Рус" },
@@ -78,7 +77,7 @@ export default function LanguageSelector({ darkStyle }) {
         dispatch(localActions.setUkrLanguage());
       }
     } else return;
-  }, []);
+  }, [dispatch]);
 
   return (
     <Select

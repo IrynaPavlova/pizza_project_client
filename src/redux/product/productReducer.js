@@ -66,7 +66,6 @@ const loadingReducer = createReducer(false, {
   [productActions.deleteProductRequest]: (state, { payload }) => true,
   [productActions.deleteProductSuccess]: (state, { payload }) => false,
   [productActions.deleteProductError]: (state, { payload }) => false,
-  // [productActions.saveExistedImgSuccess]: (state, { payload }) => false,
 });
 
 const linkReducer = createReducer(null, {

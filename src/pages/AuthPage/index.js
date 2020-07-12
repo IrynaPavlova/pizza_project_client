@@ -29,7 +29,7 @@ const AuthPage = () => {
     };
     dispatch(authOperations.logInSocial(user));
     history.replace("/");
-  }, []);
+  });
 
   return <Spinner />;
 };
