@@ -13,7 +13,6 @@ import {
 } from "../../redux/stocks/";
 
 import styles from "./AdminStocksEditor.module.css";
-import { useSelector } from "react-redux";
 import getFileName from "./utils";
 
 function AdminStocksEditor({
@@ -33,8 +32,6 @@ function AdminStocksEditor({
       }, 3000);
     }
   }, [showNotification]);
-
-  const local = useSelector((state) => state.local.lang);
 
   const [stocksFile, setStockFile] = useState(null);
   const handleLoadFile = ({ target }) => {

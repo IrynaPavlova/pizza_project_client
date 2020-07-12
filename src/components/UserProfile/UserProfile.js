@@ -26,7 +26,7 @@ export default function UserProfile() {
     if (id) {
       dispatch(authOperations.getUserOrders(id));
     }
-  }, []);
+  }, [id, dispatch]);
 
   if (!isAuthenticated) {
     return <Redirect to="/" />;
