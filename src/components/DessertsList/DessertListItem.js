@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { orderOperations } from '../../redux/order';
-import { FormattedMessage } from 'react-intl';
-import Notification from '../Notification';
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { orderOperations } from "../../redux/order";
+import { FormattedMessage } from "react-intl";
+import Notification from "../Notification";
 
 // import cheesecacke from '../../assets/img/desserts/cheesecacke.jpg';
-import styles from './DessertsList.module.css';
+import styles from "./DessertsList.module.css";
 
 const {
   dessertItem,
@@ -20,10 +20,10 @@ const {
   dessertImg,
 } = styles;
 
-const DessertListItem = props => {
+const DessertListItem = (props) => {
   const { name, description, price, images } = props;
 
-  const local = useSelector(state => state.local.lang);
+  const local = useSelector((state) => state.local.lang);
 
   // const product = useSelector(state => state.products.items);
   const dispatch = useDispatch();
@@ -60,6 +60,10 @@ const DessertListItem = props => {
     onAddProductToOrder(props);
     setIsAddedProdToOrder(true);
   };
+
+  useEffect(() => {
+    setMessage(successMessage);
+  }, [local]);
 
   return (
     <li className={dessertItem}>
