@@ -4,10 +4,7 @@ import productActions from "./productActions";
 
 const productReducer = createReducer([], {
   [productActions.productsSuccess]: (state, { payload }) => payload,
-  [productActions.byCategorySuccess]: (state, { payload }) => [
-    state,
-    ...payload,
-  ],
+  [productActions.byCategorySuccess]: (state, { payload }) => payload,
   [productActions.byIdSuccess]: (state, { payload }) => payload,
 
   [productActions.sendProductSuccess]: (state, { payload }) => [

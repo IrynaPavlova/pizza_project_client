@@ -12,6 +12,8 @@ export default function PizzaListForTest({ products }) {
   const local = useSelector((state) => state.local.lang);
   const isLoading = useSelector(productSelectors.getLoading);
 
+  const pizzas = products.filter(({ categories }) => categories === "pizza");
+
   return (
     <div className={styles.pizzaListWrapper}>
       {isLoading && <Spinner />}
@@ -19,7 +21,7 @@ export default function PizzaListForTest({ products }) {
         <FormattedMessage id="pizza.classic" />
       </h2>
       <ul className={styles.pizzaList}>
-        {products
+        {pizzas
           .filter(({ subcategory }) => subcategory === "classic")
           .map((product) => (
             <PizzaListItem {...product} key={product._id} local={local} />
@@ -29,7 +31,7 @@ export default function PizzaListForTest({ products }) {
         <FormattedMessage id="pizza.special" />
       </h2>
       <ul className={styles.pizzaList}>
-        {products
+        {pizzas
           .filter(({ subcategory }) => subcategory === "branded")
           .map((product) => (
             <PizzaListItem {...product} key={product._id} local={local} />
@@ -40,7 +42,7 @@ export default function PizzaListForTest({ products }) {
         <FormattedMessage id="pizza.premium" />
       </h2>
       <ul className={styles.pizzaList}>
-        {products
+        {pizzas
           .filter(({ subcategory }) => subcategory === "premium")
           .map((product) => (
             <PizzaListItem {...product} key={product._id} local={local} />
