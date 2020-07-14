@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FormattedMessage } from "react-intl";
 
@@ -9,7 +9,7 @@ import styles from "./PizzaListItem.module.css";
 const sizes = ["M", "L", "XL"];
 
 function PizzaListItem(product) {
-  const local = useSelector(state => state.local.lang);
+  const local = useSelector((state) => state.local.lang);
 
   const { _id, name, price, ingredients, images } = product;
 
@@ -23,7 +23,7 @@ function PizzaListItem(product) {
     <FormattedMessage
       id="order.pizzaSuccess"
       values={{
-        name: name[local]
+        name: name[local],
       }}
     />
   );
@@ -32,7 +32,7 @@ function PizzaListItem(product) {
     <FormattedMessage
       id="order.pizzaError"
       values={{
-        name: name[local]
+        name: name[local],
       }}
     />
   );
@@ -46,7 +46,7 @@ function PizzaListItem(product) {
         setIsAddedProdToOrder(false);
         setMessage(successMessage);
         onAddProductToOrder(product);
-        setOrderSizes(orderSizes.filter(size => size !== selectedSize));
+        setOrderSizes(orderSizes.filter((size) => size !== selectedSize));
         return await setTimeout(() => setIsAddedProdToOrder(true), 10);
       }
       setIsAddedProdToOrder(false);
@@ -54,13 +54,17 @@ function PizzaListItem(product) {
       return await setTimeout(() => setIsAddedProdToOrder(true), 10);
     }
     onAddProductToOrder(product);
-    setOrderSizes(orderSizes.filter(size => size !== selectedSize));
+    setOrderSizes(orderSizes.filter((size) => size !== selectedSize));
     setIsAddedProdToOrder(true);
   };
 
   const handleChange = ({ target: { value } }) => {
     setSelectedSize(value);
   };
+
+  useEffect(() => {
+    setMessage(successMessage);
+  }, [local]);
 
   return (
     <li key={_id} className={styles.pizzaListCard}>
@@ -78,7 +82,7 @@ function PizzaListItem(product) {
         <p className={styles.heading}>{name[local]}</p>
         {ingredients.length > 0 && (
           <ul className={styles.ingredients}>
-            {ingredients.map(ingredient => (
+            {ingredients.map((ingredient) => (
               <li key={ingredient._id}>
                 <span className={styles.ingredientItem}>
                   {ingredient.name ? ingredient.name[local] : null}

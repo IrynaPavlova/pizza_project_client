@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FormattedMessage } from "react-intl";
 import Notification from "../Notification";
@@ -6,10 +6,10 @@ import Notification from "../Notification";
 import { orderOperations } from "../../redux/order";
 import styles from "./drinkListItem.module.css";
 
-const DrinkListItem = props => {
+const DrinkListItem = (props) => {
   const { name, description, price, images } = props;
 
-  const local = useSelector(state => state.local.lang);
+  const local = useSelector((state) => state.local.lang);
 
   const dispatch = useDispatch();
   const onAddProductToOrder = () =>
@@ -19,7 +19,7 @@ const DrinkListItem = props => {
     <FormattedMessage
       id="order.success"
       values={{
-        name: name[local]
+        name: name[local],
       }}
     />
   );
@@ -28,7 +28,7 @@ const DrinkListItem = props => {
     <FormattedMessage
       id="order.error"
       values={{
-        name: name[local]
+        name: name[local],
       }}
     />
   );
@@ -45,6 +45,10 @@ const DrinkListItem = props => {
     onAddProductToOrder(props);
     setIsAddedProdToOrder(true);
   };
+
+  useEffect(() => {
+    setMessage(successMessage);
+  }, [local]);
 
   return (
     <li className={styles.menuItem}>
