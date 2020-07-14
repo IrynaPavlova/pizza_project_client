@@ -2,15 +2,14 @@ import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
 import authActions from "./authActions";
 
-const socialLogin = (state, { payload }) => {
-  return {
-    ...state,
-    username: payload.username,
-    email: payload.email,
-    id: payload._id,
-    role: payload.role || "",
-  };
-};
+const socialLogin = (state, { payload }) => ({
+  ...state,
+  username: payload.username,
+  email: payload.email,
+  id: payload.id,
+  role: payload.role || "",
+});
+
 const basicUserInfo = (state, { payload }) => ({
   ...state,
   username: payload.user.username,
