@@ -34,7 +34,7 @@ export default {
   "reset form": "Очистити форму",
   logout: "Вийти",
   login: "Увiйти",
-  registration: "Регiстрацiя",
+  registration: "Реєстрацiя",
   register: "Зареєструватися",
   return: "Повернутися до входу",
   password: "Пароль",
@@ -107,5 +107,5 @@ export default {
   "update.errorValidationPrice":
     "Недостатня кількість символів для ціни. Мінімум 2",
   "update.errorValidationDescription":
-    "Недостатня кількість символів для об'єму/ціни. Мінімум 1"
+    "Недостатня кількість символів для об'єму/ваги. Мінімум 1"
 };
