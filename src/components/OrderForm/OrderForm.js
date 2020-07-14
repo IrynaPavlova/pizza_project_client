@@ -93,7 +93,7 @@ export default function OrderForm() {
           value={phone}
           name="phone"
           //placeholder={`${languages[local]["phone number"]} +380YYXXXXXXX`}
-          placeholder="+38-0YY-XXX-XX-XX"
+          placeholder="+380YYXXXXXXX"
           //placeholder={languages[local]["phone number"]}
           className={styles.input}
           onChange={handleChangeNumber}
