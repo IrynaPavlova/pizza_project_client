@@ -34,7 +34,6 @@ const CreateNewProduct = () => {
   ];
 
   const pizzaCategories = [
-    // {value: "bestPrice", label: "Best price"},
     { id: 0, value: "classic", label: languages[local]["pizza.classic"] },
     { id: 1, value: "branded", label: languages[local]["pizza.special"] },
     { id: 2, value: "premium", label: languages[local]["pizza.premium"] }
@@ -187,7 +186,6 @@ const CreateNewProduct = () => {
             />
           </>
         )}
-        {/* <hr /> */}
         <p className={styles.title}>
           <FormattedMessage id="product.name" />
         </p>
@@ -200,10 +198,8 @@ const CreateNewProduct = () => {
             value={ruName}
             onChange={e => setRuName(e.target.value)}
             className={styles.editForm__inputLang}
-            // placeholder="Маргарита"
             minLength="3"
             maxLength="30"
-            // pattern="^[A-Za-zА-Яа-яЁё]{3,}"
             required
           />
           <p className={style.editCard__titleLang}>
@@ -214,10 +210,8 @@ const CreateNewProduct = () => {
             value={enName}
             onChange={e => setEnName(e.target.value)}
             className={styles.editForm__inputLang}
-            // placeholder="Margarita"
             minLength="3"
             maxLength="30"
-            // pattern="[A-Za-z]{3,}"
             required
           />
           <p className={style.editCard__titleLang}>
@@ -228,7 +222,6 @@ const CreateNewProduct = () => {
             value={ukrName}
             onChange={e => setUkrName(e.target.value)}
             className={styles.editForm__inputLang}
-            // placeholder="Маргарита"
             minLength="3"
             maxLength="30"
             required
@@ -247,7 +240,6 @@ const CreateNewProduct = () => {
               value={M}
               onChange={e => setM(e.target.value)}
               className={styles.editForm__inputLang}
-              // placeholder="100"
               min="10"
               max="999"
               step="1"
@@ -261,7 +253,6 @@ const CreateNewProduct = () => {
               value={L}
               onChange={e => setL(e.target.value)}
               className={styles.editForm__inputLang}
-              // placeholder="120"
               min="10"
               max="999"
               step="1"
@@ -275,7 +266,6 @@ const CreateNewProduct = () => {
               value={XL}
               onChange={e => setXL(e.target.value)}
               className={styles.editForm__inputLang}
-              // placeholder="140"
               min="10"
               max="999"
               step="1"
@@ -335,7 +325,6 @@ const CreateNewProduct = () => {
             required
           />
         </label>
-        {/* <hr /> */}
         {category.value === categories.pizza && (
           <>
             <IngredientSelect />
