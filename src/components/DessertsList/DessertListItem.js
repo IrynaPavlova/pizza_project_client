@@ -63,7 +63,7 @@ const DessertListItem = (props) => {
 
   useEffect(() => {
     setMessage(successMessage);
-  }, [local]);
+  }, [local, successMessage]);
 
   return (
     <li className={dessertItem}>
