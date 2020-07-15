@@ -63,8 +63,15 @@ function PizzaListItem(product) {
   };
 
   useEffect(() => {
-    setMessage(successMessage);
-  }, [local, successMessage]);
+    setMessage(
+      <FormattedMessage
+        id="order.success"
+        values={{
+          name: name[local],
+        }}
+      />
+    );
+  }, [local, name]);
 
   return (
     <li key={_id} className={styles.pizzaListCard}>

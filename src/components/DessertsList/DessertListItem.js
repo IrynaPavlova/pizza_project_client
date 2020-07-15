@@ -62,8 +62,15 @@ const DessertListItem = (props) => {
   };
 
   useEffect(() => {
-    setMessage(successMessage);
-  }, [local, successMessage]);
+    setMessage(
+      <FormattedMessage
+        id="order.success"
+        values={{
+          name: name[local],
+        }}
+      />
+    );
+  }, [local, name]);
 
   return (
     <li className={dessertItem}>
