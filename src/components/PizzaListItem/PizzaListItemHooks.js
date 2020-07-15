@@ -64,7 +64,7 @@ function PizzaListItem(product) {
 
   useEffect(() => {
     setMessage(successMessage);
-  }, [local]);
+  }, [local, successMessage]);
 
   return (
     <li key={_id} className={styles.pizzaListCard}>

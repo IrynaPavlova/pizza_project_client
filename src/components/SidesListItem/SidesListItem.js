@@ -48,7 +48,7 @@ const SidesListItem = (props) => {
 
   useEffect(() => {
     setMessage(successMessage);
-  }, [local]);
+  }, [local, successMessage]);
 
   return (
     <li className={styles.menuItem}>
